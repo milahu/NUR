@@ -7,23 +7,24 @@
 
 buildNpmPackage rec {
   pname = "hass-browser-mod";
-  version = "2.13.3";
+  version = "3.2.2";
 
   src = fetchFromGitHub {
     owner = "thomasloven";
     repo = "hass-browser_mod";
     rev = "v${version}";
-    hash = "sha256-Q7+9pcV9vZ+PPXjlOezcDPtzcekXqBHgPJSwh5n9ruE=";
+    hash = "sha256-OOMbMQkDC1eeljtu8UiY+YkenDIWReXNAfjoo64E2Rs=";
   };
 
-  npmDepsHash = "sha256-MeB1NgQM8HvQF42AaE1XkIt0aODVACO8a0wtUFOqVW8=";
+  npmDepsHash = "sha256-iwaECS2y7PWrPbeZMq2gsF4ixQFOQLIklLKRCRtwT9U=";
 
   installPhase = ''
     runHook preInstall
 
     mkdir $out
     cp custom_components/browser_mod/browser_mod.js $out/
-    cp custom_components/browser_mod/browser_mod_panel.js $out/
+    cp custom_components/browser_mod/browser_mod_browser_panel.js $out/
+    cp custom_components/browser_mod/browser_mod_config_panel.js $out/
 
     runHook postInstall
   '';
