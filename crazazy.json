@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":0.572,
-"eval_time":2.226,
+"fetch_time":1.417,
+"eval_time":1.692,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"9baea5ecca506a46dcdde6486d1ea743862afcb3",
-"sha256":"1bkk5fz7nxxkdms37151s3gclyjpjj5c4rd3chzwr99vhzacm3yf",
+"rev":"7d2d0ded978b43ec77dd3b94beb7697a3d61816b",
+"sha256":"0qg8xj6zbsj7ghfnrnkhzkgcb1wjm513z2z2fk094fx6wq3p868h",
 "date":null
 },
-"source_storepath":"/nix/store/5vz64rhayc4cmpqrxmkhvz8qq193r8j8-source",
-"nixpkgs_storepath":"/nix/store/5dwl5qkr1v64bp6sssbggnllki7vd0ys-source",
-"nur_combined_rev":"18c192c14fc379fd0fdad087a6aec3a65e98a92e",
+"source_storepath":"/nix/store/d8jaaswm1djjm6bmz9s9h0dn769qgyv0-source",
+"nixpkgs_storepath":"/nix/store/lnap8fvyssj7njfsd3nil5dd3lig8nw8-source",
+"nur_combined_rev":"5a20accccddbf9b3f233a8baef4ff7a19d67539a",
 "packages":{
 "cakeml":{
 "drvPath":"/nix/store/c411x2awrc71lbrqf3kgryrqpfm57nf3-cakeml.drv",
@@ -66,7 +66,7 @@
 "version":""
 },
 "elm":{
-"drvPath":"/nix/store/89aqgx5h6rjd0nm2s4a2r2jfqdan23sk-elm-0.19.1.drv",
+"drvPath":"/nix/store/2gpd7ad856wby1h6clqh73jxnarqf2v3-elm-0.19.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -123,10 +123,10 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/5dwl5qkr1v64bp6sssbggnllki7vd0ys-source/pkgs/development/haskell-modules/generic-builder.nix",
-"line":1101
+"file":"/nix/store/lnap8fvyssj7njfsd3nil5dd3lig8nw8-source/pkgs/development/haskell-modules/generic-builder.nix",
+"line":1104
 },
-"name":"elm-0.19.1",
+"name":"elm-0.19.2",
 "nonTeamMaintainers":[
 {
 "email":"marek.faj@gmail.com",
@@ -219,12 +219,12 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"<nixpkgs> + /pkgs/development/compilers/elm/packages/ghc9_6/elm/default.nix:40",
+"position":"<nixpkgs> + /pkgs/development/compilers/elm/packages/ghc9_8/elm/default.nix:38",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"elm-0.19.1",
+"name":"elm-0.19.2",
 "outputName":"out",
 "outputs":{
 "doc":null,
@@ -232,7 +232,7 @@
 },
 "pname":"elm",
 "system":"x86_64-linux",
-"version":"0.19.1"
+"version":"0.19.2"
 },
 "enso":{
 "drvPath":"/nix/store/rqs7adzw523ki83w9wrqqdmyxpd9nmcy-enso-2025.2.3.drv",
@@ -1152,7 +1152,7 @@
 "version":"1.0.2"
 },
 "nvfetcher":{
-"drvPath":"/nix/store/sp7xav3f506ldpaqc0lwlhgfj1l36pwv-nvfetcher-0.8.0.0.drv",
+"drvPath":"/nix/store/vx4s8zrn18r7z6crh764pxraz0mxzk1a-nvfetcher-0.8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1210,8 +1210,8 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/5dwl5qkr1v64bp6sssbggnllki7vd0ys-source/pkgs/development/haskell-modules/generic-builder.nix",
-"line":1101
+"file":"/nix/store/lnap8fvyssj7njfsd3nil5dd3lig8nw8-source/pkgs/development/haskell-modules/generic-builder.nix",
+"line":1104
 },
 "name":"nvfetcher-0.8.0.0",
 "nonTeamMaintainers":[
@@ -1307,7 +1307,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:502104",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:502105",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -1356,7 +1356,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v47.0.3/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v48.0.0/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "identifiers":{
@@ -1431,10 +1431,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5dwl5qkr1v64bp6sssbggnllki7vd0ys-source/pkgs/by-name/wa/wasmtime/package.nix",
+"file":"/nix/store/lnap8fvyssj7njfsd3nil5dd3lig8nw8-source/pkgs/by-name/wa/wasmtime/package.nix",
 "line":128
 },
-"name":"wasmtime-47.0.3",
+"name":"wasmtime-48.0.0",
 "nonTeamMaintainers":[
 {
 "email":"ereslibre@ereslibre.es",
