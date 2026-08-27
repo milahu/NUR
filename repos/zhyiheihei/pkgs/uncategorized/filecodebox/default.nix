@@ -3,7 +3,7 @@
   stdenv,
   makeWrapper,
   nodejs,
-  pnpm_9,
+  pnpm_10,
   fetchPnpmDeps,
   pnpmConfigHook,
   python3,
@@ -19,7 +19,7 @@ let
 
     pnpmDeps = fetchPnpmDeps {
       inherit (finalWebAttrs) pname version src;
-      pnpm = pnpm_9;
+      pnpm = pnpm_10;
       fetcherVersion = 3;
       pnpmInstallFlags = [ "--registry=https://registry.npmmirror.com" ];
       prePnpmInstall = ''
@@ -30,13 +30,13 @@ let
           echo "https-proxy=$PROXY" >> .npmrc
         fi
       '';
-      hash = "sha256-+Z+MXHNPRw13B5mnJEm/axLe/AKRjJCJ4cnKmx3rswA=";
+      hash = "";
     };
 
     nativeBuildInputs = [
       nodejs
       pnpmConfigHook
-      pnpm_9
+      pnpm_10
     ];
 
     buildPhase = ''
