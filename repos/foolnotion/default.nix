@@ -206,6 +206,7 @@ rec {
   };
 
   velaterm = pkgs.callPackage ./pkgs/velaterm { };
+  paseo = pkgs.callPackage ./pkgs/paseo { };
 
   xad = pkgs.callPackage ./pkgs/xad { };
 
