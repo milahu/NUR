@@ -1,10 +1,17 @@
 error:
+… while evaluating attribute 'nativeBuildInputs' of derivation 'hanga-0.1.0'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:719:11:
+   718|           depsBuildBuild = buildBuildOutputs;
+   719|           nativeBuildInputs = buildHostOutputs;
+      |           ^
+   720|           depsBuildTarget = buildTargetOutputs;
+
 … in the condition of the assert statement
-  at <nixpkgs> + /lib/customisation.nix:417:13:
-   416|           drvPath =
-   417|             assert condition;
+  at <nixpkgs> + /lib/customisation.nix:433:13:
+   432|           outPath =
+   433|             assert condition;
       |             ^
-   418|             drv.drvPath;
+   434|             drv.${outputName}.outPath;
 
 … from call site
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
@@ -120,4 +127,4 @@ error:
 
 … while realising the context of path '/nix/store/m59fpwh68il91pw6rcw038vig8d2ir2f-source'
 
-error: path '/nix/store/qw61f1r04ykcrfj9h94an127ik9s3b6j-source.drv' is not valid
+error: path '/nix/store/5bhjff2797ay4185qwfvxw1qs2d5b5nf-source.drv' is not valid
