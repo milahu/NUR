@@ -20,46 +20,46 @@ error:
     12|       removeAttrs ulypkgsPackages [ "ulypkgsPackagesDerivationsOnly" ] # avoid infrec
 
 … while calling 'filterAttrs'
-  at <nixpkgs> + /lib/attrsets.nix:662:23:
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+  at <nixpkgs> + /lib/attrsets.nix:667:23:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                       ^
-   663|
+   668|
 
 … while calling the 'removeAttrs' builtin
-  at <nixpkgs> + /lib/attrsets.nix:662:28:
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+  at <nixpkgs> + /lib/attrsets.nix:667:28:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                            ^
-   663|
+   668|
 
 … while calling the 'filter' builtin
-  at <nixpkgs> + /lib/attrsets.nix:662:45:
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+  at <nixpkgs> + /lib/attrsets.nix:667:45:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                                             ^
-   663|
+   668|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/attrsets.nix:662:53:
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+  at <nixpkgs> + /lib/attrsets.nix:667:53:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                                                     ^
-   663|
+   668|
 
 … in the argument of the not operator
-  at <nixpkgs> + /lib/attrsets.nix:662:60:
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+  at <nixpkgs> + /lib/attrsets.nix:667:60:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                                                            ^
-   663|
+   668|
 
 … from call site
-  at <nixpkgs> + /lib/attrsets.nix:662:60:
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+  at <nixpkgs> + /lib/attrsets.nix:667:60:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                                                            ^
-   663|
+   668|
 
 … while calling anonymous lambda
   at ./pkgs/default.nix:11:61:
@@ -76,73 +76,180 @@ error:
     12|       removeAttrs ulypkgsPackages [ "ulypkgsPackagesDerivationsOnly" ] # avoid infrec
 
 … while calling 'isDerivation'
-  at <nixpkgs> + /lib/attrsets.nix:1412:18:
-  1411|   */
-  1412|   isDerivation = value: value.type or null == "derivation";
+  at <nixpkgs> + /lib/attrsets.nix:1427:18:
+  1426|   */
+  1427|   isDerivation = value: value.type or null == "derivation";
       |                  ^
-  1413|
+  1428|
 
 … while evaluating the attribute 'python2'
   at ./pkgs/default.nix:117:5:
    116|
-   117|     python2 =
+   117|     python2 = callPackage ./python2 { };
       |     ^
-   118|       (pkgsSuper.python2.override {
+   118|     python2Packages = pkgs.python2.pkgs;
 
 … from call site
-  at ./pkgs/default.nix:118:8:
-   117|     python2 =
-   118|       (pkgsSuper.python2.override {
-      |        ^
-   119|         self = pkgs.python2;
+  at ./pkgs/default.nix:117:15:
+   116|
+   117|     python2 = callPackage ./python2 { };
+      |               ^
+   118|     python2Packages = pkgs.python2.pkgs;
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:217:31:
-   216|   mapAliases =
-   217|     aliases: lib.mapAttrs (n: alias: removeRecurseForDerivations (checkInPkgs n alias)) aliases;
-      |                               ^
-   218|
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
+      |       ^
+   324|     else
 
 … from call site
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:217:38:
-   216|   mapAliases =
-   217|     aliases: lib.mapAttrs (n: alias: removeRecurseForDerivations (checkInPkgs n alias)) aliases;
-      |                                      ^
-   218|
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
 
-… while calling 'removeRecurseForDerivations'
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:25:5:
-    24|   removeRecurseForDerivations =
-    25|     alias:
-      |     ^
-    26|     if alias.recurseForDerivations or false then
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:26:5:
-    25|     alias:
-    26|     if alias.recurseForDerivations or false then
-      |     ^
-    27|       lib.removeAttrs alias [ "recurseForDerivations" ]
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
 
 … from call site
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:217:67:
-   216|   mapAliases =
-   217|     aliases: lib.mapAttrs (n: alias: removeRecurseForDerivations (checkInPkgs n alias)) aliases;
-      |                                                                   ^
-   218|
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
 
-… while calling 'checkInPkgs'
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:213:8:
-   212|   checkInPkgs =
-   213|     n: alias:
-      |        ^
-   214|     if builtins.hasAttr n super then abort "Alias ${n} is still in all-packages.nix" else alias;
+… while calling anonymous lambda
+  at ./pkgs/python2/default.nix:1:1:
+     1| {
+      | ^
+     2|   lib,
 
-… while calling the 'throw' builtin
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:1837:13:
-  1836|   pypolicyd-spf = throw "'pypolicyd-spf' has been renamed to/replaced by 'spf-engine'"; # Converted to throw 2025-10-27
-  1837|   python2 = throw "python2 has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
-      |             ^
-  1838|   python2Full = throw "python2Full has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
+… from call site
+  at ./pkgs/python2/default.nix:26:17:
+    25|   };
+    26|   python2Base = callPackage ./cpython-2.7 {
+      |                 ^
+    27|     inherit passthruFun;
 
-error: python2 has been removed; Python 2 is end-of-life. Use `python3` instead.
+(7 duplicate frames omitted)
+
+… while calling anonymous lambda
+  at ./pkgs/python2/cpython-2.7/default.nix:1:1:
+     1| {
+      | ^
+     2|   lib,
+
+… from call site
+  at ./pkgs/python2/cpython-2.7/default.nix:307:1:
+   306| with passthru;
+   307| stdenv.mkDerivation (
+      | ^
+   308|   {
+
+… while calling 'mkDerivation'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:18:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+   226|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:29:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+   226|
+
+… while calling 'makeDerivationExtensible'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:229:5:
+   228|   makeDerivationExtensible =
+   229|     rattrs:
+      |     ^
+   230|     let
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:308:22:
+   307|
+   308|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   309|
+
+… while calling 'mkDerivationSimple'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:925:5:
+   924|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   925|     {
+      |     ^
+   926|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1015:5:
+  1014|
+  1015|     extendDerivation validity.handled (
+      |     ^
+  1016|       {
+
+… while calling 'extendDerivation'
+  at <nixpkgs> + /lib/customisation.nix:401:26:
+   400|   extendDerivation =
+   401|     condition: passthru: drv:
+      |                          ^
+   402|     let
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /lib/customisation.nix:414:12:
+   413|         )
+   414|         // passthru
+      |            ^
+   415|         // {
+
+… in the right operand of the update (//) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1070:9:
+  1069|         # derivation (e.g., in assertions).
+  1070|         passthru
+      |         ^
+  1071|     ) (derivation (derivationArg // checkedEnv));
+
+… in the left operand of the update (//) operator
+  at ./pkgs/python2/cpython-2.7/default.nix:77:5:
+    76|   passthru =
+    77|     passthruFun rec {
+      |     ^
+    78|       inherit self sourceVersion packageOverrides;
+
+… while calling the 'import' builtin
+  at ./pkgs/python2/default.nix:16:17:
+    15| let
+    16|   passthruFun = import "${path}/pkgs/development/interpreters/python/passthrufun.nix" {
+      |                 ^
+    17|     inherit
+
+… while realising the context of path '/nix/store/p118fnlmb37yrfz9cy6yz7q6r7qd23al-960gm9cw04za14da8wv6q4q3h67n898r-source/pkgs/development/interpreters/python/passthrufun.nix'
+
+error: path '/nix/store/p118fnlmb37yrfz9cy6yz7q6r7qd23al-960gm9cw04za14da8wv6q4q3h67n898r-source' is not valid
