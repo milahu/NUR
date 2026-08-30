@@ -1,0 +1,16 @@
+error:
+… while evaluating attribute 'src' of derivation 'mandrel-25.0.4.1'
+  at ./pkgs/mandrel/default.nix:95:7:
+    94|
+    95|       src = builtins.fetchurl {
+      |       ^
+    96|         url = "https://github.com/graalvm/mandrel/releases/download/mandrel-25.0.4.1-Final/mandrel-java25-linux-amd64-25.0.4.1-Final.tar.gz";
+
+… while calling the 'fetchurl' builtin
+  at ./pkgs/mandrel/default.nix:95:13:
+    94|
+    95|       src = builtins.fetchurl {
+      |             ^
+    96|         url = "https://github.com/graalvm/mandrel/releases/download/mandrel-25.0.4.1-Final/mandrel-java25-linux-amd64-25.0.4.1-Final.tar.gz";
+
+error: access to URI 'https://github.com/graalvm/mandrel/releases/download/mandrel-25.0.4.1-Final/mandrel-java25-linux-amd64-25.0.4.1-Final.tar.gz' is forbidden in restricted mode

@@ -21,88 +21,88 @@ error:
    984|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:747:5:
-   746|     in
-   747|     { meta, attrs }:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:647:5:
+   646|     in
+   647|     { meta, attrs }:
       |     ^
-   748|     let
+   648|     let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:752:5:
-   751|     in
-   752|     if invalid == null then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:652:5:
+   651|     in
+   652|     if invalid == null then
       |     ^
-   753|       if problems == null then
+   653|       if problems == null then
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:749:17:
-   748|     let
-   749|       invalid = checkValidity' attrs;
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:649:17:
+   648|     let
+   649|       invalid = checkValidity' attrs;
       |                 ^
-   750|       problems = checkProblems attrs;
+   650|       problems = checkProblems attrs;
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:448:5:
-   447|     in
-   448|     attrs:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:348:5:
+   347|     in
+   348|     attrs:
       |     ^
-   449|     if !attrs ? meta then
+   349|     if !attrs ? meta then
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:490:10:
-   489|       }
-   490|     else if hasUnsupportedPlatform' attrs then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:390:10:
+   389|       }
+   390|     else if hasUnsupportedPlatform' attrs then
       |          ^
-   491|       let
+   391|       let
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:490:13:
-   489|       }
-   490|     else if hasUnsupportedPlatform' attrs then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:390:13:
+   389|       }
+   390|     else if hasUnsupportedPlatform' attrs then
       |             ^
-   491|       let
+   391|       let
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:147:7:
-   146|       in
-   147|       pkg:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:149:7:
+   148|       in
+   149|       pkg:
       |       ^
-   148|       # in almost all cases, platforms are a simple list of strings, and we
+   150|       # in almost all cases, platforms are a simple list of strings, and we
 
 … in the left operand of the OR (||) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:7:
-   154|       )
-   155|       || (
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:157:7:
+   156|       )
+   157|       || (
       |       ^
-   156|         pkg ? meta.badPlatforms
+   158|         pkg ? meta.badPlatforms
 
 … in the right operand of the AND (&&) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:9:
-   152|         pkg ? meta.platforms
-   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:9:
+   154|         pkg ? meta.platforms
+   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
       |         ^
-   154|       )
+   156|       )
 
 … in the argument of the not operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:52:
-   152|         pkg ? meta.platforms
-   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:52:
+   154|         pkg ? meta.platforms
+   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
       |                                                    ^
-   154|       )
+   156|       )
 
 … in the left operand of the OR (||) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:52:
-   152|         pkg ? meta.platforms
-   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:52:
+   154|         pkg ? meta.platforms
+   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
       |                                                    ^
-   154|       )
+   156|       )
 
 … while calling the 'elem' builtin
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:14:
-   152|         pkg ? meta.platforms
-   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:14:
+   154|         pkg ? meta.platforms
+   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
       |              ^
-   154|       )
+   156|       )
 
 … while evaluating the attribute 'meta.platforms'
   at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:9:
