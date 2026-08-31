@@ -3,20 +3,20 @@
 let
   inherit (stdenv) hostPlatform;
   pname = "t3code";
-  version = "0.0.36";
+  version = "0.0.37-lmdevv.20260830.4";
 
   sources = {
     x86_64-linux = fetchurl {
-      url = "https://github.com/pingdotgg/t3code/releases/download/v0.0.36/T3-Code-0.0.36-x86_64.AppImage";
-      hash = "sha256-8Zw2zpAzMfjVkG8vkOb7quV2/eU6s34e6yAfPFDJrPE=";
+      url = "https://github.com/lmdevv/t3code/releases/download/v0.0.37-lmdevv.20260830.4/T3-Code-0.0.37-lmdevv.20260830.4-x86_64.AppImage";
+      hash = "sha256-OH8bpaN06goyQCRlmTrEijwZ9u5j1gMMLt1IEWG8448=";
     };
     x86_64-darwin = fetchurl {
-      url = "https://github.com/pingdotgg/t3code/releases/download/v0.0.36/T3-Code-0.0.36-x64.dmg";
-      hash = "sha256-1PgexiqD0tpfB/bXiM02KOuoXVyzMRR+oFxYmXywdIY=";
+      url = "https://github.com/lmdevv/t3code/releases/download/v0.0.37-lmdevv.20260830.4/T3-Code-0.0.37-lmdevv.20260830.4-x64.dmg";
+      hash = "sha256-Fu4uy9ytOIXWaeRT07iCCUykD8LxPZZrX4hlaj58BUI=";
     };
     aarch64-darwin = fetchurl {
-      url = "https://github.com/pingdotgg/t3code/releases/download/v0.0.36/T3-Code-0.0.36-arm64.dmg";
-      hash = "sha256-W0t1HuM5WmpFqfebWNnN600RRXZMgwGJcMNferonyvI=";
+      url = "https://github.com/lmdevv/t3code/releases/download/v0.0.37-lmdevv.20260830.4/T3-Code-0.0.37-lmdevv.20260830.4-arm64.dmg";
+      hash = "sha256-GHip6syznWKgsv9x1c1DSSYiTR5TdZamxTaGdB8j2uQ=";
     };
   };
 
@@ -80,8 +80,8 @@ in
 
   meta = with lib; {
     description = "Desktop GUI for coding agents like Codex and Claude";
-    homepage = "https://github.com/pingdotgg/t3code";
-    changelog = "https://github.com/pingdotgg/t3code/releases/tag/v${version}";
+    homepage = "https://github.com/lmdevv/t3code";
+    changelog = "https://github.com/lmdevv/t3code/releases/tag/v${version}";
     license = licenses.mit;
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     maintainers = [ "lmdevv" ];
