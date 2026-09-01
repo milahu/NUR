@@ -23,8 +23,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "ManiMatter";
     repo = "decluttarr";
-    tag = "v1.50.2";
-    hash = "sha256-62NdvCn2/AmSZiVklFwt40hRBOG4VuV+ubFAo3tCsmE=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-pOuAQ2KKvhmUM6xX5iX9s33ZXL3OLx6yIOL8LZF1W64=";
   };
   nativeBuildInputs = [ makeWrapper ];
 

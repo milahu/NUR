@@ -12,8 +12,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "werman";
     repo = "noise-suppression-for-voice";
-    tag = "v1.10";
-    hash = "sha256-sfwHd5Fl2DIoGuPDjELrPp5KpApZJKzQikCJmCzhtY8=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-QsY8J+CZ6G5uoiQ7AwgDIyExdW2xwBQ+0UEXAz9b4WU=";
   };
   nativeBuildInputs = [
     cmake

@@ -11,8 +11,8 @@ buildGo127Module (finalAttrs: {
   src = fetchFromGitHub {
     owner = "runpod";
     repo = "runpodctl";
-    tag = "v2.11.0";
-    hash = "sha256-h6QHFBTzyrjeAHp9m6qFM7aU9YiaCrMi3c2ofXM8lwg=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-tQ7xOSG47BZbCieeKjBNgjBciwiIuyaC/dZvHbkmDnc=";
   };
   vendorHash = "sha256-aCrN521urP1FioTmbcR1BNKg+OCith1mabyayuC9FtI=";
 
