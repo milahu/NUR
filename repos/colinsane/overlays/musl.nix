@@ -7,9 +7,18 @@
 #
 # - <https://wiki.gentoo.org/wiki/Musl_porting_notes#Patches_from_other_distros>
 #
+# distros known to have better-than-average musl support, in order:
 # - <https://gitlab.alpinelinux.org/alpine/aports>
 # - <https://github.com/void-linux/void-packages>
 # - <https://github.com/chimera-linux/cports>
+# - <https://git.adelielinux.org/adelie/packages.git>
+# - <https://github.com/sabotage-linux/sabotage>
+# - <https://github.com/wolfi-dev/os>
+# - <https://github.com/openwrt/openwrt>
+# - <https://github.com/gentoo/gentoo>
+# - <https://github.com/funtoo/meta-repo>
+# - <https://github.com/buildroot/buildroot>
+# - <https://git.openembedded.org/openembedded-core>
 final: super:
 let
   inherit (final)
@@ -29,7 +38,7 @@ let
   ;
   fetchAports = {
     path,
-    rev ? "d802a8d44da2e309fe934d7d0fc54a558051b24c",  # 2026-03-01
+    rev ? "fa53ed6ea1a6e4daf73c6edc03f40cb76ed07e08",  # 2026-08-30
     ...
   }@args: let
     args' = lib.removeAttrs args [ "path" "rev" ];
@@ -41,7 +50,7 @@ let
   });
   fetchCports = {
     path,
-    rev ? "a2ff12940763e924f4e93cf5aca3dcafccc0a493",
+    rev ? "50857aa088214ea7a2ed00bc7fec01260ab0db52",  # 2026-08-30
     ...
   }@args: let
     args' = lib.removeAttrs args [ "path" "rev" ];
@@ -53,7 +62,7 @@ let
   });
   fetchVoid = {
     path,
-    rev ? "ada2178075fdf3f270c6e924461eccecb809673b",  # 2026-03-01
+    rev ? "c5234c049b4334f4d1f79fbb3f5412aacba96375",  # 2026-08-30
     ...
   }@args: let
     args' = lib.removeAttrs args [ "path" "rev" ];
@@ -244,6 +253,7 @@ super.lib.composeManyExtensions [
       };
     };
 
+    # 2026-08-30: still required
     apparmor-parser = prev.apparmor-parser.overrideAttrs (prevAttrs: {
       postPatch = prevAttrs.postPatch + ''
         # LLM claims:
@@ -267,34 +277,34 @@ super.lib.composeManyExtensions [
     # - (GTEST)"TimestampParser.StrptimeZoneOffset"
     # there also also some interrmittent failures (not disabled here), in e.g.:
     # - (ctest)"arrow-dataset-dataset-writer-test"
-    arrow-cpp = prev.arrow-cpp.overrideAttrs (upstream: {
-      # `--exclude-regex` excludes whole test _suites_, whereas GTEST_FILTER is more targeted
-      # installCheckPhase = let
-      #   re = lib.concatStringsSep "|" [
-      #     "arrow-compute-scalar-type-test"
-      #     "arrow-orc-adapter-test"
-      #     "arrow-dataset-dataset-writer-test"
-      #     "arrow-compute-scalar-type-test"
-      #     "arrow-utility-test"
-      #     "arrow-csv-test"
-      #   ];
-      # in lib.replaceStrings
-      #   [ "ctest -L unittest --exclude-regex '^(" ]
-      #   [ "ctest -L unittest --exclude-regex '^(${re}|" ]
-      #   upstream.installCheckPhase;
-      env = upstream.env // {
-        GTEST_FILTER = lib.concatStringsSep ":" (lib.optionals (upstream.env ? GTEST_FILTER) [
-          upstream.env.GTEST_FILTER
-        ] ++ [
-          "TestStringKernels/0.StrptimeZoneOffset"
-          "TestStringKernels/1.StrptimeZoneOffset"
-          "TimestampConversion.UserDefinedParsersWithZone"
-          "TimestampParser.StrptimeZoneOffset"
-        ]);
-      };
-    });
+    # arrow-cpp = prev.arrow-cpp.overrideAttrs (upstream: {
+    #   # `--exclude-regex` excludes whole test _suites_, whereas GTEST_FILTER is more targeted
+    #   # installCheckPhase = let
+    #   #   re = lib.concatStringsSep "|" [
+    #   #     "arrow-compute-scalar-type-test"
+    #   #     "arrow-orc-adapter-test"
+    #   #     "arrow-dataset-dataset-writer-test"
+    #   #     "arrow-compute-scalar-type-test"
+    #   #     "arrow-utility-test"
+    #   #     "arrow-csv-test"
+    #   #   ];
+    #   # in lib.replaceStrings
+    #   #   [ "ctest -L unittest --exclude-regex '^(" ]
+    #   #   [ "ctest -L unittest --exclude-regex '^(${re}|" ]
+    #   #   upstream.installCheckPhase;
+    #   env = upstream.env // {
+    #     GTEST_FILTER = lib.concatStringsSep ":" (lib.optionals (upstream.env ? GTEST_FILTER) [
+    #       upstream.env.GTEST_FILTER
+    #     ] ++ [
+    #       "TestStringKernels/0.StrptimeZoneOffset"
+    #       "TestStringKernels/1.StrptimeZoneOffset"
+    #       "TimestampConversion.UserDefinedParsersWithZone"
+    #       "TimestampParser.StrptimeZoneOffset"
+    #     ]);
+    #   };
+    # });
 
-    # 2026-06-07: still required
+    # 2026-08-30: still required
     audacity = prev.audacity.overrideAttrs (upstream: {
       # 2026-02-16: fixes "/build/source/libraries/lib-sqlite-helpers/sqlite/Statement.h:55:4: error: ‘int64_t’ does not name a type"
       patches = (upstream.patches or []) ++ [
@@ -372,7 +382,7 @@ super.lib.composeManyExtensions [
     #   withMailutils = false;
     # };
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     ffmpeg_7 = prev.ffmpeg_7.overrideAttrs {
       # 2026-02-03: two tests fail: tests/data/hls-list.append.m3u8, tests/data/hls-list.m3u8
       # Alpine disables check because "tests/data/hls-lists.append.m3u8 [sic] fails".
@@ -380,11 +390,13 @@ super.lib.composeManyExtensions [
       doCheck = false;
     };
 
+    # 2026-08-30: still required
     # 2026-08-27: the same HLS FATE tests segfault on musl in ffmpeg 9.
     ffmpeg_9 = prev.ffmpeg_9.overrideAttrs {
       doCheck = false;
     };
 
+    # 2026-08-30: still required
     # 2026-08-13: Alpine disables checks because the HLS FATE tests fail on musl.
     # Its musl ioctl fix is also applied here for the libv4l2 build.
     ffmpeg = prev.ffmpeg.overrideAttrs (upstream: {
@@ -397,6 +409,8 @@ super.lib.composeManyExtensions [
       ];
       doCheck = false;
     });
+
+    # 2026-08-30: still required
     ffmpeg-headless = prev.ffmpeg-headless.overrideAttrs (upstream: {
       patches = (upstream.patches or []) ++ [
         (fetchAports {
@@ -408,7 +422,7 @@ super.lib.composeManyExtensions [
       doCheck = false;
     });
 
-    # 2026-06-07: still required
+    # 2026-08-30: still required
     # 2026-01-28: disable malcontent to unblock flatpak: it's some "parental controls" thing?
     # flatpak -> malcontent -> accountsservice (broken).
     flatpak = prev.flatpak.override {
@@ -434,8 +448,8 @@ super.lib.composeManyExtensions [
         #   hash = "sha256-oD/UdVfvOtY+HR5mLExf7ARQfvjpaMd2rOf0EBQ5TyM=";
         # })
         (fetchAports {
+          # 2026-08-31: still required
           # 2026-02-03: fixes "/nix/store/hsvrmvp1i7k326fpvdrg99gmka863fwi-musl-1.2.5-dev/include/sys/prctl.h:88:8: error: redefinition of 'prctl_mm_map'"
-          # 2026-06-07: still required
           path = "community/firefox/musl-no-linux-prctl.patch";
           hash = "sha256-Mwyvdqc//WvSn7HqbkCILipl2C9Qo0T3ZQWbYPtGK8A=";
         })
@@ -737,38 +751,7 @@ super.lib.composeManyExtensions [
       ];
     });
 
-    # 2026-05-23: still required
-    # 2026-01-29: build fails against glycin 3.0.4
-    # >    Compiling glycin v3.0.4
-    # > error[E0425]: cannot find function `close_range` in crate `libc`
-    # >    --> /build/cargo-deps-vendor/glycin-3.0.4/src/sandbox.rs:250:23
-    # >     |
-    # > 250 |                 libc::close_range(3, libc::c_uint::MAX, libc::CLOSE_RANGE_CLOEXEC as i32);
-    # >     |                       ^^^^^^^^^^^ not found in `libc`
-    # >
-    # > For more information about this error, try `rustc --explain E0425`.
-    # > error: could not compile `glycin` (lib) due to 1 previous error
-    # > warning: build failed, waiting for other jobs to finish...
-    # > FAILED: [code=101] src/fractal
-    # > /nix/store/4lk00h8gz0qmlg6mf1hs1q8zbh95yn61-coreutils-9.9/bin/env CARGO_HOME=/build/source/build/cargo-home /nix/store/x22f9hd7qb1zpf44gl48ydg8invl2mbj-cargo-1.92.0/bin/cargo build --manifest-path /build/source/Cargo.toml --target-dir /build/source/build/cargo-target --release && cp /build/source/build/cargo-target/x86_64-unknown-linux-musl/release/fractal src/fractal
-    # > ninja: build stopped: subcommand failed.
-    # For full logs, run:
-    #         nix log /nix/store/6a9l2n5kv5sbrafar1jljh4qs5xkq5xg-fractal-13.drv
-    # fractal = prev.fractal.overrideAttrs (upstream: rec {
-    #   patches = (upstream.patches or []) ++ [
-    #     (fetchAports {
-    #       path = "community/fractal/cargo-update-glycin.patch";
-    #       hash = "sha256-qLPsV5lIJHK2BfUhajWB5sNbAXbQ8NVHKgKxx1cqDLc=";
-    #     })
-    #   ];
-    #   cargoDeps = final.rustPlatform.fetchCargoVendor {
-    #     inherit (upstream) src;
-    #     inherit patches;
-    #     hash = "sha256-W3fN4j408cPYfkn6oIPwD8E92CQ/GL2lZ9ygjg7tKJY=";
-    #   };
-    # });
-
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # XXX(2026-01-29): taken from aports build flags; gcr probably has some conditional forward declaration of getpass?
     # > ../gcr/console-interaction.c: In function ‘console_interaction_ask_password’:
     # > ../gcr/console-interaction.c:100:11: error: implicit declaration of function ‘getpass’ [-Wimplicit-function-declaration]
@@ -778,33 +761,33 @@ super.lib.composeManyExtensions [
     });
 
     # 2026-05-23: still required
-    gimp = prev.gimp.overrideAttrs (upstream: {
-      # XXX(2026-02-15): build without a splash screen, else errors near end of build:
-      # > FAILED: [code=245] gimp-data/images/gimp-splash.png
-      #
-      # this may be related to the errors recorded here:
-      # - <https://github.com/NixOS/nixpkgs/pull/484971#issuecomment-3846759517>
-      # > You have a writable data folder configured, but this folder is not part of your data search path.
-      #
-      # but figuring out where gimp's "data folder" is by tracing the source code, is nontrivial.
-      postPatch = (upstream.postPatch or "") + ''
-        substituteInPlace gimp-data/images/meson.build --replace-fail \
-          'build_by_default: true' 'build_by_default: false'
-      '';
-      # nativeBuildInputs = upstream.nativeBuildInputs ++ [
-      #   final.writableTmpDirAsHomeHook
-      # ];
-      # preBuild = (upstream.preBuild or "") + ''
-      #   export XDG_CACHE_HOME=$TMPDIR/.cache
-      # '';
-      # env = (upstream.env or {}) // {
-      #   # > Fontconfig error: Cannot load default config file: No such file: (null)
-      #   # FONTCONFIG_FILE = "${final.fontconfig.out}/etc/fonts/fonts.conf";
-      #   FONTCONFIG_FILE = final.makeFontsConf { fontDirectories = [ ]; };
-      # };
-    });
+    # gimp = prev.gimp.overrideAttrs (upstream: {
+    #   # XXX(2026-02-15): build without a splash screen, else errors near end of build:
+    #   # > FAILED: [code=245] gimp-data/images/gimp-splash.png
+    #   #
+    #   # this may be related to the errors recorded here:
+    #   # - <https://github.com/NixOS/nixpkgs/pull/484971#issuecomment-3846759517>
+    #   # > You have a writable data folder configured, but this folder is not part of your data search path.
+    #   #
+    #   # but figuring out where gimp's "data folder" is by tracing the source code, is nontrivial.
+    #   postPatch = (upstream.postPatch or "") + ''
+    #     substituteInPlace gimp-data/images/meson.build --replace-fail \
+    #       'build_by_default: true' 'build_by_default: false'
+    #   '';
+    #   # nativeBuildInputs = upstream.nativeBuildInputs ++ [
+    #   #   final.writableTmpDirAsHomeHook
+    #   # ];
+    #   # preBuild = (upstream.preBuild or "") + ''
+    #   #   export XDG_CACHE_HOME=$TMPDIR/.cache
+    #   # '';
+    #   # env = (upstream.env or {}) // {
+    #   #   # > Fontconfig error: Cannot load default config file: No such file: (null)
+    #   #   # FONTCONFIG_FILE = "${final.fontconfig.out}/etc/fonts/fonts.conf";
+    #   #   FONTCONFIG_FILE = final.makeFontsConf { fontDirectories = [ ]; };
+    #   # };
+    # });
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     gmime3 = prev.gmime3.overrideAttrs {
       # alpine builds w/ tests disabled, since 2019.
       # see: <https://github.com/jstedfast/gmime/issues/63>
@@ -816,7 +799,7 @@ super.lib.composeManyExtensions [
     # Google does not appear to distribute musl .debs, nor does any musl-based distro have a google-chrome package.
     google-chrome = final._pkgsGnu.google-chrome;
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     gparted = prev.gparted.override {
       # 2026-01-29: `gpart` (binary which is placed on runtime PATH) does not build for musl.
       # > In file included from gpart.h:23,
@@ -830,7 +813,7 @@ super.lib.composeManyExtensions [
     };
 
     gst_all_1 = prev.gst_all_1.overrideScope (_final': prev': {
-      # 2026-05-23: still required
+      # 2026-08-31: still required
       # XXX(2026-01-28): ffv1 tests timeout. it's some new codec, just disable it.
       # <https://github.com/FFmpeg/FFV1>
       #
@@ -881,20 +864,12 @@ super.lib.composeManyExtensions [
       });
     });
 
-    # 2026-04-30: still required; **partial fix** out for PR: <https://github.com/NixOS/nixpkgs/pull/515642>
-    # hare = prev.hare.override {
-    #   # hare-wrapper -> hare-hook attempts to build gnu toolchains
-    #   # (pkgsCross.gnu64, pkgsCross.aarch64-multiplatform, pkgsCross.riscv64).
-    #   # but glibc doesn't build with musl, so these fail.
-    #   enableCrossCompilation = false;
-    # };
-
-    # 2026-04-30: still required
+    # 2026-08-31: still required
     # 2026-01-27: fails hyprland -> hyprcursor -> tomlplusplus (locale tests fail)
     # only `nwg-panel` uses hyprland; `null`ing it seems to Just Work.
     hyprland = null;
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # 2026-01-25: fails building a test, so disable that test. probably not suitable for upstream.
     ldb = prev.ldb.overrideAttrs (upstream: {
       patches = (upstream.patches or []) ++ [
@@ -923,7 +898,7 @@ super.lib.composeManyExtensions [
     #   # ];
     # });
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # XXX(2026-01-29): one of the tests fail; alpine builds without tests claiming
     # "probably fpmath=sse related failures"
     # > [  FAILED  ] LineTest.CoincidingIntersect
@@ -931,7 +906,7 @@ super.lib.composeManyExtensions [
       doCheck = false;
     };
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # 2026-01-29: fails tests
     # > # Begin functests/test_walkone.sh
     # > # PLATFORM=linuxlike
@@ -963,64 +938,7 @@ super.lib.composeManyExtensions [
       doCheck = false;
     });
 
-    # 2026-05-23: still required (for `pkgsMusl.appstream`)
-    # libfyaml = prev.libfyaml.overrideAttrs (prevAttrs: {
-    #   patches = prevAttrs.patches or [] ++ [
-    #     # 2026-04-26: required to fix `nix-build -A pkgsMusl.appstream`.
-    #     # > /nix/store/0cqdpmg3w6z3ccc3x6zzm7dvfdzirlp1-binutils-2.46/bin/ld.bfd: cannot find none: Invalid argument
-    #     # > /nix/store/0cqdpmg3w6z3ccc3x6zzm7dvfdzirlp1-binutils-2.46/bin/ld.bfd: cannot find required: Invalid argument
-    #     (fetchurl {
-    #       name = "dont-output-none-required-to-LIBM-if-no-linker-flags-needed-for-it";
-    #       url = "https://github.com/pantoniou/libfyaml/commit/24b18e7363b336962fe160c1dc05ca57ba95783c.patch?full_index=1";
-    #       hash = "sha256-QtGgcALHF7GnH3yJIgTrx+Rds0T+s/bJURoUDs0C8pk=";
-    #     })
-    #     (fetchurl {
-    #       name = "configure.ac-Fix-stray-fi";
-    #       url = "https://github.com/pantoniou/libfyaml/commit/9f2492ca27bb1fda64f2b12edc2da17406208b93.patch?full_index=1";
-    #       hash = "sha256-WyjVQa+O2MXK1UVCTSxeCHmLecEcsD1xgb4CyOLg/bA=";
-    #     })
-    #   ];
-    # });
-
-    # lixPackageSets = prev.lixPackageSets.extend (self: super: {
-    #   # makeLixScope = args: (super.makeLixScope args).overrideScope (self': super': {
-    #   #   lix = super'.lix.overrideAttrs { doInstallCheck = false; };
-    #   # });
-    #   lix_2_94 = super.lix_2_94.overrideScope (self': super': {
-    #     # XXX(2026-02-02): pkgsMusl.lixPackageSets.latest.lix just started failing installCheck?
-    #     # > lix:installcheck / functional-gc-auto                                       FAIL
-    #     # > lix:installcheck / functional-build                                         TIMEOUT
-    #     # lix = super'.lix.overrideAttrs { doInstallCheck = false; };
-    #     # boost = final.boost187;
-    #     lix = lib.pipe super'.lix [
-    #       (p: p.override {
-    #         # XXX(2026-02-28): segfaults building docs.
-    #         # i wonder how serious a failure that is...
-    #         enableDocumentation = false;  #< this actually does fix the build
-    #       })
-    #       (p: p.overrideAttrs (prevAttrs: {
-    #         # hack disable this test:
-    #         # > 1/5 check - lix:libcmd-unit-tests   FAIL            0.02s   killed by signal 11 SIGSEGV
-    #         # postPatch = (prevAttrs.postPatch or "") + ''
-    #         #   substituteInPlace tests/unit/libcmd/args.cc \
-    #         #     --replace-fail \
-    #         #       'TEST(Arguments, lookupFileArg) {' \
-    #         #       'TEST(Arguments, lookupFileArg) { return;'
-    #         # '';
-    #         doCheck = false;
-    #         # mesonBuildType = "release";
-    #         # mesonBuildType = "plain";
-    #         # mesonBuildType = "debug";
-    #         # mesonFlags = lib.remove "-Dinternal-api-docs=enabled" prevAttrs.mesonFlags;
-    #         # mesonFlags = lib.remove "-Db_lto=true" prevAttrs.mesonFlags;
-    #         # doInstallCheck = false;
-    #         # hardeningDisable = [ "all" ];
-    #       }))
-    #     ];
-    #   });
-    # });
-
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # XXX(2026-01-22): fix broken 0122 test:
     # > FAIL: test-0112.sh
     # > ==================
@@ -1039,30 +957,6 @@ super.lib.composeManyExtensions [
       ];
     });
 
-    # 2026-04-30: still required
-    # 2026-01-29: build fails against glycin 3.0.4
-    # > error[E0425]: cannot find function `close_range` in crate `libc`
-    # >    --> /build/loupe-deps-49.2-vendor/glycin-3.0.4/src/sandbox.rs:250:23
-    # >     |
-    # > 250 |                 libc::close_range(3, libc::c_uint::MAX, libc::CLOSE_RANGE_CLOEXEC as i32);
-    # >     |                       ^^^^^^^^^^^ not found in `libc`
-    # >
-    # > For more information about this error, try `rustc --explain E0425`.
-    # > error: could not compile `glycin` (lib) due to 1 previous error
-    # loupe = prev.loupe.overrideAttrs (upstream: rec {
-    #   patches = (upstream.patches or []) ++ [
-    #     (fetchAports {
-    #       path = "community/loupe/glycin-2.0.5.patch";
-    #       hash = "sha256-XhsAZjU3LHdiQEYrCs7zsFVizOWYZIgrkfshl0EoOMA=";
-    #     })
-    #   ];
-    #   cargoDeps = final.rustPlatform.fetchCargoVendor {
-    #     inherit (upstream) src;
-    #     inherit patches;
-    #     hash = "sha256-ZTyLHfmMF8rMVT1RlZ2Nmgm4kPKYHdVqqshI/Fkj/f8=";
-    #   };
-    # });
-
     # XXX(2026-07-16): patch lttng-ust so that wireplumber (pipewire) doesn't crash on launch.
     lttng-ust = prev.lttng-ust.overrideAttrs (prevAttrs: {
       patches = (prevAttrs.patches or []) ++ [
@@ -1074,10 +968,12 @@ super.lib.composeManyExtensions [
       ];
     });
 
+    # 2026-08-30: still required
     wireplumber = prev.wireplumber.overrideAttrs (upstream: {
       mesonFlags = (upstream.mesonFlags or []) ++ [ "-Ddoc=disabled" ];
     });
 
+    # 2026-08-30: still required
     # 2026-07-28: tor package tests fail on musl (test-memwipe exits with status 139/segfault)
     tor = prev.tor.overrideAttrs (upstream: {
       doCheck = false;
@@ -1092,7 +988,7 @@ super.lib.composeManyExtensions [
     #   doCheck = false;
     # });
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     mesa-demos = prev.mesa-demos.overrideAttrs (upstream: {
       # fixes:
       # > ../src/vulkan/wsi/wayland.c:217:13: error: ‘enter’ undeclared here (not in a function)
@@ -1111,7 +1007,7 @@ super.lib.composeManyExtensions [
     #   fish = null;
     # };
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     nfs-utils = (prev.nfs-utils.override {
       # 2026-04-30: still required, out for PR: <https://github.com/NixOS/nixpkgs/pull/515858>
       # TODO: figure out whether this is should be conditioned by musl, or universal.
@@ -1312,7 +1208,7 @@ super.lib.composeManyExtensions [
       # ];
     });
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     nmon = prev.nmon.overrideAttrs (upstream:
       # nmon is a single-file project,
       # compiled in nixpkgs in an extremely non-patchable manner.
@@ -1342,6 +1238,7 @@ super.lib.composeManyExtensions [
       }
     );
 
+    # 2026-08-30: still required
     onnxruntime = (prev.onnxruntime.override {
       # XXX(2026-07-01): pkgsMusl.openvino doesn't compile
       openvinoSupport = false;
@@ -1355,6 +1252,7 @@ super.lib.composeManyExtensions [
       '';
     });
 
+    # 2026-08-31: still required
     openscad-unstable = prev.openscad-unstable.overrideAttrs (prevAttrs: {
       disabledTests = prevAttrs.disabledTests ++ [
         # these might be legit test failures
@@ -1370,17 +1268,6 @@ super.lib.composeManyExtensions [
     #   level-zero = null;
     # };
 
-    # 2026-04-30: still required
-    # pipewire = prev.pipewire.overrideAttrs {
-    #   # 2026-02-19: fixes:
-    #   # > In function ‘array_test’:
-    #   # > cc1: note: source object is likely at address zero
-    #   # > /nix/store/h7x66rfwc6alim5gz0s2zjpwgavlfrz9-fortify-headers-3.0.1/include/string.h:69:1: note: in a call to function ‘__orig_memmove’ declared with attribute ‘access (read_only, 2, 3)’
-    #   # >    69 | _FORTIFY_FN(memmove) void *memmove(void * _FORTIFY_POS0 __d,
-    #   # >       | ^~~~~~~~~~~
-    #   hardeningDisable = [ "fortify" ];
-    # };
-
     # 2026-06-22: playwright-driver.passthru.browsers would appear to be **vendored** browsers, hence glibc-only.
     playwright-driver = final._pkgsGnu.playwright-driver;
     playwright-test = final._pkgsGnu.playwright-test;
@@ -1388,13 +1275,14 @@ super.lib.composeManyExtensions [
     pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
       (pyself: pysuper: {
         # XXX(2026-06-22): "Expected 12 exit code, got 14 on test/fixtures/templates/quickstart/openshift.yaml"
-        cfn-lint = pysuper.cfn-lint.overridePythonAttrs (prevAttrs: {
-          disabledTests = prevAttrs.disabledTests ++ [
-            "test_templates" # test_quickstart_templates and test_quickstart_templates_non_strict
-            "test_module_integration" # test_quickstart_templates_non_strict
-          ];
-        });
+        # cfn-lint = pysuper.cfn-lint.overridePythonAttrs (prevAttrs: {
+        #   disabledTests = prevAttrs.disabledTests ++ [
+        #     "test_templates" # test_quickstart_templates and test_quickstart_templates_non_strict
+        #     "test_module_integration" # test_quickstart_templates_non_strict
+        #   ];
+        # });
 
+        # 2026-08-31: still required
         ml-dtypes = pysuper.ml-dtypes.overridePythonAttrs (prevAttrs: {
           # musl's libm returns different NaN and infinity components for complex
           # functions than glibc, so these upstream comparisons are not portable.
@@ -1414,6 +1302,7 @@ super.lib.composeManyExtensions [
           ];
         });
 
+        # 2026-08-31: still required
         crawl4ai = (pysuper.crawl4ai.override {
           alphashape = null;
           shapely = null;
@@ -1433,34 +1322,37 @@ super.lib.composeManyExtensions [
           ];
         });
 
+        # 2026-08-31: still required
         cyclopts = pysuper.cyclopts.override {
           # XXX(2026-06-22): nativeCheckInputs; optional dep.
           fish = null;
         };
 
+        # 2026-08-31: still required
         # XXX(2026-06-22): timezone tests fail
         django = pysuper.django.overridePythonAttrs {
           doCheck = false;
         };
 
         # alternatively: `fastmcp = pyself.fastmcp-slim`
-        fastmcp = pysuper.fastmcp.overridePythonAttrs (prevAttrs: {
-          # XXX(2026-06-22): "TestSupabaseProviderIntegration::test_unauthorized_access - RuntimeError: Server failed to start after 30 attempts"
-          disabledTests = prevAttrs.disabledTests ++ [
-            "test_unauthorized_access"
-          ];
+        # fastmcp = pysuper.fastmcp.overridePythonAttrs (prevAttrs: {
+        #   # XXX(2026-06-22): "TestSupabaseProviderIntegration::test_unauthorized_access - RuntimeError: Server failed to start after 30 attempts"
+        #   disabledTests = prevAttrs.disabledTests ++ [
+        #     "test_unauthorized_access"
+        #   ];
 
-          # XXX(2026-07-01): some test hangs there's no way to know which one.
-          doCheck = false;
-        });
+        #   # XXX(2026-07-01): some test hangs there's no way to know which one.
+        #   doCheck = false;
+        # });
 
         # 2026-05-23: still required
         # XXX(2026-01-29): test_ellipse_arc fails, looks like a legitimate failure (numerical).
         # i use inkscape mostly at build time (for wallpapers), so just disable tests.
-        inkex = pysuper.inkex.overridePythonAttrs {
-          doCheck = false;
-        };
+        # inkex = pysuper.inkex.overridePythonAttrs {
+        #   doCheck = false;
+        # };
 
+        # 2026-08-31: still required
         joblib = pysuper.joblib.overridePythonAttrs {
           # XXX(2026-07-27): several test failures, unknown cause
           # > python3.14-joblib> FAILED joblib/test/test_parallel.py::test_threadpool_limitation_in_child_override[parallel_config-OPENBLAS_NUM_THREADS-2] - OSError: [Errno 24] No file descriptors available
@@ -1470,7 +1362,7 @@ super.lib.composeManyExtensions [
           # checkPhaseThreadLimitHook = null;
         };
 
-        # 2026-05-23: still required
+        # 2026-08-31: still required
         netifaces = pysuper.netifaces.overrideAttrs (upstream: {
           patches = (upstream.patches or []) ++ [
             (fetchAports {
@@ -1480,6 +1372,16 @@ super.lib.composeManyExtensions [
           ];
         });
 
+        # 2026-08-30: nixpkgs' ctypes patch assumes glibc's libc.so.6 name.
+        psycopg = pysuper.psycopg.overridePythonAttrs (upstream: {
+          postPatch = upstream.postPatch + ''
+            substituteInPlace psycopg/pq/_pq_ctypes.py --replace-fail \
+              "${stdenv.cc.libc}/lib/libc.so.6" \
+              "${stdenv.cc.libc}/lib/libc.so"
+          '';
+        });
+
+        # 2026-08-31: still required
         # 2026-07-01: torch is an optional dependency, but used unconditionally in `nativeCheckInputs`.
         pylance = pysuper.pylance.overridePythonAttrs (upstream: {
           nativeCheckInputs = (lib.remove pyself.torch upstream.nativeCheckInputs) ++ [
@@ -1488,18 +1390,20 @@ super.lib.composeManyExtensions [
           # optionalDependencies = [];
         });
 
+        # 2026-08-31: still required
         # 2026-07-27: curl-cffi tests hang/fail on musl. Disable all tests to ensure build completes.
         # The tests require network access and have issues with musl-specific behavior.
         curl-cffi = pysuper.curl-cffi.overridePythonAttrs (prevAttrs: {
           doCheck = false;
         });
 
+        # 2026-08-31: still required
         swagger-spec-validator = pysuper.swagger-spec-validator.overridePythonAttrs {
           # asserts on strerror strings?
           doCheck = false;
         };
 
-        # 2026-05-23: still required
+        # 2026-08-31: still required
         twisted = pysuper.twisted.overrideAttrs (upstream: {
           # 2026-01-22: no explanation; alpine just hard-disables this hanging test, quite intrusively.
           # the test *does* seem to be flakey? but builds (eventually?) w/o this.
@@ -1526,7 +1430,7 @@ super.lib.composeManyExtensions [
       })
     ];
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     rpm = prev.rpm.overrideAttrs (upstream: {
       patches = (upstream.patches or []) ++ [
         (fetchAports {
@@ -1620,9 +1524,9 @@ super.lib.composeManyExtensions [
     # > cd /build/source/build && /nix/store/4y5szbjgf857wn8603gx77gbznfwqh0q-cmake-4.1.2/bin/ctest
     #
     # alpine builds with tests. TODO: enable `doCheck`!
-    sdl2-compat = prev.sdl2-compat.overrideAttrs {
-      doCheck = false;
-    };
+    # sdl2-compat = prev.sdl2-compat.overrideAttrs {
+    #   doCheck = false;
+    # };
 
     # XXX(2026-02-15): the below gets signal-desktop to build,
     # but it fails at runtime unless linked against the non-bin `electron`,
@@ -1686,7 +1590,7 @@ super.lib.composeManyExtensions [
     #   });
     # };
     #
-    # 2026-04-30: still required
+    # 2026-08-31: still required
     signal-desktop = final._pkgsGnu.signal-desktop;
 
     # 2026-04-30: still required
@@ -1734,7 +1638,7 @@ super.lib.composeManyExtensions [
     # is this sensible? should rather patch those out...
     # glibcLocales = pkgsCross.gnu64.glibcLocales;
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # XXX(2026-01-21): fortify failures only on musl:
     # > In file included from /nix/store/a7ijnxh5xvipgfx2j4wn7p6ff2an966p-fortify-headers-1.1alpine3/include/strings.h:23,
     # >                  from /nix/store/ci8sxhmyzz9pgqidk2z9zh6ycgcr72bd-musl-1.2.5-dev/include/string.h:59,
@@ -1792,18 +1696,18 @@ super.lib.composeManyExtensions [
 
     # 2026-05-24: still required
     # this was briefly fixed by <https://github.com/NixOS/nixpkgs/pull/518953>, then broken again
-    spandsp3 = prev.spandsp3.overrideAttrs {
-      # 2026-02-19: fixes SIGILL during checkPhase
-      hardeningDisable = [ "fortify" ];
-    };
+    # spandsp3 = prev.spandsp3.overrideAttrs {
+    #   # 2026-02-19: fixes SIGILL during checkPhase
+    #   hardeningDisable = [ "fortify" ];
+    # };
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # 2026-01-29: fish fails checkPhase on musl, but swaync doesn't seem to actually need it?
     swaynotificationcenter = prev.swaynotificationcenter.override {
       fish = null;
     };
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # XXX(2026-01-29): fix missing include for posix read/close. TODO: send upstream!
     # > src/backlight.cpp: In lambda function:
     # > src/backlight.cpp:55:39: error: ‘read’ was not declared in this scope; did you mean ‘fread’?
@@ -1830,13 +1734,14 @@ super.lib.composeManyExtensions [
     # guix might be the *only* distro that _appears_ to do a from-source build.
     # tor-browser = final._pkgsGnu.tor-browser;
 
+    # 2026-08-30: still required
     # 2026-06-19: fixes "could not find libSDL3.so" during installCheckPhase.
     # possibly addressed by <https://github.com/NixOS/nixpkgs/pull/500935>
     waybar = prev.waybar.override {
       cavaSupport = false;
     };
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # 2026-01-29: build failure due to missing include
     # > ifrename.c: In function ‘mapping_getsysfs’:
     # > ifrename.c:1816:15: error: implicit declaration of function ‘basename’ [-Wimplicit-function-declaration]
@@ -1850,7 +1755,7 @@ super.lib.composeManyExtensions [
       ];
     });
 
-    # 2026-05-23: still required
+    # 2026-08-30: still required
     # 2026-01-28: fix build failure on both nixpkgs master, and on 0.52.0.
     # alpine doesn't need this patch -- why?
     # > ../src/xdg-desktop-portal-phosh.c: In function ‘main’:
@@ -1867,130 +1772,6 @@ super.lib.composeManyExtensions [
         sed  -i '1i #include <locale.h>' src/thumbnailer/cli.c
       '';
     });
-
-    # 2026-04-30: still required
-    # XXX(2026-01-22): v1.6.0 (nixpkgs default) fails to compile:
-    # >     CC       xdpsock.o
-    # > In file included from /nix/store/ci8sxhmyzz9pgqidk2z9zh6ycgcr72bd-musl-1.2.5-dev/include/net/ethernet.h:10,
-    # >                  from xdpsock.c:18:
-    # > /nix/store/ci8sxhmyzz9pgqidk2z9zh6ycgcr72bd-musl-1.2.5-dev/include/netinet/if_ether.h:115:8: error: redefinition of ‘struct ethhdr’
-    # >   115 | struct ethhdr {
-    # >       |        ^~
-    # > In file included from xdpsock.c:12:
-    # > /nix/store/ci8sxhmyzz9pgqidk2z9zh6ycgcr72bd-musl-1.2.5-dev/include/linux/if_ether.h:173:8: note: originally defined here
-    # >   173 | struct ethhdr {
-    # >       |        ^~
-    # > make[2]: * [Makefile:13: xdpsock.o] Error 1
-    # > make[1]: * [Makefile:13: util] Error 2
-    # > make: * [Makefile:31: lib] Error 2
-    # For full logs, run:
-    #     nix log /nix/store/h39j3mh137l8yqmnwr2vh6ijbgv28czf-xdp-tools-1.6.0.drv
-    # xdp-tools = prev.xdp-tools.overrideAttrs (upstream: rec {
-    #   # 1.6.0+ conflates `linux/if_ether.h` and `netinet/if_ether.h`
-    #   # in a way that's difficult to reconcile 100%
-    #   # NIX_CFLAGS_COMPILE = "-Wno-error=maybe-uninitialized";
-    #   # postPatch = (upstream.postPatch or "") + ''
-    #   #   find . -type f -exec sed -i 's:linux/if_ether.h:netinet/if_ether.h:g' '{}' ';'
-
-    #   #   substituteInPlace lib/libxdp/xsk.c \
-    #   #     --replace-fail 'netinet/if_ether.h' 'linux/if_ether.h'
-
-    #   #   substituteInPlace lib/util/xdp_sample.c \
-    #   #     --replace-fail 'netinet/if_ether.h' 'linux/if_ether.h'
-
-    #   #   # substituteInPlace lib/util/xdpsock.c \
-    #   #   #   --replace-fail 'linux/if_ether.h' 'netinet/if_ether.h'
-
-    #   #   # substituteInPlace lib/util/params.h \
-    #   #   #   --replace-fail 'linux/if_ether.h' 'netinet/if_ether.h'
-
-    #   #   # substituteInPlace lib/util/params.c \
-    #   #   #   --replace-fail 'linux/if_ether.h' 'netinet/if_ether.h'
-
-
-    #   #   # substituteInPlace lib/util/xdpsock.h --replace-fail \
-    #   #   #   "#include <netinet/ether.h>" "#include <linux/if_ether.h>"
-
-    #   #   # substituteInPlace lib/util/xdpsock.c \
-    #   #   #   --replace-fail "#include <netinet/ether.h>" "" \
-    #   #   #   --replace-fail "#include <net/ethernet.h>" ""
-    #   # '';
-    #   # nativeBuildInputs = (upstream.nativeBuildInputs or []) ++ [
-    #   #   final.clang
-    #   # ];
-    #   # preConfigure = (upstream.preConfigure or "") + ''
-    #   #   unset CLANG
-    #   # '';
-    #   # BPF_CFLAGS = "";
-    #   # version = "1.5.7";  #< builds
-    #   # src = fetchFromGitHub {
-    #   #   owner = "xdp-project";
-    #   #   repo = "xdp-tools";
-    #   #   rev = "v${version}";
-    #   #   hash = "sha256-dJMGBFFfEpKO+5ku5Xsc95hGSmTenHGRjBTL7s1cv0c=";
-    #   # };
-
-    #   version = "1.5.8";  #< builds
-    #   src = fetchFromGitHub {
-    #     owner = "xdp-project";
-    #     repo = "xdp-tools";
-    #     rev = "v${version}";
-    #     hash = "sha256-fW0If34PTGE36KoZYPeKOMuNjaFz1JmSCaWIaSjB0gk=";
-    #   };
-
-    #   # version = "1.5.8-unstable-20260106";  #< builds
-    #   # src = fetchFromGitHub {
-    #   #   owner = "xdp-project";
-    #   #   repo = "xdp-tools";
-    #   #   rev = "c109ab3175008ffc1c7bdcfc5376c54b5666faf2";
-    #   #   hash = "sha256-VRNFPPGtu+n3WBZTzC7ZIJePhY6VgaDXHYbzHkcM+EU=";
-    #   # };
-
-    #   #< this region not yet bisected
-
-    #   # version = "1.5.8-unstable-20250911";  #< fails, `make[1]: *** No rule to make target 'xdp_socket.bpf.c', needed by 'xdp_socket.bpf.o'.  Stop.`
-    #   # src = fetchFromGitHub {
-    #   #   owner = "xdp-project";
-    #   #   repo = "xdp-tools";
-    #   #   rev = "0a4cc7469abe4f9203598c46008000ee4bbbe10f";
-    #   #   hash = "sha256-vZzvFl3bfoGro3hTLnowHkFOI+9JuwO2/78QIOigcTs=";
-    #   # };
-
-    #   # version = "1.5.8-unstable-20250916";  #< fails, `make[1]: *** No rule to make target 'xdp_socket.bpf.c', needed by 'xdp_socket.bpf.o'.  Stop.`
-    #   # src = fetchFromGitHub {
-    #   #   owner = "xdp-project";
-    #   #   repo = "xdp-tools";
-    #   #   rev = "7028ccef1b62d6b546edd709fc00d7f6ad38a5f1";
-    #   #   hash = "sha256-x0IF24NJNdv6U91fAPazQ8HyX+yW5q29w966eOdzCJQ=";
-    #   # };
-
-    #   #< this region not yet bisected
-
-    #   # version = "1.5.8-unstable-20250916";  #< fails
-    #   # src = fetchFromGitHub {
-    #   #   owner = "xdp-project";
-    #   #   repo = "xdp-tools";
-    #   #   rev = "ec02d32f75431b7ed9857cb51c631bc4127f3fb2";
-    #   #   hash = "sha256-dtSHXQEHucZyU/IUIXu5zRee8EMTtfS6R6M2lniI7nE=";
-    #   # };
-
-    #   # version = "1.5.8-unstable-20251216";  #< fails
-    #   # src = fetchFromGitHub {
-    #   #   owner = "xdp-project";
-    #   #   repo = "xdp-tools";
-    #   #   rev = "bf9ddf088a082141abac3e393c97233c98a39e61";
-    #   #   hash = "sha256-qdGI3BgLiUckPJcz+3VERAA0C3N3ZB3/6lCEe6KkcH0=";
-    #   # };
-
-    #   # version = "1.6.0-unstable-20260115";  #< fails
-    #   # src = fetchFromGitHub {
-    #   #   owner = "xdp-project";
-    #   #   repo = "xdp-tools";
-    #   #   rev = "6754facf547ccf76c601911ba02c84c238d1748f";
-    #   #   hash = "sha256-qSEPw/UaH7H0A6hT8ipdlCBS+IG/gyErUa3UK9DOEfI=";
-    #   # };
-    # });
-
 
     # XXX(2026-06-17): nixpkgs adds absolute libEGL/libvulkan DT_NEEDED entries to
     # wezterm-gui in preFixup. that makes the dynamic linker load them at program
@@ -2046,28 +1827,14 @@ super.lib.composeManyExtensions [
     # > make[1]: Leaving directory '/build/source/build'
     # > make: *** [Makefile:192: xtest] Error 2
     # > error: builder for '/nix/store/rsav1hbrn8s6xa5zsyanqi8m4l9i6xjp-xsimd-13.2.0.drv' failed with exit code 2;
-    xsimd = prev.xsimd.overrideAttrs (upstream: {
-      patches = (upstream.patches or []) ++ [
-        (fetchAports {
-          path = "community/xsimd/failed-tests.patch";
-          hash = "sha256-IvbAp/OZU2m6U+jV5xMZLFttGvnlfdkBOSrmYJnBrx8=";
-        })
-      ];
-    });
-
-    # yt-dlp = prev.yt-dlp.override {
-    #   # 2026-01-25: deno fails to build for musl.
-    #   # >    Compiling encoding_rs v0.8.35
-    #   # > error: couldn't read `/build/deno-2.6.5-vendor/v8-142.2.0/gen/src_binding_release_x86_64-unknown-linux-musl.rs`: No such file or directory (os error 2)
-    #   # >  --> /build/deno-2.6.5-vendor/v8-142.2.0/src/binding.rs:6:1
-    #   # >   |
-    #   # > 6 | include!(env!("RUSTY_V8_SRC_BINDING_PATH"));
-    #   # >   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    #   # >
-    #   # >    Compiling unicode-xid v0.2.6
-    #   # > error: could not compile `v8` (lib) due to 1 previous error
-    #   javascriptSupport = false;  # a.k.a.: `deno = null;`
-    # };
+    # xsimd = prev.xsimd.overrideAttrs (upstream: {
+    #   patches = (upstream.patches or []) ++ [
+    #     (fetchAports {
+    #       path = "community/xsimd/failed-tests.patch";
+    #       hash = "sha256-IvbAp/OZU2m6U+jV5xMZLFttGvnlfdkBOSrmYJnBrx8=";
+    #     })
+    #   ];
+    # });
 
     # # XXX(2026-02-03): musl `buildFHSEnvBubblewrap`-based attempt failed at runtime:
     # # > /opt/zoom/ZoomLauncher: /lib/libstdc++.so.6: no version information available (required by /opt/zoom/ZoomLauncher)
@@ -2105,9 +1872,9 @@ super.lib.composeManyExtensions [
     # > make[1]: *** [Makefile:449: modobjs] Error 2
     # > make[1]: Leaving directory '/build/zsh-5.9/Src'
     # > make: *** [Makefile:188: all] Error 1
-    zsh = prev.zsh.overrideAttrs {
-      hardeningDisable = [ "fortify" ];
-    };
+    # zsh = prev.zsh.overrideAttrs {
+    #   hardeningDisable = [ "fortify" ];
+    # };
   })
 
   (_: prev: prev.lib.optionalAttrs (prev.stdenv.buildPlatform != prev.stdenv.hostPlatform) {
