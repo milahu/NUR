@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '**/*.nix'
+      - tree-eval.nu
       - sign-upload-build.nu
   schedule:
     - cron:  '25 4 * * *'
@@ -16,7 +17,7 @@ jobs:
     strategy:
       matrix:
         nurRepo:
-          - krom
+          - komo
         nixPath:
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
@@ -38,29 +39,30 @@ jobs:
         echo "$SIGNING_KEY" > ./signing-key.pem
       env:
         SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-    - name: Pre-fetch required tools
+    - name: Fetch required tools
       run: |
-        nix build --no-link github:Mic92/nix-fast-build nixpkgs/nixos-unstable#nushell
+        nix profile install \
+          nixpkgs/nixos-unstable#{nix-fast-build,nushell,attic-client,as-tree}
     - name: Check evaluation
       run: |
-        nix-env -f ./default.nix -qa \* --meta --json \
-          --allowed-uris https://static.rust-lang.org \
-          --option restrict-eval true \
-          --option allow-import-from-derivation true \
-          --drv-path --show-trace \
-          -I nixpkgs=$(nix-instantiate --find-file nixpkgs) \
-          -I $PWD
+        nu ./tree-eval.nu
     - name: Build nix packages
       run: |
-        nix run github:Mic92/nix-fast-build -- --skip-cached --file ./default.nix --result-file result.json
+        nix-fast-build --skip-cached --file ./default.nix --result-file result.json
     - name: Sign & Upload builds to binary cache
       run: |
-        nix run nixpkgs/nixos-unstable#nushell -- ./sign-upload-build.nu \
-          --binary-cache s3://a-den-nixcache?endpoint=s3.us-east-005.backblazeb2.com
+        attic login --set-default default https://den.wuff.foo.ng "$ATTIC_TOKEN"
+        nu ./sign-upload-build.nu --binary-cache default
       env:
+        ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    # - name: Trigger NUR update
-    #   if: ${{ matrix.nurRepo != 'krom' }}
-    #   run: |
-    #     curl -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}"
+
+  update:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger NUR update
+      run: |
+        curl -XPOST "https://nur-update.nix-community.org/update?repo=komo"
