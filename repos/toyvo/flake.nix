@@ -26,7 +26,6 @@
     };
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     mac-app-util.url = "github:hraban/mac-app-util";
-    nh.url = "github:toyvo/nh";
     odysseus = {
       url = "github:odysseus-dev/odysseus/dev";
       flake = false;
@@ -190,6 +189,13 @@
               };
             };
             pixel10a = {
+              hostname = "debian";
+              profiles.system = {
+                user = "droid";
+                path = deploy-rs.lib.aarch64-linux.activate.home-manager self.homeConfigurations."droid@debian";
+              };
+            };
+            pixel10a-nixos = {
               hostname = "pixel10a";
               profiles.system = {
                 user = "toyvo";
@@ -275,7 +281,11 @@
             };
           };
         };
-        systems = nixos-unstable.lib.systems.flakeExposed;
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+          "aarch64-darwin"
+        ];
         imports = [
           devshell.flakeModule
           flake-parts.flakeModules.easyOverlay

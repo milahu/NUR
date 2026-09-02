@@ -1,8 +1,7 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     inputs.nixcfg.modules.home.default
-    inputs.plasma-manager.homeModules.plasma-manager
     inputs.catppuccin.homeModules.catppuccin
     inputs.nix-index-database.homeModules.nix-index
     inputs.nur.modules.homeManager.default
@@ -11,15 +10,24 @@
   ];
   nixpkgs = {
     overlays = [
-      inputs.nixpkgs-esp-dev.overlays.default
       inputs.self.overlays.default
       inputs.nur.overlays.default
       inputs.rust-overlay.overlays.default
-      # inputs.zed.overlays.default
     ];
     config = {
       allowUnfree = true;
       allowBroken = true;
     };
+  };
+  home = {
+    username = "droid";
+    homeDirectory = "/home/droid";
+  };
+  programs.nix-index-database.comma.enable = true;
+  nixcfg = {
+    shells.enable = true;
+    session.enable = true;
+    sops-home.enable = true;
+    users.toyvo.enable = true;
   };
 }
