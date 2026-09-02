@@ -1,0 +1,72 @@
+error:
+… while evaluating the attribute 'artworks'
+  at ./default.nix:35:3:
+    34|
+    35|   artworks = p ./pkgs/audio/artworks { };
+      |   ^
+    36|   nam-trainer = p ./pkgs/audio/nam-trainer { };
+
+… from call site
+  at ./default.nix:35:14:
+    34|
+    35|   artworks = p ./pkgs/audio/artworks { };
+      |              ^
+    36|   nam-trainer = p ./pkgs/audio/nam-trainer { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:322:5:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |     ^
+   323|       makeOverridable f allArgs
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/customisation.nix:322:28:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   323|       makeOverridable f allArgs
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:318:22:
+   317|       # arguments that weren't passed automatically to the function
+   318|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   319|
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:311:15:
+   310|       f = if isFunction fn then fn else import fn;
+   311|       fargs = functionArgs f;
+      |               ^
+   312|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |     ^
+  1110|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1109:8:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |        ^
+  1110|
+
+… while calling the 'import' builtin
+  at <nixpkgs> + /lib/customisation.nix:310:41:
+   309|     let
+   310|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   311|       fargs = functionArgs f;
+
+error: path './pkgs/audio/artworks' does not exist
