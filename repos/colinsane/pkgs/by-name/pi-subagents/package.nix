@@ -1,32 +1,27 @@
 {
-  buildNpmPackage,
   fetchFromGitHub,
   lib,
+  mkPiExtension,
   nix-update-script,
 }:
-buildNpmPackage (finalAttrs: {
+mkPiExtension (finalAttrs: {
   pname = "pi-subagents";
-  version = "0.60.0";
+  version = "0.62.0";
 
   src = fetchFromGitHub {
     owner = "nicobailon";
     repo = "pi-subagents";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-6KBjJToygSvWit+4x1FU4WaEdGSy+HXlzlTwFWnnIGk=";
+    hash = "sha256-2pEz35W+NAd/KWyRkUBsS8rRywa5vqobtndCbqILv04=";
   };
 
   npmDepsFetcherVersion = 2;
 
-  npmDepsHash = "sha256-k3eQKH8k+Z+rBqaNeWO+G309A+6xvPuDucEOHpeMhaI=";
+  npmDepsHash = "sha256-P5fnCVCuzBZkJVfN6houtASkt6lCiNcoTmwVSC1YLJI=";
 
-  dontNpmBuild = true;
+  dontNpmBuild = true;  # package.json defines no build script
 
   postInstall = ''
-    mv $out/lib/node_modules/pi-subagents/* $out
-    rmdir $out/lib/node_modules/pi-subagents
-    rmdir $out/lib/node_modules
-    rmdir $out/lib
-
     # the binary is an "installer", not useful.
     rm $out/bin/pi-subagents
     rmdir $out/bin
