@@ -1,19 +1,19 @@
 {
 "name":"zimeg",
-"fetch_time":1.37,
-"eval_time":0.618,
+"fetch_time":0.708,
+"eval_time":0.807,
 "source":{
 "url":"https://github.com/zimeg/nur-packages",
-"rev":"cef1e6a89215963810e324c684d8b1107cf3132e",
-"sha256":"08xv0f6l1xlj5fvl58ga97yb0rdy97jnps4b2hiahs8ri8sjsjv0",
+"rev":"ae144b432bfa8473bf4f2a737326754efc4600ec",
+"sha256":"0cwspk62hmnbnff88cg59f4l0vfjcjcjnx0wjk3k02m4qqx4cwpr",
 "date":null
 },
-"source_storepath":"/nix/store/hjmmjh8x6vhcbbpp4vkkh6q7gkcibskc-source",
-"nixpkgs_storepath":"/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source",
-"nur_combined_rev":"cda12464235bce34eb0e9ca21d0b77c392bf7fea",
+"source_storepath":"/nix/store/s45llmbgcldhl581j8ix6jbsclvhlhax-source",
+"nixpkgs_storepath":"/nix/store/70dmj3mgr21k5x225hp70d7aghdfc932-source",
+"nur_combined_rev":"f26f8729482adce34e86cdfb6574f4f8c588cb48",
 "packages":{
 "changesets":{
-"drvPath":"/nix/store/d6lchrfr81f3pibyrmf780cpi5m2s5mr-changesets-cli-2.29.7.drv",
+"drvPath":"/nix/store/i45l674irncvj0znx2sbrskjf5r7sl5c-changesets-cli-2.29.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -63,7 +63,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hjmmjh8x6vhcbbpp4vkkh6q7gkcibskc-source/pkgs/changesets/default.nix",
+"file":"/nix/store/s45llmbgcldhl581j8ix6jbsclvhlhax-source/pkgs/changesets/default.nix",
 "line":30
 },
 "name":"changesets-cli-2.29.7",
@@ -114,7 +114,7 @@
 "version":"2.29.7"
 },
 "etime":{
-"drvPath":"/nix/store/g3wcc4dc98nw2kwbywfpsniqg0k4m2zw-etime-1.1.1.drv",
+"drvPath":"/nix/store/fxzy4rsx3qaqf388g2cmc3m5qmr7winm-etime-1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -165,7 +165,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hjmmjh8x6vhcbbpp4vkkh6q7gkcibskc-source/pkgs/etime/default.nix",
+"file":"/nix/store/s45llmbgcldhl581j8ix6jbsclvhlhax-source/pkgs/etime/default.nix",
 "line":39
 },
 "name":"etime-1.1.1",
@@ -199,8 +199,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -225,7 +225,7 @@
 "version":"1.1.1"
 },
 "jtt-nvim":{
-"drvPath":"/nix/store/w4l9yr3m72lv9m87rr749k56ghv8svj3-vimplugin-jtt.nvim-unversioned.drv",
+"drvPath":"/nix/store/al52p47iivfmz9wjwd90gmnn1ss48jw2-vimplugin-jtt.nvim-unversioned.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -350,8 +350,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -378,11 +378,11 @@
 "version":""
 },
 "jurigged":{
-"drvPath":"/nix/store/fvxvalbyr16035nd8pimyrr8bgx7mcb9-jurigged-0.5.8.drv",
+"drvPath":"/nix/store/61bwyqsxl8b47krxwg5zxwvwckl9z75r-jurigged-0.5.8.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.11pre1040318.7525d999cd85",
+"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.11pre1063758.e8be7818e19a",
 "description":"Hot reloading for Python",
 "homepage":"https://github.com/breuleux/jurigged",
 "identifiers":{
@@ -461,7 +461,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hjmmjh8x6vhcbbpp4vkkh6q7gkcibskc-source/pkgs/jurigged/default.nix",
+"file":"/nix/store/s45llmbgcldhl581j8ix6jbsclvhlhax-source/pkgs/jurigged/default.nix",
 "line":82
 },
 "name":"jurigged-0.5.8",
@@ -523,7 +523,7 @@
 "version":"0.5.8"
 },
 "llrt":{
-"drvPath":"/nix/store/gl3c0l72zvc4zxwkjap48gi2j5whqrr6-llrt-0.1.10-beta.drv",
+"drvPath":"/nix/store/kfx6z3szcjp2r9mhdyq4qdvwxkcyw5n2-llrt-0.1.10-beta.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -578,7 +578,7 @@
 "version":"0.1.10-beta"
 },
 "newsflash-nvim":{
-"drvPath":"/nix/store/94lnxq3cl9zmw6dy97iwa22pvacv29ki-vimplugin-newsflash.nvim-0.1.0.drv",
+"drvPath":"/nix/store/vacmxi53n8ls0nq6vg89vcdc04946w45-vimplugin-newsflash.nvim-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -703,8 +703,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -731,7 +731,7 @@
 "version":"0.1.0"
 },
 "proximity-nvim":{
-"drvPath":"/nix/store/jzk1igd57m8bl4waacx282vb8mcsysyw-vimplugin-proximity.nvim-0.1.1.drv",
+"drvPath":"/nix/store/k5lqnysr4qmba5vjp05jdr480f6yhrbb-vimplugin-proximity.nvim-0.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -856,8 +856,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -884,7 +884,7 @@
 "version":"0.1.1"
 },
 "quill":{
-"drvPath":"/nix/store/r3j2kl1zmn3gvk1vgm69v9px83sr47zg-quill-0.5.1.drv",
+"drvPath":"/nix/store/nyl67jd1dvc585b1nik7fvf1y84m5pfl-quill-0.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -935,7 +935,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hjmmjh8x6vhcbbpp4vkkh6q7gkcibskc-source/pkgs/quill/default.nix",
+"file":"/nix/store/s45llmbgcldhl581j8ix6jbsclvhlhax-source/pkgs/quill/default.nix",
 "line":32
 },
 "name":"quill-0.5.1",
@@ -969,8 +969,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -995,7 +995,7 @@
 "version":"0.5.1"
 },
 "recon":{
-"drvPath":"/nix/store/bwq08rzfn6wn5iqdala64pdwz4b83990-recon-0.6.1-unstable-2026-06-25.drv",
+"drvPath":"/nix/store/5p61s3ah5pfszqw66k0za3s859342gca-recon-0.6.1-unstable-2026-06-25.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1056,7 +1056,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hjmmjh8x6vhcbbpp4vkkh6q7gkcibskc-source/pkgs/recon/default.nix",
+"file":"/nix/store/s45llmbgcldhl581j8ix6jbsclvhlhax-source/pkgs/recon/default.nix",
 "line":26
 },
 "name":"recon-0.6.1-unstable-2026-06-25",
@@ -1102,7 +1102,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/recon/default.nix:23",
 "problems":{
@@ -1124,7 +1124,7 @@
 "version":"0.6.1-unstable-2026-06-25"
 },
 "zsh-wd":{
-"drvPath":"/nix/store/hhnqdqb3fqawq8gjlqd61vf3l4ncdggm-wd-0.7.0.drv",
+"drvPath":"/nix/store/vmz4bvaa7yqdb15kf5jy028qzyp9h6lr-wd-0.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1176,7 +1176,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hjmmjh8x6vhcbbpp4vkkh6q7gkcibskc-source/pkgs/zsh-wd/default.nix",
+"file":"/nix/store/s45llmbgcldhl581j8ix6jbsclvhlhax-source/pkgs/zsh-wd/default.nix",
 "line":38
 },
 "name":"wd-0.7.0",

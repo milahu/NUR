@@ -1,19 +1,19 @@
 {
 "name":"examosa",
-"fetch_time":1.275,
-"eval_time":0.664,
+"fetch_time":0.884,
+"eval_time":0.679,
 "source":{
 "url":"https://codeberg.org/examosa/nur-packages",
-"rev":"9bad5f25af7d4f8d5920896ef24273d5910234b1",
-"sha256":"1qbyw07ixsy8d05mhn4c09mq3s3ylranpbvy8jdiidlzrnhafb9l",
+"rev":"dd032e2e14fc126f41b9e58f88cf08a7756f4c30",
+"sha256":"1cxzrrsq09qn7sjf6hgqm3ypkcw8jd1zhn5q42npczdv379z9c85",
 "date":null
 },
-"source_storepath":"/nix/store/pg64dslfgscy5gs19xq1dg3jyrbmrk6a-nur-packages",
-"nixpkgs_storepath":"/nix/store/2kvvl97khd2qi6sriwkcp03v78v6f5zb-source",
-"nur_combined_rev":"3783374b15b49d9eeb6c912944b95891532bf9bf",
+"source_storepath":"/nix/store/lsw68x7ka0xphqary6ddn6iwgh5sbjj7-nur-packages",
+"nixpkgs_storepath":"/nix/store/70dmj3mgr21k5x225hp70d7aghdfc932-source",
+"nur_combined_rev":"43cf6e48be387cac246f8da8a2ea58114e78a487",
 "packages":{
 "attempt":{
-"drvPath":"/nix/store/fdhck69hliigxvz08pv78xpg8py1z70d-attempt-1.1.1.drv",
+"drvPath":"/nix/store/y4ybalvnqwxaxb5ianskdza15hlmvaz0-attempt-1.1.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -137,7 +137,7 @@
 "version":"1.1.1"
 },
 "aube":{
-"drvPath":"/nix/store/dyqcshgr6kwhcqzja5vfnyl9yxibsprq-aube-1.34.0.drv",
+"drvPath":"/nix/store/z7giqz7ra7mbffm9sqpkjsij19pbc16y-aube-2.2.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -152,7 +152,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/endevco/aube/blob/refs/tags/v1.34.0/CHANGELOG.md",
+"changelog":"https://github.com/endevco/aube/blob/refs/tags/v2.2.4/CHANGELOG.md",
 "description":"A fast Node.js package manager",
 "homepage":"https://github.com/endevco/aube",
 "identifiers":{
@@ -209,7 +209,7 @@
 ],
 "mainProgram":"aube",
 "maintainers":[],
-"name":"aube-1.34.0",
+"name":"aube-2.2.4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -264,17 +264,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"aube-1.34.0",
+"name":"aube-2.2.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"aube",
 "system":"x86_64-linux",
-"version":"1.34.0"
+"version":"2.2.4"
 },
 "crgx":{
-"drvPath":"/nix/store/d005hk01bv8w7p66mds18kxj8xkdpxx4-crgx-0.1.0.drv",
+"drvPath":"/nix/store/v0yv17rcniii3nlp2wy3lq7whh5220ns-crgx-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -399,7 +399,7 @@
 "version":"0.1.0"
 },
 "dra":{
-"drvPath":"/nix/store/9wg6pv6sv7zhfb02nxc05hvdd5nm6058-dra-0.10.2.drv",
+"drvPath":"/nix/store/fadw9xx80kydcy53q8zwsprz0fzs0z94-dra-0.10.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -414,7 +414,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/devmatteini/dra/blob/refs/tags/0.10.2/CHANGELOG.md",
+"changelog":"https://github.com/devmatteini/dra/blob/refs/tags/0.10.3/CHANGELOG.md",
 "description":"A command line tool to download release assets from GitHub",
 "homepage":"https://github.com/devmatteini/dra",
 "identifiers":{
@@ -459,7 +459,7 @@
 },
 "mainProgram":"dra",
 "maintainers":[],
-"name":"dra-0.10.2",
+"name":"dra-0.10.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -514,14 +514,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"dra-0.10.2",
+"name":"dra-0.10.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dra",
 "system":"x86_64-linux",
-"version":"0.10.2"
+"version":"0.10.3"
 },
 "emacs-plus":{
 "name":"emacs-plus-30.2",
@@ -534,7 +534,7 @@
 "version":"30.2"
 },
 "exec-as":{
-"drvPath":"/nix/store/1q7wznmkq0iflh6arpl8n2jq39gr65fm-exec-as-1.2.3.drv",
+"drvPath":"/nix/store/91pinkyb8idfm80mqjb9hmzspjdpbf8r-exec-as-1.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -688,7 +688,7 @@
 "version":"1.2.3"
 },
 "fnox":{
-"drvPath":"/nix/store/jws8s6ypb71r5f5d9a9ciwmz4vm4ja9g-fnox-1.31.1.drv",
+"drvPath":"/nix/store/2fil0i11appwrjyjpczgcdxwh02gxkyl-fnox-1.34.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -703,7 +703,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/jdx/fnox/blob/refs/tags/v1.31.1/CHANGELOG.md",
+"changelog":"https://github.com/jdx/fnox/blob/refs/tags/v1.34.1/CHANGELOG.md",
 "description":"Encrypted/remote secret manager",
 "homepage":"https://github.com/jdx/fnox",
 "identifiers":{
@@ -748,7 +748,7 @@
 },
 "mainProgram":"fnox",
 "maintainers":[],
-"name":"fnox-1.31.1",
+"name":"fnox-1.34.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -803,17 +803,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"fnox-1.31.1",
+"name":"fnox-1.34.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fnox",
 "system":"x86_64-linux",
-"version":"1.31.1"
+"version":"1.34.1"
 },
 "gethome":{
-"drvPath":"/nix/store/5v76nsbqx1ayqnccd57ra5v7xgqzhf8g-gethome.drv",
+"drvPath":"/nix/store/vkf4ry2n3j71wrkih5cxrn6f6hppvs8f-gethome.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -887,7 +887,7 @@
 "version":"2026-05-07"
 },
 "restish":{
-"drvPath":"/nix/store/8a5r32z2928jy67aq1k7583z8lnrwm46-restish-2.3.0.drv",
+"drvPath":"/nix/store/an7a0ic23g0srx311agvl1vx2sg9lrcd-restish-2.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -994,7 +994,7 @@
 "version":"2.3.0"
 },
 "rw-rs":{
-"drvPath":"/nix/store/ww0r6swkp6k6hvqb2r1h6zwdg1yza7nk-rw-rs-1.0.1.drv",
+"drvPath":"/nix/store/d8anmn4blzpw2lwcm04s6rcrabiiyk6g-rw-rs-1.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1118,7 +1118,7 @@
 "version":"1.0.1"
 },
 "seed7":{
-"drvPath":"/nix/store/dlga4mbk0bn0c4klsgnqdayn2dbw1dkp-seed7-5.4.10.drv",
+"drvPath":"/nix/store/fb965qcz94drklmmca1ws6gi63f3lrzs-seed7-5.4.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1284,7 +1284,7 @@
 "version":"0.6.0"
 },
 "ubi":{
-"drvPath":"/nix/store/fwpbqy4xgc27scbxn83mrcnqqndvawv6-ubi-0.10.0.drv",
+"drvPath":"/nix/store/j3s7sin3mfzkrlrzk44s9xlmka53klyk-ubi-0.12.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1299,7 +1299,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/houseabsolute/ubi/blob/refs/tags/v0.10.0/Changes.md",
+"changelog":"https://github.com/houseabsolute/ubi/blob/refs/tags/v0.12.0/Changes.md",
 "description":"The Universal Binary Installer",
 "homepage":"https://github.com/houseabsolute/ubi",
 "identifiers":{
@@ -1356,7 +1356,7 @@
 ],
 "mainProgram":"ubi",
 "maintainers":[],
-"name":"ubi-0.10.0",
+"name":"ubi-0.12.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1411,14 +1411,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ubi-0.10.0",
+"name":"ubi-0.12.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ubi",
 "system":"x86_64-linux",
-"version":"0.10.0"
+"version":"0.12.0"
 }
 }
 }
