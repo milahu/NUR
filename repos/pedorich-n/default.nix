@@ -10,18 +10,34 @@
 {
   pkgs ? import <nixpkgs> { },
 }:
+let
+  # Poor man's `packagesFromDirectoryRecursive`. Due to NUR's limitations, we can't use `lib` here, so we have to reimplement it.
+  # We also assumed that all packages and modules are one level deep, and named accordingly.
+  pkgsDir = ./pkgs;
+  modulesDir = ./modules/nixos;
 
+  packagePathFor = name: pkgsDir + "/${name}/package.nix";
+  modulePathFor = name: modulesDir + "/${name}/module.nix";
+
+  pkgNames = builtins.filter (n: builtins.pathExists (packagePathFor n)) (builtins.attrNames (builtins.readDir pkgsDir));
+  moduleNames = builtins.filter (n: builtins.pathExists (modulePathFor n)) (builtins.attrNames (builtins.readDir modulesDir));
+
+  packages = builtins.listToAttrs (
+    map (n: {
+      name = n;
+      value = pkgs.callPackage (packagePathFor n) { };
+    }) pkgNames
+  );
+
+  nixosModules = builtins.listToAttrs (
+    map (n: {
+      name = n;
+      value = modulePathFor n;
+    }) moduleNames
+  );
+in
 {
-  # The `lib`, `overlays`, `nixosModules`, `homeModules`,
-  # `darwinModules` and `flakeModules` names are special
-  lib = import ./lib { inherit pkgs; }; # functions
-  nixosModules = import ./nixos-modules; # NixOS modules
-  # homeModules = { }; # Home Manager modules
-  # darwinModules = { }; # nix-darwin modules
-  # flakeModules = { }; # flake-parts modules
-  overlays = import ./overlays; # nixpkgs overlays
-
-  rustic-exporter = pkgs.callPackage ./pkgs/rustic-exporter { };
-  safebucket = pkgs.callPackage ./pkgs/safebucket { };
-  error-pages = pkgs.callPackage ./pkgs/error-pages { };
+  overlays = import ./overlays;
+  inherit nixosModules;
 }
+// packages

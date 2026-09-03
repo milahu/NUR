@@ -1,18 +1,23 @@
 {
+  go,
+  go_1_27,
   fetchFromGitHub,
   buildGoModule,
   nix-update-script,
   lib,
 }:
-buildGoModule (finalAttrs: {
+let
+  buildGoModuleAtLeast127 = if (lib.versionAtLeast go.version "1.27") then buildGoModule else buildGoModule.override { go = go_1_27; };
+in
+buildGoModuleAtLeast127 (finalAttrs: {
   pname = "error-pages";
-  version = "4.2.4";
+  version = "4.2.5";
 
   src = fetchFromGitHub {
     owner = "tarampampam";
     repo = "error-pages";
     rev = "v${finalAttrs.version}";
-    sha256 = "sha256-Z55w5py1UueUW4NKsIdsMjreAy1QT7dRALc8HQ2eVYc=";
+    sha256 = "sha256-drG5PBDlnENFUuE8h6rEjPZuI6N/mt0M3mHLx/EVIdg=";
   };
 
   vendorHash = null;
@@ -37,7 +42,11 @@ buildGoModule (finalAttrs: {
   '';
 
   passthru = {
-    updateScript = nix-update-script { };
+    updateScript = nix-update-script {
+      extraArgs = [
+        "--flake"
+      ];
+    };
   };
 
   meta = {

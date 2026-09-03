@@ -1,10 +1,9 @@
-let
-  packages = [
-    "error-pages"
-    "rustic-exporter"
-    "safebucket"
-  ];
-in
 {
-  default = _final: prev: prev.lib.genAttrs packages (name: prev.callPackage ../pkgs/${name} { });
+  default =
+    _final: prev:
+    let
+      reserved = import ../reserved-names.nix;
+      overlayAttrs = import ../default.nix { pkgs = prev; };
+    in
+    removeAttrs overlayAttrs reserved;
 }
