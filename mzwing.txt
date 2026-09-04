@@ -467,11 +467,11 @@ error:
     22|   ## Misc parameters kept the same for all stages
 
 … from call site
-  at <nixpkgs> + /pkgs/top-level/stage.nix:360:1:
-   359| # Return the complete set of packages.
-   360| lib.fix toFix
+  at <nixpkgs> + /pkgs/top-level/stage.nix:381:1:
+   380| # Return the complete set of packages.
+   381| lib.fix toFix
       | ^
-   361|
+   382|
 
 … while calling 'fix'
   at <nixpkgs> + /lib/fixed-points.nix:93:5:
