@@ -120,13 +120,13 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.18.44-linux-260821T071903Z";
+    version = "lts-v6.18.44-linux-260831T053154Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.18.44-linux-260821T071903Z";
+      rev = "lts-v6.18.44-linux-260831T053154Z";
       fetchSubmodules = false;
-      sha256 = "sha256-iB48kZHRqGXP8rYUtx/96rPIigkgpNcEnXkx517RPoE=";
+      sha256 = "sha256-G+Durilo0fFiMxZsfufOMWjMJqxmvXYYu9jNhhYgO2Y=";
     };
   };
   linux-intel-mainline-tracking = {
@@ -558,13 +558,13 @@
   };
   secureboot_objects = {
     pname = "secureboot_objects";
-    version = "v1.6.5";
+    version = "v1.7.0-signed";
     src = fetchFromGitHub {
       owner = "microsoft";
       repo = "secureboot_objects";
-      rev = "v1.6.5";
+      rev = "v1.7.0-signed";
       fetchSubmodules = false;
-      sha256 = "sha256-JEcZw7IhHo02OiKf5LrQaUW3cQyvHSDMcFljgbRLDlo=";
+      sha256 = "sha256-GXi7RMGPH8X6S6qyjfn6yAYwDpJDmGwltNscjkMXLRQ=";
     };
   };
   telegram-send = {
@@ -603,17 +603,17 @@
   };
   v86 = {
     pname = "v86";
-    version = "e02816a97c866f576ac10c79e6d03c26462698f9";
+    version = "d96be774e549a83371b038b86e819804c96b921f";
     src = fetchgit {
       url = "https://github.com/copy/v86.git";
-      rev = "e02816a97c866f576ac10c79e6d03c26462698f9";
+      rev = "d96be774e549a83371b038b86e819804c96b921f";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-pE0oLYgg2GtwMBsfDPhQuFwssmIYf+GCHHhiwyDV2d4=";
+      sha256 = "sha256-NzGkEK7OCZt7tCk1/3zXFUuLd2bdkYwZDMk1QQ8ITPI=";
     };
-    date = "2026-09-02";
+    date = "2026-09-03";
   };
   vlmcsd = {
     pname = "vlmcsd";
