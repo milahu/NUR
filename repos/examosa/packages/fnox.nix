@@ -5,6 +5,7 @@
   fetchFromGitHub,
   installShellFiles,
   nix-update-script,
+  cacert,
   perl,
   pkg-config,
   dbus,
@@ -35,10 +36,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   buildInputs = lib.optionals stdenv.hostPlatform.isLinux [dbus udev];
 
-  postPatch = ''
-    substituteInPlace ./src/commands/completion.rs \
-      --replace-fail '"usage"' "\"$JDX_USAGE_BIN\""
-  '';
+  nativeCheckInputs = [cacert];
 
   postInstall = ''
     completions=()
@@ -63,6 +61,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   passthru.updateScript = nix-update-script {extraArgs = ["--use-github-releases"];};
 
   meta = {
+    broken = lib.versionOlder usage.version "6";
     description = "Encrypted/remote secret manager";
     homepage = "https://github.com/jdx/fnox";
     changelog = "https://github.com/jdx/fnox/blob/${finalAttrs.src.rev}/CHANGELOG.md";
