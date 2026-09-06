@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":1.5,
-"eval_time":2.852,
+"fetch_time":0.901,
+"eval_time":2.826,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"85ccc8559f7c07fcd778f5f83c6d454ff9e11b1a",
-"sha256":"1lzhdl7kv2q4iqhzgwrdn1dhyf4jc4mqgnv8nawn18hycyx2hdz3",
+"rev":"cf973ea14bbf86c61f4b6f0618a9f67004bfaad7",
+"sha256":"0if9y02rrrifmsnlxxa6ca1zkx7iq0fkhf8bxgv7vg9447qmakb2",
 "date":null
 },
-"source_storepath":"/nix/store/0smnl7hp61z2ljxcc6jrwdiryxfjh7id-source",
-"nixpkgs_storepath":"/nix/store/ynpa6961z524pvxif917f1gd2smkvc8w-source",
-"nur_combined_rev":"aef592b8ffe93e7515a4ac0357dab06de9c670be",
+"source_storepath":"/nix/store/mhamv6cdfnjvh4ymijpnivhji68zylnj-source",
+"nixpkgs_storepath":"/nix/store/77pwkvplpva96ymzibi6pafkil36w5qn-source",
+"nur_combined_rev":"93a05f4fd4bbfe7eb8d04a236aedc3f461b7705d",
 "packages":{
 "bumper":{
 "drvPath":"/nix/store/0adwcx06q5di5iysnbrxrws7ffy93n7a-bumper-0.28.0.drv",
@@ -737,11 +737,11 @@
 "version":"1.8.0"
 },
 "cliproxyapi":{
-"drvPath":"/nix/store/6hpyfxwrvzknlv8bn0ykgy6zz0l93hca-cliproxyapi-7.2.149.drv",
+"drvPath":"/nix/store/4n6bjp9lv1gnvjmsybjvd90wh5l90hp0-cliproxyapi-7.2.151.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.149",
+"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.151",
 "description":"Proxy server providing OpenAI-compatible APIs for CLI models",
 "homepage":"https://github.com/router-for-me/CLIProxyAPI",
 "identifiers":{
@@ -786,7 +786,7 @@
 },
 "mainProgram":"cli-proxy-api",
 "maintainers":[],
-"name":"cliproxyapi-7.2.149",
+"name":"cliproxyapi-7.2.151",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -848,14 +848,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cliproxyapi-7.2.149",
+"name":"cliproxyapi-7.2.151",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cliproxyapi",
 "system":"x86_64-linux",
-"version":"7.2.149"
+"version":"7.2.151"
 },
 "codex-commit":{
 "drvPath":"/nix/store/74i951qqf6ij0896f1wzgjhmwxj1rp7x-codex-commit-0.0.1.drv",
@@ -1042,7 +1042,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0smnl7hp61z2ljxcc6jrwdiryxfjh7id-source/packages/duckdb/default.nix",
+"file":"/nix/store/mhamv6cdfnjvh4ymijpnivhji68zylnj-source/packages/duckdb/default.nix",
 "line":415
 },
 "name":"duckdb-1.5.5",
@@ -1694,7 +1694,7 @@
 "version":"0.24.3"
 },
 "gleescript":{
-"drvPath":"/nix/store/jx9b6i0g3hny5l53f3wcymzi1c8qy9vv-gleescript-1.5.2.drv",
+"drvPath":"/nix/store/06xfy95prc66j0frh981b396541i381z-gleescript-1.5.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1839,7 +1839,7 @@
 "version":"1.5.2"
 },
 "go-over":{
-"drvPath":"/nix/store/ymih517rx6f9j4pzfl47iqgd788rflgj-go-over-3.3.1.drv",
+"drvPath":"/nix/store/mx4nmjr9yv6mg44ykhncrrk8lgs6lwnf-go-over-3.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1994,11 +1994,11 @@
 "version":"3.3.1"
 },
 "helium":{
-"drvPath":"/nix/store/lbarkiz4yzyfl0y7hxmrgln9h6khxg0s-helium-0.16.4.1.drv",
+"drvPath":"/nix/store/zaycram2zf2vxk2sc9d8d7nc7v04maaf-helium-0.16.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.16.4.1",
+"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.16.5.1",
 "description":"Helium Browser for Linux",
 "homepage":"https://github.com/imputnet/helium-linux",
 "identifiers":{
@@ -2043,7 +2043,7 @@
 },
 "mainProgram":"helium",
 "maintainers":[],
-"name":"helium-0.16.4.1",
+"name":"helium-0.16.5.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2067,14 +2067,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-0.16.4.1",
+"name":"helium-0.16.5.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium",
 "system":"x86_64-linux",
-"version":"0.16.4.1"
+"version":"0.16.5.1"
 },
 "hpax":{
 "drvPath":"/nix/store/knpbgpznb1m5zyk5wkzv5xrrm4vf1m6a-erlang28.5.0.6-hpax-1.0.4.drv",
@@ -2667,7 +2667,7 @@
 "version":"0-unstable-2025-04-18"
 },
 "kagimcp":{
-"drvPath":"/nix/store/ihsd53f0s2bq805wc9y5izg9b91vy630-python3.14-kagimcp-0.1.5-unstable-2026-07-07.drv",
+"drvPath":"/nix/store/wds97s7nxclhrk9w21ixfrhd998bd8zc-python3.14-kagimcp-0.1.5-unstable-2026-07-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4283,7 +4283,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0smnl7hp61z2ljxcc6jrwdiryxfjh7id-source/packages/paper-mono/default.nix",
+"file":"/nix/store/mhamv6cdfnjvh4ymijpnivhji68zylnj-source/packages/paper-mono/default.nix",
 "line":243
 },
 "name":"paper-mono-0.320-unstable-2026-08-26",
@@ -4753,11 +4753,11 @@
 "version":"8.28"
 },
 "renovate":{
-"drvPath":"/nix/store/m429x71g239sz0hqmb1cshsd4gfpr5a6-renovate-44.64.0.drv",
+"drvPath":"/nix/store/g24qdalqmmj9m81nrazlwj589bzxrq7z-renovate-44.65.5.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.64.0",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.65.5",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -4802,7 +4802,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-44.64.0",
+"name":"renovate-44.65.5",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -4840,14 +4840,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-44.64.0",
+"name":"renovate-44.65.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"44.64.0"
+"version":"44.65.5"
 },
 "req":{
 "drvPath":"/nix/store/b00x9c1a2xcs4xllc1g1riz7jlyydq1a-erlang28.5.0.6-req-0.7.4.drv",
@@ -5736,7 +5736,7 @@
 "version":"0.3.0"
 },
 "uv-build-latest":{
-"drvPath":"/nix/store/6kn3xzx33qk6rk323whm75nagp3j88ik-python3.14-uv-build-0.12.9.drv",
+"drvPath":"/nix/store/pc04bvrlr1l40asmkdxhy7ia5r145f88-python3.14-uv-build-0.12.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5829,7 +5829,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.14-uv-build-0.12.9",
+"name":"python3.14-uv-build-0.12.10",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5925,7 +5925,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-uv-build-0.12.9",
+"name":"python3.14-uv-build-0.12.10",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -5933,7 +5933,7 @@
 },
 "pname":"python3.14-uv-build",
 "system":"x86_64-linux",
-"version":"0.12.9"
+"version":"0.12.10"
 },
 "xdg-desktop-portal-luminous":{
 "drvPath":"/nix/store/4xzb94vm80zd5rrhzammw0x9ajjrlp1l-xdg-desktop-portal-luminous-0.1.21.drv",
