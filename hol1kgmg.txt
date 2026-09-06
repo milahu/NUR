@@ -1,0 +1,116 @@
+error:
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1007:14:
+  1006|         mapAttrs (
+  1007|           n: v:
+      |              ^
+  1008|           assert
+
+… in the condition of the assert statement
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1008:11:
+  1007|           n: v:
+  1008|           assert
+      |           ^
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1010:13:
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+      |             ^
+  1011|           v
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:48:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |                                                ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:37:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |                                     ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:25:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |                         ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… while calling the 'isString' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:14:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |              ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… from call site
+  at ./pkgs/herdr/default.nix:24:13:
+    23|
+    24|   zigDeps = callPackage "${src}/vendor/libghostty-vt/build.zig.zon.nix" {
+      |             ^
+    25|     name = "herdr-libghostty-vt-zig-cache";
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:322:5:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |     ^
+   323|       makeOverridable f allArgs
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/customisation.nix:322:28:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   323|       makeOverridable f allArgs
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:318:22:
+   317|       # arguments that weren't passed automatically to the function
+   318|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   319|
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:311:15:
+   310|       f = if isFunction fn then fn else import fn;
+   311|       fargs = functionArgs f;
+      |               ^
+   312|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |     ^
+  1110|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1109:8:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |        ^
+  1110|
+
+… while calling the 'import' builtin
+  at <nixpkgs> + /lib/customisation.nix:310:41:
+   309|     let
+   310|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   311|       fargs = functionArgs f;
+
+… while realising the context of path '/nix/store/y6r4fbckgwah8m55rz43zx50j5986904-source/vendor/libghostty-vt/build.zig.zon.nix'
+
+error: path '/nix/store/phd25mh1p8zxjlad0j6lbmcpml8qk4iy-source.drv' is not valid
