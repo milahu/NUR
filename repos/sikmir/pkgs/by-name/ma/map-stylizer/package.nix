@@ -45,5 +45,6 @@ python3Packages.buildPythonApplication {
     homepage = "https://github.com/Absolute-Tinkerer/map-stylizer";
     license = lib.licenses.gpl3;
     maintainers = [ lib.maintainers.sikmir ];
+    broken = true;
   };
 }
