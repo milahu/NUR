@@ -23,11 +23,11 @@ buildGo127Module (finalAttrs: {
   src = fetchFromCodeberg {
     owner = "matrix-venator";
     repo = "venator";
-    rev = "049de0138ac0c5233cdf04c855007603a3e9ace5";
-    hash = "sha256-DSQs0G2M1VmCq3VdkPx9JMUdvnv4jSWDhHFRWiaTFeA=";
+    rev = "980e017751beddeedb0b9a79167b9e8faf95b2d4";
+    hash = "sha256-ZgiGINo43QgKQVLY70BoH9MSkrR9ncLlgGxCvvk479E=";
   };
 
-  vendorHash = "sha256-zRKRoWfSQ0cPquHyGOZSPusosZNZ709/uZDSDazuBEs=";
+  vendorHash = "sha256-1/znvlE2AxEmYITU8FoNTK1T/5tz7s4+AiWnz88vHvA=";
 
   preBuild = lib.optionalString withDocs ''
     if [ -d vendor ]; then
