@@ -387,10 +387,10 @@
     };
     "anki-jpdb-reader" = buildMozillaXpiAddon {
       pname = "anki-jpdb-reader";
-      version = "0.8.0";
+      version = "0.8.1";
       addonId = "{67e602c3-7324-4b00-85cd-b652eb47b0f9}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5001529/anki_jpdb_reader-0.8.0.xpi";
-      sha256 = "ee70f0bfd24e8f2529fb8b57685c322af1afb25942e86890fef174984fd2f6f1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5008424/anki_jpdb_reader-0.8.1.xpi";
+      sha256 = "20a5ae2c50d4facd795f5acd184fbb71d5e589e5befdf7a91aeefed147dc9f92";
       meta = with lib;
       {
         homepage = "https://github.com/Kagu-chan/anki-jpdb.reader";
@@ -1054,6 +1054,21 @@
           "*://docs.google.com/spreadsheet*"
           "*://docs.google.com/presentation*"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "better-history-ng" = buildMozillaXpiAddon {
+      pname = "better-history-ng";
+      version = "2.3.0";
+      addonId = "{058af685-fc17-47a4-991a-bab91a89533d}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4937864/better_history_ng-2.3.0.xpi";
+      sha256 = "aeb122e934873fa207a841412f69f3bb7cdfdffe49cb383e1a51d7033205ca62";
+      meta = with lib;
+      {
+        homepage = "https://github.com/Christoph-Wagner/firefox-better-history-ng";
+        description = "A Better History page for Firefox, inspired by Vivaldi. \n\nIssues and suggestions on Github: https://github.com/Christoph-Wagner/firefox-better-history-ng";
+        license = licenses.unlicense;
+        mozPermissions = [ "history" "storage" ];
         platforms = platforms.all;
       };
     };
@@ -1931,7 +1946,7 @@
       meta = with lib;
       {
         homepage = "https://clearurls.xyz/";
-        description = "Removes tracking elements from URLs";
+        description = "Automatically removes tracking parameters from URLs";
         license = licenses.lgpl3;
         mozPermissions = [
           "<all_urls>"
@@ -2422,10 +2437,10 @@
     };
     "control-panel-for-twitter" = buildMozillaXpiAddon {
       pname = "control-panel-for-twitter";
-      version = "4.24.0";
+      version = "4.24.1";
       addonId = "{5cce4ab5-3d47-41b9-af5e-8203eea05245}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4963137/control_panel_for_twitter-4.24.0.xpi";
-      sha256 = "7345582690b64ddd994dd4962b8ce36a0039546021f1336ca3c9d34ac1789015";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5007691/control_panel_for_twitter-4.24.1.xpi";
+      sha256 = "8b5407ca43c8b30135caea2c8369f9e2fee15f9889c45dd4d13f40d4372c99ce";
       meta = with lib;
       {
         homepage = "https://soitis.dev/control-panel-for-twitter";
@@ -2892,6 +2907,21 @@
           "downloads"
           "https://*.jinteki.net/*"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "d004c62a8aed4f3b8ddd" = buildMozillaXpiAddon {
+      pname = "d004c62a8aed4f3b8ddd";
+      version = "1.6.2";
+      addonId = "re-start@refact0r.dev";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4977858/d004c62a8aed4f3b8ddd-1.6.2.xpi";
+      sha256 = "53da197fe3265f23df244ecddf92a3721aff2792c2dca750564a7c3624ef29ac";
+      meta = with lib;
+      {
+        homepage = "https://github.com/refact0r/re-start";
+        description = "a tui-style startpage/new tab page.";
+        license = licenses.mit;
+        mozPermissions = [];
         platforms = platforms.all;
       };
     };
@@ -6558,10 +6588,10 @@
     };
     "hyperchat" = buildMozillaXpiAddon {
       pname = "hyperchat";
-      version = "3.3.2";
+      version = "4.0.0";
       addonId = "{14a15c41-13f4-498e-986c-7f00435c4d00}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4881026/hyperchat-3.3.2.xpi";
-      sha256 = "1c6d33bc7f89f2ab7ebc3c801c07f23d693822b714d765793942f3851f6f0f0c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5007853/hyperchat-4.0.0.xpi";
+      sha256 = "c841ce2cbbdb0f078bdae43cf24eb054f138e2854fe5f8420a18fa75cbbd617e";
       meta = with lib;
       {
         homepage = "https://livetl.app/hyperchat/";
@@ -6939,6 +6969,21 @@
         description = "InlineDisposition Reloaded changes the disposition type of \"Content-Disposition\" response headers from \"attachment\" and \"file\" to \"inline\"";
         license = licenses.mpl20;
         mozPermissions = [ "webRequest" "webRequestBlocking" "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
+    "instagram-video-control" = buildMozillaXpiAddon {
+      pname = "instagram-video-control";
+      version = "1.9.2";
+      addonId = "{a831defa-a6c9-4ca9-9593-9ccaf98462d9}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4952327/instagram_video_control-1.9.2.xpi";
+      sha256 = "cb425a81d008036b33a590e6b4a3592d1831e9b80b5539982a5971013f8449c4";
+      meta = with lib;
+      {
+        homepage = "https://github.com/Arcus92/instagram-video-control/";
+        description = "Adds volume and play controls to Instagram videos.";
+        license = licenses.mit;
+        mozPermissions = [ "storage" "*://*.instagram.com/*" ];
         platforms = platforms.all;
       };
     };
@@ -8634,10 +8679,10 @@
     };
     "livetl" = buildMozillaXpiAddon {
       pname = "livetl";
-      version = "9.2.2";
+      version = "10.0.0";
       addonId = "{ae865fed-3ca7-4701-bb86-f129e77deef5}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4881029/livetl-9.2.2.xpi";
-      sha256 = "c4134753a4032033e5c1ddea424697c654d0bbcab98d4409d9843cc6b4f7d84e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5007848/livetl-10.0.0.xpi";
+      sha256 = "22900ac62ab013fc67f3f8b849307f62d27850031faa91860a95e3dae1fa0adf";
       meta = with lib;
       {
         homepage = "https://livetl.app/";
@@ -12832,10 +12877,10 @@
     };
     "remove-youtube-s-suggestions" = buildMozillaXpiAddon {
       pname = "remove-youtube-s-suggestions";
-      version = "4.3.82";
+      version = "4.3.83";
       addonId = "{21f1ba12-47e1-4a9b-ad4e-3a0260bbeb26}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4934617/remove_youtube_s_suggestions-4.3.82.xpi";
-      sha256 = "64aea3fefb5246a0ccaf0c8c5fdf60bf76010352100513dbd88cb03d759a5337";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5008757/remove_youtube_s_suggestions-4.3.83.xpi";
+      sha256 = "0aabbf8ab874790d1bc762707e13ae126539dfad565cdacccd1352aeb84bc5ac";
       meta = with lib;
       {
         homepage = "https://lawrencehook.com/rys/";
@@ -13631,10 +13676,10 @@
     };
     "single-file" = buildMozillaXpiAddon {
       pname = "single-file";
-      version = "1.24.0";
+      version = "1.24.1";
       addonId = "{531906d3-e22f-4a6c-a102-8057b88a1a63}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5003373/single_file-1.24.0.xpi";
-      sha256 = "9591325f353258006f7a3846e25560ab641e1c9d768c7521971142b23e4e3448";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5008547/single_file-1.24.1.xpi";
+      sha256 = "49299e02e3286a971eed30219c0af92021f217f7520588af24f954abb26c6fc9";
       meta = with lib;
       {
         homepage = "https://www.getsinglefile.com";
@@ -14639,6 +14684,51 @@
         platforms = platforms.all;
       };
     };
+    "tft-trade-extension" = buildMozillaXpiAddon {
+      pname = "tft-trade-extension";
+      version = "3.0.60";
+      addonId = "{3df9c1b1-fddd-4c8f-9b79-13d23f33aa48}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4916082/tft_trade_extension-3.0.60.xpi";
+      sha256 = "d86de9d4e412b2e898f5b9b8ba23f2c49c56e39ecf89255ce3f2ac891bf05232";
+      meta = with lib;
+      {
+        description = "An extension which integrates Discord branded tools into your browser. It provides safer and easier trading in Path of Exile.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "sidePanel"
+          "storage"
+          "tabs"
+          "notifications"
+          "https://poe.ninja/*"
+          "https://raw.githubusercontent.com/The-Forbidden-Trove/*"
+          "https://forbiddentrove.com/*"
+          "https://*.pathofexile.com/account/view-profile/*"
+          "https://poe.game.daum.net/account/view-profile/*"
+          "https://poe.game.qq.com/account/view-profile/*"
+          "https://www.pathofexile.com/account/view-profile/*"
+          "https://*.pathofexile.com/guild/*"
+          "https://*.pathofexile.com/my-guild/*"
+          "https://poe.game.daum.net/guild/*"
+          "https://poe.game.daum.net/my-guild/*"
+          "https://poe.game.qq.com/guild/*"
+          "https://poe.game.qq.com/my-guild/*"
+          "https://www.pathofexile.com/guild/*"
+          "https://www.pathofexile.com/my-guild/*"
+          "https://*.pathofexile.com/trade*"
+          "https://pathofexile2.kakaogames.com/trade*"
+          "https://poe.game.daum.net/trade*"
+          "https://poe.game.qq.com/trade*"
+          "https://poe.kakaogames.com/trade*"
+          "https://www.pathofexile.com/trade*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "the-camelizer-price-history-ch" = buildMozillaXpiAddon {
       pname = "the-camelizer-price-history-ch";
       version = "3.0.15";
@@ -14883,6 +14973,36 @@
           "scripting"
           "webNavigation"
           "webRequest"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "topicus-keyhub" = buildMozillaXpiAddon {
+      pname = "topicus-keyhub";
+      version = "9.0.1";
+      addonId = "keyhub@topicus.nl";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4953882/topicus_keyhub-9.0.1.xpi";
+      sha256 = "7c39b0c21f015e13ce628ce325303df8c4901bc18658c0e614c9345a27289b72";
+      meta = with lib;
+      {
+        homepage = "https://www.topicus-keyhub.com";
+        description = "Topicus KeyHub lifts Identity &amp; Access Management to the next level with a new revolutionary security structure: central authentication and decentral autorisation.\n\nWith this add-you can easily access all your passwords stored in Topicus KeyHub.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "clipboardWrite"
+          "contextMenus"
+          "scripting"
+          "storage"
+          "tabs"
+          "webRequest"
+          "webRequestBlocking"
+          "https://*/console*"
           "<all_urls>"
         ];
         platforms = platforms.all;
@@ -17169,6 +17289,21 @@
         platforms = platforms.all;
       };
     };
+    "woordenboek-nederlands" = buildMozillaXpiAddon {
+      pname = "woordenboek-nederlands";
+      version = "4.20.19";
+      addonId = "nl-NL@dictionaries.addons.mozilla.org";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3776797/woordenboek_nederlands-4.20.19.xpi";
+      sha256 = "ad1cd9588b4864d22310f78675e931db97691ab5fb92a5f52175bf477ebe7afc";
+      meta = with lib;
+      {
+        homepage = "http://www.mozilla-nl.org";
+        description = "Dutch dictionary with wordslist from OpenTaal.";
+        license = licenses.gpl3;
+        mozPermissions = [];
+        platforms = platforms.all;
+      };
+    };
     "xbrowsersync" = buildMozillaXpiAddon {
       pname = "xbrowsersync";
       version = "1.5.2";
@@ -17544,7 +17679,6 @@
       {
         homepage = "https://pockettube.io";
         description = "The best way to group your subscriptions\r\nUsing this simple extension you can create collections that seamlessly fit into YouTube's layout.";
-        license = licenses.mpl20;
         mozPermissions = [
           "alarms"
           "storage"
@@ -17578,10 +17712,10 @@
     };
     "ytcfilter" = buildMozillaXpiAddon {
       pname = "ytcfilter";
-      version = "3.1.3";
+      version = "4.0.0";
       addonId = "{20f2dcdf-6f8d-4aeb-862b-b13174475d9c}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4892792/ytcfilter-3.1.3.xpi";
-      sha256 = "dfe04ce329bae41349e880723a0452e626aa1d85bf11e05a7070739154f0c5fb";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5007852/ytcfilter-4.0.0.xpi";
+      sha256 = "f4d1b566fa8dbfb3ddb4e9bbfaa45e1fa720bc094511c1d198f7599bca18e814";
       meta = with lib;
       {
         description = "The most powerful and intuitive YouTube chat filter extension.";
