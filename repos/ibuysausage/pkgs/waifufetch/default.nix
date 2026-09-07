@@ -9,7 +9,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "waifufetch";
-  version = "main";
+  version = "03c7e12";
 
   src = fetchFromGitHub {
     owner = "JGH0";
