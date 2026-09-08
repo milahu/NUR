@@ -13,7 +13,6 @@ Current examples:
 
 - `JMComic-qt`
 - `LoveIwara`
-- `deskbrid`
 - `mcp-cli`
 - `grub-theme-yorha`
 - `waybar-vd`
@@ -49,6 +48,5 @@ nix-build ci.nix -A cacheOutputs
 
 - `LoveIwara` has Flutter pub-lock, native-asset, SQLite, and libmpv runtime handling.
 - `JMComic-qt` and `picacg-qt` expect the model-linked `sr-vulkan` composition.
-- `deskbrid` resolves compositor helper tools (hyprctl, grim, wl-clipboard, ydotool, ...) from PATH at runtime; it is intentionally not wrapped.
 
 !`nix-build -A "$ARGUMENTS"`
