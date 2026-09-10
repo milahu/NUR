@@ -1,19 +1,19 @@
 {
 "name":"msaxena",
-"fetch_time":0.639,
-"eval_time":1.35,
+"fetch_time":0.776,
+"eval_time":1.92,
 "source":{
 "url":"https://github.com/MayurSaxena/nurpkgs",
-"rev":"3328c37e6e6b42eb72549ebfb4e961e681a3f65f",
-"sha256":"0ys9gbhqg12z4cwlnxq79xrpa9zscr7admhnzci14s0r99v9w82p",
+"rev":"6093504795400e45c4ce0ebe207150cd451ff603",
+"sha256":"0zjfi6nmhbfzzq9id71q9m83w0f13jlx7hsd8bm72ssc1m0qd5kk",
 "date":null
 },
-"source_storepath":"/nix/store/w32dla0bw5gayq9hqj3fhcbnw7vyrdaf-source",
-"nixpkgs_storepath":"/nix/store/k3l29h5zgrq9bg5m483v4di1v88y7ygp-source",
-"nur_combined_rev":"242f73eb999e769bb4f89fd56324ffe9e799d2c0",
+"source_storepath":"/nix/store/cvfy5qs4gmaxqs09z4qk77rj4dgjd5xs-source",
+"nixpkgs_storepath":"/nix/store/00llm18x7j550dzphh50qplzrl8cg79b-source",
+"nur_combined_rev":"5189ce8a1fa8dc4d175b7a98a9e9969b36024488",
 "packages":{
 "scrobblex":{
-"drvPath":"/nix/store/f9b88akjqgk5ya4z4y3mhwvk2zv8wzx2-scrobblex-1.6.0.drv",
+"drvPath":"/nix/store/hs1xd4kamnly5w3wlviaj7p2vby9i15g-scrobblex-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -114,11 +114,11 @@
 "version":"1.6.0"
 },
 "trek":{
-"drvPath":"/nix/store/zlnvxw4gl0q5sfmc7590n2fkhyz8yash-trek-3.4.1.drv",
+"drvPath":"/nix/store/8jdmbcjs78spzr5fp3akjvzyfhdcmpy4-trek-4.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/liketrek/TREK/releases/tag/v3.4.1",
+"changelog":"https://github.com/liketrek/TREK/releases/tag/v4.2.1",
 "description":"Self-hosted, real-time collaborative travel planner with mapping, budgeting, packing lists and journaling",
 "homepage":"https://github.com/liketrek/TREK",
 "identifiers":{
@@ -164,7 +164,7 @@
 "longDescription":"TREK is a self-hosted travel planning application. It provides\ninteractive trip mapping, collaborative real-time editing, budgeting,\npacking lists, journaling, and OIDC/WebAuthn-backed authentication, all\nbacked by a local SQLite database.\n",
 "mainProgram":"trek",
 "maintainers":[],
-"name":"trek-3.4.1",
+"name":"trek-4.2.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -206,21 +206,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"trek-3.4.1",
+"name":"trek-4.2.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"trek",
 "system":"x86_64-linux",
-"version":"3.4.1"
+"version":"4.2.1"
 },
 "yamtrack":{
-"drvPath":"/nix/store/q05xzzaanlp3gl525frazq92b23rk8yn-yamtrack-0.26.1.drv",
+"drvPath":"/nix/store/hnr3byghh5l23s5q45fr4h81k8cgmhb3-yamtrack-0.26.3.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/FuzzyGrim/Yamtrack/releases/tag/v0.26.1",
+"changelog":"https://github.com/FuzzyGrim/Yamtrack/releases/tag/v0.26.3",
 "description":"Self hosted media tracker for movies, TV shows, anime, manga, games, books and more",
 "homepage":"https://github.com/FuzzyGrim/Yamtrack",
 "identifiers":{
@@ -265,7 +265,7 @@
 },
 "longDescription":"Yamtrack is a self-hosted Django application for tracking the media you\nwatch, read and play. It integrates with TMDB, MyAnimeList, IGDB,\nHardcover, ComicVine and other providers for metadata, and supports\nimporting from and scrobbling to Trakt, AniList, SIMKL and others.\n\nThis package builds Yamtrack from source against nixpkgs' Python\npackage set instead of using the upstream Docker image, so it does not\nitself include nginx or supervisord. Use the accompanying\n`nixosModules.yamtrack` NixOS module to run it as systemd services --\nas of the module's `port`/`host` breaking change (see that option's\ndescription), it provides its own co-located Caddy-based equivalent of\nupstream's bundled nginx layer (static-file serving, X-Real-IP), so\nnothing further is required for a working deployment.\n",
 "maintainers":[],
-"name":"yamtrack-0.26.1",
+"name":"yamtrack-0.26.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -307,14 +307,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yamtrack-0.26.1",
+"name":"yamtrack-0.26.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"yamtrack",
 "system":"x86_64-linux",
-"version":"0.26.1"
+"version":"0.26.3"
 }
 }
 }
