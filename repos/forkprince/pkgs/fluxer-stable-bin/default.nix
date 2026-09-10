@@ -18,6 +18,7 @@
     description = "Fluxer desktop client";
     homepage = "https://fluxer.app";
     license = lib.licenses.agpl3Only;
+    platforms = lib.platforms.darwin ++ lib.platforms.linux;
     mainProgram = "fluxer-stable-bin";
     maintainers = with lib.maintainers; [WoutFontaine Prinky];
   };
@@ -44,6 +45,10 @@ in
   in
     appimageTools.wrapType2 {
       inherit pname version src meta;
+
+      profile = ''
+        export FLUXER_DISABLE_DESKTOP_FILE=1
+      '';
 
       extraInstallCommands = ''
         install -Dm444 ${desktopItem}/share/applications/*.desktop \
