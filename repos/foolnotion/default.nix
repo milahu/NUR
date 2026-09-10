@@ -21,6 +21,8 @@ rec {
 
   asmjit = pkgs.callPackage ./pkgs/asmjit { };
 
+  betterbird = pkgs.callPackage ./pkgs/betterbird { };
+
   autodiff = pkgs.callPackage ./pkgs/autodiff { };
 
   berserk = pkgs.callPackage ./pkgs/berserk {
