@@ -61,6 +61,18 @@
     kernelModules = [ "kvm-intel" ];
   };
   userPresets.toyvo.enable = true;
+  nixcfg = {
+    nix.enable = true;
+    security.enable = true;
+    home-manager.enable = true;
+    networking.enable = true;
+    system.enable = true;
+    boot.enable = true;
+  };
+  catppuccin = {
+    enable = true;
+    autoEnable = true;
+  };
   services.openssh.enable = true;
   environment.systemPackages = with pkgs; [
     signal-cli
