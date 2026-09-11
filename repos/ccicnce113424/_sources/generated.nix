@@ -52,34 +52,23 @@
       sha256 = "sha256-GB+GHCLSgfv6HQxjEQACzZVK5kUtGKPzBCm+M5z6nIA=";
     };
   };
-  enimul = {
-    pname = "enimul";
-    version = "v0.6.0";
-    src = fetchFromGitHub {
-      owner = "lzpls";
-      repo = "enimul";
-      rev = "v0.6.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-5p0ioUtwhkSfSAkPTOT14pSa6WjxzQykxTHl9szE7zQ=";
-    };
-  };
   fast-nix-gc = {
     pname = "fast-nix-gc";
-    version = "18d82a8ce3e938ff97b5e11c7d2033f0333af5bb";
+    version = "4225a2de3f3b4f1a680d41ad79214b8a973d087b";
     src = fetchFromGitHub {
       owner = "Mic92";
       repo = "fast-nix-gc";
-      rev = "18d82a8ce3e938ff97b5e11c7d2033f0333af5bb";
+      rev = "4225a2de3f3b4f1a680d41ad79214b8a973d087b";
       fetchSubmodules = false;
-      sha256 = "sha256-AvaugOI0Hb8ZG+2goIbISKpYfW6ovdvDm/uf7PT8PO8=";
+      sha256 = "sha256-IGiThwVbnJRrWkFXngryoDxa0uPZJnP4fU+dfRWWJxk=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-AvaugOI0Hb8ZG+2goIbISKpYfW6ovdvDm_uf7PT8PO8=/Cargo.lock";
+      lockFile = ./. + "/sha256-IGiThwVbnJRrWkFXngryoDxa0uPZJnP4fU+dfRWWJxk=/Cargo.lock";
       outputHashes = {
         "harmonia-file-core-3.1.0" = "sha256-YklzRujFo5lvFsdLoedE6OL6OvSwNk/nfwlGxulyTS4=";
       };
     };
-    date = "2026-09-03";
+    date = "2026-09-10";
   };
   flake-linter = {
     pname = "flake-linter";
@@ -227,16 +216,16 @@
   };
   motrix-next-beta = {
     pname = "motrix-next-beta";
-    version = "v3.9.9-beta.3";
+    version = "v3.9.9";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "motrix-next";
-      rev = "v3.9.9-beta.3";
+      rev = "v3.9.9";
       fetchSubmodules = false;
-      sha256 = "sha256-x6gu5R2P9VgWClxM7gejSdGVeoIDFPP5TV29YmG3J9I=";
+      sha256 = "sha256-HIEvsivOiHAyKAEwfPytS31M9wHxC3fmh6e1Sn3AHKo=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-x6gu5R2P9VgWClxM7gejSdGVeoIDFPP5TV29YmG3J9I=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-HIEvsivOiHAyKAEwfPytS31M9wHxC3fmh6e1Sn3AHKo=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -268,21 +257,21 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "12383c0572975d7b6f33006c12b1cd86cd5ce327";
+    version = "bc8dc59281f56de3eb4f9367486be457a70adf3d";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "12383c0572975d7b6f33006c12b1cd86cd5ce327";
+      rev = "bc8dc59281f56de3eb4f9367486be457a70adf3d";
       fetchSubmodules = false;
-      sha256 = "sha256-RqZpP49xmRTCAcb2R+RP0Cs/7PkS20uonnjIP0PZYh8=";
+      sha256 = "sha256-b6tQZoFOm9duxzSfpcgaCtN9NqIWfx+azwz6Ka9No1g=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-RqZpP49xmRTCAcb2R+RP0Cs_7PkS20uonnjIP0PZYh8=/Cargo.lock";
+      lockFile = ./. + "/sha256-b6tQZoFOm9duxzSfpcgaCtN9NqIWfx+azwz6Ka9No1g=/Cargo.lock";
       outputHashes = {
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-09-08";
+    date = "2026-09-10";
   };
   piliplus = {
     pname = "piliplus";
