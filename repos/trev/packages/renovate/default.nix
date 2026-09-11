@@ -2,6 +2,7 @@
   cctools,
   fetchFromGitHub,
   fetchPnpmDeps,
+  git,
   lib,
   makeWrapper,
   nix-update-script,
@@ -17,13 +18,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "renovate";
-  version = "44.71.2";
+  version = "44.78.0";
 
   src = fetchFromGitHub {
     owner = "renovatebot";
     repo = "renovate";
     tag = finalAttrs.version;
-    hash = "sha256-Zxhw/07LVFqZjHtz8xKMTWyGzpV9/wye3ewtEWL3+F4=";
+    hash = "sha256-tlkmC9X9mVVwWn1/C4b/X0s4fjKRxF31AXEaT+yxw3E=";
   };
 
   patches = [
@@ -47,11 +48,13 @@ stdenv.mkDerivation (finalAttrs: {
     cctools.libtool
   ];
 
+  nativeInstallCheckInputs = [ git ];
+
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_11;
     fetcherVersion = 4;
-    hash = "sha256-aKL7gYx6TZcbrUCh5A2y2sDlarFBaLY2UfyJ2xoCmac=";
+    hash = "sha256-FPLv30F2NwE+2NfXDOqGj++0/IkKYq7LBej/6SgrRhQ=";
   };
 
   env.COREPACK_ENABLE_STRICT = 0;
@@ -95,6 +98,26 @@ stdenv.mkDerivation (finalAttrs: {
       --add-flags "$out/lib/node_modules/renovate/dist/config-validator.js"
 
     runHook postInstall
+  '';
+
+  doInstallCheck = stdenv.buildPlatform.canExecute stdenv.hostPlatform;
+  installCheckPhase = ''
+    runHook preInstallCheck
+
+    testDir="$(mktemp -d)"
+    printf '%s\n' '{"dependencies":{"left-pad":"1.3.0"}}' > "$testDir/package.json"
+    printf '%s\n' '{}' > "$testDir/renovate.json"
+
+    export HOME="$(mktemp -d)"
+    pushd "$testDir"
+    "$out/bin/renovate" \
+      --platform=local \
+      --dry-run=extract \
+      --repository-cache=disabled \
+      --enabled-managers=npm
+    popd
+
+    runHook postInstallCheck
   '';
 
   passthru.updateScript = [
