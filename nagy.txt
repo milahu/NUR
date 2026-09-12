@@ -1,74 +1,39 @@
 error:
-… while evaluating the attribute 'packages.x86_64-linux.bruvtab'
-  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:44:7:
-    43|     {
-    44|       packages = forAllSystems (system:
-      |       ^
-    45|         let
+… while evaluating attribute 'postInstall' of derivation 'kicad-mcp-server-2.7.0'
+  at ./pkgs/by-name/kicad-mcp-server.nix:63:3:
+    62|   # them into the package root so `dist/index.js` can find them at runtime.
+    63|   postInstall = ''
+      |   ^
+    64|     installDir=$out/lib/node_modules/kicad-mcp
 
-… from call site
-  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:44:18:
-    43|     {
-    44|       packages = forAllSystems (system:
-      |                  ^
-    45|         let
+… while calling the 'head' builtin
+  at ./pkgs/by-name/kicad-mcp-server.nix:22:26:
+    21|     in
+    22|     "${kicad.base}/lib/${builtins.head pyVers}/site-packages";
+      |                          ^
+    23|
 
-… while calling 'forAllSystems'
-  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:41:23:
-    40|       ];
-    41|       forAllSystems = f: lib.genAttrs systems (system: f system);
-      |                       ^
-    42|     in
+… while calling the 'filter' builtin
+  at ./pkgs/by-name/kicad-mcp-server.nix:20:16:
+    19|       libdirs = builtins.attrNames (builtins.readDir "${kicad.base}/lib");
+    20|       pyVers = builtins.filter (d: builtins.match "python[0-9.]+" d != null) libdirs;
+      |                ^
+    21|     in
 
-… from call site
-  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:19:13:
-    18|       firefoxAppId = "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}";
-    19|       lib = nixpkgs.lib;
-      |             ^
-    20|       projectSource = lib.cleanSourceWith {
+… while calling the 'attrNames' builtin
+  at ./pkgs/by-name/kicad-mcp-server.nix:19:17:
+    18|     let
+    19|       libdirs = builtins.attrNames (builtins.readDir "${kicad.base}/lib");
+      |                 ^
+    20|       pyVers = builtins.filter (d: builtins.match "python[0-9.]+" d != null) libdirs;
 
-… while calling anonymous lambda
-  at «flakes-internal»/call-flake.nix:68:37:
-    67|
-    68|       inputs = mapAttrs (inputName: inputSpec: allNodes.${resolveInput inputSpec}.result) (
+… while calling the 'readDir' builtin
+  at ./pkgs/by-name/kicad-mcp-server.nix:19:37:
+    18|     let
+    19|       libdirs = builtins.attrNames (builtins.readDir "${kicad.base}/lib");
       |                                     ^
-    69|         node.inputs or { }
+    20|       pyVers = builtins.filter (d: builtins.match "python[0-9.]+" d != null) libdirs;
 
-… while evaluating the attribute 'nixpkgs.result'
-  at «flakes-internal»/call-flake.nix:94:7:
-    93|     {
-    94|       result =
-      |       ^
-    95|         if node.flake or true then
+… while realising the context of path '/nix/store/2lsgshq39p2s0gkn9fj0hrfkgiabqbas-kicad-base-10.0.6/lib'
 
-… in the condition of the assert statement
-  at «flakes-internal»/call-flake.nix:96:11:
-    95|         if node.flake or true then
-    96|           assert builtins.isFunction flake.outputs;
-      |           ^
-    97|           result
-
-… while calling the 'isFunction' builtin
-  at «flakes-internal»/call-flake.nix:96:18:
-    95|         if node.flake or true then
-    96|           assert builtins.isFunction flake.outputs;
-      |                  ^
-    97|           result
-
-… while calling the 'import' builtin
-  at «flakes-internal»/call-flake.nix:66:15:
-    65|
-    66|       flake = import (outPath + "/flake.nix");
-      |               ^
-    67|
-
-… while realising the context of a path
-
-… while calling the 'fetchFinalTree' builtin
-  at «flakes-internal»/call-flake.nix:56:11:
-    55|           # Note: lock file entries are always final.
-    56|           fetchTreeFinal (node.info or { } // removeAttrs node.locked [ "dir" ]);
-      |           ^
-    57|
-
-error: access to URI 'github:NixOS/nixpkgs/549bd84d6279f9852cae6225e372cc67fb91a4c1?narHash=sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9%2BhrDTkDU%3D' is forbidden in restricted mode
+error: path '/nix/store/mahp7vb5gpfl2pq9i24pdsi5vzywf5q5-kicad-base-10.0.6.drv' is not valid
