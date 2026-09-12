@@ -1,16 +1,16 @@
 {
 "name":"examosa",
-"fetch_time":1.737,
-"eval_time":0.658,
+"fetch_time":0.87,
+"eval_time":0.677,
 "source":{
 "url":"https://codeberg.org/examosa/nur-packages",
-"rev":"568ef0ebf5408ce171f7ec5a11a8e4f92511f2cf",
-"sha256":"0j7c0xmrzvydby27x4h3nsvdaw44jianpw2g6pjv0cgphkybyg9g",
+"rev":"f1dc56ce74ae9a14ffc2eac8c406d4e85bc83788",
+"sha256":"1vf8lhyp0bpfzihpnnslx2kwxy6rph59smamx3mmw1iir06gal86",
 "date":null
 },
-"source_storepath":"/nix/store/vr3jdp5hlgz8y2dsas1hbf9g566qcr89-nur-packages",
-"nixpkgs_storepath":"/nix/store/ynpa6961z524pvxif917f1gd2smkvc8w-source",
-"nur_combined_rev":"af9625bbb3f424e4f0335681b59778d604ab5de8",
+"source_storepath":"/nix/store/0q2g7dp6q2nfb420ikqz1k0ax77qad09-nur-packages",
+"nixpkgs_storepath":"/nix/store/1ng9qp2m2l05hdgadl9f8g203hm43a1v-source",
+"nur_combined_rev":"f88986e6f54f1d030be84680b9132f4ab2990e4d",
 "packages":{
 "attempt":{
 "drvPath":"/nix/store/y4ybalvnqwxaxb5ianskdza15hlmvaz0-attempt-1.1.1.drv",
@@ -137,7 +137,7 @@
 "version":"1.1.1"
 },
 "aube":{
-"drvPath":"/nix/store/0g39w6ccvn3misffq0rjw67i4ljh9lnd-aube-2.2.9.drv",
+"drvPath":"/nix/store/2hs5j572zddq9i5spg35f6k76g4ciw2i-aube-2.2.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -254,7 +254,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/aube.nix:83",
+"position":"./packages/aube.nix:105",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -688,7 +688,7 @@
 "version":"1.2.3"
 },
 "fnox":{
-"drvPath":"/nix/store/b873kjpl7s2lskizxk79cr4d3f552ygc-fnox-1.34.1.drv",
+"drvPath":"/nix/store/53wxasxfc5cmyqbsxk397my0h0diynkh-fnox-1.34.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -852,7 +852,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:84",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:87",
 "problems":{},
 "unfree":false,
 "unsupported":false
