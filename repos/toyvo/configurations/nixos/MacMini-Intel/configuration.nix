@@ -11,7 +11,6 @@
 {
   imports = [
     inputs.nixcfg.modules.nixos.default
-    inputs.nixos-hardware.nixosModules.apple-t2
     inputs.catppuccin.nixosModules.catppuccin
     inputs.dioxus_monorepo.nixosModules.discord_bot
     inputs.disko.nixosModules.disko
@@ -22,15 +21,21 @@
     inputs.sops-nix.nixosModules.sops
   ];
 
-  # Override T2 kernel to use stablePkgs.linux_6_12 (6.12.76) because
-  # unstablePkgs.linux_6_12 (6.12.77) has a patch failure in nixos-hardware.
-  boot.kernelPackages = lib.mkForce (
-    pkgs.linuxPackagesFor (
-      pkgs.callPackage (inputs.nixos-hardware + "/apple/t2/pkgs/linux-t2") {
-        linux_6_12 = stablePkgs.linux_6_12;
-      }
-    )
-  );
+  # Mainline kernel, and the nixos-hardware apple-t2 module is deliberately
+  # not imported: its pinned t2linux patchset no longer applies to linux_6_18
+  # (4001-asahi-trackpad.patch fails on drivers/hid/hid-magicmouse.c), and a
+  # headless Mac Mini doesn't need apple-bce (internal keyboard/trackpad and
+  # audio) — USB peripherals use the stock drivers. Re-importing the module
+  # would also be required to use hardware.apple-t2.firmware (WiFi/BT
+  # firmware; the drivers themselves, brcmfmac/btusb, are mainline).
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
+  # Kernel parameters previously contributed by the apple-t2 module,
+  # kept so boot behavior is unchanged.
+  boot.kernelParams = [
+    "intel_iommu=on"
+    "iommu=pt"
+    "pm_async=off"
+  ];
 
   home-manager = {
     extraSpecialArgs = {
