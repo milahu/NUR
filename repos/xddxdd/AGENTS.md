@@ -137,8 +137,8 @@ appimageTools.wrapType2 {
 
 1. 在包目录下维护 `sources.json`，每个条目含 `version`/`url`/`hash`（nginx 的 GitHub 模块条目为 `owner`/`repo`/`rev|tag`/`hash`/可选 `fetchSubmodules`）
 2. default.nix 通过 `builtins.fromJSON (builtins.readFile ./sources.json)` 读取并构造 fetcher
-3. 包目录下的 `update.sh` 负责探测新版本、用 `nix store prefetch-file --json [--unpack] <url>` 计算哈希（GitHub tarball 用 `--unpack`，其结果与 fetchFromGitHub 哈希一致），最后整体重写 `sources.json`
-4. 注意：nix-update 只支持单一 `version`/`src` 属性，因此多源包必须走本模式；`sort -V` 是字典序，纯数字版本比较需按 `.` 分段转整数排序
+3. 包目录下的 `update-standalone.*` 负责探测新版本、用 `nix store prefetch-file --json [--unpack] <url>` 计算哈希（GitHub tarball 用 `--unpack`，其结果与 fetchFromGitHub 哈希一致），最后整体重写 `sources.json`
+4. 注意：nix-update 只支持单一 `version`/`src` 属性，且 `helpers/update.nix` 运行器会跳过含 `sources.` 引用的包，因此多源包必须走本模式；`sort -V` 是字典序，纯数字版本比较需按 `.` 分段转整数排序
 
 ### 版本约定
 
@@ -163,12 +163,18 @@ appimageTools.wrapType2 {
   - 最终通过 `update-source-version` 改写文件：它从仓库根用 `nix-instantiate -A <attr>` 求值（根 default.nix 会被自动调用），因此包文件里必须存在字面量 `version = "...";`（全文唯一）、`rev = "<40位哈希>";`、`hash = "...";`，且 `meta.position` 必须指向该文件——**共享 generic.nix 之类的包（如 liboqs-unstable）必须写成独立文件**，否则 position 指向共享文件导致找不到哈希
   - 版本日期取 HEAD commit 的 committer date（`git show -s --pretty=format:%cs`），与 nix-update 用的 atom feed 日期可能相差一天
   - 已知坑：**同 rev 但版本串变化**（如日期漂移、前缀格式切换）时，`update-source-version` 在 rev 替换的 cmp 检查处 die，文件会残留 tempHash `sha256-AzH1rZFqEH8sovZZfJykvsEmCedEZWigQFHWHl6/PdE=` 与 `.nix.cmp` 备份——修复方法：版本行已是正确新值，把 hash 恢复为 git HEAD 里的原值（同 rev 同源同哈希），删掉 .cmp 后重跑（会以 same version 退出）
+  - **tempHash 残留会让 updater 永久卡死并被 auto-update 反复提交**（openssl-oqs-provider 实例，2026-09-08 起连续 4 天构建失败，源码级机制已核实）：update-source-version 的 sha256 tempHash 是固定字面量 `AzH1rZF...`。第一次 die（同 rev 但 tag 前缀变化 0.10.0 → 0.12.0-rc1，`--rev` 替换 no-op → cmp 判等 → die）发生在"已写入 tempHash、未写入最终哈希"之间，文件从此残留 tempHash 并被 auto-commit 提交；此后**每次重跑都在 temp hash 替换一步 die**——因为文件里的旧哈希恰好等于 tempHash 字面量，sed 替换是 no-op，cmp 判等报 `Failed to replace source hash ... to a temporary hash!`。updater 自身永远无法自愈，且每日只推进 version 日期（version 与 rev/hash 脱节），依赖方（lantianCustomized.nginx 依赖 openssl-oqs-provider）跟着连续 Dependency failed。修复：手工改三行（rev = 上游 HEAD、version = `<tag 去前缀>-unstable-<HEAD 日期>`、hash = `nix store prefetch-file --json --unpack <HEAD tarball>`），并以 `nix build .#<pkg>.src` 验证；该包已改用自定义 update.sh（见下条），不再使用 unstableGitUpdater
   - 仅支持 git 可 clone 的 URL；dpdk-kmods 只能 `git://dpdk.org/dpdk-kmods`（https 路径 cgit 不提供 smart HTTP）
   - 跟踪的 fork 分支可能比默认分支新（如 flaresolverr-alexfozor），首次运行版本回退属正常
   - `helpers/update.nix` 运行器原生支持 unstableGitUpdater 返回的列表形式 updateScript；`nvlax`（同文件多哈希）与 `qsp`（自定义多步 update.sh）不适用，保持原状
 - **nix-update 的文件改写行为（源码已验证）**：`replace_version` 先定位 `version = "..."` 声明行；若该行包含旧版本字符串，则**只改写这一行**，其余行一律不动——因此 `url = ".../foo-1.2.3.tar.gz"` 这种内嵌版本字面量的 URL 永远不会被 nix-update 更新（版本号变了但 src 仍拉旧版，哈希不变，静默失败）。若 version 声明行不含旧版本字面量（如 `inherit version;`），则退化为全文件范围内把带引号的独立字符串 `"旧版本"` 整体替换成 `"新版本"`（仍只匹配独立带引号字符串，匹配不到 URL 内嵌片段）。rev/tag 则不同：nix-update 用求值出的旧 rev/tag 值在全文件做子串替换（release 模式与 `--version branch` 模式都携带新 rev/tag）。综上：**fetchurl 的 URL 必须用 `${finalAttrs.version}` 插值**；fetchFromGitHub 的 tag 也建议插值；rev 字面量可由 nix-update 自动维护，无需也无法插值
 - **例外：自维护 URL 的 update.sh**：geolite2、netboot-xyz 的 update.sh 自己 grep + sed 重写 URL 与哈希，字面量 URL 是脚本的工作前提，不要改成插值；改动这两个包时保持 update.sh 与 URL 字面量同步修改
 - **非 GitHub 源**（webpage 抓取、AUR 等）：手写自定义更新脚本。脚本必须作为独立文件放在包目录下（如 `pkgs/uncategorized/baidunetdisk/update.sh`），不要内联在 default.nix 中；在包定义里用 `passthru.updateScript = [ (toString ./update.sh) ];` 引用。运行器以仓库根目录为 cwd 执行脚本，并设置 `UPDATE_NIX_ATTR_PATH`/`UPDATE_NIX_PNAME`/`UPDATE_NIX_NAME`/`UPDATE_NIX_OLD_VERSION` 环境变量；脚本内部获取新版本号后调用 `nix-update "$UPDATE_NIX_ATTR_PATH" --version "$NEW_VERSION"`（参考 `pkgs/uncategorized/baidunetdisk/update.sh`）
+- **禁止使用 api.github.com**（匿名限流 60 req/h，CI 里必挂）：版本探测一律用 atom feed 或 git 协议。tag/release 列表用 `https://github.com/<owner>/<repo>/{tags,releases}.atom`：tag 名从 `releases/tag/<tag>` 的 link href 或 `<id>tag:github.com,2008:Repository/<id>/<tag></id>` 解析。注意 atom feed 只含最近约 10 条，且 tags.atom 只列出附有 release 说明的 tag（无 release 的仓库如 zhoreeq/coredns-meshname，feed 为空）；需要完整 tag 列表时改用 `git ls-remote --tags <url>`（行尾 `^{}` 为 peeled 引用需过滤）。跟踪 HEAD 用 commits.atom 的 `<id>[^<]*/\K[0-9a-f]{40}`。releases feed 是最新在前，取 `tags[0]`；不要用字典序 sort 取“最新”（会把 0.9.0 排在 0.15.0 后）
+- **nix-prefetch-url / nix-prefetch-git 已全部替换为 `nix store prefetch-file --json [--unpack] <url>`**：输出 JSON 的 `.hash` 为 SRI 格式（fetchurl/fetchFromGitHub 的 sha256 参数均接受 SRI，可与既有 base32 条目混存）。GitHub archive tarball 加 `--unpack` 的哈希与 fetchFromGitHub 一致，可替代 nix-prefetch-git；需要完整 git 克隆语义时才用 `nix-prefetch-git`
+- **tarball prefetch 哈希对 `fetchSubmodules = true` 的源永远不匹配**：GitHub tarball 不含 git 子模块，`nix store prefetch-file --unpack` 算出的哈希只覆盖 worktree；而 `fetchFromGitHub { fetchSubmodules = true; }` 的 FOD 哈希包含子模块内容。更新脚本若用 tarball 哈希写这类条目，构建必挂。实例（2026-09-12）：nginx 的 `nginx-auth-jwt 0.15.0`/`nginx-oidc 0.8.0` 在 tag 升级时被写入 tarball 哈希（旧 tag 时代哈希是当初打包时用正确方法算的，脚本对"tag 未变"的条目从不重算哈希，故潜伏到下次 tag 变更才爆炸）；qsp 的 update.sh 更是用 `nix store prefetch-file --json`（连 `--unpack` 都没有，等于 tarball **文件**哈希）计算 qsp-wx（fetchSubmodules=true）哈希，所幸 rev 未变过才未爆雷。**也不能改用 `nix flake prefetch 'git+...?submodules=1'`**：其 narHash 与 fetchFromGitHub 的 FOD 哈希在部分仓库一致（kjdev/nginx-oidc、nginx-auth-jwt 实测一致）但并非普适（wxWidgets@5d63efc9 实测不一致），一致性无保证。唯一可靠方法是**用包自身相同的 fetcher 计算哈希**（nix-update 内部同款）：以 dummy 哈希 `sha256-AAAA...` 构建该 fetchFromGitHub FOD，从报错 `got:` 行取真实哈希，最后 `nix build .#<pkg>.src` 收尾验证。已落地：nginx 的 update-standalone.sh 对 fetchSubmodules 条目**每次运行都重算哈希**（自愈既有错哈希）、qsp 的 update.sh 改用 FOD-echo；openssl-oqs-provider 弃用 unstableGitUpdater，改用自带 update.sh（commits.atom 取 rev/日期 + ls-remote 取 tag + prefetch-file 算哈希 + `nix build .#$ATTR.src` 验证，version 仅在 rev 变化时更新，规避上条的 tempHash 卡死）
+- **更新脚本只在版本变化时写哈希 = 既有哈希永远不被校验**：上游内容漂移（如旧 tag 上新增 `.gitmodules`、re-tag）或脚本自身写错哈希都不会被更新流程发现，只有等 Hydra 构建失败才暴露。写哈希的脚本必须在写入后（或每次运行时对易错条目）做一次真实构建验证，把哈希错误挡在提交之前，而不是依赖 CI 构建兜底
+- **不要用 `bash xxx.py` 运行 python 更新脚本**：shebang 会被绕过，python 源码会被当 shell 逐行执行，`import json` 会命中 ImageMagick 的 `import` 命令在当前目录生成截图文件。验证时直接 `./xxx.py` 执行（shell 脚本同理，见上文 nix-update 条目）
 - **nix-update 可自动识别的 fetchurl 源**：除了 GitHub releases，`registry.npmjs.org` 的 npm tarball URL 也能被 nix-update 自动探测最新版本（含 scoped 包），可直接用 `nix-update-script { }`
 - **版本/src 在内层派生时需提升到顶层**：若 version 和 src 定义在 let 绑定的内层 `mkDerivation`（如 wine-wechat 的 wechatFiles），顶层求值结果没有 `src` 属性，nix-update 无法工作。重构方法：把 `version = "..."` 和 `src = fetchurl { ... }` 直接放在顶层 `stdenv.mkDerivation (finalAttrs: { ... })` 里（外层配 `dontUnpack = true` 即可，不影响构建）；内层派生通过 `inherit (finalAttrs) version src;` 引用同一份定义；原先依赖内层派生的 let 绑定（启动脚本等）移入使用它们的 phase（如 postInstall）内的局部 let。URL 用 `${finalAttrs.version}` 插值（见上条：字面量 URL 不会被 nix-update 改写）
 - **多源同版本的去重**：同一文件里多个派生共享同一 GitHub 源（如 axonhub 的 frontendPnpmDeps/frontendDist/主程序、it-tools 的 pnpmDeps）时，在 let 里定义 `version = "...";` 与 `src = fetchFromGitHub { tag = "v${version}"; ... }`，各派生 `inherit version src;`，保证 nix-update 只需改一处版本字面量（`inherit version;` 行不含字面量时走全文件独立带引号串替换路径，let 绑定会被正确更新）
@@ -190,7 +196,7 @@ appimageTools.wrapType2 {
 ### 脚本文件命名约定
 
 - 包目录下的 `update.*`（如 `update.sh`）：passthru.updateScript 机制的新式更新脚本，由 `helpers/update.nix` 运行器发现并执行，不会被 `update` 命令的 find 循环执行。生成式 lockfile 包（如 pi-web）的更新脚本属于此类：脚本自身负责版本、src 哈希、lockfile 重生成与 `npmDepsHash` 的完整闭环（版本步用 `nix-update --src-only`），不要拆成 passthru + `update-standalone` 双机制（顶层 `update` 先跑 standalone 后跑 passthru，顺序会导致 lockfile 与版本失步）
-- 包目录下的 `update-standalone.*`：旧的独立脚本（与版本更新无关的辅助流程），由顶层 `update` 命令的 find 循环直接执行，与 passthru 机制无关；不要用 `update.*` 命名这类脚本，避免被双重执行
+- 包目录下的 `update-standalone.*`：需要 `passthru.updateScript` 机制无法支持的复杂更新逻辑的包（如多源 sources.json 包：`helpers/update.nix` 运行器的 `usesSources` 检查会跳过 default.nix 中含 `sources.` 引用的包，nix-update 也只支持单一 version/src），由顶层 `update` 命令的 find 循环直接执行。脚本必须自包含：不依赖 `UPDATE_NIX_*` 环境变量（find 循环不注入），自行从上游探测新旧版本（如 GitHub releases atom feed），无更新时静默退出
 
 ### 已知限制
 
@@ -202,7 +208,7 @@ appimageTools.wrapType2 {
 
 - 源码不再由集中式工具（nvfetcher）管理；每个包在自身目录内联 fetcher 并声明 `passthru.updateScript`
 - 多源包使用 `sources.json` + `importJSON`/`fromJSON`（如 fr24feed、qemu-user-static、lantianCustomized.nginx），由包内 `update.sh` 整体重写
-- 顶层 `update` 命令流程：`nix flake update` → 执行 `pkgs/**/update-standalone.*` → `./tools/update-package --all` → 重新生成 README
+- 顶层 `update` 命令流程：`nix flake update` → 执行 `pkgs/**/update-standalone.*` → `./tools/update-package --all` → 重新生成 README。单个包更新失败（update-standalone 脚本或 update-package 内的个别包）不会中断流程，README 仍会在最后重新生成；命令退出码保留失败状态供 CI 报警
 
 ## 构建包
 
