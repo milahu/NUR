@@ -17,11 +17,60 @@ error:
   whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
 
 … while evaluating attribute 'buildCommand' of derivation 'cargo-vendor-dir'
-  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:84:17:
-    83|         enableParallelBuilding = true;
-    84|         inherit buildCommand name;
-      |                 ^
-    85|         passAsFile = defaultPassAsFile ++ (derivationArgs.passAsFile or [ ]);
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:88:9:
+    87|         inherit name;
+    88|         buildCommand = lib.toFunction buildCommand finalAttrs;
+      |         ^
+    89|         passAsFile = defaultPassAsFile ++ (userAttrs.passAsFile or [ ]);
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:88:24:
+    87|         inherit name;
+    88|         buildCommand = lib.toFunction buildCommand finalAttrs;
+      |                        ^
+    89|         passAsFile = defaultPassAsFile ++ (userAttrs.passAsFile or [ ]);
+
+… while calling 'toFunction'
+  at <nixpkgs> + /lib/trivial.nix:1211:16:
+  1210|   */
+  1211|   toFunction = v: if isFunction v then v else k: v;
+      |                ^
+  1212|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1211:19:
+  1210|   */
+  1211|   toFunction = v: if isFunction v then v else k: v;
+      |                   ^
+  1212|
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1211:22:
+  1210|   */
+  1211|   toFunction = v: if isFunction v then v else k: v;
+      |                      ^
+  1212|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1131:5:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |     ^
+  1132|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/trivial.nix:1131:21:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |                     ^
+  1132|
+
+… while calling the 'isFunction' builtin
+  at <nixpkgs> + /lib/trivial.nix:1131:8:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |        ^
+  1132|
 
 … while calling the 'toString' builtin
   at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:340:28:
