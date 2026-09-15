@@ -24,16 +24,16 @@
   };
   dorion-git = {
     pname = "dorion-git";
-    version = "475c9ac66fcb7ee237f5ab3c8d262c76b03c9313";
+    version = "b245152642886d3af7c5428fec46def848e65a47";
     src = fetchFromGitHub {
       owner = "SpikeHD";
       repo = "Dorion";
-      rev = "475c9ac66fcb7ee237f5ab3c8d262c76b03c9313";
+      rev = "b245152642886d3af7c5428fec46def848e65a47";
       fetchSubmodules = false;
-      sha256 = "sha256-HTjbKZQ5L8HSihMgp9LBQsX/sOkGvYetsLDY6LPAS8U=";
+      sha256 = "sha256-eROYVPP51oVAveDpyTLR7btwSYot4noJiWBZ1KW+GnQ=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-HTjbKZQ5L8HSihMgp9LBQsX_sOkGvYetsLDY6LPAS8U=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-eROYVPP51oVAveDpyTLR7btwSYot4noJiWBZ1KW+GnQ=/src-tauri/Cargo.lock";
       outputHashes = {
         "rsrpc-0.28.0" = "sha256-L07x93mgTbo+v0Wg91XjCNbRYAltHns8WyrsIrr7pZE=";
         "simple-websockets-0.1.6" = "sha256-iySzwntHw5Wf5HwKMBYL8mrMl7kjGZrZonL7/zrkeCo=";
@@ -42,7 +42,7 @@
         "window_titles-0.1.0" = "sha256-lk2T+6curAwqOUuQ8RtYCjX2ygGBgzt4ILBAMV+ql0w=";
       };
     };
-    date = "2026-09-11";
+    date = "2026-09-14";
   };
   dxvk-gplall = {
     pname = "dxvk-gplall";
@@ -257,21 +257,21 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "b4508e945955dc89a3ade24fe66b578303ec5c73";
+    version = "0666c4b50a49f23a979ee82f2b26c8e88ee1914a";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "b4508e945955dc89a3ade24fe66b578303ec5c73";
+      rev = "0666c4b50a49f23a979ee82f2b26c8e88ee1914a";
       fetchSubmodules = false;
-      sha256 = "sha256-52yqP4R6rSQEOVvs7PytqFChgqfqFMKXZiqlzV1MaZE=";
+      sha256 = "sha256-DsJiGY+bqTUoimXcmRlN7tdgOHDNmqGEjQOM6ClFb9A=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-52yqP4R6rSQEOVvs7PytqFChgqfqFMKXZiqlzV1MaZE=/Cargo.lock";
+      lockFile = ./. + "/sha256-DsJiGY+bqTUoimXcmRlN7tdgOHDNmqGEjQOM6ClFb9A=/Cargo.lock";
       outputHashes = {
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-09-11";
+    date = "2026-09-14";
   };
   piliplus = {
     pname = "piliplus";
@@ -343,16 +343,16 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "a5b19d66acaa58b2059ad6607121ccf953f1c82b";
+    version = "e2f0ce2261299e599a544f4f332336b258980346";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "a5b19d66acaa58b2059ad6607121ccf953f1c82b";
+      rev = "e2f0ce2261299e599a544f4f332336b258980346";
       fetchSubmodules = false;
-      sha256 = "sha256-Xa395CzMVymwNxeL3oBoTVFfe+8fs8SgZJHHq59Nk7Q=";
+      sha256 = "sha256-6iatOqKSiVW9inPyY99Uen55gZmaa9NCbXW8n0FBfzE=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-Xa395CzMVymwNxeL3oBoTVFfe+8fs8SgZJHHq59Nk7Q=/Cargo.lock";
+      lockFile = ./. + "/sha256-6iatOqKSiVW9inPyY99Uen55gZmaa9NCbXW8n0FBfzE=/Cargo.lock";
       outputHashes = {
         
       };
