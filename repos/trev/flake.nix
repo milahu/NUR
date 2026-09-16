@@ -99,7 +99,7 @@
       devShells = forEachSystem (
         system: pkgs: {
           default = pkgs.mkShell {
-            shellHook = (pkgs.callPackage ./packages/shellhook { }).ref;
+            shellHook = self.packages.${system}.shellhook.ref;
             packages = with pkgs; [
               # nix
               nixd
@@ -138,6 +138,7 @@
           update = pkgs.mkShell {
             packages = with pkgs; [
               nix-update
+              python3
               (pkgs.callPackage ./packages/fix-hash { })
               (pkgs.callPackage ./packages/renovate { })
             ];
@@ -196,6 +197,14 @@
             '';
           };
 
+          renovate-helper = {
+            root = ./utils/renovate;
+            packages = [ pkgs.python3 ];
+            script = ''
+              python -m unittest discover
+            '';
+          };
+
           nix = {
             root = ./.;
             filter = file: file.hasExt "nix";
@@ -229,14 +238,26 @@
             '';
           };
         }
+        // import ./tests/denoCompile { inherit pkgs self; }
+        // import ./tests/mkAppImage { inherit pkgs self; }
+        // import ./tests/mkApps { inherit pkgs self; }
+        // import ./tests/mkChecks { inherit pkgs self; }
+        // import ./tests/mkImage { inherit pkgs self; }
         // pkgs.lib.optionalAttrs (system == "x86_64-linux") (import ./tests/mkFlake { inherit pkgs self; })
         // import ./packages/duckdb/checks.nix { inherit (pkgs) lib callPackage; }
         // pkgs.lib.mapAttrs' (
           name: value: pkgs.lib.nameValuePair ("package_" + name) value
         ) self.packages."${system}"
         //
-          pkgs.lib.mapAttrs' (name: value: pkgs.lib.nameValuePair ("image_" + name) value)
-            self.images."${system}"
+          pkgs.lib.optionalAttrs
+            (builtins.elem system [
+              "x86_64-linux"
+              "aarch64-linux"
+            ])
+            (
+              pkgs.lib.mapAttrs' (name: value: pkgs.lib.nameValuePair ("image_" + name) value)
+                self.images."${system}"
+            )
       );
 
       formatter = forEachSystem (
