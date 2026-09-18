@@ -21,25 +21,25 @@ error:
    984|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:647:5:
-   646|     in
-   647|     { meta, attrs }:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:661:5:
+   660|     in
+   661|     { meta, attrs }:
       |     ^
-   648|     let
+   662|     let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:652:5:
-   651|     in
-   652|     if invalid == null then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:666:5:
+   665|     in
+   666|     if invalid == null then
       |     ^
-   653|       if problems == null then
+   667|       if problems == null then
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:649:17:
-   648|     let
-   649|       invalid = checkValidity' attrs;
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:663:17:
+   662|     let
+   663|       invalid = checkValidity' attrs;
       |                 ^
-   650|       problems = checkProblems attrs;
+   664|       problems = checkProblems attrs;
 
 … while calling anonymous lambda
   at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:348:5:
