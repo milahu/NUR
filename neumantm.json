@@ -1,19 +1,19 @@
 {
 "name":"neumantm",
-"fetch_time":0.359,
-"eval_time":2.216,
+"fetch_time":0.452,
+"eval_time":2.294,
 "source":{
 "url":"https://github.com/neumantm/nur-packages",
-"rev":"cd9efb8b3e75de5005f130e597a5fc0219302c2f",
-"sha256":"1c3ddjk7y15va23q3hm6aizjzbq4q059j8m5qrypnx0f8g5ylp6l",
+"rev":"70daf590323b5b3006bd46507ae346d7c715ee94",
+"sha256":"1cn99l1kq8qm7d32912ls25byr75xdmpadiqbpfxzyjl2qx8dvk3",
 "date":null
 },
-"source_storepath":"/nix/store/y0vv2slp1nlp8zz9b7m442l3hkw7c23r-source",
-"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
-"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
+"source_storepath":"/nix/store/j02nfz29rbbnyncd3kbz6djmivx4d960-source",
+"nixpkgs_storepath":"/nix/store/ahd4infgwklbphjbpcmvy6nhyg5wrv4b-source",
+"nur_combined_rev":"690002eee530d4a588a726e9f143e1dd32102557",
 "packages":{
 "multiEclipse":{
-"drvPath":"/nix/store/lapmcggcrrpq7viip3pd25pjjjp6k3jv-multiEclipse.drv",
+"drvPath":"/nix/store/6pk279vgi80k8q4i0l4vc5nvpnbij604-multiEclipse.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -65,6 +65,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -87,10 +88,10 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:569",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:607",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -104,7 +105,7 @@
 "version":""
 },
 "prettifyJsonLog":{
-"drvPath":"/nix/store/60gqc2n87b0bxjn5m4ggvmbayfr92y9x-python3.13-prettifyJsonLog-1.0.3.drv",
+"drvPath":"/nix/store/4scmdbskks673h94i4f3gjbqmybyvrvd-python3.14-prettifyJsonLog-1.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -141,6 +142,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -164,8 +166,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -185,12 +185,13 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"python3.13-prettifyJsonLog-1.0.3",
+"name":"python3.14-prettifyJsonLog-1.0.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -214,8 +215,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -225,21 +224,22 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/prettifyJsonLog/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-prettifyJsonLog-1.0.3",
+"name":"python3.14-prettifyJsonLog-1.0.3",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.13-prettifyJsonLog",
+"pname":"python3.14-prettifyJsonLog",
 "system":"x86_64-linux",
 "version":"1.0.3"
 },
 "startFirefox":{
-"drvPath":"/nix/store/4byym3a2ygd8lfxm8xg8iviffqplqbca-startFirefox.drv",
+"drvPath":"/nix/store/9gq7yazjh9rj6hfgr7cbz2wxdpak1s7j-startFirefox.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -291,6 +291,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -313,10 +314,10 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:569",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:607",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
