@@ -8,6 +8,7 @@
   mdbook,
   versionCheckHook,
   withDocs ? true,
+  withFederation ? true,
 }:
 
 let
@@ -15,7 +16,7 @@ let
 in
 buildGo127Module (finalAttrs: {
   pname = "venator";
-  version = "0.1.0a3-unstable-2026-09-06";
+  version = "0.1.0a4-unstable-2026-09-18";
 
   __structuredAttrs = true;
   strictDeps = true;
@@ -23,8 +24,8 @@ buildGo127Module (finalAttrs: {
   src = fetchFromCodeberg {
     owner = "matrix-venator";
     repo = "venator";
-    rev = "980e017751beddeedb0b9a79167b9e8faf95b2d4";
-    hash = "sha256-ZgiGINo43QgKQVLY70BoH9MSkrR9ncLlgGxCvvk479E=";
+    rev = "fe35ceefbf0b6dd96fd459b21e306650c1a0c2a9";
+    hash = "sha256-7zgBARyx2onSA9lIOPcKA1AJU4O6Dv2MCc/GP5b8DcU=";
   };
 
   vendorHash = "sha256-1/znvlE2AxEmYITU8FoNTK1T/5tz7s4+AiWnz88vHvA=";
@@ -39,7 +40,7 @@ buildGo127Module (finalAttrs: {
     versionCheckHook
   ];
 
-  tags = lib.optional withDocs "docs";
+  tags = lib.optional withDocs "docs" ++ lib.optional withFederation "federation";
 
   env = {
     VENATOR_BUILD_TAGS = lib.concatStringsSep "," finalAttrs.tags;
@@ -67,6 +68,24 @@ buildGo127Module (finalAttrs: {
 
   passthru = {
     updateScript = nix-update-script { extraArgs = [ "--version=branch=dev" ]; };
+    withExperimentalOauth = finalAttrs.overrideAttrs {
+      version = "0.1.0a4-unstable-2026-09-18";
+
+      src = fetchFromCodeberg {
+        owner = "matrix-venator";
+        repo = "venator";
+        rev = "c2e09307added03ec8e42928de7608ed956ba920";
+        hash = "sha256-9fZSLpuXF+iMs/9TmMaZBqLd+OaCBHTAAFc9zLxrl2I=";
+      };
+
+      vendorHash = "sha256-1/znvlE2AxEmYITU8FoNTK1T/5tz7s4+AiWnz88vHvA=";
+
+      passthru = finalAttrs.passthru // {
+        updateScript = nix-update-script {
+          extraArgs = [ "--version=branch=wip/oauth2-account-management" ];
+        };
+      };
+    };
     docs = callPackage (
       {
         stdenv,
