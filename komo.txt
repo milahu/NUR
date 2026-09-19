@@ -1,0 +1,392 @@
+error:
+… while evaluating the attribute 'driftmap'
+  at ./default.nix:44:3:
+    43|   driftwm-desktop = callPackage ./pkgs/driftwm-desktop { };
+    44|   driftmap        = callPackage ./pkgs/driftmap { };
+      |   ^
+    45|   /*nixfmt:enable*/
+
+… from call site
+  at ./default.nix:44:21:
+    43|   driftwm-desktop = callPackage ./pkgs/driftwm-desktop { };
+    44|   driftmap        = callPackage ./pkgs/driftmap { };
+      |                     ^
+    45|   /*nixfmt:enable*/
+
+… while calling 'callPackage'
+  at ./default.nix:17:5:
+    16|     point:
+    17|     attrs@{
+      |     ^
+    18|       lib ? { },
+
+… from call site
+  at ./default.nix:21:5:
+    20|     }:
+    21|     pkgs.callPackage point (
+      |     ^
+    22|       attrs
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
+      |       ^
+   324|     else
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… while calling anonymous lambda
+  at ./pkgs/driftmap/default.nix:1:1:
+     1| {
+      | ^
+     2|   lib,
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at ./pkgs/driftmap/default.nix:13:1:
+    12|
+    13| python3.pkgs.buildPythonApplication (self: {
+      | ^
+    14|   pname = "driftmap";
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:23:7:
+    22|     lib.mirrorFunctionArgs f (
+    23|       origArgs:
+      |       ^
+    24|       let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:46:7:
+    45|       in
+    46|       if lib.isAttrs result then
+      |       ^
+    47|         result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:46:10:
+    45|       in
+    46|       if lib.isAttrs result then
+      |          ^
+    47|         result
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:25:18:
+    24|       let
+    25|         result = f origArgs;
+      |                  ^
+    26|         overrideWith =
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:69:9:
+    68|       lib.mirrorFunctionArgs f (
+    69|         args:
+      |         ^
+    70|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:87:9:
+    86|         in
+    87|         if lib.isFunction args && result ? __stdenvPythonCompat then
+      |         ^
+    88|           # Less reliable, as constructing with the wrong `stdenv` might lead to evaluation errors in the package definition.
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:87:32:
+    86|         in
+    87|         if lib.isFunction args && result ? __stdenvPythonCompat then
+      |                                ^
+    88|           # Less reliable, as constructing with the wrong `stdenv` might lead to evaluation errors in the package definition.
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:71:20:
+    70|         let
+    71|           result = f args;
+      |                    ^
+    72|           handleStdenvArg =
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:865:7:
+   864|       # Adds the fixed-point style support
+   865|       __functor =
+      |       ^
+   866|         self: fpargs:
+
+… while calling '__functor'
+  at <nixpkgs> + /lib/customisation.nix:866:15:
+   865|       __functor =
+   866|         self: fpargs:
+      |               ^
+   867|         transformDrv (
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:867:9:
+   866|         self: fpargs:
+   867|         transformDrv (
+      |         ^
+   868|           constructDrv (
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:493:5:
+   492|     in
+   493|     drv: disablePythonPackage (toPythonModule drv);
+      |     ^
+   494| }
+
+… from call site
+  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:493:10:
+   492|     in
+   493|     drv: disablePythonPackage (toPythonModule drv);
+      |          ^
+   494| }
+
+… while calling 'disablePythonPackage'
+  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:484:9:
+   483|       disablePythonPackage =
+   484|         drv:
+      |         ^
+   485|         extendDerivation (
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:485:9:
+   484|         drv:
+   485|         extendDerivation (
+      |         ^
+   486|           drv.disabled
+
+… from call site
+  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:485:9:
+   484|         drv:
+   485|         extendDerivation (
+      |         ^
+   486|           drv.disabled
+
+… while calling 'extendDerivation'
+  at <nixpkgs> + /lib/customisation.nix:401:26:
+   400|   extendDerivation =
+   401|     condition: passthru: drv:
+      |                          ^
+   402|     let
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /lib/customisation.nix:405:12:
+   404|         drv
+   405|         // listToAttrs (
+      |            ^
+   406|           outputsList
+
+… while calling the 'listToAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:405:12:
+   404|         drv
+   405|         // listToAttrs (
+      |            ^
+   406|           outputsList
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/customisation.nix:424:21:
+   423|
+   424|       outputsList = map (outputName: {
+      |                     ^
+   425|         name = outputName;
+
+… from call site
+  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:493:32:
+   492|     in
+   493|     drv: disablePythonPackage (toPythonModule drv);
+      |                                ^
+   494| }
+
+… while calling 'toPythonModule'
+  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:125:26:
+   124|         namePrefix = ""; # Python applications should not have any prefix
+   125|         toPythonModule = x: x; # Application does not provide modules.
+      |                          ^
+   126|         inherit (python) stdenv;
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:868:11:
+   867|         transformDrv (
+   868|           constructDrv (
+      |           ^
+   869|             final:
+
+… while calling 'mkDerivation'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:18:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+   226|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:29:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+   226|
+
+… while calling 'makeDerivationExtensible'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:229:5:
+   228|   makeDerivationExtensible =
+   229|     rattrs:
+      |     ^
+   230|     let
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:308:22:
+   307|
+   308|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   309|
+
+… while calling 'mkDerivationSimple'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:925:5:
+   924|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   925|     {
+      |     ^
+   926|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1015:5:
+  1014|
+  1015|     extendDerivation validity.handled (
+      |     ^
+  1016|       {
+
+… while calling 'extendDerivation'
+  at <nixpkgs> + /lib/customisation.nix:401:26:
+   400|   extendDerivation =
+   401|     condition: passthru: drv:
+      |                          ^
+   402|     let
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /lib/customisation.nix:405:12:
+   404|         drv
+   405|         // listToAttrs (
+      |            ^
+   406|           outputsList
+
+… while calling the 'listToAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:405:12:
+   404|         drv
+   405|         // listToAttrs (
+      |            ^
+   406|           outputsList
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/customisation.nix:424:21:
+   423|
+   424|       outputsList = map (outputName: {
+      |                     ^
+   425|         name = outputName;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1071:8:
+  1070|         passthru
+  1071|     ) (derivation (derivationArg // checkedEnv));
+      |        ^
+  1072|
+
+… in the right operand of the update (//) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1071:37:
+  1070|         passthru
+  1071|     ) (derivation (derivationArg // checkedEnv));
+      |                                     ^
+  1072|
+
+… in the condition of the assert statement
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:992:9:
+   991|           || throw "`env` must be an attribute set of environment variables. Set `env.env` or pick a more specific name.";
+   992|         assert
+      |         ^
+   993|           (overlappingArgs == { })
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:994:11:
+   993|           (overlappingArgs == { })
+   994|           || throw (
+      |           ^
+   995|             let
+
+… while calling the 'intersectAttrs' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:987:29:
+   986|         let
+   987|           overlappingArgs = intersectAttrs env' derivationArg;
+      |                             ^
+   988|         in
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:964:9:
+   963|       env' =
+   964|         if attrs ? meta.mainProgram then env // { NIX_MAIN_PROGRAM = attrs.meta.mainProgram; } else env;
+      |         ^
+   965|
+
+… in the right operand of the update (//) operator
+  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:442:10:
+   441|       }
+   442|       // meta;
+      |          ^
+   443|     }
+
+error: attribute 'mkMeta' missing
+at ./pkgs/driftmap/default.nix:53:10:
+    52|
+    53|   meta = lib.mkMeta {
+      |          ^
+    54|     description = "Layer Shell's OVERLAY layer Minimap for Driftwm";
+Did you mean meta?
