@@ -387,31 +387,31 @@
   };
   rime-essay = {
     pname = "rime-essay";
-    version = "e9b1a374a6ea015fca5bdd04318924b4483ac35a";
+    version = "e2652ea18609a879eae3e87db5d25b7fbc1a4f93";
     src = fetchgit {
       url = "https://github.com/rime/rime-essay.git";
-      rev = "e9b1a374a6ea015fca5bdd04318924b4483ac35a";
+      rev = "e2652ea18609a879eae3e87db5d25b7fbc1a4f93";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-WPutZuxoLQfNk0devhGb2ooAZ7zJt0Ta7OiUtuveJ00=";
+      sha256 = "sha256-Zz/qRPZ7rIidDh1aZXtrJDcflNSxW1l5usSdFw/7GUw=";
     };
-    date = "2026-07-13";
+    date = "2026-09-18";
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "59fcb4a6bfa71e6ba4fc83af07ee55f0c5b76081";
+    version = "158d8a218b974383336d4e2e7c919affc570d410";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "59fcb4a6bfa71e6ba4fc83af07ee55f0c5b76081";
+      rev = "158d8a218b974383336d4e2e7c919affc570d410";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-7GkVzzQaZBhglp3rPqYtyElWwZKABKnfmG/79NEWMK0=";
+      sha256 = "sha256-Cr5pwfPrXDZA/fMM40CyK38sZre4kkD5x3LvKsTkgxQ=";
     };
-    date = "2026-09-14";
+    date = "2026-09-18";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -499,17 +499,17 @@
   };
   rime-terra-pinyin = {
     pname = "rime-terra-pinyin";
-    version = "8a2c895ad7ee8e2b137d91be77f18f86b04d7fc9";
+    version = "723e51bc266cf9464530c1ddedb856aa18e3da34";
     src = fetchgit {
       url = "https://github.com/rime/rime-terra-pinyin.git";
-      rev = "8a2c895ad7ee8e2b137d91be77f18f86b04d7fc9";
+      rev = "723e51bc266cf9464530c1ddedb856aa18e3da34";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-clWou1k0a2SFi964e27f4Jee1xx5e85vScYIWJ+exbw=";
+      sha256 = "sha256-NS+UurPe7VglcImgsY/X+MH9g7opF7vsw8vVWKbUt3M=";
     };
-    date = "2026-07-17";
+    date = "2026-09-18";
   };
   rime-wubi = {
     pname = "rime-wubi";
