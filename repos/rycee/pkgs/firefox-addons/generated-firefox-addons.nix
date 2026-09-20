@@ -427,8 +427,8 @@
       sha256 = "5cdfc09ac43731859a97d8fac1fbac715041c3415d194ba04df818229522bdee";
       meta = with lib;
       {
-        homepage = "https://github.com/ArchiveBox/archivebox-browser-extension";
-        description = "Automatically or manually send pages to your ArchiveBox for archival.";
+        homepage = "https://extension.archivebox.io/";
+        description = "Save pages, screenshots, and bookmarks locally or to your own ArchiveBox server.";
         license = licenses.mit;
         mozPermissions = [
           "storage"
@@ -2613,16 +2613,21 @@
     };
     "copy-link-text" = buildMozillaXpiAddon {
       pname = "copy-link-text";
-      version = "1.6.9";
+      version = "1.7.0";
       addonId = "{b144be59-6bdc-41e0-9141-9f8d00373d93}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5035704/copy_link_text_webextension-1.6.9.xpi";
-      sha256 = "ef759c1d79743297f86dcf44a5ed525292cdedd09e4e954f0d22a3975d7e9083";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5042314/copy_link_text_webextension-1.7.0.xpi";
+      sha256 = "e7761003cb1312a4fdaa2a7bc56d6685a10e7365f26f250f32a2333b56635b05";
       meta = with lib;
       {
         homepage = "https://github.com/def00111/copy-link-text";
         description = "Copy the text of the link.";
         license = licenses.mpl20;
-        mozPermissions = [ "clipboardWrite" "menus" "scripting" "<all_urls>" ];
+        mozPermissions = [
+          "clipboardWrite"
+          "menus"
+          "notifications"
+          "scripting"
+        ];
         platforms = platforms.all;
       };
     };
@@ -2948,10 +2953,10 @@
     };
     "danish-language-pack" = buildMozillaXpiAddon {
       pname = "danish-language-pack";
-      version = "157.0.20260916.90747";
+      version = "157.0.20260918.91356";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5034549/dansk_da_language_pack-157.0.20260916.90747.xpi";
-      sha256 = "7b351f2ced5d6fd8c8f95180e4b07aa2c0d3f7b9caefe63fcf40829b93138354";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5039507/dansk_da_language_pack-157.0.20260918.91356.xpi";
+      sha256 = "cb45b3ea02a864a3e12b6dfc6940bad7b81d2f884a702a614c1f2ebcee5b8c4b";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -3166,10 +3171,10 @@
     };
     "deutsch-de-language-pack" = buildMozillaXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "157.0.20260916.90747";
+      version = "157.0.20260918.91356";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5034547/deutsch_de_language_pack-157.0.20260916.90747.xpi";
-      sha256 = "8b6e1e10d2b47071ec07b890d8fd7a9ce969524ec36d7d5e53fedd5e3636e8ff";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5039501/deutsch_de_language_pack-157.0.20260918.91356.xpi";
+      sha256 = "6d22effacdbf2b0cb0e68af23308eb86be02e15bd4b969cfce75fc3f25a32778";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -4668,10 +4673,10 @@
     };
     "french-language-pack" = buildMozillaXpiAddon {
       pname = "french-language-pack";
-      version = "157.0.20260916.90747";
+      version = "157.0.20260918.91356";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5034450/francais_language_pack-157.0.20260916.90747.xpi";
-      sha256 = "f684192c7fbfbbd93cba558640b55d6a840cd4dc0229ea18d5e475ac77efd31c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5039467/francais_language_pack-157.0.20260918.91356.xpi";
+      sha256 = "80dec18efe44e2de28b5d3b56f74057b15dfc49dc41f20f1da1365d091cfcd4e";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4705,10 +4710,10 @@
     };
     "gaidhlig-language-pack" = buildMozillaXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "157.0.20260916.90747";
+      version = "157.0.20260918.91356";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5034494/gaidhlig_language_pack-157.0.20260916.90747.xpi";
-      sha256 = "e889c9fba8f69a4f397a1beb83e40a7febe878daeaa6a83d384e8c6bd6a7ffbb";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5039484/gaidhlig_language_pack-157.0.20260918.91356.xpi";
+      sha256 = "66c26e8018b40437cdfa0a279d256efd617cfadd8130991226916f20fc916adf";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -4811,10 +4816,10 @@
     };
     "ghostery" = buildMozillaXpiAddon {
       pname = "ghostery";
-      version = "10.6.2";
+      version = "10.6.3";
       addonId = "firefox@ghostery.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5032165/ghostery-10.6.2.xpi";
-      sha256 = "471d57dd28e93400d6e704c38af5fe7580a08e83238bfdb671e747674b1304f6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5039698/ghostery-10.6.3.xpi";
+      sha256 = "1cfda7b0b3ac835ce7c7eb3ccbf54801e4727035da5b0edd237dc15aed64dede";
       meta = with lib;
       {
         homepage = "http://www.ghostery.com/";
@@ -10713,10 +10718,10 @@
     };
     "onetab" = buildMozillaXpiAddon {
       pname = "onetab";
-      version = "2.19";
+      version = "2.20";
       addonId = "extension@one-tab.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4948072/onetab-2.19.xpi";
-      sha256 = "3aab9eda39cb7b1cfc0267d2b2732f877f7df7dd44432b6bafd99f77ac4b0b4b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5042610/onetab-2.20.xpi";
+      sha256 = "f4cbd1015e1c265f31dc7d8e74252b7ac57dafe93bd3df32d8e64d59230f4174";
       meta = with lib;
       {
         homepage = "https://www.one-tab.com";
@@ -13164,10 +13169,10 @@
     };
     "scots-language-pack" = buildMozillaXpiAddon {
       pname = "scots-language-pack";
-      version = "157.0.20260916.90747";
+      version = "157.0.20260918.91356";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5034526/scots_language_pack-157.0.20260916.90747.xpi";
-      sha256 = "013d32dbb0583b5509672cf6306cc35cf3e9026d788343cb1aafb4a85331f710";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5039486/scots_language_pack-157.0.20260918.91356.xpi";
+      sha256 = "3a63c1d6045ed18909c9e5f906a4ecfe69aa329222cba1bb4952287f4cf842dd";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -13681,10 +13686,10 @@
     };
     "single-file" = buildMozillaXpiAddon {
       pname = "single-file";
-      version = "1.26.0";
+      version = "1.26.1";
       addonId = "{531906d3-e22f-4a6c-a102-8057b88a1a63}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5035849/single_file-1.26.0.xpi";
-      sha256 = "53979f4451cf8777c4c2eb115216fe2f55395a3725f32b73b23808a93b002806";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5042893/single_file-1.26.1.xpi";
+      sha256 = "eb9afa6f03cf81722b14cc16853aa53c7df86b547c361f982e1871762be62b1f";
       meta = with lib;
       {
         homepage = "https://www.getsinglefile.com";
@@ -14479,10 +14484,10 @@
     };
     "tablissng" = buildMozillaXpiAddon {
       pname = "tablissng";
-      version = "1.7.1";
+      version = "1.8.0";
       addonId = "extension@tabliss-maintained";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4836699/tablissng-1.7.1.xpi";
-      sha256 = "6c4d6f0972ebe29d598e34f461f4d79a1fb2842dfde8047f54d3f0195292f3e4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5042853/tablissng-1.8.0.xpi";
+      sha256 = "48d593e28d96c0cbee4e0386d8bc9ffef0c6273185b9bbe3d60b7ef39847020d";
       meta = with lib;
       {
         homepage = "https://github.com/BookCatKid/TablissNG";
@@ -15150,10 +15155,10 @@
     };
     "tree-style-tab" = buildMozillaXpiAddon {
       pname = "tree-style-tab";
-      version = "4.4.5";
+      version = "4.4.6";
       addonId = "treestyletab@piro.sakura.ne.jp";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5037805/tree_style_tab-4.4.5.xpi";
-      sha256 = "a42ba90491013649ffda3e199ee9f5400a056b2230dfbac4cab799c61f7a154d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5039780/tree_style_tab-4.4.6.xpi";
+      sha256 = "e33e038bfc3a29c03ed5eb064cda4e73bb62de3cd39f4abb289052d40cc21b1e";
       meta = with lib;
       {
         homepage = "https://github.com/piroor/treestyletab";
@@ -15731,10 +15736,10 @@
     };
     "ukrainian-dictionary" = buildMozillaXpiAddon {
       pname = "ukrainian-dictionary";
-      version = "6.8.5";
+      version = "6.8.6";
       addonId = "uk-ua@dictionaries.addons.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4977583/ukrainian_dictionary-6.8.5.xpi";
-      sha256 = "994628fce3e81e633b17f27c6086738e691cd973b470cf853f1d0a1e92f5aaba";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5042236/ukrainian_dictionary-6.8.6.xpi";
+      sha256 = "8cb4f0b87951e6b2612484011a5849dc7c45fcb8415ddd52492b5a69e62720b9";
       meta = with lib;
       {
         homepage = "https://github.com/brown-uk/dict_uk";
@@ -17417,10 +17422,10 @@
     };
     "yomitan" = buildMozillaXpiAddon {
       pname = "yomitan";
-      version = "26.8.24.0";
+      version = "26.9.8.0";
       addonId = "{6b733b82-9261-47ee-a595-2dda294a4d08}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5003246/yomitan-26.8.24.0.xpi";
-      sha256 = "0f1826658ef96653fb4b159859c34f3b1aff2cd35a5eeab06dca13e6bebf29f5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5040552/yomitan-26.9.8.0.xpi";
+      sha256 = "629dcc47f8709287e6e1f99d5f8d7282b649b00855ef504b6d1b84b58ad831c9";
       meta = with lib;
       {
         homepage = "https://github.com/themoeway/yomitan";
