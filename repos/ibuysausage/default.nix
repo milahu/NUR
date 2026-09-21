@@ -6,11 +6,9 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
-
 {
   pkgs ? import <nixpkgs> { },
 }:
-
 {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
   # `darwinModules` and `flakeModules` names are special
@@ -23,4 +21,5 @@
 
   crdl = pkgs.callPackage ./pkgs/crdl { };
   waifufetch = pkgs.callPackage ./pkgs/waifufetch { };
+  nix-reaper = pkgs.callPackage ./pkgs/nix-reaper { };
 }
