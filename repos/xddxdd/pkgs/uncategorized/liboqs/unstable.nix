@@ -7,13 +7,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "liboqs";
-  version = "0-unstable-2026-09-18";
+  version = "0-unstable-2026-09-21";
 
   src = fetchFromGitHub {
     owner = "open-quantum-safe";
     repo = "liboqs";
-    rev = "be7ecb9082e3daedb1add72284a53261878541c7";
-    hash = "sha256-VE/US78Qe7FztEV/AUiJORD/f1OGNOiYNEDhTAGsDew=";
+    rev = "42427192f9c49966d70286fa3a2b4b68973e6635";
+    hash = "sha256-uXuH1OvSP+wqEg6uRnlCpQX7l12TdgA0HHdyiuy4G/4=";
   };
 
   enableParallelBuilding = true;
