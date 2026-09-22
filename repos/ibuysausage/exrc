@@ -28,6 +28,14 @@
 "   already on the newest commit are left alone, unless you use :NurBumpAll! to
 "   force a re-prefetch. Press q or <Esc> in the report to close it.
 "
+" :NurBumpLog[!]
+"   Every git/nix command that :NurBump and :NurBumpAll run is logged with its
+"   exit code and its raw stdout/stderr (the last MAX_LOG commands). :NurBumpLog
+"   shows them newest first in a floating window; press L in a :NurBumpAll report
+"   to jump straight there, q or <Esc> to close. :NurBumpLog! clears the log.
+"   Use this when a prefetch fails: the one-line status in the report is only a
+"   summary of stderr, the log has everything the command actually printed.
+"
 "   Colors: every NurBump* highlight group links to a standard group, so the
 "   report follows your colorscheme. Override any of them from your own config,
 "   e.g. vim.api.nvim_set_hl(0, "NurBumpPkg", { fg = "#ff9e64", bold = true })
@@ -35,6 +43,8 @@
 lua << EOF
 local MAX_PARALLEL = 4 -- how many packages are checked/prefetched at once
 local REPORT_SCALE = 0.8 -- report window size as a fraction of the editor (1.0 = whole screen)
+local MAX_LOG = 50 -- how many commands :NurBumpLog remembers
+local MAX_LOG_LINES = 200 -- per command, per stream
 
 ---------------------------------------------------------------------------
 -- helpers that operate on a list of lines (a buffer's or a file's)
@@ -68,20 +78,124 @@ local function apply_bump(lines, short_sha, hash)
   return ok_v, ok_s
 end
 
-local function last_line(s)
-  local last = ""
-  for line in vim.gsplit(s or "", "\n", { plain = true }) do
-    if vim.trim(line) ~= "" then
-      last = vim.trim(line)
-    end
-  end
-  return last
-end
-
 local function notify_err(msg)
   vim.schedule(function()
-    vim.notify("NurBump: " .. msg, vim.log.levels.ERROR)
+    vim.notify("NurBump: " .. msg .. "  (:NurBumpLog for the full output)", vim.log.levels.ERROR)
   end)
+end
+
+---------------------------------------------------------------------------
+-- command log
+---------------------------------------------------------------------------
+local log_entries = {} -- oldest first; { time, label, cmd, code, stdout, stderr }
+
+-- Split captured output into displayable lines: progress output redraws itself
+-- with \r, so keep only what was left on screen, and drop control characters.
+local function split_lines(s, cap)
+  local out = {}
+  for line in vim.gsplit(s or "", "\n", { plain = true }) do
+    local visible = line:match("[^\r]*$") or line
+    out[#out + 1] = visible:gsub("[%z\1-\8\11\12\14-\31]", "")
+  end
+  while #out > 0 and vim.trim(out[#out]) == "" do
+    table.remove(out)
+  end
+  if cap and #out > cap then
+    local dropped = #out - cap
+    out = vim.list_slice(out, dropped + 1, #out)
+    table.insert(out, 1, ("… %d earlier lines dropped"):format(dropped))
+  end
+  return out
+end
+
+-- Progress chatter that says nothing about why a command failed. Lines are
+-- lowercased before matching, so keep these patterns lowercase.
+local NOISE = {
+  "^%s*$",
+  "^copying path",
+  "^copying ",
+  "^downloading",
+  "^unpacking",
+  "^evaluating",
+  "^querying",
+  "^fetching",
+  "^%[%d+/%d+",
+  "^these %d+ paths will be",
+  "^%d+%.?%d*%s*[kmg]?i?b",
+}
+
+local function is_noise(line)
+  local lower = line:lower()
+  for _, pat in ipairs(NOISE) do
+    if lower:match(pat) then
+      return true
+    end
+  end
+  return false
+end
+
+-- One-line summary of why a command failed: the last few meaningful stderr
+-- lines. The full output stays in the log.
+local function error_summary(res, keep)
+  keep = keep or 3
+  local all = split_lines(res.stderr)
+  local picked = {}
+  for _, line in ipairs(all) do
+    line = vim.trim(line)
+    if line ~= "" and not is_noise(line) then
+      picked[#picked + 1] = line
+    end
+  end
+  if #picked == 0 then -- everything looked like noise: fall back to it
+    for _, line in ipairs(all) do
+      if vim.trim(line) ~= "" then
+        picked[#picked + 1] = vim.trim(line)
+      end
+    end
+  end
+  if #picked == 0 then
+    return "no output on stderr — see :NurBumpLog"
+  end
+  if #picked > keep then
+    picked = vim.list_slice(picked, #picked - keep + 1, #picked)
+  end
+  return table.concat(picked, " | ")
+end
+
+local function record(label, cmd, res)
+  log_entries[#log_entries + 1] = {
+    time = os.date("%H:%M:%S"),
+    label = label,
+    cmd = table.concat(cmd, " "),
+    code = res.code or -1,
+    stdout = split_lines(res.stdout, MAX_LOG_LINES),
+    stderr = split_lines(res.stderr, MAX_LOG_LINES),
+  }
+  while #log_entries > MAX_LOG do
+    table.remove(log_entries, 1)
+  end
+end
+
+-- vim.system + logging. cb(res) always runs on the main loop. A command that
+-- can't even be spawned (nix not on nvim's PATH, say) is logged like any other
+-- failure instead of blowing up mid-callback.
+local function run_cmd(label, cmd, cb)
+  local ok, err = pcall(
+    vim.system,
+    cmd,
+    { text = true },
+    vim.schedule_wrap(function(res)
+      record(label, cmd, res)
+      cb(res)
+    end)
+  )
+  if not ok then
+    local res = { code = -1, stdout = "", stderr = tostring(err) }
+    record(label, cmd, res)
+    vim.schedule(function()
+      cb(res)
+    end)
+  end
 end
 
 ---------------------------------------------------------------------------
@@ -89,43 +203,40 @@ end
 -- freely use the nvim API. cb(err) or cb(nil, result).
 ---------------------------------------------------------------------------
 local function latest_commit(owner, repo, cb)
-  vim.system(
-    { "git", "ls-remote", ("https://github.com/%s/%s"):format(owner, repo), "HEAD" },
-    { text = true },
-    vim.schedule_wrap(function(res)
-      if res.code ~= 0 then
-        return cb("git ls-remote failed: " .. last_line(res.stderr))
-      end
-      local full_sha = res.stdout and res.stdout:match("^(%x+)")
-      if not full_sha then
-        return cb("couldn't parse commit sha from ls-remote output")
-      end
-      cb(nil, full_sha)
-    end)
-  )
+  local slug = ("%s/%s"):format(owner, repo)
+  run_cmd(slug, { "git", "ls-remote", ("https://github.com/%s"):format(slug), "HEAD" }, function(res)
+    if res.code ~= 0 then
+      return cb(("git ls-remote failed (exit %d): %s"):format(res.code, error_summary(res)))
+    end
+    local full_sha = res.stdout and res.stdout:match("^(%x+)")
+    if not full_sha then
+      return cb("couldn't parse a commit sha out of ls-remote output — see :NurBumpLog")
+    end
+    cb(nil, full_sha)
+  end)
 end
 
 local function prefetch_hash(owner, repo, rev, cb)
-  vim.system(
-    { "nix", "run", "nixpkgs#nix-prefetch-github", "--", owner, repo, "--rev", rev },
-    { text = true },
-    vim.schedule_wrap(function(res)
-      if res.code ~= 0 then
-        return cb("nix-prefetch-github failed: " .. last_line(res.stderr))
-      end
-      local ok, data = pcall(vim.json.decode, res.stdout or "")
-      if not ok or type(data) ~= "table" then
-        return cb("couldn't parse nix-prefetch-github JSON output")
-      end
-      -- newer nix-prefetch-github emits `hash` (SRI, sha256-...=);
-      -- older versions emit `sha256` (base32). Prefer SRI.
-      local hash = data.hash or data.sha256
-      if not hash then
-        return cb("no hash/sha256 field in prefetch output")
-      end
-      cb(nil, hash)
-    end)
-  )
+  local slug = ("%s/%s"):format(owner, repo)
+  run_cmd(slug, { "nix", "run", "nixpkgs#nix-prefetch-github", "--", owner, repo, "--rev", rev }, function(res)
+    if res.code ~= 0 then
+      return cb(("nix-prefetch-github failed (exit %d): %s"):format(res.code, error_summary(res)))
+    end
+    -- nix sometimes puts its own chatter on stdout ahead of the JSON, so start
+    -- at the first brace rather than decoding the whole stream.
+    local json = (res.stdout or ""):match("%b{}")
+    local ok, data = pcall(vim.json.decode, json or "")
+    if not ok or type(data) ~= "table" then
+      return cb("couldn't parse nix-prefetch-github JSON output — see :NurBumpLog")
+    end
+    -- newer nix-prefetch-github emits `hash` (SRI, sha256-...=);
+    -- older versions emit `sha256` (base32). Prefer SRI.
+    local hash = data.hash or data.sha256
+    if not hash then
+      return cb("no hash/sha256 field in prefetch output — see :NurBumpLog")
+    end
+    cb(nil, hash)
+  end)
 end
 
 ---------------------------------------------------------------------------
@@ -233,6 +344,13 @@ local function setup_highlights()
     NurBumpFailed = "DiagnosticError",
     NurBumpBarDone = "DiagnosticOk", -- progress bar, filled part
     NurBumpBarTodo = "Comment", -- progress bar, empty part
+    NurBumpLogTime = "Comment", -- :NurBumpLog: timestamp
+    NurBumpLogLabel = "Identifier", -- owner/repo the command belonged to
+    NurBumpLogCmd = "Function", -- the command line itself
+    NurBumpLogStream = "Title", -- "stdout" / "stderr" headings
+    NurBumpLogOk = "DiagnosticOk", -- exit 0
+    NurBumpLogFail = "DiagnosticError", -- non-zero exit
+    NurBumpLogEmpty = "Comment", -- "(empty)" and the no-entries message
   }
   for name, target in pairs(links) do
     vim.api.nvim_set_hl(0, name, { link = target, default = true })
@@ -350,6 +468,99 @@ local function report_width(buf)
   return float_geometry().width
 end
 
+---------------------------------------------------------------------------
+-- :NurBumpLog
+---------------------------------------------------------------------------
+local function open_log()
+  setup_highlights()
+
+  for _, b in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.b[b].nurbump_log then
+      pcall(vim.api.nvim_buf_delete, b, { force = true })
+    end
+  end
+
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.b[buf].nurbump_log = true
+  vim.bo[buf].bufhidden = "wipe"
+  vim.bo[buf].filetype = "nurbumplog"
+  pcall(vim.api.nvim_buf_set_name, buf, "NurBumpLog")
+
+  local geom = float_geometry()
+  local lines, spans = {}, {}
+  local function add(chunks)
+    local text, sp = build_line(chunks)
+    lines[#lines + 1] = text
+    spans[#lines] = sp
+  end
+
+  if #log_entries == 0 then
+    add({ { " nothing logged yet — run :NurBump or :NurBumpAll first", "NurBumpLogEmpty" } })
+  end
+  for i = #log_entries, 1, -1 do -- newest first
+    local e = log_entries[i]
+    local status = (e.code == 0) and { "exit 0", "NurBumpLogOk" }
+      or { ("exit %d"):format(e.code), "NurBumpLogFail" }
+    add({
+      { " " },
+      { e.time, "NurBumpLogTime" },
+      { "  " },
+      { e.label, "NurBumpLogLabel" },
+      { "  " },
+      status,
+    })
+    add({ { " $ ", "NurBumpSep" }, { e.cmd, "NurBumpLogCmd" } })
+    for _, stream in ipairs({ { "stdout", e.stdout }, { "stderr", e.stderr } }) do
+      add({ { "   " }, { stream[1], "NurBumpLogStream" } })
+      if #stream[2] == 0 then
+        add({ { "     (empty)", "NurBumpLogEmpty" } })
+      else
+        for _, l in ipairs(stream[2]) do
+          add({ { "     " .. l } })
+        end
+      end
+    end
+    if i > 1 then
+      add({})
+      add({ { string.rep("─", geom.width), "NurBumpSep" } })
+      add({})
+    end
+  end
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.bo[buf].modifiable = false
+  vim.api.nvim_buf_clear_namespace(buf, hl_ns, 0, -1)
+  for i, sp in ipairs(spans) do
+    for _, s in ipairs(sp) do
+      vim.api.nvim_buf_set_extmark(buf, hl_ns, i - 1, s[1], { end_col = s[2], hl_group = s[3] })
+    end
+  end
+
+  local win = vim.api.nvim_open_win(
+    buf,
+    true,
+    vim.tbl_extend("force", geom, {
+      style = "minimal",
+      border = "rounded",
+      title = (" NurBumpLog — %d command%s "):format(#log_entries, #log_entries == 1 and "" or "s"),
+      title_pos = "center",
+      footer = " q / <Esc> to close ",
+      footer_pos = "right",
+    })
+  )
+  vim.wo[win].wrap = true -- stderr lines are long; wrap rather than hide them
+  vim.wo[win].spell = false
+  vim.wo[win].cursorline = false
+
+  for _, key in ipairs({ "q", "<Esc>" }) do
+    vim.keymap.set("n", key, function()
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
+    end, { buffer = buf, silent = true, nowait = true })
+  end
+end
+
 -- hooks.on_resize, if set, is called after the window has been re-sized.
 local function open_report(hooks)
   -- close a report from a previous run, if it's still around
@@ -376,7 +587,7 @@ local function open_report(hooks)
       border = "rounded",
       title = " NurBumpAll ",
       title_pos = "center",
-      footer = " q / <Esc> to close ",
+      footer = " L: log   q / <Esc>: close ",
       footer_pos = "right",
     })
   )
@@ -392,6 +603,7 @@ local function open_report(hooks)
   for _, key in ipairs({ "q", "<Esc>" }) do
     vim.keymap.set("n", key, close, { buffer = buf, silent = true, nowait = true })
   end
+  vim.keymap.set("n", "L", open_log, { buffer = buf, silent = true, nowait = true })
 
   -- keep the window sized to the editor and re-lay out the table for the new
   -- width; the autocmd removes itself once the window is gone. (Only geometry
@@ -664,5 +876,19 @@ vim.api.nvim_create_user_command("NurBumpAll", function(opts)
 end, {
   bang = true,
   desc = "Bump every pkgs/*/default.nix to its newest commit and show a report (! = force)",
+})
+
+vim.api.nvim_create_user_command("NurBumpLog", function(opts)
+  if opts.bang then
+    for i = #log_entries, 1, -1 do
+      table.remove(log_entries, i)
+    end
+    vim.notify("NurBump: log cleared")
+    return
+  end
+  open_log()
+end, {
+  bang = true,
+  desc = "Show raw stdout/stderr of the git/nix commands NurBump ran (! = clear the log)",
 })
 EOF
