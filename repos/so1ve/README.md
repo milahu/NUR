@@ -12,8 +12,10 @@ Ray's personal [NUR](https://github.com/nix-community/NUR) repository
 | `ab-download-manager` | [Usage](pkgs/ab-download-manager/README.md) |
 | `baidunetdisk` | [Upstream](https://pan.baidu.com/) |
 | `baidupcs-go` | [Upstream](https://github.com/qjfoidnh/BaiduPCS-Go) |
+| `bluez-5_86` | [Upstream](https://github.com/bluez/bluez) |
 | `cargo-pretty` | [Upstream](https://github.com/romancitodev/cargo-pretty) |
 | `deepseek-harness` | [Usage](pkgs/deepseek-harness/README.md) |
+| `dingtalk` | [Upstream](https://www.dingtalk.com/) |
 | `firefoxpwa-xwayland` | [Usage](pkgs/firefoxpwa-xwayland/README.md) |
 | `flutter-rust-bridge-codegen` | [Upstream](https://github.com/fzyzcjy/flutter_rust_bridge) |
 | `gradle-language-server` | [Usage](pkgs/gradle-language-server/README.md) |
