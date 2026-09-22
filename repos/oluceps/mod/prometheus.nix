@@ -124,6 +124,16 @@
                 relabel_configs = fqdn_instance_relabel;
               }
               {
+                job_name = "minecraft_metrics";
+                scheme = "http";
+                static_configs = [
+                  {
+                    targets = [ "[fdcc::8]:19565" ];
+                  }
+                ];
+                relabel_configs = fdcc_instance_relabel;
+              }
+              {
                 job_name = "tg-online";
                 scheme = "http";
                 metrics_path = "/metrics";
@@ -155,10 +165,33 @@
                 static_configs = [ { targets = [ "[fdcc::3]:9031" ]; } ];
                 relabel_configs = fdcc_instance_relabel;
               }
+
               {
-                job_name = "uubboo_wgmesh_metrics";
+                job_name = "wgmesh_metrics";
+                metrics_path = "/metrics";
                 scheme = "http";
-                static_configs = [ { targets = [ "[fdcc::6]:9586" ]; } ];
+                static_configs = [
+                  {
+                    targets = [
+                      "[fdcc::6]:9586"
+                      "[fdcc::5]:9586"
+                      "[fdcc::8]:9586"
+                    ];
+                  }
+                ];
+                relabel_configs = fdcc_instance_relabel;
+              }
+              {
+                job_name = "bird_metrics";
+                scheme = "http";
+                static_configs = [
+                  {
+                    targets = [
+                      "[fdcc::5]:9324"
+                      "[fdcc::8]:9324"
+                    ];
+                  }
+                ];
                 relabel_configs = fdcc_instance_relabel;
               }
               {
@@ -331,6 +364,7 @@
                   with config.services.prometheus.exporters.blackbox; "${listenAddress}:${toString port}"
                 );
               }
+
             ]
             ++ lib.optionals (config.networking.hostName == "eihort") [
               {
