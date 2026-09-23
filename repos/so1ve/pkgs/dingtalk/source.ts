@@ -1,12 +1,12 @@
-import { defineSource, fetchurl } from "nix-repin";
+import { defineSource, fetchurl, github } from "nix-repin";
 
-async function release(architecture: string) {
+export default defineSource(async ({ packageDirectory }) => {
   const response = await fetch(
-    `https://www.dingtalk.com/win/d/qd=linux_${architecture}`,
+    `https://www.dingtalk.com/win/d/qd=linux_amd64`,
   );
   if (!response.ok) {
     throw new Error(
-      `Failed to fetch DingTalk ${architecture}: ${response.status}`,
+      `Failed to fetch DingTalk: ${response.status}`,
     );
   }
 
@@ -16,23 +16,22 @@ async function release(architecture: string) {
   await response.body?.cancel();
 
   const match = new URL(url).pathname.match(
-    /^\/dingtalk-desktop\/xc_dingtalk_update\/linux_deb\/Release\/com\.alibabainc\.dingtalk_([\d.]+)_(amd64|arm64)\.deb$/,
+    /^\/dingtalk-desktop\/xc_dingtalk_update\/linux_deb\/Release\/com\.alibabainc\.dingtalk_([\d.]+)_amd64\.deb$/,
   )!;
 
-  return { version: match[1], url };
-}
-
-export default defineSource(async () => {
-  const [x86_64, aarch64] = await Promise.all([
-    release("amd64"),
-    release("arm64"),
-  ]);
-
-  return fetchurl({
-    version: x86_64.version,
+  const dingtalk = await fetchurl({
+    version: match[1],
     urls: {
-      "x86_64-linux": x86_64.url,
-      "aarch64-linux": aarch64.url,
+      "x86_64-linux": url,
     },
   });
+  const screenshare = await github.branch({
+    branch: "master",
+    repository: "lzl200110/dingtalk-wayland-screenshare",
+  })({ packageDirectory });
+
+  return {
+    ...dingtalk,
+    "screenshare-source.nix": screenshare["source.nix"],
+  };
 });
