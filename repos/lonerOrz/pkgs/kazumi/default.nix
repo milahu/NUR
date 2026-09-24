@@ -3,6 +3,7 @@
   stdenv,
   flutter,
   fetchFromGitHub,
+  fetchurl,
   autoPatchelfHook,
   alsa-lib,
   cacert,
@@ -12,17 +13,28 @@
   mimalloc,
   mpv-unwrapped,
   webkitgtk_4_1,
+  yq,
 }:
 
 let
-  version = "2.3.3";
+  version = "2.3.6";
 
   src = fetchFromGitHub {
     owner = "Predidit";
     repo = "Kazumi";
     tag = version;
-    hash = "sha256-2BhB7wEptw1KfPwfLvuO+2IvdimygtwVSp496hkZ7XE=";
+    hash = "sha256-63GJ5ORld5OLlBYBULfsD1SuMBiuEv6h4Z2yGafHJn8=";
   };
+
+  # linux-x64 or linux-arm64 prebuilt SDK target
+  echTarget = if stdenv.hostPlatform.isx86_64 then "linux-x64" else "linux-arm64";
+
+  echDepsUrl = "https://github.com/Predidit/libechhttp-linux-build/releases/download/v0.1.0/libechhttp-deps-v0.1.0-${echTarget}.zip";
+  echDeps = fetchurl {
+    url = echDepsUrl;
+    hash = "sha256-+/Ne+vCO9fYkB3f+aV3kaFxLxohjkFLnlYS+0kQxKcQ=";
+  };
+
 in
 flutter.buildFlutterApplication {
   pname = "kazumi";
@@ -32,7 +44,10 @@ flutter.buildFlutterApplication {
 
   gitHashes = lib.importJSON ./gitHashes.json;
 
-  flutterBuildFlags = [ "--dart-define=appBuildName=${version}" ];
+  flutterBuildFlags = [
+    "--dart-define=appBuildName=${version}"
+    "--dart-define=source=system"
+  ];
 
   customSourceBuilders = {
     # unofficial media_kit_libs_linux
@@ -82,6 +97,10 @@ flutter.buildFlutterApplication {
   };
 
   postPatch = ''
+    # Set hooks.user_defines so media_kit uses the system library and
+    # ech_http looks up its prebuilt SDK in .dart_tool/ech_http_cache
+    yq -Y '.hooks = {"user_defines": {"media_kit": {"source": "system"}, "ech_http": {"binary_cache": ".dart_tool/ech_http_cache"}}}' pubspec.yaml > pubspec.yaml.new && mv pubspec.yaml.new pubspec.yaml
+
     # Fix Flutter 3.24+ API change
     substituteInPlace lib/pages/plugin_editor/plugin_view_page.dart \
       --replace-fail "onReorderItem:" "onReorder:"
@@ -94,6 +113,15 @@ flutter.buildFlutterApplication {
     sed -i "s/appBuildName ?? '0.0.0'/const String.fromEnvironment('appBuildName', defaultValue: '${version}')/" lib/request/config/api_endpoints.dart
   '';
 
+  # Dynamically read SDK sha256 from ech_http's manifest; copy pre-fetched zip into
+  # the hook cache so the build runs fully offline.
+  preBuild = ''
+    echRoot="$(jq -r '.packages[] | select(.name == "ech_http") .rootUri | sub("file://"; "")' .dart_tool/package_config.json)"
+    echDepsSha256="$(yq -r '.targets["${echTarget}"].sha256' "$echRoot/lib/src/build_support/dependencies.json")"
+    mkdir -p .dart_tool/ech_http_cache
+    cp "${echDeps}" ".dart_tool/ech_http_cache/${echTarget}-''${echDepsSha256}.zip"
+  '';
+
   # Ensure HTTPS certificate bundle is available to fix TLS verification
   preFixup = ''
     gappsWrapperArgs+=(
@@ -101,7 +129,10 @@ flutter.buildFlutterApplication {
     )
   '';
 
-  nativeBuildInputs = [ autoPatchelfHook ];
+  nativeBuildInputs = [
+    autoPatchelfHook
+    yq
+  ];
 
   buildInputs = [
     alsa-lib
@@ -118,7 +149,6 @@ flutter.buildFlutterApplication {
   ];
 
   postInstall = ''
-    ln -snf ${mpv-unwrapped}/lib/libmpv.so.2 $out/app/$pname/lib/libmpv.so.2
     install -Dm 0644 assets/linux/io.github.Predidit.Kazumi.desktop -t $out/share/applications/
     install -Dm 0644 assets/images/logo/logo_linux.png $out/share/icons/hicolor/512x512/apps/io.github.Predidit.Kazumi.png
   '';
