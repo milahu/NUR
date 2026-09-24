@@ -8,13 +8,13 @@
 }:
 
 let
-  version = "3.6b";
+  version = "3.6e";
   pname = "ibkr-desktop";
 
   src = fetchurl {
     # Always serves the latest version; no versioned URL available
     url = "https://download2.interactivebrokers.com/installers/ntws/latest-standalone/ntws-latest-standalone-linux-x64.sh";
-    hash = "sha256-LLuhRZM88A7VMDoCChZj76KZBupx5qA5enUjpIQNGPo=";
+    hash = "sha256-2LMkqImG9Syt3Pg8wlC+slZeWgIM8zqpOBDQMw4LogQ=";
     name = "${pname}-${version}-installer.sh";
   };
 
@@ -203,6 +203,8 @@ stdenv.mkDerivation {
     fi
 
     export INSTALL4J_JAVA_HOME_OVERRIDE="\$STORE_PATH/jre"
+    # Disable the in-app updater, it cannot work on Nix
+    export INSTALL4J_ADD_VM_PARAMS="-DskipUpdateCheck=true\''${INSTALL4J_ADD_VM_PARAMS:+ \$INSTALL4J_ADD_VM_PARAMS}"
     export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
     export FONTCONFIG_FILE="${pkgs.makeFontsConf { fontDirectories = [ ]; }}"
     export QT_QPA_PLATFORM=xcb
@@ -222,7 +224,7 @@ stdenv.mkDerivation {
     runHook postInstall
   '';
 
-  passthru.etagHash = "4739a95668c5e720c4d5139c3eeb5f60";
+  passthru.etagHash = "8cfb5df2a94a0442304a7550cc1447e8";
 
   meta = {
     description = "Interactive Brokers desktop trading platform (ibkr-desktop)";
