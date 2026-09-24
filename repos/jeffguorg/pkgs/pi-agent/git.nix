@@ -26,7 +26,7 @@ buildNpmPackage rec {
   # fetcher 固定 v1：v2 会在计算哈希时在线抓取 registry packument，内容随注册表
   # 状态漂移，无法稳定复现；v1 只依赖 lockfile 本身。
   npmDepsFetcherVersion = 1;
-  npmDepsHash = "sha256-VxjYw4lN/w0sDboihHAKEhdJFzJa09qZo7vavkTkBuw=";
+  npmDepsHash = "sha256-JBIYoP2vvRNz1HONNvDJ1U3c+nmCJ7/VgNthRTkrkIA=";
 
   # nixpkgs 的 npmConfigHook 在 ci 后会 npm rebuild，会触发 canvas 等原生包的
   # install script（沙箱内无网络无 cairo）。上游 CI 全程 --ignore-scripts，
@@ -49,16 +49,16 @@ buildNpmPackage rec {
     # 纯生产依赖树（缓存来自预取的 npmDeps），构建期 devDeps 至此不再进入产物
     npm ci --omit=dev --ignore-scripts
 
-    mkdir -p $out/lib $out/bin
+    mkdir -p $out/lib/pi-agent-git $out/bin
     # -L 解引用 workspaces 的相对符号链接（node_modules/@earendil-works/* →
     # packages/*），得到与 npm 发布一致的实体目录布局
-    cp -rL node_modules $out/lib/
+    cp -rL node_modules $out/lib/pi-agent-git/node_modules
 
     # 运行时只读 dist；各 workspace 的 src/test 不随 npm 包发布，裁掉以缩小 closure
-    for pkg in $out/lib/node_modules/@earendil-works/*/; do
+    for pkg in $out/lib/pi-agent-git/node_modules/@earendil-works/*/; do
       rm -rf "''${pkg}src" "''${pkg}test"
     done
-    pkgOut=$out/lib/node_modules/@earendil-works/pi-coding-agent
+    pkgOut=$out/lib/pi-agent-git/node_modules/@earendil-works/pi-coding-agent
 
     makeWrapper ${lib.getExe nodejs_22} $out/bin/pi \
       --add-flags "$pkgOut/dist/bundle/cli.js"

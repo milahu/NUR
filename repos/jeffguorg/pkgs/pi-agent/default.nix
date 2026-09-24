@@ -32,7 +32,7 @@ buildNpmPackage rec {
     '';
   };
 
-  npmDepsHash = "sha256-nKAcSzT8YkMC5eabkHKxuTt5rW9hdc4cQhBiUcGX84M=";
+  npmDepsHash = "sha256-S/YWv1xPezJO3GhQIoQR3H0duPXT58CaGGAEu9aSJB4=";
 
   nativeBuildInputs = [
     jq
@@ -52,12 +52,11 @@ buildNpmPackage rec {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/bin $out/lib
-    cp -r node_modules $out/lib/node_modules
+    mkdir -p $out/bin $out/lib/pi-agent
+    cp -r node_modules $out/lib/pi-agent/node_modules
 
     makeWrapper ${lib.getExe nodejs} $out/bin/pi \
-      --add-flags "$out/lib/node_modules/@earendil-works/pi-coding-agent/dist/cli.js"
-
+      --add-flags "$out/lib/pi-agent/node_modules/@earendil-works/pi-coding-agent/dist/cli.js"
     runHook postInstall
   '';
 
