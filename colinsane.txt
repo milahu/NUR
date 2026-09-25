@@ -1,0 +1,80 @@
+error:
+… while evaluating the attribute 'pkgsStaging'
+  at <nixpkgs> + /lib/attrsets.nix:990:47:
+   989|   */
+   990|   nameValuePair = name: value: { inherit name value; };
+      |                                               ^
+   991|
+
+… from call site
+  at ./pkgs/unfixed.nix:49:21:
+    48|       if type == "directory" && builtins.pathExists default then {
+    49|         "${name}" = callPackage default { };
+      |                     ^
+    50|       } else if type == "directory" then {
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
+      |       ^
+   324|     else
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… while calling anonymous lambda
+  at ./pkgs/by-name/pkgsStaging/package.nix:1:1:
+     1| {
+      | ^
+     2|   config,
+
+… while calling the 'import' builtin
+  at ./pkgs/by-name/pkgsStaging/package.nix:7:1:
+     6| }:
+     7| import "${nixpkgs-bootstrap.staging}/pkgs/top-level" {
+      | ^
+     8|   # XXX: passing through `config` here actually has observable effects: it's not *quite* idempotent.
+
+… while realising the context of path '/nix/store/pqpb94bp5xwfxsnjgr9jx18sdmrq49id-nixpkgs-staging-sane/pkgs/top-level'
+
+error: path '/nix/store/krx6bciaps57cvbdvm060j0yahkvmxsk-nixpkgs-staging-sane.drv' is not valid
