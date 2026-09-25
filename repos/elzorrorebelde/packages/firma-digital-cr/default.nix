@@ -39,6 +39,7 @@
   libxtst,
   libxi,
   python3,
+  zenity
 }:
 
 let
@@ -117,7 +118,7 @@ rec {
     pname = "firma-digital-cr-ca-certificates";
     inherit version;
     src = zipArchive;
-    nativeBuildInputs = [ unzip ];
+    nativeBuildInputs = [ unzip openssl_3_6 ];
 
     unpackPhase = ''
       runHook preUnpack
@@ -130,6 +131,16 @@ rec {
       runHook preInstall
       mkdir -p $out/etc/ssl/certs
       cp certs/* $out/etc/ssl/certs/
+
+      # ponytail: one-liner DER→PEM conversion. If openssl ever
+      # chokes on a file, add `|| true` to skip it and log a warning.
+      for f in $out/etc/ssl/certs/*; do
+        if [ "$(head -c1 "$f" | od -A n -t x1 | tr -d ' \n')" = "30" ]; then
+          openssl x509 -inform DER -outform PEM -in "$f" -out "$f.new"
+          mv "$f.new" "$f"
+        fi
+      done
+
       runHook postInstall
     '';
 
@@ -373,6 +384,7 @@ PYEOF
       expat
       brotli
       zlib
+      zenity
       libx11
       libxext
       libxrender
@@ -460,6 +472,16 @@ PYEOF
     name = "agente-gaudi";
     targetPkgs = pkgs: [
       agente-gaudi-unwrapped
+      # The bundled signing client (bccr-firma-fva-clienteMultiplataforma.jar,
+      # extracted at runtime into ~/.cache/Agente-GAUDI/) hardcodes
+      # /usr/lib/SCMiddleware/libidop11.so as its PKCS#11 module path.
+      # idopte-unwrapped ships that file under lib/SCMiddleware/, which
+      # buildFHSEnv merges into /usr/lib/ here -- same trick idopte's own
+      # buildFHSEnv already relies on. pcsclite/openssl_3_6 are libidop11.so's
+      # own runtime deps, resolved via its $ORIGIN:/usr/lib64 RUNPATH.
+      idopte-unwrapped
+      pcsclite
+      openssl_3_6
       libx11
       libxext
       libxrender
