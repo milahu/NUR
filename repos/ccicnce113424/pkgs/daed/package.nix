@@ -5,6 +5,7 @@
   nodejs,
   stdenvNoCC,
   clang,
+  gotools,
   buildGoModule,
   fetchFromGitHub,
   lib,
@@ -17,12 +18,12 @@ let
 in
 buildGoModule (finalAttrs: {
   pname = "daed";
-  version = "1.27.0";
+  version = "2.1.1";
   src = fetchFromGitHub {
     owner = "daeuniverse";
     repo = "daed";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-CvxCDdOLsdSlFfmoR+C1IUt9HvkAV5JsWGI94DLXB+U=";
+    hash = "sha256-F8Q97sGA4sMgupb31+nFT55sdx/Jr1mgwOjb45o9hlc=";
     fetchSubmodules = true;
   };
 
@@ -39,7 +40,7 @@ buildGoModule (finalAttrs: {
         ;
       inherit pnpm;
       fetcherVersion = 4;
-      hash = "sha256-1BBSEKV/o7aH15GV+NgbyT8cBeAUivrgfpqsl5kfCyQ=";
+      hash = "sha256-CL21Q9y5C2TGbu8yppXTt7fZQfyMlePQXyMh2cVg5TE=";
     };
 
     nativeBuildInputs = [
@@ -69,10 +70,13 @@ buildGoModule (finalAttrs: {
     '';
   };
 
-  vendorHash = "sha256-l7jgMvrbpOY2+cvnc0e5cvSgKVm4GcWC+bPbff+PE80=";
+  vendorHash = "sha256-+YQ/Ia54N/QKwd9p4AePg3CMjQvc4mFE1EcA/JPc8Po=";
   proxyVendor = true;
 
-  nativeBuildInputs = [ clang ];
+  nativeBuildInputs = [
+    clang
+    gotools
+  ];
 
   hardeningDisable = [ "zerocallusedregs" ];
 
@@ -80,14 +84,18 @@ buildGoModule (finalAttrs: {
     substituteInPlace Makefile \
       --replace-fail /bin/bash /bin/sh
 
-    # ${finalAttrs.web} does not have write permission
-    mkdir dist
-    cp -r ${finalAttrs.web}/* dist
-    chmod -R 755 dist
+    substituteInPlace graphql/service/config/global/global.go \
+      --replace-fail "go run -mod=mod golang.org/x/tools/cmd/goimports -w generated_resolver.go generated_input.go" \
+                     "goimports -w generated_resolver.go generated_input.go"
   '';
 
   buildPhase = ''
     runHook preBuild
+
+    # ${finalAttrs.web} does not have write permission
+    mkdir dist
+    cp -r ${finalAttrs.web}/* dist
+    chmod -R 755 dist
 
     make CFLAGS="-D__REMOVE_BPF_PRINTK -fno-stack-protector -Wno-unused-command-line-argument" \
       NOSTRIP=y \
