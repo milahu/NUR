@@ -1,19 +1,19 @@
 {
 "name":"examosa",
-"fetch_time":0.87,
-"eval_time":0.677,
+"fetch_time":1.206,
+"eval_time":0.514,
 "source":{
 "url":"https://codeberg.org/examosa/nur-packages",
-"rev":"f1dc56ce74ae9a14ffc2eac8c406d4e85bc83788",
-"sha256":"1vf8lhyp0bpfzihpnnslx2kwxy6rph59smamx3mmw1iir06gal86",
+"rev":"f20f7267b5d8b8cdade243325d163c354965162a",
+"sha256":"1hvi5n8nrfryfbi60f6bqnqcpsvjyc3lxv7v8mbzvyb316mfm2xd",
 "date":null
 },
-"source_storepath":"/nix/store/0q2g7dp6q2nfb420ikqz1k0ax77qad09-nur-packages",
-"nixpkgs_storepath":"/nix/store/1ng9qp2m2l05hdgadl9f8g203hm43a1v-source",
-"nur_combined_rev":"f88986e6f54f1d030be84680b9132f4ab2990e4d",
+"source_storepath":"/nix/store/qrvng1fhfav52pcn4kx4f23b4zxkxjcn-nur-packages",
+"nixpkgs_storepath":"/nix/store/9kj7xplg18izvf8mx4s7q5kzqpw6pcw4-source",
+"nur_combined_rev":"f540a6bb18e0191db202d49b32f888740dbaf56e",
 "packages":{
 "attempt":{
-"drvPath":"/nix/store/y4ybalvnqwxaxb5ianskdza15hlmvaz0-attempt-1.1.1.drv",
+"drvPath":"/nix/store/wmdzfqam2rs280i8239w6z54xdyym08i-attempt-1.1.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -137,7 +137,7 @@
 "version":"1.1.1"
 },
 "aube":{
-"drvPath":"/nix/store/2hs5j572zddq9i5spg35f6k76g4ciw2i-aube-2.2.9.drv",
+"drvPath":"/nix/store/8ss6vz4cn17pr8yixdzbzi2j2ihr6lxf-aube-2.3.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -152,7 +152,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/endevco/aube/blob/refs/tags/v2.2.9/CHANGELOG.md",
+"changelog":"https://github.com/endevco/aube/blob/refs/tags/v2.3.0/CHANGELOG.md",
 "description":"A fast Node.js package manager",
 "homepage":"https://github.com/endevco/aube",
 "identifiers":{
@@ -209,7 +209,7 @@
 ],
 "mainProgram":"aube",
 "maintainers":[],
-"name":"aube-2.2.9",
+"name":"aube-2.3.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -254,7 +254,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/aube.nix:105",
+"position":"./packages/aube.nix:110",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -264,17 +264,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"aube-2.2.9",
+"name":"aube-2.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"aube",
 "system":"x86_64-linux",
-"version":"2.2.9"
+"version":"2.3.0"
 },
 "crgx":{
-"drvPath":"/nix/store/v0yv17rcniii3nlp2wy3lq7whh5220ns-crgx-0.1.0.drv",
+"drvPath":"/nix/store/3zx2rwwb8l430gvbwcniqwxfc0vnnw3n-crgx-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -399,7 +399,7 @@
 "version":"0.1.0"
 },
 "dra":{
-"drvPath":"/nix/store/fadw9xx80kydcy53q8zwsprz0fzs0z94-dra-0.10.3.drv",
+"drvPath":"/nix/store/k52wcfm5pwhi8q87ky12wpxli0yr7v49-dra-0.10.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -534,7 +534,7 @@
 "version":"31.1"
 },
 "exec-as":{
-"drvPath":"/nix/store/91pinkyb8idfm80mqjb9hmzspjdpbf8r-exec-as-1.2.3.drv",
+"drvPath":"/nix/store/6v7z1hl30rz38r12iw4p16h587cp77gs-exec-as-1.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -688,7 +688,7 @@
 "version":"1.2.3"
 },
 "fnox":{
-"drvPath":"/nix/store/53wxasxfc5cmyqbsxk397my0h0diynkh-fnox-1.34.1.drv",
+"drvPath":"/nix/store/gpdcqcz2cy3g73dv98g6x0225m0scr8x-fnox-1.35.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -703,7 +703,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/jdx/fnox/blob/refs/tags/v1.34.1/CHANGELOG.md",
+"changelog":"https://github.com/jdx/fnox/blob/refs/tags/v1.35.3/CHANGELOG.md",
 "description":"Encrypted/remote secret manager",
 "homepage":"https://github.com/jdx/fnox",
 "identifiers":{
@@ -748,7 +748,7 @@
 },
 "mainProgram":"fnox",
 "maintainers":[],
-"name":"fnox-1.34.1",
+"name":"fnox-1.35.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -803,17 +803,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"fnox-1.34.1",
+"name":"fnox-1.35.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fnox",
 "system":"x86_64-linux",
-"version":"1.34.1"
+"version":"1.35.3"
 },
 "gethome":{
-"drvPath":"/nix/store/vkf4ry2n3j71wrkih5cxrn6f6hppvs8f-gethome.drv",
+"drvPath":"/nix/store/li6l3k5f52g5xmcgkdlh7dkkssdyaljl-gethome.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -887,7 +887,7 @@
 "version":"2026-05-07"
 },
 "restish":{
-"drvPath":"/nix/store/an7a0ic23g0srx311agvl1vx2sg9lrcd-restish-2.3.0.drv",
+"drvPath":"/nix/store/0sv3cnn3wdp5vycna41d924wmbk7cxk8-restish-2.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -994,7 +994,7 @@
 "version":"2.3.0"
 },
 "rw-rs":{
-"drvPath":"/nix/store/d8anmn4blzpw2lwcm04s6rcrabiiyk6g-rw-rs-1.0.1.drv",
+"drvPath":"/nix/store/6kq1i50xn0jg5h1xvcyknyr6w6rf4594-rw-rs-1.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1118,7 +1118,7 @@
 "version":"1.0.1"
 },
 "seed7":{
-"drvPath":"/nix/store/fb965qcz94drklmmca1ws6gi63f3lrzs-seed7-5.4.10.drv",
+"drvPath":"/nix/store/6p84m280h36i0vsvj7w178pvxrz5sv14-seed7-5.4.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1284,7 +1284,7 @@
 "version":"0.6.0"
 },
 "ubi":{
-"drvPath":"/nix/store/j3s7sin3mfzkrlrzk44s9xlmka53klyk-ubi-0.12.0.drv",
+"drvPath":"/nix/store/92ndn47y93hiyb3j1rf5nva1gwphdjlh-ubi-0.12.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
