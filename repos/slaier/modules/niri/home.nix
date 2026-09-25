@@ -8,6 +8,10 @@ in
   home.packages = [ pkgs.swaybg ];
   xdg.dataFile."${bg}".source = bgPath;
   xdg.configFile."niri/config.kdl".source = ./niri.kdl;
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications."inode/directory" = "org.gnome.Nautilus.desktop";
+  };
   services.swayidle =
     let
       # Lock command
@@ -89,6 +93,72 @@ in
       categories = [
         "Game"
       ];
+    };
+    tauonmb = {
+      # ponytail: nixpkgs tauon renames bin tauonmb->tauon but desktop Exec still tauonmb; override Exec via xdg to fix fuzzel. Remove when upstream patches extra/tauonmb.desktop.
+      name = "Tauon";
+      genericName = "Audio Player";
+      comment = "Ultra player for your music collection";
+      exec = "tauon %U";
+      icon = "tauonmb";
+      terminal = false;
+      type = "Application";
+      categories = [
+        "AudioVideo"
+        "Player"
+        "Audio"
+      ];
+      mimeType = [
+        "application/ogg"
+        "audio/x-vorbis+ogg"
+        "application/x-ogg"
+        "audio/ogg"
+        "audio/x-ogg"
+        "audio/x-opus+ogg"
+        "audio/flac"
+        "audio/x-flac"
+        "application/flac"
+        "audio/wav"
+        "audio/x-wav"
+        "audio/tta"
+        "audio/x-tta"
+        "audio/mpeg"
+        "audio/mp3"
+        "audio/x-mp3"
+        "audio/m4a"
+        "audio/x-m4a"
+        "audio/ape"
+        "audio/x-ape"
+        "x-content/audio-player"
+        "audio/scpls"
+        "audio/x-scpls"
+        "audio/x-pls"
+        "audio/m3u"
+        "application/xspf+xml"
+      ];
+      startupNotify = false;
+      actions = {
+        PlayPause = {
+          name = "Play/Pause";
+          exec = "tauon playpause";
+        };
+        Previous = {
+          name = "Previous Track";
+          exec = "tauon prev";
+        };
+        Next = {
+          name = "Next Track";
+          exec = "tauon next";
+        };
+        Stop = {
+          name = "Stop";
+          exec = "tauon stop";
+        };
+      };
+      settings = {
+        StartupWMClass = "Tauon Music Box";
+        "X-GNOME-UsesNotifications" = "true";
+      };
     };
   };
 }
