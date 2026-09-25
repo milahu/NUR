@@ -1,4 +1,8 @@
 # keep-sorted start group_start_regex=["^\\[[^\\]]+\\]"] by_regex=["^\\[([^\\]]+)\\]"] newline_separated=yes case=no
+[aircard]
+src.github = "Mak5er/AirCard"
+fetch.github = "Mak5er/AirCard"
+
 [airtrail]
 src.github = "johanohly/AirTrail"
 fetch.github = "johanohly/AirTrail"
@@ -254,6 +258,14 @@ src.git = "https://github.com/Loyalsoldier/v2ray-rules-dat.git"
 fetch.github = "Loyalsoldier/v2ray-rules-dat"
 src.branch = "release"
 
+[wetype-ime-linux]
+src.git = "https://github.com/yu1745/wetype-ime-linux.git"
+fetch.github = "yu1745/wetype-ime-linux"
+
+[wetype-ime-linux-stable]
+src.github_tag = "yu1745/wetype-ime-linux"
+fetch.url = "file:///dev/null"
+
 [whois42d-ng]
 src.git = "https://github.com/moraxyc/whois42d-ng.git"
 fetch.github = "moraxyc/whois42d-ng"
@@ -264,3 +276,4 @@ src.github = "moraxyc/whois42d-ng"
 fetch.url = "file:///dev/null"
 
 # keep-sorted end
+
