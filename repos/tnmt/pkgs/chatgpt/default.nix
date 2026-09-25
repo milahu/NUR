@@ -4,6 +4,7 @@
   fetchurl,
   dpkg,
   autoPatchelfHook,
+  makeWrapper,
   alsa-lib,
   at-spi2-atk,
   at-spi2-core,
@@ -22,7 +23,14 @@
   libGL,
   libnotify,
   libusb1,
+  libx11,
+  libxcb,
+  libxcomposite,
+  libxdamage,
+  libxext,
+  libxfixes,
   libxkbcommon,
+  libxrandr,
   mesa,
   nspr,
   nss,
@@ -30,23 +38,22 @@
   pango,
   systemd,
   vulkan-loader,
-  xorg,
   xz,
   nix-update-script,
 }:
 
 let
   pname = "chatgpt";
-  version = "26.917.62051";
+  version = "26.917.71314";
 
   allArchives = {
     x86_64-linux = {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/latest/chatgpt_amd64.deb";
-      hash = "sha256-dVNuPxl8bbiIGmNPi7mwUVGEqO/3zsm+X0CND0rm5pY=";
+      arch = "amd64";
+      hash = "sha256-hR7Ci2W94v8dqfN9zfW24gqRXHVo+LLOmTwAQo8BiuU=";
     };
     aarch64-linux = {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/latest/chatgpt_arm64.deb";
-      hash = "sha256-uvBtr03xDoZC4Na/DnpH2ly34v/hL0RCc3HS8yX1WSQ=";
+      arch = "arm64";
+      hash = "sha256-IRSINiPa40pLx6Z/qtPmZS3Zv9x6KPV8Nu0D41C+HPE=";
     };
   };
 
@@ -75,7 +82,15 @@ let
     libGL
     libnotify
     libusb1
+    libx11
+    libx11.dev
+    libxcb
+    libxcomposite
+    libxdamage
+    libxext
+    libxfixes
     libxkbcommon
+    libxrandr
     mesa
     nspr
     nss
@@ -84,27 +99,26 @@ let
     systemd
     vulkan-loader
     xz
-    xorg.libX11
-    xorg.libX11.dev
-    xorg.libXcomposite
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXrandr
-    xorg.libxcb
   ];
 in
 stdenv.mkDerivation {
   inherit pname version;
 
-  src = fetchurl { inherit (archive) url hash; };
+  src = fetchurl {
+    url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_${version}_${archive.arch}.deb";
+    inherit (archive) hash;
+  };
 
   nativeBuildInputs = [
     dpkg
     autoPatchelfHook
+    makeWrapper
   ];
 
   buildInputs = runtimeDeps;
+
+  # ANGLE loads libEGL.so.1 via dlopen, so autoPatchelf can't infer it from DT_NEEDED.
+  runtimeDependencies = [ libGL ];
 
   unpackPhase = ''
     runHook preUnpack
@@ -137,7 +151,8 @@ stdenv.mkDerivation {
     mkdir -p $out/lib $out/bin $out/share/applications $out/share/pixmaps
     cp -r usr/lib/chatgpt $out/lib/
 
-    ln -s $out/lib/chatgpt/ChatGPT $out/bin/chatgpt
+    makeWrapper $out/lib/chatgpt/ChatGPT $out/bin/chatgpt \
+      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}"
 
     install -Dm644 usr/share/pixmaps/chatgpt.png $out/share/pixmaps/chatgpt.png
     install -Dm644 usr/share/applications/chatgpt.desktop $out/share/applications/chatgpt.desktop
