@@ -1,10 +1,411 @@
 error:
-… while evaluating the attribute 'pkgsStaging'
-  at <nixpkgs> + /lib/attrsets.nix:990:47:
-   989|   */
-   990|   nameValuePair = name: value: { inherit name value; };
-      |                                               ^
-   991|
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/customisation.nix:417:13:
+   416|           drvPath =
+   417|             assert condition;
+      |             ^
+   418|             drv.drvPath;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
+   982|       };
+   983|       validity = assertValidity { inherit meta attrs; };
+      |                  ^
+   984|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:661:5:
+   660|     in
+   661|     { meta, attrs }:
+      |     ^
+   662|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:667:7:
+   666|     if invalid == null then
+   667|       if problems == null then
+      |       ^
+   668|         {
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:664:18:
+   663|       invalid = checkValidity' attrs;
+   664|       problems = checkProblems attrs;
+      |                  ^
+   665|     in
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:494:5:
+   493|     in
+   494|     attrs:
+      |     ^
+   495|     if
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:495:5:
+   494|     attrs:
+   495|     if
+      |     ^
+   496|       # Fast path for when there's no problem that needs to be handled
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:500:7:
+   499|       ) automaticProblemsConfigCache
+   500|       && (
+      |       ^
+   501|         # No manual problems
+
+… while calling the 'all' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:497:7:
+   496|       # Fast path for when there's no problem that needs to be handled
+   497|       all (
+      |       ^
+   498|         problem: problem.condition attrs -> problem.handler (getName attrs) == "ignore"
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:498:9:
+   497|       all (
+   498|         problem: problem.condition attrs -> problem.handler (getName attrs) == "ignore"
+      |         ^
+   499|       ) automaticProblemsConfigCache
+
+… in the left operand of the IMPL (->) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:498:42:
+   497|       all (
+   498|         problem: problem.condition attrs -> problem.handler (getName attrs) == "ignore"
+      |                                          ^
+   499|       ) automaticProblemsConfigCache
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:498:18:
+   497|       all (
+   498|         problem: problem.condition attrs -> problem.handler (getName attrs) == "ignore"
+      |                  ^
+   499|       ) automaticProblemsConfigCache
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:120:13:
+   119|           else
+   120|             attrs: attrs ? meta.broken && attrs.meta.broken;
+      |             ^
+   121|         value.message = "This package is broken.";
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/problems.nix:120:40:
+   119|           else
+   120|             attrs: attrs ? meta.broken && attrs.meta.broken;
+      |                                        ^
+   121|         value.message = "This package is broken.";
+
+… while evaluating the attribute 'meta.broken'
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:556:7:
+   555|       # https://github.com/NixOS/nixpkgs/pull/345534#issuecomment-2391238381
+   556|       broken = withRust && lib.versionOlder version "6.12";
+      |       ^
+   557|
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:556:25:
+   555|       # https://github.com/NixOS/nixpkgs/pull/345534#issuecomment-2391238381
+   556|       broken = withRust && lib.versionOlder version "6.12";
+      |                         ^
+   557|
+
+… from call site
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:154:16:
+   153|     isModular = config.isYes "MODULES";
+   154|     withRust = config.isYes "RUST";
+      |                ^
+   155|
+
+… while calling 'isYes'
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:141:17:
+   140|
+   141|         isYes = attr: (config.getValue attr) == "y";
+      |                 ^
+   142|
+
+… from call site
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:141:24:
+   140|
+   141|         isYes = attr: (config.getValue attr) == "y";
+      |                        ^
+   142|
+
+… while calling 'getValue'
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:139:20:
+   138|
+   139|         getValue = attr: if config.isSet attr then getAttr (attrName attr) config else null;
+      |                    ^
+   140|
+
+… while calling the 'getAttr' builtin
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:139:52:
+   138|
+   139|         getValue = attr: if config.isSet attr then getAttr (attrName attr) config else null;
+      |                                                    ^
+   140|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/generic.nix:308:25:
+   307|           CONFIG_FW_LOADER = "y";
+   308|           CONFIG_RUST = if withRust then "y" else "n";
+      |                         ^
+   309|         };
+
+… while evaluating the attribute 'moduleStructuredConfig.settings.RUST'
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/generic.nix:266:9:
+   265|         # The result is a set of two attributes
+   266|         moduleStructuredConfig =
+      |         ^
+   267|           (lib.evalModules {
+
+… while evaluating the attribute 'config'
+  at <nixpkgs> + /lib/modules.nix:404:9:
+   403|         options = checked options;
+   404|         config = checked (removeAttrs config [ "_module" ]);
+      |         ^
+   405|         _module = checked (config._module);
+
+… while calling the 'seq' builtin
+  at <nixpkgs> + /lib/modules.nix:404:18:
+   403|         options = checked options;
+   404|         config = checked (removeAttrs config [ "_module" ]);
+      |                  ^
+   405|         _module = checked (config._module);
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:307:9:
+   306|       checkUnmatched =
+   307|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+      |         ^
+   308|           let
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /lib/modules.nix:307:72:
+   306|       checkUnmatched =
+   307|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+      |                                                                        ^
+   308|           let
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /lib/modules.nix:307:33:
+   306|       checkUnmatched =
+   307|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+      |                                 ^
+   308|           let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:298:9:
+   297|         in
+   298|         if declaredConfig._module.freeformType == null then
+      |         ^
+   299|           declaredConfig
+
+… while calling the 'mapAttrs' builtin
+  at <nixpkgs> + /lib/modules.nix:285:13:
+   284|             in
+   285|             recurse options;
+      |             ^
+   286|
+
+… while evaluating the attribute 'matchedOptions'
+  at <nixpkgs> + /lib/modules.nix:978:15:
+   977|     {
+   978|       inherit matchedOptions;
+      |               ^
+   979|
+
+… while calling the 'mapAttrs' builtin
+  at <nixpkgs> + /lib/modules.nix:968:24:
+   967|
+   968|       matchedOptions = mapAttrs (n: v: v.matchedOptions) resultsByName;
+      |                        ^
+   969|
+
+… while calling the 'mapAttrs' builtin
+  at <nixpkgs> + /lib/modules.nix:890:23:
+   889|
+   890|       resultsByName = mapAttrs (
+      |                       ^
+   891|         name: decls:
+
+… while calling the 'zipAttrsWith' builtin
+  at <nixpkgs> + /lib/modules.nix:806:21:
+   805|       # an attrset 'name' => list of submodules that declare ‘name’.
+   806|       declsByName = zipAttrs (
+      |                     ^
+   807|         map (
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/modules.nix:807:9:
+   806|       declsByName = zipAttrs (
+   807|         map (
+      |         ^
+   808|           module:
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:273:37:
+   272|
+   273|       merged = mergeModules prefix (reverseList (doCollect { }).modules);
+      |                                     ^
+   274|
+
+… while calling 'reverseList'
+  at <nixpkgs> + /lib/lists.nix:1139:5:
+  1138|   reverseList =
+  1139|     xs:
+      |     ^
+  1140|     let
+
+… while calling the 'genList' builtin
+  at <nixpkgs> + /lib/lists.nix:1144:5:
+  1143|     in
+  1144|     genList (n: elemAt xs (lastIndex - n)) (lastIndex + 1);
+      |     ^
+  1145|
+
+… while evaluating the second argument passed to builtins.genList
+
+… while calling the 'sub' builtin
+  at <nixpkgs> + /lib/lists.nix:1142:29:
+  1141|       # subtract one to save an __sub call on every element
+  1142|       lastIndex = length xs - 1;
+      |                             ^
+  1143|     in
+
+… while calling the 'length' builtin
+  at <nixpkgs> + /lib/lists.nix:1142:19:
+  1141|       # subtract one to save an __sub call on every element
+  1142|       lastIndex = length xs - 1;
+      |                   ^
+  1143|     in
+
+… while evaluating the attribute 'modules'
+  at <nixpkgs> + /lib/modules.nix:604:7:
+   603|     modulesPath: initialModules: args: {
+   604|       modules = filterModules modulesPath (collectStructuredModules unknownModule "" initialModules args);
+      |       ^
+   605|       # Intentionally not shared with `modules` above: this allows
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:604:17:
+   603|     modulesPath: initialModules: args: {
+   604|       modules = filterModules modulesPath (collectStructuredModules unknownModule "" initialModules args);
+      |                 ^
+   605|       # Intentionally not shared with `modules` above: this allows
+
+… while calling 'filterModules'
+  at <nixpkgs> + /lib/modules.nix:568:9:
+   567|         modulesPath:
+   568|         { disabled, modules }:
+      |         ^
+   569|         let
+
+… while calling the 'catAttrs' builtin
+  at <nixpkgs> + /lib/modules.nix:573:9:
+   572|         in
+   573|         catAttrs "module" (
+      |         ^
+   574|           genericClosure (
+
+… while calling the 'genericClosure' builtin
+  at <nixpkgs> + /lib/modules.nix:574:11:
+   573|         catAttrs "module" (
+   574|           genericClosure (
+      |           ^
+   575|             if disabled == [ ] then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:575:13:
+   574|           genericClosure (
+   575|             if disabled == [ ] then
+      |             ^
+   576|               {
+
+… while calling the 'concatLists' builtin
+  at <nixpkgs> + /lib/modules.nix:529:24:
+   528|           collectResults = modules: {
+   529|             disabled = concatLists (catAttrs "disabled" modules);
+      |                        ^
+   530|             inherit modules;
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:547:19:
+   546|                 (
+   547|                   if module.disabledModules != [ ] then
+      |                   ^
+   548|                     [
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:538:24:
+   537|             let
+   538|               module = checkModule (loadModule args parentFile "${parentKey}:anon-${toString n}" x);
+      |                        ^
+   539|               collectedImports = collectStructuredModules module._file module.key module.imports args;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:470:11:
+   469|         else
+   470|           m: m;
+      |           ^
+   471|
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:538:37:
+   537|             let
+   538|               module = checkModule (loadModule args parentFile "${parentKey}:anon-${toString n}" x);
+      |                                     ^
+   539|               collectedImports = collectStructuredModules module._file module.key module.imports args;
+
+… while calling 'loadModule'
+  at <nixpkgs> + /lib/modules.nix:422:42:
+   421|       loadModule =
+   422|         args: fallbackFile: fallbackKey: m:
+      |                                          ^
+   423|         if isFunction m then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:423:9:
+   422|         args: fallbackFile: fallbackKey: m:
+   423|         if isFunction m then
+      |         ^
+   424|           unifyModuleSyntax fallbackFile fallbackKey (applyModuleArgs fallbackKey m args)
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:423:12:
+   422|         args: fallbackFile: fallbackKey: m:
+   423|         if isFunction m then
+      |            ^
+   424|           unifyModuleSyntax fallbackFile fallbackKey (applyModuleArgs fallbackKey m args)
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1131:5:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |     ^
+  1132|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/trivial.nix:1131:21:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |                     ^
+  1132|
+
+… while calling the 'isFunction' builtin
+  at <nixpkgs> + /lib/trivial.nix:1131:8:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |        ^
+  1132|
+
+… while calling the 'elemAt' builtin
+  at <nixpkgs> + /lib/lists.nix:346:43:
+   345|   */
+   346|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                                           ^
+   347|
 
 … from call site
   at ./pkgs/unfixed.nix:49:21:
@@ -63,18 +464,247 @@ error:
    162|
 
 … while calling anonymous lambda
-  at ./pkgs/by-name/pkgsStaging/package.nix:1:1:
-     1| {
+  at ./pkgs/by-name/linux-postmarketos-qcom-sdm845/package.nix:57:1:
+    56|
+    57| {
       | ^
-     2|   config,
+    58|   fetchFromGitLab,
 
-… while calling the 'import' builtin
-  at ./pkgs/by-name/pkgsStaging/package.nix:7:1:
-     6| }:
-     7| import "${nixpkgs-bootstrap.staging}/pkgs/top-level" {
-      | ^
-     8|   # XXX: passing through `config` here actually has observable effects: it's not *quite* idempotent.
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at ./pkgs/by-name/linux-postmarketos-qcom-sdm845/package.nix:317:5:
+   316|
+   317| in (linuxManualConfig (extraCallArgs // {
+      |     ^
+   318|   inherit src version modDirVersion;
 
-… while realising the context of path '/nix/store/pqpb94bp5xwfxsnjgr9jx18sdmrq49id-nixpkgs-staging-sane/pkgs/top-level'
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
 
-error: path '/nix/store/krx6bciaps57cvbdvm060j0yahkvmxsk-nixpkgs-staging-sane.drv' is not valid
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:50:3:
+    49| lib.makeOverridable (
+    50|   {
+      |   ^
+    51|     # The kernel version
+
+… from call site
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:176:3:
+   175|
+   176|   stdenv.mkDerivation {
+      |   ^
+   177|     inherit pname version src;
+
+… while calling 'mkDerivation'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:18:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+   226|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:29:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+   226|
+
+… while calling 'makeDerivationExtensible'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:229:5:
+   228|   makeDerivationExtensible =
+   229|     rattrs:
+      |     ^
+   230|     let
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:308:22:
+   307|
+   308|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   309|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:55:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                                                       ^
+   226|
+
+… while calling 'toFunction'
+  at <nixpkgs> + /lib/trivial.nix:1211:16:
+  1210|   */
+  1211|   toFunction = v: if isFunction v then v else k: v;
+      |                ^
+  1212|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1211:19:
+  1210|   */
+  1211|   toFunction = v: if isFunction v then v else k: v;
+      |                   ^
+  1212|
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1211:22:
+  1210|   */
+  1211|   toFunction = v: if isFunction v then v else k: v;
+      |                      ^
+  1212|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1131:5:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |     ^
+  1132|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/trivial.nix:1131:21:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |                     ^
+  1132|
+
+… while calling the 'isFunction' builtin
+  at <nixpkgs> + /lib/trivial.nix:1131:8:
+  1130|     in
+  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+      |        ^
+  1132|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:191:7:
+   190|
+   191|     ${if isModular then "outputs" else null} = [
+      |       ^
+   192|       "out"
+
+… in the right operand of the update (//) operator
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:151:10:
+   150|       }
+   151|       // config_;
+      |          ^
+   152|
+
+… from call site
+  at ./pkgs/by-name/linux-postmarketos-qcom-sdm845/package.nix:327:12:
+   326|   # if that causes issues, then copy the config inline to this repo.
+   327|   config = sane-kernel-tools.parseDefconfig defconfigStr;
+      |            ^
+   328| })).overrideAttrs (base: {
+
+… while calling 'parseDefconfig'
+  at ./pkgs/by-name/sane-kernel-tools/package.nix:27:20:
+    26|   # results are like ` { CONFIG_FOO = "y"; CONFIG_FOO_BAR = "128"; }`
+    27|   parseDefconfig = wholeStr: let
+      |                    ^
+    28|     lines = lib.splitString "\n" wholeStr;
+
+… while calling the 'listToAttrs' builtin
+  at ./pkgs/by-name/sane-kernel-tools/package.nix:31:5:
+    30|   in
+    31|     lib.listToAttrs parsedItems;
+      |     ^
+    32|
+
+… while calling the 'concatMap' builtin
+  at ./pkgs/by-name/sane-kernel-tools/package.nix:29:19:
+    28|     lines = lib.splitString "\n" wholeStr;
+    29|     parsedItems = lib.concatMap parseDefconfigLine lines;
+      |                   ^
+    30|   in
+
+… from call site
+  at ./pkgs/by-name/sane-kernel-tools/package.nix:28:13:
+    27|   parseDefconfig = wholeStr: let
+    28|     lines = lib.splitString "\n" wholeStr;
+      |             ^
+    29|     parsedItems = lib.concatMap parseDefconfigLine lines;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:1757:5:
+  1756|     in
+  1757|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
+      |     ^
+  1758|
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/strings.nix:1757:8:
+  1756|     in
+  1757|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
+      |        ^
+  1758|
+
+… while calling the 'filter' builtin
+  at <nixpkgs> + /lib/strings.nix:1757:32:
+  1756|     in
+  1757|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
+      |                                ^
+  1758|
+
+… while calling the 'split' builtin
+  at <nixpkgs> + /lib/strings.nix:1757:49:
+  1756|     in
+  1757|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
+      |                                                 ^
+  1758|
+
+… while evaluating the second argument passed to builtins.split
+
+… while calling the 'toString' builtin
+  at <nixpkgs> + /lib/strings.nix:1757:67:
+  1756|     in
+  1757|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
+      |                                                                   ^
+  1758|
+
+… while calling the 'replaceStrings' builtin
+  at ./pkgs/by-name/linux-postmarketos-qcom-sdm845/package.nix:303:18:
+   302|   };
+   303|   filteredBase = lib.replaceStrings
+      |                  ^
+   304|     (lib.map (k: "# ${k} is not set") (lib.attrNames overlayConfig) ++ [
+
+… while evaluating the third argument passed to builtins.replaceStrings
+
+… while calling the 'readFile' builtin
+  at ./pkgs/by-name/linux-postmarketos-qcom-sdm845/package.nix:95:18:
+    94|
+    95|   defconfigRaw = builtins.readFile "${pmaports}/device/community/linux-postmarketos-qcom-sdm845/config-postmarketos-qcom-sdm845.aarch64";
+      |                  ^
+    96|   overlayConfig = let
+
+… while realising the context of path '/nix/store/yqjl29swndzwrb8rpi50bycabdcb94vc-source/device/community/linux-postmarketos-qcom-sdm845/config-postmarketos-qcom-sdm845.aarch64'
+
+error: path '/nix/store/xqb4fkqv0zirln27ydhxs0wj5xc8hqwi-source.drv' is not valid

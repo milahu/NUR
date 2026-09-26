@@ -1,0 +1,16 @@
+error:
+… while evaluating the attribute 'lib'
+  at ./default.nix:4:2:
+     3| {
+     4|       lib = import ./lib { inherit pkgs; };
+      |  ^
+     5|
+
+… while calling the 'import' builtin
+  at ./default.nix:4:8:
+     3| {
+     4|   lib = import ./lib { inherit pkgs; };
+      |        ^
+     5|
+
+error: path './lib' does not exist
