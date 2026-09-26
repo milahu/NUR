@@ -1,16 +1,16 @@
 {
 "name":"so1ve",
-"fetch_time":0.894,
-"eval_time":2.155,
+"fetch_time":1.107,
+"eval_time":1.733,
 "source":{
 "url":"https://github.com/so1ve/nur-packages",
-"rev":"9ce366b93c0647366e070eeedfe1ce0cf1ea8587",
-"sha256":"0miy12hax7c2pdcz9cixadax91j4k2w31p7wdmbnbzhrcbpy8p1v",
+"rev":"ae9a5eb8a4526badc767e7af2caadfd96715ce11",
+"sha256":"11zjdinn2kzdlapcgvq4c3qwqjv5p8p78d17qdfzkjlz6h6cd4cw",
 "date":null
 },
-"source_storepath":"/nix/store/k5m4nhh2gbzinfcvhnbxdf5zpl43i5bc-source",
-"nixpkgs_storepath":"/nix/store/9kj7xplg18izvf8mx4s7q5kzqpw6pcw4-source",
-"nur_combined_rev":"582c04f0e3cbfdd93f5b42089c3c6a6f96b5f01f",
+"source_storepath":"/nix/store/mkds175gi0sc5mbvygc3424wkiwsnlw8-source",
+"nixpkgs_storepath":"/nix/store/mqh8wsjzzvzpsnqyyh4klw0ph4a78cjl-source",
+"nur_combined_rev":"ca11f978a504586974758480533f6531dac9e42a",
 "packages":{
 "ab-download-manager":{
 "drvPath":"/nix/store/j6xjfizl7z6w0w1hma1d6a83zf2a2hl2-ab-download-manager-1.10.4.drv",
@@ -532,7 +532,7 @@
 "version":"8.2.8.260818002"
 },
 "firefoxpwa-xwayland":{
-"drvPath":"/nix/store/phmsvzdymgi8kvmdv8sa25n9prk2c95b-firefoxpwa-xwayland-2.19.0.drv",
+"drvPath":"/nix/store/04m3ik4847wf29lb1b9s7dix5n66paf2-firefoxpwa-xwayland-2.20.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -547,7 +547,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/filips123/PWAsForFirefox/releases/tag/v2.19.0",
+"changelog":"https://github.com/filips123/PWAsForFirefox/releases/tag/v2.20.0",
 "description":"Firefox PWA launcher forced to use XWayland",
 "homepage":"https://pwasforfirefox.filips.si/",
 "hydraPlatforms":[],
@@ -609,10 +609,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9kj7xplg18izvf8mx4s7q5kzqpw6pcw4-source/pkgs/by-name/fi/firefoxpwa-unwrapped/package.nix",
+"file":"/nix/store/mqh8wsjzzvzpsnqyyh4klw0ph4a78cjl-source/pkgs/by-name/fi/firefoxpwa-unwrapped/package.nix",
 "line":143
 },
-"name":"firefoxpwa-unwrapped-2.19.0",
+"name":"firefoxpwa-unwrapped-2.20.0",
 "nonTeamMaintainers":[
 {
 "email":"camillemondon@free.fr",
@@ -657,14 +657,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"firefoxpwa-xwayland-2.19.0",
+"name":"firefoxpwa-xwayland-2.20.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"firefoxpwa-xwayland",
 "system":"x86_64-linux",
-"version":"2.19.0"
+"version":"2.20.0"
 },
 "flutter-rust-bridge-codegen":{
 "drvPath":"/nix/store/w7j2nkqj2lsnddlcis9zkvz5vbhzigqn-flutter-rust-bridge-codegen-2.14.0-beta.2.drv",
@@ -1145,7 +1145,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9kj7xplg18izvf8mx4s7q5kzqpw6pcw4-source/pkgs/by-name/ni/niri/package.nix",
+"file":"/nix/store/mqh8wsjzzvzpsnqyyh4klw0ph4a78cjl-source/pkgs/by-name/ni/niri/package.nix",
 "line":140
 },
 "name":"niri-26.04",
@@ -1403,7 +1403,7 @@
 "version":"0.9.0-unstable-2026-09-10"
 },
 "xwayland-satellite":{
-"drvPath":"/nix/store/cnags4yjjgn8gqwr7dfpgr89v8fgrlvj-xwayland-satellite-0.8.2-unstable-2026-09-24.drv",
+"drvPath":"/nix/store/yhfm26acv9nb2nyklvxqpvvk4jkl0ywi-xwayland-satellite-0.8.2-unstable-2026-09-25.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1418,7 +1418,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/Supreeeme/xwayland-satellite/commits/b83eab900644e4c7c77982ce3d44cb490f0c5e1d",
+"changelog":"https://github.com/Supreeeme/xwayland-satellite/commits/63cdf17f17b4ee231ef862690048549f218e8e0e",
 "description":"Xwayland outside your Wayland compositor",
 "homepage":"https://github.com/Supreeeme/xwayland-satellite",
 "identifiers":{
@@ -1486,10 +1486,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9kj7xplg18izvf8mx4s7q5kzqpw6pcw4-source/pkgs/by-name/xw/xwayland-satellite/package.nix",
+"file":"/nix/store/mqh8wsjzzvzpsnqyyh4klw0ph4a78cjl-source/pkgs/by-name/xw/xwayland-satellite/package.nix",
 "line":77
 },
-"name":"xwayland-satellite-0.8.2-unstable-2026-09-24",
+"name":"xwayland-satellite-0.8.2-unstable-2026-09-25",
 "nonTeamMaintainers":[
 {
 "email":"j.sztavi@pm.me",
@@ -1541,7 +1541,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"xwayland-satellite-0.8.2-unstable-2026-09-24",
+"name":"xwayland-satellite-0.8.2-unstable-2026-09-25",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -1549,7 +1549,7 @@
 },
 "pname":"xwayland-satellite",
 "system":"x86_64-linux",
-"version":"0.8.2-unstable-2026-09-24"
+"version":"0.8.2-unstable-2026-09-25"
 },
 "yanhekt-autoslides":{
 "name":"yanhekt-autoslides-5.0.0",
