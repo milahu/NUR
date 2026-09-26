@@ -11,7 +11,6 @@
         enable = true;
         localAsn = 4242420291;
         port = 9341;
-        birdConfDir = "/var/lib/autopeer";
         environmentFile = config.vaultix.secrets."autopeer".path;
       };
       vaultix.secrets = {
@@ -127,7 +126,7 @@
             if source = RTS_STATIC && net ~ DN42_FIELD then return true;
             
             # my A -> me -> my B
-            if source = RTS_BGP then return true;
+            if source = RTS_BGP && dn42_roa_check() then return true;
             
             return false;
           }
@@ -137,7 +136,7 @@
             if source = RTS_STATIC && net ~ DN42_FIELD_V4 then return true;
             
             # my A -> me -> my B
-            if source = RTS_BGP then return true;
+            if source = RTS_BGP && dn42_roa_check() then return true;
             
             return false;
           }
