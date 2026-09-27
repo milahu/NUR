@@ -14,13 +14,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "nur";
-  version = "0-unstable-2026-09-01";
+  version = "0-unstable-2026-09-23";
 
   src = fetchFromGitHub {
     owner = "nix-community";
     repo = "NUR";
-    rev = "d83928fad16ddb57b01f24e12c5e93ebefb63ef6";
-    hash = "sha256-F1HDwgE6iuszNpeU0wDNET830Ep5no5xfS/pLtvLklA=";
+    rev = "a64d547e32ef81f6d6678acca0f3b317b24d11c1";
+    hash = "sha256-F+PevD+e2NO2skg0q0sW5LKswjMT4btvNQ7lkyHtjkE=";
   };
 
   passthru = let

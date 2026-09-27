@@ -6,23 +6,19 @@
 }:
 mkPiExtension (finalAttrs: {
   pname = "pi-codex-goal";
-  version = "0.2.1";
+  version = "0.4.1";
 
   src = fetchFromGitHub {
     owner = "fitchmultz";
     repo = "pi-codex-goal";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-U8iR01U9Qu8fVr7zp+jDL3UZLYVOQQvtAWlhTrIcxRY=";
+    hash = "sha256-9jkEFwvGJeVqQAUmpmTCPxUZ9dv1WXwDId+ZJmnHnek=";
   };
 
   npmDepsFetcherVersion = 2;
-  npmDepsHash = "sha256-yHM5vGXXprJpkMpgaliHeB5+9hFnuNSZQLMcZ86XTGA=";
+  npmDepsHash = "sha256-6Q8wviqES5APhQdll3xi4UL1LMOdB7FpqJk1071cSD4=";
 
-  patches = [
-    ./budget.patch
-  ];
-
-  dontNpmBuild = true;  # package.json omits a build script
+  dontNpmBuild = true;  # package.json defines no build script
 
   passthru.updateScript = nix-update-script { };
 
