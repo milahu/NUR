@@ -11,7 +11,7 @@
   xkeyboard_config,
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   __structuredAttrs = true;
 
   pname = "delta";
@@ -22,7 +22,7 @@ stdenv.mkDerivation {
     hash = "sha256-Q/CSFKlIDd47DwQk/QatfBs8AtM/ObTA3TFOTvggcsE=";
     message = ''
       Delta downloads at https://delta.dev/download require signing in
-      and accepting the beta terms. This package requires the 0.6.1 archive.
+      and accepting the beta terms. This package requires the ${finalAttrs.version} archive.
       Copy delta-linux-x86_64.tar.gz to the current directory, then add it
       to the Nix store with:
 
@@ -68,6 +68,8 @@ stdenv.mkDerivation {
     maintainers = with lib.maintainers; [ merrkry ];
     mainProgram = "delta";
     platforms = [ "x86_64-linux" ];
+    # The source requires an authenticated manual download, so automated builders cannot build it.
+    hydraPlatforms = [ ];
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
   };
-}
+})
