@@ -7,7 +7,7 @@
   ver = lib.helper.read ./version.json;
 in
   stdenvNoCC.mkDerivation (lib.helper.mkDarwin {
-    pname = "beswitched";
+    pname = "openemu-silicon";
     inherit (ver) version;
 
     src = fetchurl (lib.helper.getSingle ver);
@@ -15,9 +15,9 @@ in
     nativeBuildInputs = [_7zz];
 
     meta = {
-      description = "Native macOS Switch emulation app with cross-core saves and cloud backup";
-      homepage = "https://gitlab.com/dubiusfafa/beswitched-releases";
+      description = "Native ARM64 port of OpenEmu for Apple silicon MacBooks";
+      homepage = "https://github.com/OpenEmu-Silicon/OpenEmu-Silicon";
       maintainers = with lib.maintainers; [Prinky];
-      license = lib.licenses.gpl3Plus;
+      license = lib.licenses.bsd3;
     };
   })

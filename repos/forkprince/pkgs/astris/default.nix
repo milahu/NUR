@@ -7,7 +7,7 @@
   ver = lib.helper.read ./version.json;
 in
   stdenvNoCC.mkDerivation (lib.helper.mkDarwin {
-    pname = "beswitched";
+    pname = "astris";
     inherit (ver) version;
 
     src = fetchurl (lib.helper.getSingle ver);
@@ -15,9 +15,9 @@ in
     nativeBuildInputs = [_7zz];
 
     meta = {
-      description = "Native macOS Switch emulation app with cross-core saves and cloud backup";
-      homepage = "https://gitlab.com/dubiusfafa/beswitched-releases";
+      description = "Nintendo Switch emulator for Apple silicon Macs";
+      homepage = "https://codeberg.org/V380-Ori/Astris.Binaries";
       maintainers = with lib.maintainers; [Prinky];
-      license = lib.licenses.gpl3Plus;
+      license = lib.licenses.mit;
     };
   })
