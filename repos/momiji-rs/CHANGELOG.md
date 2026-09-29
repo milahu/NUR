@@ -13,6 +13,411 @@ Conformance is tracked separately as a ratchet against the official
 
 ### Fixed
 
+- **A built-in rejects an argument name it does not declare** (#62).
+  `string.to-upper-case("a", $nope: 1)` compiled, and so did `math.abs`,
+  `map.get`, `color.red` and most of the rest: nothing read the argument, so
+  nothing noticed it. Worse for the variadic ones, which used its VALUE — the
+  named argument silently became an argument and changed the answer:
+
+  ```
+    math.max(1, 2, $x: 999)    dart  Error: No parameter named $x.    sasso  999
+    math.min(5, 4, $x: -7)     dart  Error                           sasso  -7
+    math.hypot(3, 4, $x: 12)   dart  Error                           sasso  13
+  ```
+
+  `hypot(3, 4, 12)` is `sqrt(9 + 16 + 144)`, so the value really was in the
+  computation, and nothing warned.
+
+  Every member now carries dart's own parameter declaration, read from what
+  dart prints under an argument error, and the checks run in dart's order:
+
+  ```
+    1. Missing argument $x.
+    2. Only N positional arguments allowed, but M were passed.
+    3. No parameter named $x. / No parameters named $x, $y or $z.
+  ```
+
+  The order matters more than the missing check did: 105 of the 116 members
+  answer `f($nope: 1)` with `Missing argument $X.`, not with the unrecognized
+  name, so raising the name first would have been wrong far more often than it
+  was right. `list.nth` was the one built-in that already answered, from a copy
+  of the rule in `list.rs` that had exactly that backwards — and a third copy of
+  "Only N argument(s) allowed" went with it.
+
+  A REST parameter is checked in two halves, because dart binds the rest, runs
+  the body, and only then complains about a name the body did not consume:
+
+  ```
+    math.max($x: 1)          At least one argument must be passed.   the body
+    list.slash(1, $x: 2)     At least two elements are required.
+    math.max(1, 2, $x: 3)    No parameter named $x.                  the leftover
+  ```
+
+  `color.adjust`/`change`/`scale`, `map.merge`/`set` and `meta.call` are
+  excluded: keywords are their interface (`color.adjust(red, $lightness: 10%)`).
+  dart decides that at runtime by whether the body read them, which `map.set`
+  shows — it reads them in the `$key`/`$value` form and not in the positional
+  one — so those two still differ from dart by one message where dart's own body
+  would have complained instead.
+
+  `sass:color`'s `hwb` and `alpha` verify nothing, both measured: `hwb` is
+  overloaded by arity with different parameter names, and `alpha` prints no
+  declaration at all (dart answers `alpha(red, blue)` with the
+  self-contradictory `Only 1 argument allowed, but 1 were passed.`).
+
+  **The overloaded colour constructors are NOT covered** (#220), and that
+  includes the shape #62 was opened with:
+
+  ```
+    rgb(1, 2, 3, $nope: 4)                          still returns the colour
+    color.hwb($channels: (240 10% 20%), $nope: 2)   still returns the colour
+  ```
+
+  dart chooses an overload and then verifies against that one, so the same
+  name is a parameter or not depending on its company —
+  `rgb(1, 2, 3, $channels: 1)` is `No parameter named $channels.` while
+  `rgb($red: 1, $green: 2, $blue: 3, $channels: 1)` is
+  `No parameters named $red, $green or $blue.`. Guessing that rule would
+  REJECT valid stylesheets, which is worse than the silence it replaces.
+
+  Also not fixed here, each measured and filed: dart's fourth rule,
+  `Argument $x was passed both by position and by name.` (#147, which sasso
+  implements nowhere and which outranks all three); the CSS math functions,
+  whose named-argument error is `Keyword arguments can't be used with
+  calculations.` (#215) — the bare `sin(…)` is one of those, while
+  `math.sin(…)` is verified here; and the deprecated global spellings, where
+  `lighten` shares a name with a module-only member.
+
+### Performance
+
+- **`@extend` no longer compares module paths per rule.** On a codebase that
+  spreads its `@extend`s over many modules, most of a compile went to comparing
+  strings: every style rule checked each `@extend` batch's origin module against
+  its own scope, and every `@extend` checked the origin of every extension
+  registered before it — both on full module paths, which share long prefixes,
+  so each comparison ran most of the way down the string. The first is now a
+  flag resolved once per scope; the second asks about the handful of distinct
+  origins in the store instead of every entry in it. Output is byte-identical.
+
+  Measured on Lichess's `ui/` tree (148 entry points, about 1,500 `@extend`s in
+  380 files) through the npm package's native engine on Linux/x86_64, the way
+  its build script calls sasso: a full build is 27.5% faster in dev mode
+  (source maps with embedded sources) and 31.6% faster in production mode
+  (compressed), and recompiling its heaviest entry point alone, which bounds how
+  soon a save in that area shows up, takes half the time. The binary compiles
+  that entry point 2.7× faster.
+
+- **The npm CLI compiles a batch on the native addon's own threads.** A
+  parallel run used to start a pool of Node workers, and each one re-imported
+  the CLI and the engine before compiling anything: 50–65 ms per worker, paid
+  on every run. On the native engine the whole batch now goes to the addon in
+  one call; it compiles on Rust threads and hands results back as they
+  finish, so writing one file overlaps compiling the next. Warnings, errors
+  and `--update` output are still printed in command-line order, and
+  `--stop-on-error` stops claiming new files at the first failure. Source maps
+  come back pre-serialised rather than rebuilt in JavaScript. On Lichess's 148
+  entry points on Linux/x86_64, a full dev build (CSS plus source maps, 296
+  files) drops from 265 to 182 ms and a production build from 240 to 170 ms;
+  output is byte-identical. The wasm engine, stdin input and `-j 1` keep their old
+  paths.
+
+## [0.19.0] - 2026-09-28
+
+_Watch mode on both front ends: the binary gains `--watch` and `--update`
+(#86), and the npm CLI's `--watch` takes any number of pairs and compiles
+large rounds on a worker pool (#200) — on Lichess's 147 entries, a save that
+reaches 138 of them lands in about 350 ms on Linux. Compressed output now matches
+dart-sass in fourteen more places, built-in modules list their members, and
+the npm CLI exits with dart-sass's codes._
+
+### Added
+
+- **`nur.repos.momiji-rs.sasso` resolves** — the NUR registration
+  ([nix-community/NUR#1229](https://github.com/nix-community/NUR/pull/1229))
+  merged, so the `nix/nur.nix` entry point from #82 is now a channel anyone
+  can name, not just us. It serves `sasso` and `sasso-ffi` from whatever
+  `master` NUR last locked — normally re-locked daily, but a revision that
+  fails NUR's evaluation is skipped, so it can trail longer. The top-level
+  README now advertises it beside the flake.
+
+- **`-w`/`--watch` in the binary** (#86), which closes the flag gap that made
+  a `sass` build script work under `npm install sasso` and fail with the
+  binary. It follows the entry and everything the entry loaded, re-resolving
+  after every compile, and it keeps running through an error.
+
+  **It polls, and that was the decision the issue asked for rather than a
+  default.** Every native watcher — inotify, kqueue, `ReadDirectoryChangesW`
+  — is a syscall this crate cannot make: `[dependencies]` is empty and stays
+  empty, and `unsafe_code = "deny"` outside the Miri-verified arena rules out
+  the FFI those APIs need. What `std` offers is `fs::metadata`, and asking it
+  repeatedly is a watcher.
+
+  Measured, it is not the slow option — it is the fast one. macOS, one
+  settled save per process, twelve fresh processes, median:
+
+  ```
+    dart-sass 1.104.1   13196 ms   (its own native watcher)
+    sasso binary           45 ms   (this poll)
+    sasso npm CLI          34 ms   (fs.watch AND a poll beside it, #164)
+  ```
+
+  An earlier version of this entry reported 51/29/20 ms from *one save each*,
+  which is not a measurement of a distribution whose tail runs to seconds.
+  See #164: native filesystem events on macOS are the slow part, in dart and
+  in node alike, and polling is what makes any of these three predictable.
+
+  The interval is not a constant, because the cost is not: a sweep is about
+  1.3 us per file, so 50 ms is free for ten files and 18% of a core for five
+  thousand. It scales so the watcher spends at most 2% of its time asking,
+  between a 50 ms floor and a 500 ms ceiling.
+
+  **A save recompiles the entries that depend on it, and no others** (#198),
+  which is dart's rule. The first cut recompiled and rewrote every entry on
+  every save — invisible with one entry, and the dominant cost with many,
+  because a build that wraps `--watch` post-processes per `Compiled` line and
+  every output's mtime moved. Lichess's 147 entry points, their own flags,
+  macOS/arm64, one save each:
+
+  ```
+                                               before         now
+    save a partial 10 entries use:
+      `Compiled` lines printed                   147           10
+      outputs whose CSS changed                   10           10
+      CPU spent on the save                   3.70 s       0.63 s
+      edit-to-CSS, median of 8 (max)    685 (897) ms  118 (218) ms
+    atomic save of one of the 56 entries
+    sharing a directory, `Compiled` lines        147            1
+  ```
+
+  dart's own rule, measured with `--watch --poll` on three entries where
+  `_x.scss` is used by one: it rewrites and narrates that one, and so does
+  this now.
+
+  A directory still counts — it is followed so a dependency that does not
+  exist yet can arrive in it — but it calls for the entries that follow that
+  directory, and only when what is IN it changed. An editor's atomic save
+  (temp file, rename over the original) moves the directory's mtime with its
+  names unchanged; the file it replaced reports that save under its own name.
+
+  What it prints matches dart — one `[stamp] Compiled x to y.` per file
+  actually written, `--quiet` suppressing the lines but not the banner, and
+  the banner printed **after** the first compile, once every initial output
+  is on disk (#199). The first cut printed it before, under a comment saying
+  dart does the same; measured against dart-sass 1.104.1 with one entry, with
+  147, and with a failing entry beside a good one, dart writes and narrates
+  everything first. Tools wait on that line to mean "the initial build is
+  done". dart's three usage refusals are refused with
+  dart's wording and exit code: `--watch` to stdout, `--watch` with `--stdin`,
+  and `--poll` without `--watch`. `--[no-]poll` still does nothing on the
+  binary, which always polls; on the npm CLI it now chooses (#164).
+
+  A burst of saves costs two compiles, not one per event: a provisional run
+  at the head and an authoritative one behind it. A provisional FAILURE is
+  silent and leaves the output alone, because the likeliest cause of one is
+  a file still being written; a provisional SUCCESS writes, which is the
+  whole latency win. Because that write can be wrong, the authoritative run
+  is guaranteed — and `--update`'s freshness check is off for every run
+  after the first, since otherwise the output it measures against is one
+  this session just wrote. The same rule as the npm CLI's `_coalesce.mjs`,
+  and tested the same way — against a clock the test supplies, because the
+  spacing of real writes cannot be pinned on a loaded machine.
+
+- **`--update` in the binary** (#86). It was npm-only, so a build script
+  written for `sass` worked under `npm install sasso` and failed with the
+  binary — the mirror image of #24. It walks the dependency graph like
+  dart-sass and like the npm CLI, so a changed partial rebuilds and an
+  unchanged output keeps its mtime.
+
+  The flag-parity guard now checks **both** directions. It only ever asserted
+  that the npm CLI accepts every native flag, which is how the binary fell two
+  behind unnoticed; differences are now split into ones that will never cross
+  and ones that are gaps, and a gap that has since been closed fails the build
+  so the list cannot go stale. `--watch` was the second of the two, and the
+  entry above closes it.
+
+### Changed
+
+- **CI checks that the published file list carries no benchmark** (#178).
+  The bug that PR fixed — `exclude` dropping `/bench`, where the CodSpeed
+  corpora live, but not `/benches`, where the target that reads them lives
+  — shipped in eleven versions without anything noticing, because nothing
+  builds a published bench: `cargo publish`'s verify step does not, and a
+  consumer has no reason to. So the invariant is checked where it is
+  cheap and visible instead, on the file list itself.
+
+  ```
+    manifest state                       cargo package --list   step
+    /benches excluded (today)            239 files, no bench     passes
+    /benches off the exclude list        benches/compile.rs      fails
+    manifest does not parse              cargo exits 101         fails
+  ```
+
+  The third row is why the step assigns before it greps, with its own
+  `|| exit 1`: piping `cargo` into `grep` would report a manifest that
+  cannot be parsed as carrying no benchmark, and relying on the runner's
+  default `bash -e` would make the abort conditional on that default.
+
+- **One `file:` URL decoder instead of two** (#163). `src/pathstyle.rs`
+  and `napi/src/lib.rs` each had their own, and the two had already
+  drifted twice:
+
+  ```
+    file://localhost/a   napi accepted it, pathstyle declined   (fixed #161)
+    file:///a%FFb        pathstyle decoded lossily, napi refused
+  ```
+
+  The first was a bug in one copy. The second is not — they want
+  different answers, because one produces a path to SHOW and the other
+  one to OPEN. So the structure is shared (`pathstyle::file_url_bytes`:
+  the `file://` prefix, the empty and `localhost` authorities, percent
+  escapes, a Windows drive letter arriving as `/C:/`, a UNC authority,
+  which separator comes out) and the UTF-8 policy is stated at each edge
+  rather than copied along with the rest.
+
+  `sasso::file_url_to_path` is the new public half, strict because its
+  caller is about to open the path. napi's copy is one line now.
+
+  One layer up, three more places decided "is this canonical an absolute
+  path" with a leading-`/` test or a hand-written list of spellings, and
+  a UNC canonical matched none of them — it has no leading `/` and no
+  colon:
+
+  ```
+    canonical                win32.isAbsolute  old JS  old Rust
+    \\server\share\a.scss    true              false   false
+    \\?\C:\w\a.scss          true              false   true
+    C:\w\a.scss              true              true    true
+    /w/a.scss                true              true    true
+  ```
+
+  A file reached through a share crossed the bridge as "no containing
+  url", so every relative `@use` beside it fell through to the load
+  paths instead of resolving next to its importer. All three ask the
+  platform now — `Path::is_absolute` in Rust, `node:path`'s `isAbsolute`
+  in JS — which is the question the core itself asked when it BUILT the
+  canonical, so the answers cannot drift apart again. Windows-only, and
+  there is no Windows prebuild of the addon yet (#172), so this is
+  correctness ahead of reach rather than a fix anyone was hitting.
+
+- **CI checks the MSRV** (#169). `Cargo.toml` promises `rust-version =
+  "1.74"` and no job built against it; two APIs above it reached review
+  in #166 before anyone noticed.
+
+  `--lib --bins`, not `--all-targets`, and the reason is not a
+  preference: a dev-dependency pulls in crates that need edition 2024, so
+  the tests cannot build at 1.74 whatever they contain. The library and
+  the binary are also exactly what the MSRV is a promise about — a
+  consumer depends on `sasso`, not on its test suite.
+
+  What it adds over the clippy job, measured by putting each back into
+  `src/main.rs`:
+
+  ```
+    Option::is_none_or   (1.82, API)      clippy catches it, so does this
+    File::set_modified   (1.75, API)      clippy catches it, so does this
+    c"hello"             (1.77, SYNTAX)   only this
+  ```
+
+  Clippy's `incompatible_msrv` reads `rust-version` and knows the std
+  APIs it has version data for. It does not know about syntax, so a
+  literal, a language feature or an edition bump passes it and fails a
+  real 1.74 build.
+
+- **CI now scores compressed output against dart-sass, not only expanded.** The
+  conformance ratchet has always run sass-spec's own expectations, and
+  dart-sass generated every one of them in the default `expanded` style — the
+  suite contains no compressed expectation anywhere, so a compressed-only
+  serialization difference could never fail CI. A second ratchet
+  (`spec/check_baseline.py --style compressed`) now scores against
+  `spec/COMPRESSED_EXPECT.txt`: a committed manifest of per-case digests of the
+  **compressed** CSS dart-sass 1.104.1 emits for the same 11,766 cases,
+  generated by `spec/gen_compressed.py`. It needs neither node nor the network,
+  and it refuses to run unless every one of the manifest's headers is present
+  and agrees with the pins: the output style, the dart-sass version, the
+  sass-spec commit, and a case count matching the body. It also refuses a run
+  that scored fewer cases than the baseline records, or one where the manifest
+  did not cover every case the run was eligible to score -- a case that stops
+  being measured cannot be seen to fail.
+
+  The first score is `spec/BASELINE_COMPRESSED.json`: 12,579 of 14,258
+  attempted, against 14,107 for expanded. **1,528 cases compile to byte-exact
+  expanded CSS and to wrong compressed CSS** — mostly number and unit
+  shortening inside colour functions (a negative number keeps its leading zero;
+  a redundant `%` or `deg` is kept where dart drops it). No output changes in
+  this release; the divergences are now counted, and the count can only go up.
+
+### Fixed
+
+- **`--watch` in the npm CLI takes any number of pairs** (#200). dart-sass
+  watches every `in:out` pair it is given; the npm CLI accepted one, so a
+  build with many entries had to run a watcher per entry or keep its own
+  dependency graph and spawn one-shot compiles. All pairs now share one set
+  of watchers, one sweep and one coalesce window, and a save recompiles the
+  entries that read the changed file and no others. Another pair's OUTPUT
+  landing in a watched directory is not a change unless some entry reads it,
+  or an entry failed for want of it: one that is failing is compiled again
+  when another pair's output appears beside it. Pairs that write another
+  pair's input compile one at a time, write included, as one-shot mode does.
+
+  A round that reaches two or more entries compiles on a pool of workers
+  that lives for the whole watch, with diagnostics replayed in command-line
+  order. On a 147-entry tree:
+
+  ```
+    Linux/x86_64            pool (8)   -j 1     one-shot spawn, 0.18.0
+    first round              447 ms   1458 ms   360 ms
+    save reaching 10         196 ms    417 ms   265 ms
+    save reaching 138        354 ms   1549 ms   359 ms
+  ```
+
+  The pool is `--jobs` wide, defaulting as one-shot mode does. Each thread
+  that has compiled keeps its arena's high-water mark, so that watch holds
+  about 1.35 GB after a large round against about 350 MB at `-j 1`: pass
+  `-j` to trade latency for memory. It plateaus rather than grows.
+
+  `SASSO_DEBUG_WATCH=1` prints `sasso: compiling <input>` to stderr per
+  compile. An unchanged stylesheet writes and prints nothing, so without it
+  a wasted recompile is invisible — the tests assert on it.
+
+- **Built-in modules have a member table** (#64). `meta.module-functions()`,
+  `meta.module-mixins()` and `meta.module-variables()` listed members for
+  `sass:meta` and answered every other built-in with an empty map, because
+  there was no table to enumerate — only a `match` that could say whether
+  `get` is in `sass:map` and not what `sass:map` contains.
+
+  One `(member, global alias)` table per module now answers all three
+  questions, and the order is dart's: the result is a map, a Sass map keeps
+  insertion order, and dart returns members as declared rather than sorted.
+  Measured against dart-sass 1.104.1 — all seven modules identical, names and
+  order, 116 function members in total:
+
+  ```
+    sass:math      24    sass:selector   8
+    sass:color     37    sass:string    10
+    sass:list      10    sass:meta      18
+    sass:map        9
+  ```
+
+  And the members that are not functions: `sass:meta`'s two mixins
+  (`load-css`, `apply`) and `sass:math`'s seven variables.
+
+  Three membership differences went with it:
+
+  ```
+    math.exp     sasso had it, dart does not
+    math.sign    sasso had it, dart does not
+    list.slash   dart had it, sasso's predicate said no (the call worked)
+  ```
+
+  `exp` and `sign` still COMPUTE in both compilers — `exp(1)` is
+  `2.7182818285` — because they are CSS math functions, which is a different
+  thing from a Sass function. What changes is that
+  `meta.function-exists("exp", $module: "math")` answers `false`, as dart does.
+
+  `meta.module-variables("math")` also carries values now instead of `null`
+  for every key: `("e": 2.7182818285, "pi": 3.1415926536, …)`. `module_var`
+  already owned them and nothing was asking it.
+
 - **A deleted dependency is no longer resurrected through the output symlink**
   (#177). With `out.css -> _v.scss` under `--watch`, deleting `_v.scss` made
   the compile fail — and writing the error stylesheet through the link
@@ -237,77 +642,6 @@ Conformance is tracked separately as a ratchet against the official
   The first row is the proof that dart does not fold off Windows even on a
   case-insensitive volume, where `Src/` and `src/` are one directory on disk.
 
-### Changed
-
-- **One `file:` URL decoder instead of two** (#163). `src/pathstyle.rs`
-  and `napi/src/lib.rs` each had their own, and the two had already
-  drifted twice:
-
-  ```
-    file://localhost/a   napi accepted it, pathstyle declined   (fixed #161)
-    file:///a%FFb        pathstyle decoded lossily, napi refused
-  ```
-
-  The first was a bug in one copy. The second is not — they want
-  different answers, because one produces a path to SHOW and the other
-  one to OPEN. So the structure is shared (`pathstyle::file_url_bytes`:
-  the `file://` prefix, the empty and `localhost` authorities, percent
-  escapes, a Windows drive letter arriving as `/C:/`, a UNC authority,
-  which separator comes out) and the UTF-8 policy is stated at each edge
-  rather than copied along with the rest.
-
-  `sasso::file_url_to_path` is the new public half, strict because its
-  caller is about to open the path. napi's copy is one line now.
-
-  One layer up, three more places decided "is this canonical an absolute
-  path" with a leading-`/` test or a hand-written list of spellings, and
-  a UNC canonical matched none of them — it has no leading `/` and no
-  colon:
-
-  ```
-    canonical                win32.isAbsolute  old JS  old Rust
-    \\server\share\a.scss    true              false   false
-    \\?\C:\w\a.scss          true              false   true
-    C:\w\a.scss              true              true    true
-    /w/a.scss                true              true    true
-  ```
-
-  A file reached through a share crossed the bridge as "no containing
-  url", so every relative `@use` beside it fell through to the load
-  paths instead of resolving next to its importer. All three ask the
-  platform now — `Path::is_absolute` in Rust, `node:path`'s `isAbsolute`
-  in JS — which is the question the core itself asked when it BUILT the
-  canonical, so the answers cannot drift apart again. Windows-only, and
-  there is no Windows prebuild of the addon yet (#172), so this is
-  correctness ahead of reach rather than a fix anyone was hitting.
-
-- **CI checks the MSRV** (#169). `Cargo.toml` promises `rust-version =
-  "1.74"` and no job built against it; two APIs above it reached review
-  in #166 before anyone noticed.
-
-  `--lib --bins`, not `--all-targets`, and the reason is not a
-  preference: a dev-dependency pulls in crates that need edition 2024, so
-  the tests cannot build at 1.74 whatever they contain. The library and
-  the binary are also exactly what the MSRV is a promise about — a
-  consumer depends on `sasso`, not on its test suite.
-
-  What it adds over the clippy job, measured by putting each back into
-  `src/main.rs`:
-
-  ```
-    Option::is_none_or   (1.82, API)      clippy catches it, so does this
-    File::set_modified   (1.75, API)      clippy catches it, so does this
-    c"hello"             (1.77, SYNTAX)   only this
-  ```
-
-  Clippy's `incompatible_msrv` reads `rust-version` and knows the std
-  APIs it has version data for. It does not know about syntax, so a
-  literal, a language feature or an edition bump passes it and fails a
-  real 1.74 build.
-
-
-### Fixed
-
 - **The binary made a failed `--no-error-css` removal the run's verdict**
   (#182). `--no-error-css` means there is no output to produce, so a
   cleanup that fails does not change what went wrong with the stylesheet.
@@ -327,9 +661,6 @@ Conformance is tracked separately as a ratchet against the official
   this was dart swallowing the failure, not declining to try. Telling
   someone their stale output is still there is worth saying; making it
   the run's answer is what diverged.
-
-
-### Fixed
 
 - **The npm CLI exited 1 for every kind of failure** (#91). dart-sass and
   the native CLI both use the `sysexits` codes and agree with each other;
@@ -577,80 +908,6 @@ Conformance is tracked separately as a ratchet against the official
   reason worth recording: CodSpeed's benchmark identity is
   `{file}::{module_path}{bench_name}`, so relocating the file retires every URI
   and resets the gate's regression history.
-
-### Added
-
-- **`nur.repos.momiji-rs.sasso` resolves** — the NUR registration
-  ([nix-community/NUR#1229](https://github.com/nix-community/NUR/pull/1229))
-  merged, so the `nix/nur.nix` entry point from #82 is now a channel anyone
-  can name, not just us. It serves `sasso` and `sasso-ffi` from whatever
-  `master` NUR last locked — normally re-locked daily, but a revision that
-  fails NUR's evaluation is skipped, so it can trail longer. The top-level
-  README now advertises it beside the flake.
-
-- **`-w`/`--watch` in the binary** (#86), which closes the flag gap that made
-  a `sass` build script work under `npm install sasso` and fail with the
-  binary. It follows the entry and everything the entry loaded, re-resolving
-  after every compile, and it keeps running through an error.
-
-  **It polls, and that was the decision the issue asked for rather than a
-  default.** Every native watcher — inotify, kqueue, `ReadDirectoryChangesW`
-  — is a syscall this crate cannot make: `[dependencies]` is empty and stays
-  empty, and `unsafe_code = "deny"` outside the Miri-verified arena rules out
-  the FFI those APIs need. What `std` offers is `fs::metadata`, and asking it
-  repeatedly is a watcher.
-
-  Measured, it is not the slow option — it is the fast one. macOS, one
-  settled save per process, twelve fresh processes, median:
-
-  ```
-    dart-sass 1.104.1   13196 ms   (its own native watcher)
-    sasso binary           45 ms   (this poll)
-    sasso npm CLI          34 ms   (fs.watch AND a poll beside it, #164)
-  ```
-
-  An earlier version of this entry reported 51/29/20 ms from *one save each*,
-  which is not a measurement of a distribution whose tail runs to seconds.
-  See #164: native filesystem events on macOS are the slow part, in dart and
-  in node alike, and polling is what makes any of these three predictable.
-
-  The interval is not a constant, because the cost is not: a sweep is about
-  1.3 us per file, so 50 ms is free for ten files and 18% of a core for five
-  thousand. It scales so the watcher spends at most 2% of its time asking,
-  between a 50 ms floor and a 500 ms ceiling.
-
-  What it prints matches dart exactly — the banner, and one
-  `[stamp] Compiled x to y.` per file actually written, `--quiet` suppressing
-  the lines but not the banner. dart's three usage refusals are refused with
-  dart's wording and exit code: `--watch` to stdout, `--watch` with `--stdin`,
-  and `--poll` without `--watch`. `--[no-]poll` still does nothing on the
-  binary, which always polls; on the npm CLI it now chooses (#164).
-
-  A burst of saves costs two compiles, not one per event: a provisional run
-  at the head and an authoritative one behind it. A provisional FAILURE is
-  silent and leaves the output alone, because the likeliest cause of one is
-  a file still being written; a provisional SUCCESS writes, which is the
-  whole latency win. Because that write can be wrong, the authoritative run
-  is guaranteed — and `--update`'s freshness check is off for every run
-  after the first, since otherwise the output it measures against is one
-  this session just wrote. The same rule as the npm CLI's `_coalesce.mjs`,
-  and tested the same way — against a clock the test supplies, because the
-  spacing of real writes cannot be pinned on a loaded machine.
-
-- **`--update` in the binary** (#86). It was npm-only, so a build script
-  written for `sass` worked under `npm install sasso` and failed with the
-  binary — the mirror image of #24. It walks the dependency graph like
-  dart-sass and like the npm CLI, so a changed partial rebuilds and an
-  unchanged output keeps its mtime.
-
-  The flag-parity guard now checks **both** directions. It only ever asserted
-  that the npm CLI accepts every native flag, which is how the binary fell two
-  behind unnoticed; differences are now split into ones that will never cross
-  and ones that are gaps, and a gap that has since been closed fails the build
-  so the list cannot go stale. `--watch` was the second of the two, and the
-  entry above closes it.
-
-### Fixed
 
 - **Plain CSS rejects every `#{…}`, where eight positions let one through.** A
   `.css` file has no interpolation at all in dart — its parser raises
@@ -1138,31 +1395,6 @@ Conformance is tracked separately as a ratchet against the official
   The gated dart-sass differential asserts the whole transcript for each of
   those spellings and for a directory pair, so the rule is checked against dart
   rather than against our reading of it.
-
-### Changed
-
-- **CI now scores compressed output against dart-sass, not only expanded.** The
-  conformance ratchet has always run sass-spec's own expectations, and
-  dart-sass generated every one of them in the default `expanded` style — the
-  suite contains no compressed expectation anywhere, so a compressed-only
-  serialization difference could never fail CI. A second ratchet
-  (`spec/check_baseline.py --style compressed`) now scores against
-  `spec/COMPRESSED_EXPECT.txt`: a committed manifest of per-case digests of the
-  **compressed** CSS dart-sass 1.104.1 emits for the same 11,766 cases,
-  generated by `spec/gen_compressed.py`. It needs neither node nor the network,
-  and it refuses to run unless every one of the manifest's headers is present
-  and agrees with the pins: the output style, the dart-sass version, the
-  sass-spec commit, and a case count matching the body. It also refuses a run
-  that scored fewer cases than the baseline records, or one where the manifest
-  did not cover every case the run was eligible to score -- a case that stops
-  being measured cannot be seen to fail.
-
-  The first score is `spec/BASELINE_COMPRESSED.json`: 12,579 of 14,258
-  attempted, against 14,107 for expanded. **1,528 cases compile to byte-exact
-  expanded CSS and to wrong compressed CSS** — mostly number and unit
-  shortening inside colour functions (a negative number keeps its leading zero;
-  a redundant `%` or `deg` is kept where dart drops it). No output changes in
-  this release; the divergences are now counted, and the count can only go up.
 
 ### Performance
 
@@ -3180,7 +3412,8 @@ real-world SCSS byte-identically to dart-sass.
 - Distribution: CLI binary (prebuilt via cargo-dist), library crate, and a
   zero-dependency WebAssembly build published to npm as `@momiji-rs/sasso`.
 
-[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.18.0...HEAD
+[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.19.0...HEAD
+[0.19.0]: https://github.com/momiji-rs/sasso/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/momiji-rs/sasso/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/momiji-rs/sasso/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/momiji-rs/sasso/compare/v0.15.0...v0.16.0
