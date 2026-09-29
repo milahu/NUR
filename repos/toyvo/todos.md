@@ -6,8 +6,6 @@ Outstanding work and follow-up items for this repository.
 > expected to keep this file up to date — check off completed items, and add
 > deferred work or manual steps before finishing a task.
 
-## Manually written down by human
-
 - [ ] setup forwarding to binary cache/nas with nix.settings.post-build-hook
 
 ## Forgejo (git.toyvo.dev) Enhancements

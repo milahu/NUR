@@ -324,7 +324,7 @@ in
   );
 
   # Set authentik user password from sops secret at activation time
-  systemd.services.postgresql.postStart = ''
+  systemd.services.postgresql.postStart = lib.mkAfter ''
     ${config.services.postgresql.package}/bin/psql -tAc "ALTER ROLE authentik PASSWORD '$(cat ${
       config.sops.secrets."authentik-db-password".path
     })';"
@@ -584,10 +584,6 @@ in
   sops.secrets."hermes.env".owner = "hermes";
   sops.secrets."signal-cli.env".owner = "signal-cli";
   sops.secrets."cache-priv-key.pem" = { };
-  sops.secrets."discord_bot.env" = {
-    owner = "discord_bot";
-    group = "discord_bot";
-  };
   # Grafana credentials are bind-mounted into the monitoring container where the grafana user
   # reads them via $__file{}. mode 0444 allows any process (including container-side grafana) to
   # read them without needing to match UIDs across the host/container boundary.
