@@ -3,12 +3,13 @@
   unixodbc,
 }:
 
-(callPackage ./generic.nix { }) {
+(callPackage ./generic.nix { }) rec {
   name = "odbc_scanner";
   repo = "odbc-scanner";
   branch = "main";
-  rev = "274a3307341dcafd62471c09b45c5d858d6c95cc";
-  hash = "sha256-I3LtOipBN+WuYiuWvt9sptc7mVglutxo/lMQCvsoz8o=";
+  submodulePath = null;
+  rev = "7ce06c95c94b46a6984968439ca31ce968a2f473";
+  hash = "sha256-V9gLudrOlG4El9gBOU25PynEWD0std1bzvxz9oe2z6U=";
   loadOptions = [ "DONT_LINK" ];
   duckdbBuildInputs = [ unixodbc ];
   duckdbPostPatch = ''
@@ -29,7 +30,7 @@
         "        message(FATAL_ERROR \"Unable to get Git version for extension: $" + "{EXTENSION_NAME}\")\n"
         "    endif()\n"
     )
-    new = "    set(odbc_scanner_GIT_COMMIT_HASH 274a330734)\n"
+    new = "    set(odbc_scanner_GIT_COMMIT_HASH ${builtins.substring 0 10 rev})\n"
     if old not in text:
         raise SystemExit(f"pattern not found in {path}")
     path.write_text(text.replace(old, new))
