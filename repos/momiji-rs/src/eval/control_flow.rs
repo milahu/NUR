@@ -32,9 +32,11 @@ impl<'a> Evaluator<'a> {
     fn eval_for_number(&mut self, e: &Expr) -> Result<Number, Error> {
         match self.eval_expr(e)? {
             Value::Number(n) => Ok(n),
+            // The VALUE, not its type name: dart's `@for $i from "x"` is
+            // `"x" is not a number.`, measured against 1.104.1 (2026-09-29).
             other => Err(Error::unpositioned(format!(
                 "{} is not a number.",
-                other.type_name()
+                other.to_inspect_message()
             ))),
         }
     }
@@ -236,7 +238,7 @@ impl<'a> Evaluator<'a> {
                                 other => {
                                     return Err(Error::unpositioned(format!(
                                         "{} is not a string in $args.",
-                                        other.to_css(false)
+                                        other.to_inspect_message()
                                     )))
                                 }
                             };
@@ -335,6 +337,24 @@ impl<'a> Evaluator<'a> {
             keyword.insert(norm, v);
         }
         let positional_count = positional.len();
+        // dart's first rule, ahead of the missing-argument check below and of
+        // the leftover-name one further down: a parameter given both ways. The
+        // binder used to let the positional win silently and then report the
+        // keyword as unrecognized, so `f(1, $a: 2)` blamed `$a` — a real
+        // parameter — for not being one (#147).
+        if let Some(msg) = crate::builtins::argument_passed_twice(
+            params.params.iter().map(|p| p.name.as_str()),
+            positional_count,
+            |name| keyword.contains_key(name),
+        ) {
+            // The INVOCATION alone. dart renders this one with a single span —
+            // no `declaration` arm — unlike `Missing argument` below, which
+            // carries the declaration it was measured against. Verified by
+            // rendering both (r4130005295); a first-line comparison cannot see
+            // the difference, so `tests/diagnostics.rs` compares the whole
+            // block.
+            return Err(self.error_at_call(msg));
+        }
         let mut pos_iter = positional.into_iter().enumerate();
         for param in &params.params {
             let (val, span) = if let Some((i, v)) = pos_iter.next() {
@@ -969,7 +989,7 @@ impl<'a> Evaluator<'a> {
             other => {
                 return Err(Error::unpositioned(format!(
                     "$mixin: {} is not a mixin reference.",
-                    other.to_css(false)
+                    other.to_inspect_message()
                 )))
             }
         };
@@ -1246,7 +1266,7 @@ impl<'a> Evaluator<'a> {
                                     return Err(Error::at(
                                         format!(
                                             "Variable keyword argument map must have string keys.\n{} is not a string.",
-                                            other.to_css(false)
+                                            other.to_inspect_message()
                                         ),
                                         pos,
                                     ))
@@ -1375,7 +1395,7 @@ impl<'a> Evaluator<'a> {
                 let mut collapsed = String::with_capacity(text.len());
                 let mut prev_ws = false;
                 for c in text.chars() {
-                    if c.is_whitespace() {
+                    if is_css_whitespace(c) {
                         prev_ws = true;
                         continue;
                     }

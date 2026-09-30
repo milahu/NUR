@@ -85,7 +85,7 @@ fn as_map(v: &Value, fname: &str, pos: Pos) -> Result<Vec<(Value, Value)>, Error
         // The empty list doubles as the empty map.
         Value::List(l) if l.items.is_empty() => Ok(Vec::new()),
         other => Err(Error::at(
-            format!("$map: {} is not a map for `{fname}`.", other.to_css(false)),
+            format!("$map: {} is not a map for `{fname}`.", other.to_inspect_message()),
             pos,
         )),
     }
@@ -365,15 +365,17 @@ fn fn_map_remove(pos_args: &[Value], named: &[(String, Value)], pos: Pos) -> Res
     let mut entries = as_map_named(map_v, "map", pos)?;
     // Every argument after the map is a positional key to remove.
     let mut keys: Vec<Value> = pos_args.iter().skip(1).cloned().collect();
-    // A named `$key` provides a single key, but mixing it with positional rest
-    // keys is the same argument supplied twice (dart-sass errors).
+    // A named `$key` provides a single key. Mixing it with positional keys is
+    // the same argument supplied twice, and the SHARED rule reports that before
+    // this function runs — `Argument $key was passed both by position and by
+    // name.`, measured identical to dart for both spellings.
+    //
+    // A hand-written copy lived here and said `$keys`, naming the rest
+    // parameter rather than the one that was duplicated. It became unreachable
+    // when `map.remove` gained a signature, and is gone rather than left as a
+    // fourth spelling of that sentence waiting for a dispatch change to make it
+    // reachable again (r4130220884).
     if let Some((_, v)) = named.iter().find(|(n, _)| n == "key") {
-        if !keys.is_empty() {
-            return Err(Error::at(
-                "Argument $keys was passed both by position and by name.",
-                pos,
-            ));
-        }
         keys.push(v.clone());
     }
     entries.retain(|(k, _)| !keys.iter().any(|rk| rk.sass_eq(k)));
@@ -421,7 +423,7 @@ fn as_map_named(v: &Value, param: &str, pos: Pos) -> Result<Vec<(Value, Value)>,
         Value::Map(m) => Ok(m.entries.as_ref().clone()),
         Value::List(l) if l.items.is_empty() => Ok(Vec::new()),
         other => Err(Error::at(
-            format!("${param}: {} is not a map.", other.to_css(false)),
+            format!("${param}: {} is not a map.", other.to_inspect_message()),
             pos,
         )),
     }
@@ -441,7 +443,7 @@ fn fn_nth(pos_args: &[Value], named: &[(String, Value)], pos: Pos) -> Result<Val
     let map_v = super::require(&params, pos_args, named, 0, pos)?;
     let entries = as_map(map_v, "nth", pos)?;
     let n = super::require(&params, pos_args, named, 1, pos)?;
-    let raw = super::num(n, pos)?;
+    let raw = super::num(n, Some(params[1]), pos)?;
     if raw.fract() != 0.0 {
         return Err(Error::at(
             format!("$n: {} is not an int.", crate::value::fmt_num(raw, false)),

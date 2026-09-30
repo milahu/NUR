@@ -13,6 +13,305 @@ Conformance is tracked separately as a ratchet against the official
 
 ### Fixed
 
+- **A non-ASCII space in a selector is kept, not turned into a plain space**
+  (#71). CSS whitespace is space, tab, LF, CR and form feed; the selector
+  normalizer used Rust's `char::is_whitespace()`, which also matches NBSP and
+  the other Unicode spaces, and rewrote them to U+0020. So a rule written to
+  match `x&nbsp;y` silently matched `x y`:
+
+  ```
+    [a="x\u{a0}y"]   dart  [a=x\u{a0}y]   (and @charset "UTF-8")
+                     sasso [a="x y"]
+    a\u{a0}b         dart  a\u{a0}b       one type selector
+                     sasso a b            a descendant combinator
+  ```
+
+  An unquoted attribute value had the same flaw one step later: it stopped at
+  the NBSP and read the rest as a modifier, so `[a=x\u{a0}y]` became `[a=x y]`
+  — which is also what a quoted value turned into once it had lost its quotes
+  and was re-parsed, as a parent selector or by `@extend`.
+
+  A hex escape made it worse: its one delimiter must be CSS whitespace, but an
+  NBSP was accepted as the delimiter and so deleted — `\61\u{a0}b` came out
+  `ab`, and `.a\9\u{a0}b` lost its NBSP. Compressed output dropped one beside
+  a combinator as if it were the space around it (`.a > \u{a0}b` → `.a>b`).
+
+  The selector parser that nesting, `@extend` and the `selector` functions
+  share trimmed and split with `str::trim`, so an NBSP at the edge of a
+  compound was deleted there too: `:is(\u{a0}b)` came out `:is(b)`,
+  `selector.append(".a", "\u{a0}.c")` gave `.a.c` for dart's `.a\u{a0}.c`,
+  and `:nth-child(2n \u{a0}+ 1)` compiled to `2n+1` where dart rejects it.
+  The attribute validator was the mirror image: it rejected the valid
+  `[a=x\u{a0}yz]` (reading `yz` as a modifier) and accepted the invalid
+  `[a="x"\u{a0}]`. And `&` in SassScript split its compounds at an NBSP:
+  `list.length(list.nth(&, 1))` was 2 for `.a\u{a0}b`, and `x: &` printed
+  `.a b`.
+
+- **A paren or bracket inside a quoted attribute value no longer swallows the
+  rest of the selector list.** The top-level comma splitter did not skip
+  strings, so after `[a="("]` every following comma looked nested: `[a="("],
+  b { &.c {} }` produced `[a="("], b.c`, and `@extend` from that rule failed
+  with "The target selector was not found". A pseudo argument's list had the
+  same flaw: `selector.is-superselector(':is([a="("], b)', "b")` was false.
+
+- **Whitespace inside a quoted string in a selector is kept.** The
+  normalizer collapsed it like the whitespace between compounds, so
+  `[a="x   y"]` came out `[a="x y"]` and `[a="x\ty"]` lost its tab — a
+  different string, matching different elements.
+
+- **`&` in SassScript splits a selector only between its compounds.** It cut
+  at every space, so one inside a string, an attribute or a pseudo argument
+  split a compound: `list.nth(list.nth(&, 1), 1)` of `:not(.a .b) .c` was
+  `:not(.a`, and `list.length` of `.a\ b .c`'s first complex was 3, not 2.
+
+- **Compressed output drops the space before a quoted attribute value's
+  modifier**, as dart does: `[a="x y" i]` is `[a="x y"i]`. After an unquoted
+  value the space stays (`[a=x i]`).
+
+- **A missing attribute operator gets dart's message.** `[a b]` failed with
+  `expected "]".`; dart says `Expected "]".` when no operator follows the
+  name, and `expected "=".` for `[a~b]`, where only an operator's first
+  character does.
+
+- **A non-ASCII space outside a selector is kept too** (#237). The
+  statement and value parser skipped NBSP and the other Unicode spaces as
+  whitespace, so one was dropped before a rule, after a `:`, inside an
+  argument list, a media query or an interpolation. dart-sass reads it as a
+  name character: `c:\u{a0}d` is the value `\u{a0}d`, `1 ==\u{a0}1` is
+  false, and `rgba(0,\u{a0}0, 0, 0.5)` is an error. An unknown at-rule's
+  prelude keeps a leading or trailing one (`@foo bar\u{a0};`). So does the
+  evaluator's resolved text: an NBSP at the edge of an interpolated selector
+  or property name, an `@at-root` query, an `if()` condition, an
+  interpolated media query, or a plain-CSS at-rule prelude or `@keyframes`
+  name is no longer dropped or read as a separator.
+
+- **A unit may be non-ASCII.** `1µs` was the list `1 µs`, and `math.unit(1é)`
+  an error; a unit, like any name, may begin with any non-ASCII character,
+  so both are one number, as in dart. The same rule makes `1 -\u{a0}2` the
+  list `1 -\u{a0}2` rather than a subtraction.
+
+- **A newline anywhere in a complex selector breaks the next one's line.**
+  dart compares line numbers, so `a\nb, c` puts `c` on its own line, as
+  `a,\nc` does; sasso only looked at the whitespace beside the comma. Inside
+  a style rule, `@mixin`, a content block or an unknown at-rule, dart first
+  rewrites the whitespace after a leading identifier as one space, so there
+  `.p { a\nb, c {…} }` stays `.p a b, .p c`, and sasso now does the same.
+
+- **An NBSP at the edge of an `@extend` target is part of it** (#238).
+  `@extend .a\u{a0}` extended `.a`; it now fails as dart's does, with "The
+  target selector was not found.", and `.a \u{a0}` and `\u{a0}.a` are the
+  complex and compound selectors they are.
+
+- **A keyframe selector is parsed as stops** (#238). A block inside
+  `@keyframes` may be named `from`, `to` (in any case, escaped or not) or a
+  percentage, in a comma list, and nothing else. sasso passed anything through
+  — `foo`, `10px`, `10% 20%`, `from,` and an NBSP beside `from` all compiled —
+  and ran the CSS selector checks on the stops instead, which rejected the
+  valid `.5%` with "Expected identifier.". Each now fails with dart's message,
+  in a plain CSS module too, and `\74o` and `1E1%` come out `to` and `1e1%`.
+
+- **An unescaped line break ends no quoted string** (#238). A raw LF, CR or
+  form feed inside quotes is dart's `Expected "<quote>".` wherever the string
+  is; the value parser already said so, but the readers that copy a string
+  verbatim let it through. `[a="x` + newline + `y"]` compiled to
+  `[a="x\ay"]`, and a custom property value, an unknown at-rule's prelude, an
+  `@supports (--a: …)` declaration, a plain CSS `@function` body and
+  `expression()` kept the raw line break. A `\` line continuation is still
+  dropped.
+
+- **An attribute selector follows dart's grammar** (#238). Its name and its
+  unquoted value are identifiers, an optional namespace comes before a `|`,
+  and only a single-letter modifier may follow the value. sasso took any
+  characters: `[]`, `[@a=b]`, `[a=1]`, `[a==b]`, `[*a]` and `[a=b$]` all
+  compiled. Each now fails with dart's message: "Expected identifier.",
+  `expected "|".` or `expected "]".`.
+
+- **A character that starts no selector is an error** (#238). A C0 control
+  character other than CSS whitespace (the vertical tab from #238 among
+  them), DEL, a quote, and `` $ ^ ` ? < = / `` compiled in a selector:
+  `a^b`, `:is(a$b)`, `a"b"`. A quoted string is only a selector's part
+  inside an attribute value or an unknown pseudo's argument. dart's message depends on where the character is:
+  "expected selector." at the top level, and `expected ")".` inside `:is()`
+  and the other selector pseudos, unless nothing comes before it there.
+  sasso now gives the same messages, in plain CSS, in `@extend` and in the
+  selector functions too. `@` was already an error, but it now gets the
+  same messages, and `:x(a@b)`, an unknown pseudo whose argument dart does
+  not parse as a selector, compiles.
+
+- **A form feed separates compound selectors.** Like a space, it starts a
+  new compound, so `a { b` + form feed + `& { … } }` compiles to `b a` and
+  `selector.nest("a", "b\c &")` returns `b a`, where both said `"&" may only
+  used at the beginning of a compound selector.`. In plain CSS, a
+  placeholder after a form feed is now dart's `Placeholder selectors aren't
+  allowed in plain CSS.`
+
+- **A pseudo's name is read with its escapes.** dart decodes the name before
+  it picks the argument's grammar, so `:\78(a$b)` is the unknown `:x(a$b)`,
+  whose argument is a declaration value, and `:\69s(a$b)` is `:is(a$b)`,
+  whose argument must be a selector. sasso scanned the raw name: the first
+  was "expected selector." and the second got the wrong message. `:\78 (a)`
+  now opens an argument list too, as the escape's delimiter is not a space.
+
+- **After a quoted string, a `-` before any name start begins a new term.**
+  A name start is any code point from U+0080 up, or an escape, so
+  `"q"-\u{a0}x` is the list `"q" -\u{a0}x` and `"q"-\78` is `"q" -x`,
+  where both were read as a subtraction.
+
+- **An interpolated media condition may not mix `and` and `or`.**
+  `@media #{"(a) and (b) or (c)"}` compiled to `(a) or (b) or (c)`; it is an
+  error, as it is when written out. A word other than the first operator now
+  gets dart's "expected no more input.", `and(b)` needs its whitespace, and
+  `and foo` asks for a condition in parentheses.
+
+- **A type error names the parameter the value was bound to, and spells the
+  value dart's way** (#139). Two helpers carried no parameter name at all, so
+  the sentence started mid-air; and four separate copies of "how a diagnostic
+  writes a value" disagreed with dart and with each other:
+
+  ```
+    color.grayscale(null)          dart  $color: null is not a color.
+                                   sasso  is not a color.
+    math.round((1 2))              dart  $number: (1 2) is not a number.
+                                   sasso 1 2 is not a number.
+    string.index("abc" "b", "x")   dart  $string: ("abc" "b") is not a string.
+                                   sasso $string: "abc" "b" is not a string.
+    @for $i from "x" through 3     dart  "x" is not a number.
+                                   sasso string is not a number.
+  ```
+
+  The prefix names the **parameter**, which is not always the one the sentence
+  goes on to talk about. One channels list binds `$channels` and everything
+  inside it is reported under that name; the same values written out bind
+  `$alpha`; `color()`'s binds `$description`; and `color.hwb`'s comma form binds
+  none of them, because that channels list is synthesized rather than received:
+
+  ```
+    rgb(1, 2, 3, "x")           $alpha: "x" is not a number.
+    rgb(1 2 3 / "x")            $channels: "x" is not a number.
+    color(srgb 1 2 3 / "x")     $description: "x" is not a number.
+    color.hwb(1, 2%, 3%, "x")   "x" is not a number.
+  ```
+
+  Where dart has no parameter to name — a value out of a rest list —
+  it prints no prefix, so the name is an `Option` a caller has to decide rather
+  than a string it can forget: `math.max(1, "x")` stays unprefixed.
+
+  `Expected <n> to have no units.` is the same assertion and was missing the
+  same prefix (`math.pow(1, 2px)` is `$exponent: …`), and `adjust-hue`, whose
+  module spelling was removed so only the global reaches it, named nothing at
+  all. Going the other way, dart is not uniform about `<n> is not an int.`:
+  `string.insert` and `list.nth` name their parameter and `string.slice` does
+  not, from the same rule reached two ways. sasso shared one helper across all
+  three, so it could only ever match two of them.
+
+  The spelling is `Value::to_inspect_message`, which already existed and whose
+  doc already claimed every message read from it. It had four callers.
+  Diagnostics wrote CSS instead, and three colour helpers (`channel_err_css`,
+  `list_paren_css`, `color_desc_css`) plus four hand-written
+  bracketed/unbracketed branches held copies of the rule, each wrong in a shape
+  it had never been measured in — `null` and `()` printed as nothing at all, and
+  a one-element list lost its parentheses. `@for`'s bounds were the rule's
+  absence rather than a copy — they printed the value's TYPE NAME. All the copies
+  are gone and the helper has 73 call sites where it had 4 (`grep -o` over `src/`,
+  against `7045759`; `to_css(false)` falls 298 -> 232 the same way), so the claim
+  in the doc is now true;
+  the one that survives is filed (#234), because dart writes no value in that
+  sentence at all and the fix deletes the helper rather than correcting it.
+
+  Found by the same sweep and filed rather than fixed, each a different rule:
+  seven `sass:map` members end the sentence with a `` for `<function>` ``
+  suffix dart never writes (#230); `color.to-gamut` checks its `$method` enum
+  before checking the type (#231); `invert(1, "x")` answers with the plain-CSS
+  overload's arity message where dart reports the `$weight` type error (#232);
+  a keyword splat with a non-string key writes the wrong sentence, from two more
+  copies of one rule (#233); and two calculation diagnostics carry an older dart
+  wording, again from two copies each (#234). The value inside #233 is right now
+  — it is the sentence around it that is not. A sixth is not a message at all:
+  `string.split` rejects a unit on `$limit` that dart ignores outright (#235), so
+  a stylesheet dart compiles fails, and the unit check hides the two errors that
+  should have fired in its place.
+
+  Measured against dart-sass 1.104.1 over 336 comparisons, and on sass-spec with
+  `--check-stderr --stderr-arg=--no-unicode`: **67 more cases** print dart's
+  stderr byte for byte (1,269 -> 1,336 of the 3,250 that ship an expectation),
+  none regress, and no CSS verdict moves — every one of these is an error path,
+  so the ratchet stays at 14,114.
+
+## [0.19.2] - 2026-09-29
+
+_Faster again through the npm package, on the paths 0.19.1 missed. The wasm
+engine stops throwing an error for every file it probes and does not find
+(#227), which takes a full Lichess build on it from 631 ms to 498 ms. The CLI
+stops loading its `--watch` modules on every run (#228), so handing one file
+to a `sasso` binary costs what it did in 0.18.0 again. An argument given both
+positionally and by name is now an error, as it is in dart-sass (#147): a
+stylesheet that did that used to compile, and may now fail._
+
+### Fixed
+
+- **An argument given both positionally and by name is an error** (#147).
+  dart's first argument rule, which sasso had nowhere: a built-in let the
+  positional win and compiled, and a user callable rejected the call with the
+  wrong sentence — naming a real parameter as one that does not exist.
+
+  ```
+    color.mix(red, blue, 10%, $color1: green)   dart  Argument $color1 was passed both by position and by name.
+                                               sasso rgb(10%, 0%, 90%)
+    f(1, $a: 2)   @function f($a, $b: 2)       dart  Argument $a was passed both by position and by name.
+                                               sasso No parameter named $a.
+  ```
+
+  One `argument_passed_twice`, called from both the built-in verifier and the
+  user-callable binder, so the two cannot drift. It outranks every other
+  argument error, measured: `list.nth(1 2 3, $list: 4)` reports the duplicate
+  although `$n` is missing too, `list.nth(1, 2, 3, $list: 4)` reports it rather
+  than the overflow, and `list.nth(1 2 3, 1, $list: 4, $nope: 5)` rather than
+  the unrecognized name.
+
+  Three details a plausible implementation gets wrong, each with a case: there
+  is **no plural** (`f(1, 2, 3, $a: 9, $b: 9, $c: 9)` names `$a` alone, where
+  the unrecognized-name rule would have said `$a, $b or $c`); the parameter
+  reported is the first in **declaration** order, not in the order the names
+  were written; and the comparison canonicalizes the argument while the message
+  quotes the parameter, so `$start_at` is reported against `$start-at`.
+
+  It also corrected an offline test that had pinned sasso's own answer rather
+  than dart's: `f(1, 2, 3, $y: 4)` was asserted to report the positional
+  overflow. It cannot — an overflow means every parameter was filled
+  positionally, which makes naming one of them a duplicate.
+
+  Not fixed here, both measured and filed: a user callable's rest parameter
+  still accepts an unrecognized name, because dart decides that by whether the
+  body READ the keywords at runtime (#225); and a parameter declared `$a_b` is
+  still quoted back as `$a-b`, because the parser normalizes it before any
+  message exists (#224).
+
+### Performance
+
+- **npm, wasm engine:** resolving an `@use`/`@import` no longer throws an
+  error for every candidate file that is not there. Most probes miss (about 850
+  of the 980 made by Lichess's heaviest entry point), and building an ENOENT
+  error for each was a quarter of the compile. That entry point compiles in
+  about 100 ms instead of 134 ms on Linux/x86_64. The native engine and the
+  binary resolve in Rust and are unaffected.
+- **npm CLI:** starting up is back to 0.18.0's cost. 0.19.x loaded the six
+  `--watch` modules and the whole importer on every run, including one that
+  only hands its command line to a `sasso` binary on PATH. They now load only
+  where they are used. Handing one small entry point to the binary takes
+  33.6 ms instead of 38.5 ms on Linux/x86_64 (0.18.0: 33.0 ms).
+
+## [0.19.1] - 2026-09-28
+
+_Faster builds through the npm package: on Lichess's 148 entry points on
+Linux/x86_64, a full build takes about half as long as under 0.18.0, with
+byte-identical output. `@extend` stops comparing module paths per rule
+(#219), and the npm CLI compiles a batch on the native addon's own threads
+instead of a pool of Node workers (#221). Built-ins now reject an argument name
+they do not declare, as dart-sass does (#62): a stylesheet that passed one
+used to compile, and may now fail._
+
+### Fixed
+
 - **A built-in rejects an argument name it does not declare** (#62).
   `string.to-upper-case("a", $nope: 1)` compiled, and so did `math.abs`,
   `map.get`, `color.red` and most of the rest: nothing read the argument, so
@@ -3412,7 +3711,9 @@ real-world SCSS byte-identically to dart-sass.
 - Distribution: CLI binary (prebuilt via cargo-dist), library crate, and a
   zero-dependency WebAssembly build published to npm as `@momiji-rs/sasso`.
 
-[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.19.0...HEAD
+[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.19.2...HEAD
+[0.19.2]: https://github.com/momiji-rs/sasso/compare/v0.19.1...v0.19.2
+[0.19.1]: https://github.com/momiji-rs/sasso/compare/v0.19.0...v0.19.1
 [0.19.0]: https://github.com/momiji-rs/sasso/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/momiji-rs/sasso/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/momiji-rs/sasso/compare/v0.16.0...v0.17.0

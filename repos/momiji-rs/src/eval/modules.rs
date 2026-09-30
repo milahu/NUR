@@ -28,19 +28,23 @@ impl<'a> Evaluator<'a> {
             None => Rc::new(parents.to_vec()),
         };
         let target = self.eval_template(selector)?;
-        if target.trim().is_empty() {
+        if target.trim_matches(is_css_whitespace).is_empty() {
             return Err(Error::at("expected selector.", pos));
         }
         // dart rejects a *leading* empty component (`@extend ,a`) as
         // "expected selector.", while still allowing a trailing comma
         // (`@extend a,`); an empty middle component falls through to the
         // usual "target selector was not found." path.
-        if target.trim_start().starts_with(',') {
+        if target.trim_start_matches(is_css_whitespace).starts_with(',') {
             return Err(Error::at("expected selector.", pos));
+        }
+        // dart parses the whole list before it looks at any target.
+        if let Some((_, msg)) = super::find_stray_selector_char(&target) {
+            return Err(Error::at(msg, pos));
         }
         let in_media = !self.media_queries.is_empty();
         for t in split_commas(&target).iter() {
-            let t = t.trim();
+            let t = t.trim_matches(is_css_whitespace);
             if t.is_empty() {
                 continue;
             }
@@ -323,7 +327,7 @@ impl<'a> Evaluator<'a> {
             Some(Value::Str(s)) => s.text,
             Some(other) => {
                 return Err(Error::at(
-                    format!("$url: {} is not a string.", other.to_css(false)),
+                    format!("$url: {} is not a string.", other.to_inspect_message()),
                     pos,
                 ))
             }
@@ -341,7 +345,7 @@ impl<'a> Evaluator<'a> {
                         Value::Str(s) => normalize_var_name(&s.text).into_owned(),
                         other => {
                             return Err(Error::at(
-                                format!("$with key: {} is not a string.", other.to_css(false)),
+                                format!("$with key: {} is not a string.", other.to_inspect_message()),
                                 pos,
                             ))
                         }
@@ -358,7 +362,7 @@ impl<'a> Evaluator<'a> {
             }
             Some(other) => {
                 return Err(Error::at(
-                    format!("$with: {} is not a map.", other.to_css(false)),
+                    format!("$with: {} is not a map.", other.to_inspect_message()),
                     pos,
                 ))
             }

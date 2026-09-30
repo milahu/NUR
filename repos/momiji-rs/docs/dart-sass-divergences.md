@@ -11,14 +11,28 @@ observed output of 1.104.1 — not a reading of the specification.
 Last verified in bulk: 2026-09-17; a row added or re-measured after that carries
 its own date, and the bulk date is not a claim about it. The ones that need
 design work or affect compiled output are tracked as issues
-([#62](https://github.com/momiji-rs/sasso/issues/62),
-[#63](https://github.com/momiji-rs/sasso/issues/63),
-[#64](https://github.com/momiji-rs/sasso/issues/64),
+([#63](https://github.com/momiji-rs/sasso/issues/63),
 [#66](https://github.com/momiji-rs/sasso/issues/66),
-[#139](https://github.com/momiji-rs/sasso/issues/139),
-[#147](https://github.com/momiji-rs/sasso/issues/147),
-[#148](https://github.com/momiji-rs/sasso/issues/148)); the rest live here, and
+[#148](https://github.com/momiji-rs/sasso/issues/148),
+[#209](https://github.com/momiji-rs/sasso/issues/209),
+[#215](https://github.com/momiji-rs/sasso/issues/215),
+[#220](https://github.com/momiji-rs/sasso/issues/220),
+[#224](https://github.com/momiji-rs/sasso/issues/224),
+[#225](https://github.com/momiji-rs/sasso/issues/225),
+[#230](https://github.com/momiji-rs/sasso/issues/230),
+[#231](https://github.com/momiji-rs/sasso/issues/231),
+[#232](https://github.com/momiji-rs/sasso/issues/232),
+[#233](https://github.com/momiji-rs/sasso/issues/233),
+[#234](https://github.com/momiji-rs/sasso/issues/234),
+[#235](https://github.com/momiji-rs/sasso/issues/235),
+[#240](https://github.com/momiji-rs/sasso/issues/240),
+[#241](https://github.com/momiji-rs/sasso/issues/241)); the rest live here, and
 are fixed as they come up.
+
+**#62, #64, #139 and #147 have closed** — the built-in module member table, the
+unrecognized-named-argument rule, the type-error prefix and spelling, and the
+passed-twice rule. What each left behind is listed below against the issue that
+now owns it, rather than against the closed one.
 
 ## Where we stand
 
@@ -175,14 +189,60 @@ it as an interpolated string, which turns a body dart never evaluates into an
 error — `Interpolation isn't allowed in plain CSS.` in a `.css` file, and
 whatever the expression itself raises in a `.scss` one. Measured 2026-09-21.
 
+### 1.5 `string.split` rejects a unit on `$limit` that dart ignores ([#235](https://github.com/momiji-rs/sasso/issues/235))
+
+```scss
+@use "sass:string";
+.a { b: string.split("a-b-c", "-", 2px); }
+// dart:  b: ["a", "b", "c"];
+// sasso: Error: $limit: 2 is not an int.
+```
+
+dart never looks at the unit: `1px` limits to one split and `2px` to two, like
+the unitless numbers. sasso folds a unit check into its integer check, so a
+stylesheet dart compiles fails — and the two errors that *should* fire report
+the wrong thing, because the clause that would have shown the unit is the one
+that should not be there (`1.5px` is `$limit: 1.5px is not an int.` in dart and
+`1.5` in sasso; `0px` is `Must be 1 or greater, was 0.` in dart). Measured
+2026-09-29.
+
+### 1.6 The legacy `if()` is not a first-class function ([#240](https://github.com/momiji-rs/sasso/issues/240))
+
+```scss
+@use "sass:meta";
+.a { b: meta.function-exists("if"); }
+// dart:  b: true;
+// sasso: b: false;
+```
+
+`if` takes unevaluated arguments and is special-cased in the evaluator, and that
+special case is invisible to the name resolver: `meta.get-function("if")` cannot
+find it, so `meta.call(meta.get-function("if"), true, 1, 2)` fails the compile
+where dart answers `1`. The predicate is the part that changes output, since it
+is normally read by an `@if`. Measured 2026-09-29.
+
+### 1.7 A function or mixin reference inside a list or interpolation is emitted, not rejected ([#241](https://github.com/momiji-rs/sasso/issues/241))
+
+```scss
+@use "sass:meta";
+.a { b: #{meta.get-function("rgb")}; }
+// dart:  Error: get-function("rgb") isn't a valid CSS value.
+// sasso: b: get-function("rgb");
+```
+
+The check exists for the whole value (`b: meta.get-function("rgb")` errors on
+both) but nothing walks into a list, a bracketed list or an interpolation looking
+for one, where the equivalent map check recurses. Eight shapes emit a meaningless
+property value — or, through an interpolated property name, a meaningless
+property. Measured 2026-09-29.
+
 ## 2. Values and built-in semantics
 
 A wrong value, or a missing error, rather than a wrong message.
 
 | input | dart-sass 1.104.1 | sasso |
 |---|---|---|
-| `rgb(1, 2, 3, $nope: 4)` ([#62](https://github.com/momiji-rs/sasso/issues/62)) | `No parameter named $nope.` | returns `rgb(1, 2, 3)` |
-| a built-in argument passed twice — `color.mix(red, blue, 10%, $color1: green)` ([#147](https://github.com/momiji-rs/sasso/issues/147)) | `Argument $color1 was passed both by position and by name.` | the positional wins and the call succeeds, so a stylesheet dart rejects compiles. Every family bar one: `map.remove` alone is checked, by hand, and names the wrong parameter (§3). dart raises this from its per-parameter loop, before `Missing argument`, before the positional-count error and before an unknown name, and raises it even when the declaration has a rest parameter. A *user* callable is rejected, with the wrong message (§3) — unless it declares a rest parameter, where the call compiles here too. Measured 2026-09-19 |
+| `rgb(1, 2, 3, $nope: 4)` ([#220](https://github.com/momiji-rs/sasso/issues/220)) | `No parameter named $nope.` | returns `rgb(1, 2, 3)`. Every other built-in rejects the name since #62; these six are overloaded — `rgb`, `rgba`, `hsl`, `hsla`, `color.hwb`, `color.alpha` — and dart chooses an overload before verifying, so `rgb(1, 2, 3, $channels: 1)` is `No parameter named $channels.` while `rgb($red: 1, $green: 2, $blue: 3, $channels: 1)` is `No parameters named $red, $green or $blue.`. The same applies to the passed-twice rule: `rgb(1, 2, 3, $red: 9)` still compiles. Re-measured 2026-09-29 |
 | `meta.function-exists("rgb", $module: "m")`, `m` being any module ([#148](https://github.com/momiji-rs/sasso/issues/148)) | `true` — a name the module does not have still resolves against the *global* built-ins, in a user module and a built-in one alike (`quote` with `$module: "color"` is `true` too) | `false`. A module-only member (`channel`) and a user global (`local`) are `false` in both, so it is the globals table specifically. Measured 2026-09-19 |
 | `meta.function-exists("unique_id")` ([#148](https://github.com/momiji-rs/sasso/issues/148)) | `false` — dart matches a *built-in* name against the string exactly as given | `true`. sasso normalizes `_` to `-` for the built-in half as well as the user half; dart normalizes only the user half, where both spellings do resolve in both. Adjacent: a user `@function my_under` captured by `meta.get-function("my_under")` inspects as `get-function("my-under")` in dart (the callable's own name) and `get-function("my_under")` in sasso. Measured 2026-09-19 |
 | `meta.inspect(33.333333333333336%)` | `33.333333333333336%` | `33.3333333333%` |
@@ -231,13 +291,15 @@ programs; only what it prints differs.
 
 | input | dart-sass 1.104.1 | sasso |
 |---|---|---|
-| `string.index("abc" "b", "x")` ([#139](https://github.com/momiji-rs/sasso/issues/139)) | `$string: ("abc" "b") is not a string.` | `$string: "abc" "b" is not a string.` |
 | a stray `}` after a complete rule | `unmatched "}".` | `unexpected "}"` |
 | `red(#abcdef, 1)` | `Only 1 argument allowed, but 2 were passed.` | the same error, preceded by a `[global-builtin]` deprecation warning |
 | `@mixin m($x )` included with no argument | `Missing argument $x .` — dart takes the name from the parameter's own span text, which swallowed the trailing space | `Missing argument $x.` |
-| `color.grayscale(null)` ([#139](https://github.com/momiji-rs/sasso/issues/139)) | `$color: null is not a color.` | ` is not a color.` — the `$param: ` prefix is missing, and `null` prints as nothing. The same for `true`, a map, and a quoted string; a list additionally needs dart's parenthesized spelling (`$color: (1 2) is not a color.`), which is the row above's root cause too. The prefix alone accounts for 46 byte-mismatching sass-spec cases. Measured 2026-09-18, re-measured 2026-09-19 |
-| a user callable given one argument twice — `@function f($a, $b)` called as `f(1, 2, $a: 3)` ([#147](https://github.com/momiji-rs/sasso/issues/147)) | `Argument $a was passed both by position and by name.`, as a single span | `No parameter named $a.`, with the two-span `declaration`/`invocation` frame. The built-in half of #147 is in §2, because there the call compiles. Measured 2026-09-19 |
-| `map.remove((c: d, e: f), c, $key: e)` ([#147](https://github.com/momiji-rs/sasso/issues/147)) | `Argument $key was passed both by position and by name.` — the parameter bound positionally | `Argument $keys was passed both by position and by name.` — the name of the `$keys...` rest. The one place sasso implements this check at all, hand-rolled in `map.rs`. Measured 2026-09-19 |
+| `map.get(1, a)` ([#230](https://github.com/momiji-rs/sasso/issues/230)) | `$map: 1 is not a map.` | `` $map: 1 is not a map for `map-get`. `` — a suffix dart never writes, naming the global spelling even for a module call. Seven members; `map.merge`/`remove`/`deep-merge` go through the sibling helper and already match. Measured 2026-09-29 |
+| `color.to-gamut(red, $method: 1)` ([#231](https://github.com/momiji-rs/sasso/issues/231)) | `$method: 1 is not a string.` | `$method: 1 must be either clip or local-minde.` — the enum is checked before the type, so a non-string never reaches a type error; an unknown string is `Unknown gamut map method "nope".` in dart. Measured 2026-09-29 |
+| `invert(1, "x")` ([#232](https://github.com/momiji-rs/sasso/issues/232)) | `$weight: "x" is not a number.` | `Only one argument may be passed to the plain-CSS invert() function.` — the overload check fires before `$weight` is read. A numeric second argument already agrees. Measured 2026-09-29 |
+| `@include m(((1 2): 3)...)` ([#233](https://github.com/momiji-rs/sasso/issues/233)) | `Variable keyword argument map must have string keys.` then `(1 2) is not a string in (1 2: 3).` | `(1 2) is not a string in $args.` — one line, and `$args` where dart names the map. The legacy `if()` splat is a second copy of the rule, which writes dart's first line and drops the ` in <map>` clause from the second. Measured 2026-09-29 |
+| `calc(1 + true)` ([#234](https://github.com/momiji-rs/sasso/issues/234)) | `This expression can't be used in a calculation.` | `Value true can't be used in a calculation.` — dart names no value at all and lets the caret point at the expression; sasso carries an older wording, in two copies, only one of which spells a list dart's way. Measured 2026-09-29 |
+| `math.max(1px, 2em)` ([#234](https://github.com/momiji-rs/sasso/issues/234)) | `1px and 2em have incompatible units.` | `1px and 2em are incompatible.` — and `math.clamp(1px, 2em, 3px)` is `$number: 2em and $min: 1px have incompatible units.` in dart, which also names both parameters and puts them the other way round. The binary-operator spelling (`1px + 2em`) already matches. Measured 2026-09-29 |
 | `@mixin --a { b: c }` in a `.css` file | `This at-rule isn't allowed in plain CSS.`, spanning `@mixin --a` | `Sass @mixin names beginning with -- are forbidden for forward-compatibility with plain CSS mixins.` — the message for the SCSS spelling, and a one-column caret. dart carves `--` out for `@function` but not for `@mixin`, so plain CSS has custom functions and no custom mixins. Measured 2026-09-21 |
 | `a { b: if(media(x, 2, 3) }` | `expected ":".` at the `}` — once dart has read a raw token it requires a clause, and only a `,` sends it back to the legacy `if($c, $t, $f)` grammar | `expected ")"` at the same position — sasso attempts the modern grammar, and on ANY error rewinds and lets the legacy argument parse report instead. Plain-CSS interpolation errors are exempted (they can never be recovered by another grammar), so the divergence is confined to messages a retry can plausibly improve. Measured 2026-09-22 |
 | `a { b: #{1 +} }` in a `.css` file | `Expected expression.`, at the `}` | `Operators aren't allowed in plain CSS.`, at the `+` — sasso's plain-CSS expression parser names the operator instead of the expression the operand needed. Measured 2026-09-21 |
@@ -322,15 +384,30 @@ dart-sass 1.104.1:        sasso:
 
 With LF endings the same file matches exactly.
 
-## 4. Module member enumeration ([#64](https://github.com/momiji-rs/sasso/issues/64))
+## 4. Module member enumeration ([#209](https://github.com/momiji-rs/sasso/issues/209))
 
-`meta.module-functions()`, `meta.module-mixins()` and `meta.module-variables()`
-list members only for `sass:meta`; every other built-in module answers with an
-empty map. sasso has no member *table* for a built-in module — the lookup is a
-predicate, so it can answer "is `get` in `sass:map`?" but not "what is in
-`sass:map`?". The same table is what dart's eager `Two forwarded modules both
-define a function named length.` check needs, and dart returns these members in
-**source** order rather than sorted.
+The BUILT-IN half is fixed (#64, #202): all seven modules enumerate, in dart's
+declaration order, and the counts agree — 116 functions, 2 mixins, 7 variables,
+re-measured 2026-09-29.
+
+A USER module still diverges. `meta.module-*` returns a map, a Sass map keeps
+insertion order, and dart returns members as DECLARED while sasso sorts them by
+name. For a module declaring `zzz, alpha, mid`:
+
+| input | dart-sass 1.104.1 | sasso |
+|---|---|---|
+| `map.keys(meta.module-functions("other"))` | `"zzz", "alpha", "mid"` | `"alpha", "mid", "zzz"` |
+
+All three kinds, every member present in both — only the order differs. Sorting
+is not an arbitrary choice there: the member scopes are `HashMap`s, so
+declaration order is unrecoverable and sorting was the only deterministic answer
+available. The `@forward` half is measured on #209: forwarded members come
+first, in `@forward` order, and `show` uses the CLAUSE's order where `hide`
+keeps the source's. Measured 2026-09-28.
+
+dart's eager `Two forwarded modules both define a function named length.` check
+needs the same table and is
+[#205](https://github.com/momiji-rs/sasso/issues/205).
 
 ## Deliberately not followed
 

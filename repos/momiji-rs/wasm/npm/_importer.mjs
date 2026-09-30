@@ -28,6 +28,10 @@
 import { existsSync, statSync, readFileSync } from "node:fs";
 import { pathToFileURL, fileURLToPath } from "node:url";
 import * as nodePath from "node:path";
+import { decodeUtf8 } from "./_utf8.mjs";
+
+// Re-exported: `_loader.mjs` and `native.mjs` read entry files with it too.
+export { decodeUtf8 };
 
 const SYNTAX_SCSS = 0;
 const SYNTAX_SASS = 1;
@@ -57,9 +61,16 @@ export function syntaxForPath(p) {
   return SYNTAX_SCSS;
 }
 
+/**
+ * Most probes miss: one Lichess entry point makes ~980 of them, and ~850 name a
+ * file that is not there. A throwing `statSync` builds an ENOENT Error with a
+ * stack trace for each, which was a quarter of that compile's CPU time on the
+ * wasm engine. `throwIfNoEntry: false` returns undefined for ENOENT instead; the
+ * rarer errors (ENOTDIR, EACCES) still throw, and still mean "not a file".
+ */
 function isFile(p) {
   try {
-    return statSync(p).isFile();
+    return statSync(p, { throwIfNoEntry: false })?.isFile() ?? false;
   } catch {
     return false;
   }
@@ -166,28 +177,6 @@ function resolveInBase(base, path, allowImportOnly) {
  */
 function canonicalHrefFor(path) {
   return pathToFileURL(nodePath.resolve(path)).href;
-}
-
-/**
- * Decode bytes that are supposed to be UTF-8, or `null` when they are not.
- *
- * `readFileSync(path, "utf8")` does NOT reject invalid UTF-8 — it substitutes
- * U+FFFD and returns a string — so every read that went through it accepted a
- * file dart-sass refuses, and compiled it into replacement characters without
- * a word. Measured (#179): `$c: \xff\xfered;` gave `.a { color: ��red; }`
- * on the npm CLI while dart, the binary and the native addon's own reads all
- * errored.
- *
- * Exported because the entry, every dependency and standard input needed
- * the same rule — a copy at each read is how they drift. What each caller
- * SAYS about a failure differs, so only the decoding lives here.
- */
-export function decodeUtf8(bytes) {
-  try {
-    return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
-  } catch {
-    return null;
-  }
 }
 
 /** Read a resolved file as an importer result (`null` if it vanished). */
