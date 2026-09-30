@@ -79,6 +79,26 @@ let
   proxyVendor = mkFixture {
     proxyVendor = true;
   };
+
+  # buildGoModule defaults to go's platforms, which don't include windows
+  windows = testPkgs.pkgsCross.mingwW64.mkGoModule {
+    pname = "fixture";
+    version = "1.0.0";
+    inherit src;
+    vendorHash = "sha256-BaQE3EMAEWUx46qS48fPY55MxEQILqB39maYRuKh3GM=";
+    meta.platforms = testPkgs.lib.platforms.all;
+  };
+
+  # without dependencies there's no vendor directory to build a cache from
+  nodeps = testPkgs.mkGoModule {
+    pname = "nodeps";
+    version = "1.0.0";
+    src = builtins.path {
+      name = "source";
+      path = ./fixture-nodeps;
+    };
+    vendorHash = null;
+  };
 in
 # the dependencies don't change with the version or the main module's sources
 assert fixture.goCache.outPath == bumped.goCache.outPath;
@@ -87,10 +107,14 @@ assert fixture.outPath != bumped.outPath;
 assert fixture.goCache.buildTestDeps;
 assert !withoutChecks.goCache.buildTestDeps;
 assert !(builtins.tryEval proxyVendor.drvPath).success;
+assert (builtins.tryEval windows.goCache.drvPath).success;
+assert nodeps.goCache == null;
+assert nodeps.passthru.goCache == null;
 {
   mkGoModule-build = testPkgs.runCommand "mkGoModule-build" { } ''
     test "$(${fixture}/bin/fixture)" = "hello from dep"
     test "$(${bumped}/bin/fixture)" = "hello from dep"
+    test "$(${nodeps}/bin/nodeps)" = "hello without deps"
     touch $out
   '';
 }
