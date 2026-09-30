@@ -16,7 +16,7 @@ let
 in
 buildGo127Module (finalAttrs: {
   pname = "venator";
-  version = "0.1.0a4-unstable-2026-09-25";
+  version = "0.1.0a4-unstable-2026-09-30";
 
   __structuredAttrs = true;
   strictDeps = true;
@@ -24,11 +24,11 @@ buildGo127Module (finalAttrs: {
   src = fetchFromCodeberg {
     owner = "matrix-venator";
     repo = "venator";
-    rev = "252b77c8ef3b3fa2c9130ab7c1a60f9b7bc830d0";
-    hash = "sha256-lzlL8Hat4EP9PqwXwreGaPRCRKqolt8DuRZ8Ov8WHs4=";
+    rev = "d2b132863ec00e99413c3ce8b116cb5ccb2d8d15";
+    hash = "sha256-Mzh2mPUIySC8LXPRIMD9DofLxDfv1aqgZJPUKI+m3d0=";
   };
 
-  vendorHash = "sha256-0flLB5KcpNarSFC0fZj3JzSLKlmzqGvGZ33oU6wBcHs=";
+  vendorHash = "sha256-nMGU34KApGrnHqtoI6WoqDXBVhTwJIR8wAPzEZEWjko=";
 
   preBuild = lib.optionalString withDocs ''
     if [ -d vendor ]; then
