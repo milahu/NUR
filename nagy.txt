@@ -1,10 +1,10 @@
 error:
-… while evaluating attribute 'postInstall' of derivation 'kicad-mcp-server-2.7.0'
-  at ./pkgs/by-name/kicad-mcp-server.nix:63:3:
-    62|   # them into the package root so `dist/index.js` can find them at runtime.
-    63|   postInstall = ''
+… while evaluating attribute 'postInstall' of derivation 'kicad-mcp-server-2.8.2'
+  at ./pkgs/by-name/kicad-mcp-server.nix:61:3:
+    60|   # them into the package root so `dist/index.js` can find them at runtime.
+    61|   postInstall = ''
       |   ^
-    64|     installDir=$out/lib/node_modules/kicad-mcp
+    62|     installDir=$out/lib/node_modules/kicad-mcp
 
 … while calling the 'head' builtin
   at ./pkgs/by-name/kicad-mcp-server.nix:22:26:
@@ -34,6 +34,6 @@ error:
       |                                     ^
     20|       pyVers = builtins.filter (d: builtins.match "python[0-9.]+" d != null) libdirs;
 
-… while realising the context of path '/nix/store/kh5xx775wgpynq9njdjc20dya4pn4ijl-kicad-base-10.0.6/lib'
+… while realising the context of path '/nix/store/m7r81k5pxx6w7crynavz7pqp2msddnnr-kicad-base-10.0.6/lib'
 
-error: path '/nix/store/5pyxj1h0phqk1x32vf7nmqg72z805ydj-kicad-base-10.0.6.drv' is not valid
+error: path '/nix/store/qbv786440mz2c9dxc3c53mahj765bra8-kicad-base-10.0.6.drv' is not valid
