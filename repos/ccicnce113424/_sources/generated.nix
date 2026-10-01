@@ -240,22 +240,22 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "7932c57cd024658a80a29af97bea079a59299273";
+    version = "10e3acd12fe5702d099e61d8ea3ea23965b92a2b";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "7932c57cd024658a80a29af97bea079a59299273";
+      rev = "10e3acd12fe5702d099e61d8ea3ea23965b92a2b";
       fetchSubmodules = false;
-      sha256 = "sha256-s/Wv/B04Ro4RIgCAiW1FtTmfF5yxoCOAEQlhXylkgR0=";
+      sha256 = "sha256-gLvMHN3pkyvvOfPKSVWGetyfxTtqRQSR1uqaSRYyHiY=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-s_Wv_B04Ro4RIgCAiW1FtTmfF5yxoCOAEQlhXylkgR0=/Cargo.lock";
+      lockFile = ./. + "/sha256-gLvMHN3pkyvvOfPKSVWGetyfxTtqRQSR1uqaSRYyHiY=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-09-29";
+    date = "2026-10-01";
   };
   piliplus = {
     pname = "piliplus";
@@ -344,21 +344,21 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "ceb9d72b34fe4266674c814f2b3dcd46352a67e5";
+    version = "4c60335d092ddd034bbf013f2fb2be938fb1e998";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "ceb9d72b34fe4266674c814f2b3dcd46352a67e5";
+      rev = "4c60335d092ddd034bbf013f2fb2be938fb1e998";
       fetchSubmodules = false;
-      sha256 = "sha256-2A30jobtlG/9a6z2M+l8buIcpmoQbeuUGgW+AbU/1y8=";
+      sha256 = "sha256-tWpwf2gbZxfv+nPbQb2Laxa6vIQcC7u8AMpW+srp8nI=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-2A30jobtlG_9a6z2M+l8buIcpmoQbeuUGgW+AbU_1y8=/Cargo.lock";
+      lockFile = ./. + "/sha256-tWpwf2gbZxfv+nPbQb2Laxa6vIQcC7u8AMpW+srp8nI=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-09-24";
+    date = "2026-09-30";
   };
   svt-av1-essential = {
     pname = "svt-av1-essential";
