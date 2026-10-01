@@ -11,6 +11,77 @@ Conformance is tracked separately as a ratchet against the official
 
 ## [Unreleased]
 
+### Performance
+
+- **Built-in calls cost about what they did before 0.19.1 again** (#260).
+  0.19.1 began checking every built-in call against dart's declaration (#62),
+  and 0.19.2 added the passed-twice rule (#147). No output changed, but a
+  stylesheet heavy in built-in calls ran 6–8% more instructions. Three
+  things did most of the work, and they still do the same checks. Each call
+  used to walk all seven module tables to find its declaration; that is now
+  a lookup in an index built once per process. A call with no named argument
+  now checks two counts instead of running the full four-rule verification.
+  And whether a function takes a rest parameter is decided when the table is
+  built, not by a suffix test on every call. Marginal instructions on
+  Linux/x86_64, output byte-identical:
+
+  ```
+                                  0.19.3     now        change
+    large.scss, expanded          104.15M    99.19M     -4.77%
+    large.scss, compressed        117.36M   112.40M     -4.23%
+    legacy_deprecations.scss      131.27M   123.45M     -5.96%
+  ```
+
+  With the checks switched off entirely, `large.scss` would run 97.30M. What
+  is left, about 1.9M, is the lookup itself: roughly 180 instructions for each
+  of the ~10,400 built-in calls `large.scss` makes.
+- **A built-in called by namespace is verified once, not twice** (#260).
+  `color.adjust(…)`, `map.get(…)` and every other module call that has a
+  global spelling was checked against its declaration, then handed to the
+  global path, which looked the function up again and checked the same row a
+  second time. It now goes straight to the dispatch. The evaluator's
+  is-this-a-built-in test, asked on every global call, now uses the same
+  index instead of walking every family's name list. Marginal instructions on
+  Linux/x86_64, output byte-identical:
+
+  ```
+                                  before     now        change
+    module_calls.scss (new)       28.74M     27.60M     -3.96%
+    legacy_deprecations.scss      123.35M    121.63M    -1.40%
+    large.scss, expanded          99.17M     98.86M     -0.31%
+  ```
+
+  Per call, a global whose name came late in the old scan saves the most
+  (`nth` −324, plain-CSS `foo()` −334), and a module call saves 135–184.
+  `large.scss` moves least because most of its calls (`percentage`,
+  `lighten`) were found early. `bench/corpus/gate/module_calls.scss` is new:
+  until now no benchmark called a module function other than `math.div`,
+  which returns before this path.
+
+## [0.19.3] - 2026-09-30
+
+_More of a selector survives as written. sasso used to treat NBSP and the
+other Unicode spaces as whitespace, and it no longer does, in a selector (#71)
+or anywhere else (#237). Whitespace inside a quoted attribute value is kept as
+well. Selectors, attribute selectors and keyframe stops now follow dart's
+grammar (#238). Input that dart rejects, such as `a^b`, `[a=1]` or a keyframe
+block named `foo`, used to compile and may now fail. A type error names the
+parameter and writes the value the way dart does (#139). The flake's package
+no longer runs the test suite, so a devenv or flake input builds sasso in
+about a fifth of the time._
+
+### Changed
+
+- **The flake's `sasso` package no longer runs the test suite when it is
+  built.** Nothing serves the flake from a binary cache, so every consumer
+  builds sasso from source. With the tests on, most of that build was
+  `checkPhase` recompiling every test target under the release profile. On a
+  4-core Linux/x86_64 builder the build took 43 s instead of 201 s. This is
+  the package that `packages.{sasso,default}` and `overlays.default` give, and
+  that a devenv or flake input pulls in. The suite still runs where it belongs:
+  `checks.sasso` and `nur.nix` build `nix/package.nix` unchanged, and
+  `nix flake check` builds `checks.sasso`.
+
 ### Fixed
 
 - **A non-ASCII space in a selector is kept, not turned into a plain space**
@@ -3711,7 +3782,8 @@ real-world SCSS byte-identically to dart-sass.
 - Distribution: CLI binary (prebuilt via cargo-dist), library crate, and a
   zero-dependency WebAssembly build published to npm as `@momiji-rs/sasso`.
 
-[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.19.2...HEAD
+[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.19.3...HEAD
+[0.19.3]: https://github.com/momiji-rs/sasso/compare/v0.19.2...v0.19.3
 [0.19.2]: https://github.com/momiji-rs/sasso/compare/v0.19.1...v0.19.2
 [0.19.1]: https://github.com/momiji-rs/sasso/compare/v0.19.0...v0.19.1
 [0.19.0]: https://github.com/momiji-rs/sasso/compare/v0.18.0...v0.19.0
