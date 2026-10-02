@@ -19,17 +19,17 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "twintaillauncher-unwrapped";
-  version = "2.5.0";
+  version = "2.5.1";
   structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "TwintailTeam";
     repo = "TwintailLauncher";
     tag = "ttl-v${finalAttrs.version}";
-    hash = "sha256-/TVT2HtRj9C54sPWGlVdAgt1fZ7exJqlh2F8reyo3hA=";
+    hash = "sha256-A8A8Rn4dSE0ABvFD8VOeo83bgOOhChZPr/rn0tpx2F0=";
   };
 
-  cargoHash = "sha256-KRM6oP7G2E+pvlL6u0e/oQp7BzpWXJI8LvMJGGZy5EY=";
+  cargoHash = "sha256-Nm9jiHaI5frTBIGKe/gagZuAPkAeci0KP0eycU91anM=";
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
