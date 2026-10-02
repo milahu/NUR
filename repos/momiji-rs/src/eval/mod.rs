@@ -225,10 +225,10 @@ fn materialize_fn_frames(chain: &mut [FnFrame]) {
 /// (uswds `units()`, quasar `str-fe()`).
 #[derive(Clone)]
 pub(crate) struct EnvModules {
-    pub(self) used_modules: HashMap<String, &'static str>,
-    pub(self) star_modules: Vec<&'static str>,
-    pub(self) used_user_modules: HashMap<String, Rc<Module>>,
-    pub(self) star_user_modules: Vec<Rc<Module>>,
+    pub(self) used_modules: Rc<HashMap<String, &'static str>>,
+    pub(self) star_modules: Rc<Vec<&'static str>>,
+    pub(self) used_user_modules: Rc<HashMap<String, Rc<Module>>>,
+    pub(self) star_user_modules: Rc<Vec<Rc<Module>>>,
 }
 
 /// A user `@function`/`@mixin` with its LEXICAL environment: the variable and
@@ -264,6 +264,9 @@ pub(crate) struct UserCallable {
     pub env_fns: Vec<FnFrame>,
     pub env_mixins: Vec<FnFrame>,
     pub env_modules: EnvModules,
+    /// `<name>()`, the member a diagnostic frame names while the body runs.
+    /// Made once here rather than formatted on every call.
+    pub frame_name: Rc<str>,
 }
 
 /// A style rule's selector list, carried through the output tree either as the
@@ -1036,6 +1039,12 @@ pub(crate) struct Evaluator<'a> {
     /// to a table it is about to free — and entering the next block would
     /// immediately allocate another. Bounded by [`SCOPE_POOL_MAX`].
     scope_pool: Vec<Scope>,
+    /// Spare chain buffers for [`Evaluator::enter_callable`], one set per call
+    /// depth in use. A call copies its callable's five captured chains into
+    /// buffers that keep their capacity, instead of allocating five `Vec`s on
+    /// entry and freeing them on exit (#260's analysis put the swap at ~1,140
+    /// instructions a call).
+    chain_pool: Vec<scope::ChainBufs>,
     /// The same for the definition-span frames, which are pushed in lockstep
     /// with `scopes` when a source map is being built.
     span_pool: Vec<SpanScope>,
@@ -1220,15 +1229,15 @@ pub(crate) struct Evaluator<'a> {
     /// in-scope namespace (default = the part after `sass:`, or the `as ns`
     /// override). The value is the canonical built-in module name (e.g.
     /// `math`) — one of a closed set, so it is borrowed, not owned.
-    used_modules: HashMap<String, &'static str>,
+    used_modules: Rc<HashMap<String, &'static str>>,
     /// Built-in modules brought into scope unprefixed via `@use "sass:<mod>"
     /// as *`. Their members resolve as bare calls/variables.
-    star_modules: Vec<&'static str>,
+    star_modules: Rc<Vec<&'static str>>,
     /// User stylesheet modules brought into scope via `@use "<file>" [as ns]`,
     /// keyed by the in-scope namespace.
-    used_user_modules: HashMap<String, Rc<Module>>,
+    used_user_modules: Rc<HashMap<String, Rc<Module>>>,
     /// User modules brought into scope unprefixed via `@use "<file>" as *`.
-    star_user_modules: Vec<Rc<Module>>,
+    star_user_modules: Rc<Vec<Rc<Module>>>,
     /// All user modules loaded so far, keyed by the importer's canonical key so
     /// each file is evaluated once and shared between every `@use`/`@forward`.
     /// Shared so a module's own forwarded sub-modules see the same cache.
@@ -1252,8 +1261,13 @@ pub(crate) struct Evaluator<'a> {
     consumed_config: Vec<String>,
     /// The name of the member whose body is currently executing, as it appears
     /// in a diagnostic stack frame: `root stylesheet` at the entrypoint, or
-    /// `<name>()` inside a user mixin/function. dart-sass `_member`.
-    member: String,
+    /// `<name>()` inside a user mixin/function. dart-sass `_member`. Shared,
+    /// not owned: every call pushes the caller's onto the stack, and a user
+    /// callable carries its own, ready-made ([`UserCallable::frame_name`]).
+    member: Rc<str>,
+    /// `current_url` as the `Rc` a [`DiagFrame`] stores, rebuilt only when the
+    /// url it was made from no longer matches (see [`Self::frame_url`]).
+    frame_url: Rc<str>,
     /// The diagnostic call stack: one entry per active user callable/import,
     /// recording the call site and the *caller's* member name. dart-sass
     /// `_stack`. Used to render byte-exact stack traces under errors/warnings.
@@ -1291,6 +1305,19 @@ pub(crate) struct Evaluator<'a> {
     /// [`Self::probe_arg_memoizable`] caps what one entry can hold. No `Value`
     /// graph ever enters it.
     dep_memo: HashMap<(u32, u32, u32, u64), DepProbe>,
+    /// [`Self::emit_call_deprecations`]'s own memo: the `[global-builtin]` and
+    /// `[feature-exists]` probes, which take no arguments and are asked on
+    /// every global call. Keyed by the url's id from [`Self::dep_url_id`], not
+    /// its text, so a hit hashes four small integers and compares a name
+    /// rather than hashing and comparing the whole url (#260's analysis put
+    /// that at ~290 instructions a call). Same rules as [`Self::dep_memo`]: the
+    /// stored name and module are compared on a hit, a mismatch takes the
+    /// slow path, and past [`Self::DEP_MEMO_MAX`] it stops learning.
+    call_dep_memo: HashMap<(u32, u32, u32, u64), CallProbe>,
+    /// The url [`Self::dep_url_id`] last answered for, and its id (0: none).
+    dep_url: (String, u32),
+    /// Every url a deprecation memo has seen, interned.
+    dep_url_ids: HashMap<String, u32>,
     /// Small interned ids for source files, stamped into [`SrcLines`] so the
     /// serializer's trailing-comment rule can require same-file adjacency and
     /// the source map can name the file. Keyed by the file's CANONICAL URL —
@@ -1311,10 +1338,10 @@ pub(crate) struct Evaluator<'a> {
 /// position) and the name of the member that contained that call.
 #[derive(Clone)]
 struct DiagFrame {
-    url: String,
+    url: Rc<str>,
     pos: Pos,
     /// The member name to print for this frame (`root stylesheet` or `name()`).
-    member: String,
+    member: Rc<str>,
     /// Byte length of the call-site span, to size the snippet caret when this
     /// frame is the primary (innermost) one — used by `@error`.
     length: usize,
@@ -1346,11 +1373,11 @@ struct Module {
     mixins: FnScope,
     /// Namespaced user modules this module `@use`d (for transitive `ns.fn()`
     /// calls evaluated inside this module's own functions/mixins).
-    used_user_modules: HashMap<String, Rc<Module>>,
-    star_user_modules: Vec<Rc<Module>>,
+    used_user_modules: Rc<HashMap<String, Rc<Module>>>,
+    star_user_modules: Rc<Vec<Rc<Module>>>,
     /// Built-in modules this module `@use`d, by namespace, and unprefixed.
-    used_builtin_modules: HashMap<String, &'static str>,
-    star_builtin_modules: Vec<&'static str>,
+    used_builtin_modules: Rc<HashMap<String, &'static str>>,
+    star_builtin_modules: Rc<Vec<&'static str>>,
     /// Built-in `sass:*` modules re-exported via `@forward`. A `ns.member` that
     /// misses every captured member is retried against these.
     forwarded_builtins: Vec<ForwardedBuiltin>,
@@ -1492,10 +1519,10 @@ struct SavedModuleEnv {
     scope_semi_global: Vec<bool>,
     functions: Vec<FnFrame>,
     mixins: Vec<FnFrame>,
-    used_modules: HashMap<String, &'static str>,
-    star_modules: Vec<&'static str>,
-    used_user_modules: HashMap<String, Rc<Module>>,
-    star_user_modules: Vec<Rc<Module>>,
+    used_modules: Rc<HashMap<String, &'static str>>,
+    star_modules: Rc<Vec<&'static str>>,
+    used_user_modules: Rc<HashMap<String, Rc<Module>>>,
+    star_user_modules: Rc<Vec<Rc<Module>>>,
     /// When set (a cross-module call), the module whose global scope was
     /// installed: `leave_module` writes the (possibly mutated) global scope back
     /// so a `!global` assignment inside the module persists.
@@ -1618,7 +1645,8 @@ impl<'a> Evaluator<'a> {
         let source: Rc<str> = Rc::from(options.source);
         let file_texts: HashMap<String, Rc<str>> = [(url.clone(), Rc::clone(&source))].into_iter().collect();
         Evaluator {
-            member: "root stylesheet".to_string(),
+            member: Rc::from("root stylesheet"),
+            frame_url: Rc::from(""),
             call_stack: Vec::new(),
             current_url: url,
             current_source: source,
@@ -1626,6 +1654,9 @@ impl<'a> Evaluator<'a> {
             deprecations_omitted: 0,
             deprecations_seen: crate::fxhash::FxHashSet::default(),
             dep_memo: HashMap::default(),
+            call_dep_memo: HashMap::default(),
+            dep_url: (String::new(), 0),
+            dep_url_ids: HashMap::default(),
             file_ids: HashMap::default(),
             file_texts,
             file_map_urls: HashMap::default(),
@@ -1642,6 +1673,7 @@ impl<'a> Evaluator<'a> {
             // flow scope (its child) becomes semi-global too.
             scope_semi_global: vec![true],
             scope_pool: Vec::new(),
+            chain_pool: Vec::new(),
             span_pool: Vec::new(),
             css_buf: String::new(),
             options,
@@ -1687,10 +1719,10 @@ impl<'a> Evaluator<'a> {
             cur_rule_extend_base: usize::MAX,
             bogus_selectors: Vec::new(),
             placeholder_rules: Vec::new(),
-            used_modules: HashMap::default(),
-            star_modules: Vec::new(),
-            used_user_modules: HashMap::default(),
-            star_user_modules: Vec::new(),
+            used_modules: Rc::default(),
+            star_modules: Rc::default(),
+            used_user_modules: Rc::default(),
+            star_user_modules: Rc::default(),
             module_cache: Rc::new(RefCell::new(HashMap::default())),
             forwarded: Forwarded::default(),
             pending_config: HashMap::default(),
@@ -1863,7 +1895,7 @@ impl<'a> Evaluator<'a> {
     fn frames_for(&self, pos: Pos) -> Vec<DiagFrame> {
         let mut frames = Vec::with_capacity(self.call_stack.len() + 1);
         frames.push(DiagFrame {
-            url: self.current_url.clone(),
+            url: Rc::from(self.current_url.as_str()),
             pos,
             member: self.member.clone(),
             length: 0,
@@ -2120,6 +2152,53 @@ impl<'a> Evaluator<'a> {
     /// protects is locked from the outside as well: one span reached with two
     /// different colours must warn twice, with a different suggestion each time
     /// (`tests/diagnostics.rs`, `a_legacy_color_function_suggests_its_replacement`).
+    /// [`Self::probe_already_done`] for [`Self::emit_call_deprecations`], which
+    /// has no arguments to fingerprint. The name is still part of the key and is still
+    /// compared: `meta.call` probes one span with whatever name it is handed.
+    fn call_probe_already_done(&mut self, name: &str, module: Option<&str>, pos: Pos) -> bool {
+        use std::hash::Hasher;
+        let url = self.dep_url_id();
+        let mut h = crate::fxhash::FxHasher::default();
+        h.write(name.as_bytes());
+        match module {
+            Some(m) => {
+                h.write_u8(1);
+                h.write(m.as_bytes());
+            }
+            None => h.write_u8(0),
+        }
+        let key = (url, pos.line as u32, pos.col as u32, h.finish());
+        if let Some(prev) = self.call_dep_memo.get(&key) {
+            return prev.name == name && prev.module.as_deref() == module;
+        }
+        if self.call_dep_memo.len() < Self::DEP_MEMO_MAX {
+            let probe = CallProbe {
+                name: name.to_string(),
+                module: module.map(str::to_string),
+            };
+            self.call_dep_memo.insert(key, probe);
+        }
+        false
+    }
+
+    /// `current_url` as a small id, for the deprecation memos' keys. Checked
+    /// against the url itself on every call, so it stays right however
+    /// `current_url` was last assigned; only a CHANGE of file interns.
+    fn dep_url_id(&mut self) -> u32 {
+        if self.dep_url.1 == 0 || self.dep_url.0 != self.current_url {
+            let id = match self.dep_url_ids.get(&self.current_url) {
+                Some(&id) => id,
+                None => {
+                    let id = self.dep_url_ids.len() as u32 + 1;
+                    self.dep_url_ids.insert(self.current_url.clone(), id);
+                    id
+                }
+            };
+            self.dep_url = (self.current_url.clone(), id);
+        }
+        self.dep_url.1
+    }
+
     fn probe_already_done(
         &mut self,
         probe: DepProbePath,
@@ -2314,7 +2393,32 @@ impl<'a> Evaluator<'a> {
             None
         };
         let feature_exists = name == "feature-exists" && module.map_or(true, |m| m == "meta");
+        // Gate here too, not only in `_with`: nearly every call deprecates
+        // nothing, and a module call reaches only this wrapper.
         if replacement.is_none() && !feature_exists {
+            return;
+        }
+        self.emit_call_deprecations_with(name, module, replacement, feature_exists, pos, len);
+    }
+
+    /// [`Self::emit_call_deprecations`] once the name-only questions have been
+    /// answered: `name` canonical, `replacement` the `[global-builtin]`
+    /// suggestion if the call is global, `feature_exists` whether it is
+    /// `feature-exists` as a global or `meta.` member. A global call has these
+    /// on its [`crate::ast::CallFacts`] already.
+    pub(super) fn emit_call_deprecations_with(
+        &mut self,
+        name: &str,
+        module: Option<&str>,
+        replacement: Option<&'static str>,
+        feature_exists: bool,
+        pos: Pos,
+        len: usize,
+    ) {
+        if replacement.is_none() && !feature_exists {
+            return;
+        }
+        if !self.diag_enabled() {
             return;
         }
         // Only now the gate that can take a lock: a name nothing deprecates has
@@ -2323,7 +2427,7 @@ impl<'a> Evaluator<'a> {
         if self.deprecation_quieted() {
             return;
         }
-        if self.probe_already_done(DepProbePath::Call, name, module, pos, &[], &[]) {
+        if self.call_probe_already_done(name, module, pos) {
             return;
         }
         if let Some(replacement) = replacement {
@@ -2655,7 +2759,7 @@ impl<'a> Evaluator<'a> {
         }
         let (decl_url, decl_source) = match decl.origin {
             Some(o) => (o.diag_url.clone(), Rc::clone(&o.source)),
-            None => (frames[0].url.clone(), Rc::clone(&frames[0].source)),
+            None => (frames[0].url.to_string(), Rc::clone(&frames[0].source)),
         };
         let decl_span = crate::diag::Span {
             line: decl.pos.line,
@@ -2718,7 +2822,7 @@ impl<'a> Evaluator<'a> {
         }
         let (decl_url, decl_source) = match decl.origin {
             Some(o) => (o.diag_url.clone(), Rc::clone(&o.source)),
-            None => (frame.url.clone(), Rc::clone(&frame.source)),
+            None => (frame.url.to_string(), Rc::clone(&frame.source)),
         };
         let decl_span = crate::diag::Span {
             line: decl.pos.line,
@@ -2818,31 +2922,45 @@ impl<'a> Evaluator<'a> {
         e
     }
 
-    fn enter_call(&mut self, call_pos: Pos, call_len: usize, new_member: &str) -> String {
+    fn enter_call(&mut self, call_pos: Pos, call_len: usize, new_member: Rc<str>) -> Rc<str> {
         self.push_frame(call_pos, call_len, new_member, false)
     }
 
     /// [`Self::enter_call`] for a `@content;` invocation: the frame shows in
     /// the trace under the `@content` member but is never an `@error`
     /// boundary (see [`DiagFrame::content`]).
-    pub(super) fn enter_content_call(&mut self, call_pos: Pos) -> String {
-        self.push_frame(call_pos, "@content".len(), "@content", true)
+    pub(super) fn enter_content_call(&mut self, call_pos: Pos) -> Rc<str> {
+        self.push_frame(call_pos, "@content".len(), Rc::from("@content"), true)
     }
 
-    fn push_frame(&mut self, call_pos: Pos, call_len: usize, new_member: &str, content: bool) -> String {
+    /// Every user call pushes one of these, so it allocates nothing: the url
+    /// is the shared [`Self::frame_url`], the member an `Rc` the caller made.
+    fn push_frame(&mut self, call_pos: Pos, call_len: usize, new_member: Rc<str>, content: bool) -> Rc<str> {
+        let url = self.frame_url();
         self.call_stack.push(DiagFrame {
-            url: self.current_url.clone(),
+            url,
             pos: call_pos,
-            member: self.member.clone(),
+            member: Rc::clone(&self.member),
             length: call_len,
             content,
             source: Rc::clone(&self.current_source),
         });
-        std::mem::replace(&mut self.member, new_member.to_string())
+        std::mem::replace(&mut self.member, new_member)
+    }
+
+    /// `current_url` as an `Rc<str>`, shared by every frame pushed while it
+    /// stays the same. Checked against the url's text each time, so it is
+    /// right however `current_url` was last assigned (the same reasoning as
+    /// [`Self::dep_url_id`]).
+    fn frame_url(&mut self) -> Rc<str> {
+        if *self.frame_url != *self.current_url {
+            self.frame_url = Rc::from(self.current_url.as_str());
+        }
+        Rc::clone(&self.frame_url)
     }
 
     /// Leave a user callable: pop its diagnostic frame and restore `member`.
-    fn leave_call(&mut self, saved_member: String) {
+    fn leave_call(&mut self, saved_member: Rc<str>) {
         self.call_stack.pop();
         self.member = saved_member;
     }
@@ -2941,7 +3059,7 @@ impl<'a> Evaluator<'a> {
         // @error's own frame is dropped). At the root, the @error span is used.
         let frames: Vec<DiagFrame> = if self.call_stack.is_empty() {
             vec![DiagFrame {
-                url: self.current_url.clone(),
+                url: Rc::from(self.current_url.as_str()),
                 pos,
                 member: self.member.clone(),
                 length,
@@ -3136,10 +3254,11 @@ impl<'a> Evaluator<'a> {
                     pos,
                     length,
                     full_length,
+                    frame_name,
                 } => {
                     // Push a diagnostic call frame so an error/warning raised in
                     // the mixin body unwinds through this `@include` call site.
-                    let saved = self.enter_call(*pos, *length, &mixin_frame_name(name, module));
+                    let saved = self.enter_call(*pos, *length, Rc::clone(frame_name));
                     let r = self.exec_include(
                         name,
                         args,
@@ -3861,7 +3980,8 @@ impl<'a> Evaluator<'a> {
                                             // `@import` frame at the URL token
                                             // (dart: `_mod.scss 3:19  @import`).
                                             let diag = self.module_diag_url(path, &resolved_key);
-                                            let saved_member = self.enter_call(*pos, *length, "@import");
+                                            let saved_member =
+                                                self.enter_call(*pos, *length, Rc::from("@import"));
                                             let saved_url = std::mem::replace(&mut self.current_url, diag);
                                             let saved_source = std::mem::replace(
                                                 &mut self.current_source,
@@ -3894,7 +4014,7 @@ impl<'a> Evaluator<'a> {
                             // The diagnostic `@import` frame records the
                             // IMPORTING file at the URL token — push it before
                             // the context swap below rebinds current_url.
-                            let saved_member = self.enter_call(*pos, *length, "@import");
+                            let saved_member = self.enter_call(*pos, *length, Rc::from("@import"));
                             // The imported file becomes the diagnostics/stamp
                             // context while its body runs (dart shows ITS name
                             // in error frames, and the trailing-comment check
@@ -5288,6 +5408,36 @@ fn decode_ident_escapes(s: &str) -> String {
 /// as a calculation expression, and so cannot accept a `...` rest argument
 /// (`clamp`, `hypot`, the exponent/trig functions). `min`/`max` are excluded:
 /// they are variadic Sass functions that also accept a splat.
+impl crate::ast::CallFacts {
+    /// Answer, once, every name-only question the call path asks. Each field
+    /// delegates to the predicate the evaluator used to call directly, so the
+    /// rules stay in one place and this only moves WHEN they run.
+    pub(crate) fn of(name: &str) -> Self {
+        let canonical = name.contains('_').then(|| name.replace('_', "-"));
+        let c = canonical.as_deref().unwrap_or(name);
+        Self {
+            dashed: name.starts_with("--"),
+            private: is_private_member(name),
+            is_if: name == "if",
+            calc: name.eq_ignore_ascii_case("calc"),
+            calc_size: name.eq_ignore_ascii_case("calc-size"),
+            calc_function: is_calc_function(name),
+            pure_calc_math: is_pure_calc_math_function(name),
+            clamp: name.eq_ignore_ascii_case("clamp"),
+            abs: name.eq_ignore_ascii_case("abs"),
+            round: name.eq_ignore_ascii_case("round"),
+            min_max: name.eq_ignore_ascii_case("min") || name.eq_ignore_ascii_case("max"),
+            alpha: c == "alpha",
+            builtin: crate::builtins::is_builtin(name),
+            eval_global: crate::builtins::EVAL_GLOBAL_NAMES.contains(&c),
+            global_replacement: crate::builtins::global_builtin_replacement(c),
+            feature_exists: c == "feature-exists",
+            color_deprecates: crate::builtins::color_function_deprecates(c),
+            canonical: canonical.map(String::into_boxed_str),
+        }
+    }
+}
+
 fn is_calc_function(name: &str) -> bool {
     matches!(name, "clamp" | "hypot" | "atan2" | "log" | "pow")
 }
@@ -5457,12 +5607,6 @@ fn for_indices(start: i64, end: i64, inclusive: bool) -> Vec<i64> {
         }
     }
     out
-}
-
-/// The diagnostic stack-frame name for an `@include`: dart-sass prints the bare
-/// mixin name with empty parens (`name()`), without the `ns.` namespace.
-fn mixin_frame_name(name: &str, _module: &Option<String>) -> String {
-    format!("{name}()")
 }
 
 /// Whether a mixin body contains a reachable `@content`. dart-sass scans the
@@ -9365,15 +9509,20 @@ struct DepProbe {
     named: Vec<(String, Value)>,
 }
 
+/// What a [`Evaluator::call_dep_memo`] entry was asked about, compared on a hit.
+struct CallProbe {
+    name: String,
+    module: Option<String>,
+}
+
 /// Which question a [`DepProbe`] answered. Part of the memo's key, because two
 /// probes made at one span from the same arguments still ask different things —
-/// `color.grayscale(1)` is asked about `[global-builtin]`, about
-/// `[color-functions]` and about `[color-module-compat]`, and one answering for
-/// another would silently drop a warning.
+/// `color.grayscale(1)` is asked about `[color-functions]` and about
+/// `[color-module-compat]`, and one answering for the other would silently drop
+/// a warning. The third question, `[global-builtin]`, has a memo of its own
+/// ([`Evaluator::call_dep_memo`]), so it cannot collide with either.
 #[derive(Clone, Copy)]
 enum DepProbePath {
-    /// [`Evaluator::emit_call_deprecations`] — the name-only ids.
-    Call = 0,
     /// [`Evaluator::emit_color_function_deprecation`]'s `[color-functions]`
     /// half, whose suggestions come from the argument VALUES.
     ColorFunction = 1,

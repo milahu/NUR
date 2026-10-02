@@ -26,7 +26,7 @@ impl<'a> Evaluator<'a> {
         // frame; mirror `eval_expr`'s fallback order so the span matches the
         // value that was actually read.
         if !is_private_member(name) {
-            for m in &self.star_user_modules {
+            for m in self.star_user_modules.iter() {
                 if m.vars.borrow().contains_key(name) {
                     return m.var_spans.borrow().get(name).copied();
                 }
@@ -121,6 +121,7 @@ impl<'a> Evaluator<'a> {
         materialize_fn_frames(&mut self.functions);
         materialize_fn_frames(&mut self.mixins);
         Rc::new(UserCallable {
+            frame_name: Rc::from(format!("{}()", def.name)),
             def: Rc::clone(def),
             origin,
             env: self.scopes.clone(),
@@ -130,6 +131,49 @@ impl<'a> Evaluator<'a> {
             env_mixins: self.mixins.clone(),
             env_modules,
         })
+    }
+
+    /// Swap a user callable's captured environment in for its body: its file,
+    /// its five scope chains, its `@use` tables, and a fresh scope for its
+    /// parameters. Every way a user `@function` or `@mixin` runs goes through
+    /// this, and [`Self::leave_callable`] puts the caller's back.
+    pub(super) fn enter_callable(&mut self, c: &UserCallable) -> SavedCallerEnv {
+        let file = self.enter_origin_file(Some(&c.origin));
+        let mut bufs = self.chain_pool.pop().unwrap_or_default();
+        bufs.scopes.extend_from_slice(&c.env);
+        bufs.var_spans.extend_from_slice(&c.env_spans);
+        bufs.semi.extend_from_slice(&c.env_semi);
+        bufs.fns.extend_from_slice(&c.env_fns);
+        bufs.mixins.extend_from_slice(&c.env_mixins);
+        let saved = SavedCallerEnv {
+            file,
+            scopes: std::mem::replace(&mut self.scopes, bufs.scopes),
+            var_spans: std::mem::replace(&mut self.var_spans, bufs.var_spans),
+            semi: std::mem::replace(&mut self.scope_semi_global, bufs.semi),
+            fns: std::mem::replace(&mut self.functions, bufs.fns),
+            mixins: std::mem::replace(&mut self.mixins, bufs.mixins),
+            modules: self.install_env_modules(&c.env_modules),
+        };
+        self.push_scope(false);
+        saved
+    }
+
+    /// Undo [`Self::enter_callable`], in the reverse order.
+    pub(super) fn leave_callable(&mut self, saved: SavedCallerEnv) {
+        self.pop_scope();
+        // The callee's chains go back to the pool emptied, keeping their
+        // capacity; clearing drops exactly what dropping the `Vec`s would.
+        let mut bufs = ChainBufs {
+            scopes: std::mem::replace(&mut self.scopes, saved.scopes),
+            var_spans: std::mem::replace(&mut self.var_spans, saved.var_spans),
+            semi: std::mem::replace(&mut self.scope_semi_global, saved.semi),
+            fns: std::mem::replace(&mut self.functions, saved.fns),
+            mixins: std::mem::replace(&mut self.mixins, saved.mixins),
+        };
+        bufs.clear();
+        self.chain_pool.push(bufs);
+        self.restore_env_modules(saved.modules);
+        self.leave_module_file(saved.file);
     }
 
     /// Install a callable's captured `@use` namespace tables for the duration
@@ -491,5 +535,37 @@ fn rebind<T>(vars: &mut HashMap<String, T>, name: &str, val: T) {
         None => {
             vars.insert(name.to_string(), val);
         }
+    }
+}
+
+/// The caller's environment, held by [`Evaluator::enter_callable`] while a user
+/// callable's body runs and put back by [`Evaluator::leave_callable`].
+pub(super) struct SavedCallerEnv {
+    file: Option<super::modules::SavedModuleFile>,
+    scopes: Vec<Scope>,
+    var_spans: Vec<SpanScope>,
+    semi: Vec<bool>,
+    fns: Vec<FnFrame>,
+    mixins: Vec<FnFrame>,
+    modules: EnvModules,
+}
+
+/// One call depth's worth of chain buffers, for [`Evaluator::chain_pool`].
+#[derive(Default)]
+pub(super) struct ChainBufs {
+    scopes: Vec<Scope>,
+    var_spans: Vec<SpanScope>,
+    semi: Vec<bool>,
+    fns: Vec<FnFrame>,
+    mixins: Vec<FnFrame>,
+}
+
+impl ChainBufs {
+    fn clear(&mut self) {
+        self.scopes.clear();
+        self.var_spans.clear();
+        self.semi.clear();
+        self.fns.clear();
+        self.mixins.clear();
     }
 }

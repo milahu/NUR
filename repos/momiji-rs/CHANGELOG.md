@@ -57,6 +57,100 @@ Conformance is tracked separately as a ratchet against the official
   `lighten`) were found early. `bench/corpus/gate/module_calls.scss` is new:
   until now no benchmark called a module function other than `math.div`,
   which returns before this path.
+- **Repeating a deprecated global call costs half what it did.** dart
+  reports a `[global-builtin]` warning once per place, so sasso remembers
+  every call site it has already warned about and skips the rest. Checking
+  that memo was itself about 290 instructions a call. It hashed the whole
+  file URL and compared it as text, for a question that takes no arguments.
+  That question now has a memo of its own, keyed by a small per-file id, and
+  costs about 145. Which warnings print is unchanged, byte for byte. Marginal
+  instructions on Linux/x86_64:
+
+  ```
+                                  before     now        change
+    legacy_deprecations.scss      121.53M    119.11M    -1.99%
+    large.scss, expanded          98.87M     98.23M     -0.65%
+  ```
+- **A user `@function` or `@mixin` call no longer copies its `@use` tables
+  or its stack-frame name** (#260's analysis). Each call used to clone the
+  `@use` tables its callable captured, four of them, every entry copied.
+  That made a call ~140 instructions dearer for each module in scope. Each
+  call also formatted its `name()` for the diagnostics stack and copied the
+  file's url there. The tables are now shared and copied only when a `@use`
+  changes them. A function's frame name is made once per definition, an
+  `@include`'s once when it is parsed, and the url is shared between frames.
+  The five scope chains a call runs against are the next entry. A call to a one-argument function went
+  from 4,904 to 4,091 instructions, the same with six modules in scope as
+  with none, and an `@include` from 4,401 to 3,590. Errors and warnings print
+  byte for byte as before. Marginal instructions on Linux/x86_64:
+
+  ```
+                                  before     now        change
+    user_functions.scss (new)     27.26M     23.34M     -14.38%
+    bulma                         2141.2M    1990.4M    -7.04%
+    govuk-frontend                207.0M     199.6M     -3.58%
+    vuetify                       350.3M     342.0M     -2.37%
+    uswds                         6096.7M    5968.4M    -2.10%
+    minimal-mistakes              172.1M     169.3M     -1.64%
+  ```
+
+  The last five are pinned real-world projects from `bench/real-world`, with
+  output byte-identical before and after. `bench/corpus/gate/user_functions.scss`
+  is new: no benchmark defined a `@function` until now.
+- **A user call reuses its scope-chain buffers.** Running a `@function` or
+  `@mixin` body means swapping in the five scope chains the callable
+  captured. Each call cloned them into fresh `Vec`s and freed them on the
+  way out, though each usually holds a single entry: four allocations and
+  four frees a call, five of each with a source map (the span chain is
+  empty without one, and an empty `Vec` allocates nothing). The callee now
+  copies the entries into buffers it takes from a pool, one set per call
+  depth, and clears them when it returns. They are the same entries,
+  dropped at the same moment, without the allocator. A one-argument
+  call went from 4,091 to 3,300 instructions, a function calling a function
+  from 7,148 to 5,563, and an `@include` from 3,590 to 2,799. Marginal
+  instructions on Linux/x86_64, output byte-identical:
+
+  ```
+                                  before     now        change
+    user_functions.scss           23.34M     21.49M     -7.93%
+    bulma                         1990.4M    1932.2M    -2.92%
+    vuetify                       342.0M     335.3M     -1.96%
+    govuk-frontend                199.6M     196.1M     -1.76%
+    minimal-mistakes              169.3M     166.7M     -1.55%
+    uswds                         5968.8M    5905.6M    -1.06%
+    large.scss                    97.87M     97.35M     -0.53%
+  ```
+
+  The six places a user callable can run (a call, two mixin paths, a mixin
+  reference, `meta.call`, a module function) shared one swap, written out
+  six times. It is one `enter_callable` / `leave_callable` pair now, which
+  is what let this change be made once.
+- **A global built-in call asks its name-only questions once per call site.**
+  Before it dispatched, every call to a global function ran a series of
+  string tests on its name, about fifteen of them: is it `if`, `calc`,
+  `clamp`, `round`, `min`/`max`, a calculation, a private name, a `sass:meta`
+  global, a built-in at all, deprecated in favour of what, and so on. None of
+  those answers can change between two evaluations of the same call. They now
+  live on the call's AST node, worked out on its first evaluation
+  (`CallFacts`), and every later evaluation reads them. A call site that
+  never runs costs nothing. Per call, a global built-in saves ~530–690
+  instructions (`nth($l, 1)` went from 3,534 to 2,877). Marginal instructions
+  on Linux/x86_64, output byte-identical:
+
+  ```
+                                  before     now        change
+    legacy_deprecations.scss      117.19M    108.92M    -7.06%
+    large.scss, expanded          97.36M     94.32M     -3.12%
+    minimal-mistakes              166.7M     161.9M     -2.87%
+    bootstrap                     839.1M     820.6M     -2.20%
+    forem                         308.0M     304.5M     -1.13%
+    bulma                         1932.2M    1911.9M    -1.05%
+  ```
+
+  An earlier version computed the facts in the parser. That made a call that
+  runs once, or never, pay for all fifteen answers, and it made mastodon
+  0.3% slower. The lazy version is no slower than before on any project
+  measured.
 
 ## [0.19.3] - 2026-09-30
 
