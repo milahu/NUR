@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   steamDisplayName = "Proton-Wineland";
 
   pname = "proton-wineland";
-  version = "11.0-20260922";
+  version = "11.0-20260930";
 
   inherit (finalAttrs.passthru.variants.${stdenvNoCC.hostPlatform.system}) src toolName;
 
@@ -53,16 +53,20 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       toolName = "${finalAttrs.pname}-${finalAttrs.version}-x86_64";
       src = fetchzip {
         url = "https://github.com/nanomatters/proton-cachyos/releases/download/wineland-${finalAttrs.version}/${finalAttrs.pname}-${finalAttrs.version}-x86_64.tar.xz";
-        hash = "sha256-fGkxXF89SPy4I4tF6djDCXZYAncI4Yn/eIT9D+do95g=";
+        hash = "sha256-JgJKkOfAmMZHG3h54ZMAcPJXf/Y2c5wOkFjjgpWdkF0=";
       };
     };
 
     updateScript = writeScript "update-proton-wineland" ''
       #!/usr/bin/env nix-shell
       #!nix-shell -i bash -p curl jq common-updater-scripts
+      set -euo pipefail
       repo="https://api.github.com/repos/nanomatters/proton-cachyos/releases"
-      version="$(curl -sL "$repo" | jq 'map(select(.prerelease == false)) | .[0].tag_name | sub("^wineland-"; "")' --raw-output)"
-      update-source-version proton-wineland "$version" --ignore-same-version --source-key="variants.x86_64-linux.src"
+      version="$(curl --fail --silent --show-error --location "$repo" | jq --exit-status --raw-output '
+        [.[] | select(.prerelease == false and (.tag_name | startswith("wineland-")))]
+        | .[0].tag_name | strings | sub("^wineland-"; "") | select(length > 0)
+      ')"
+      update-source-version proton-wineland "$version" --source-key="variants.x86_64-linux.src"
     '';
   };
 
