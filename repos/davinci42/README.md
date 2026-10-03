@@ -64,6 +64,12 @@ Only the current platform is build-tested. For flat binary archives, hashes for
 other platforms are fetched on the local machine without foreign builders.
 Generic source/dependency updates use `nix-update` and may need other builders.
 
+Both workflows use the repository's self-hosted runner and its existing Nix
+installation. `Package checks` runs on pushes to `main`, same-repository PRs,
+and manual dispatch; fork PRs are skipped to avoid running external code on the
+persistent runner. Only run trusted code there; this filter is not a sandbox.
+Checks have a 120-minute timeout and do not persist checkout credentials.
+
 To build without the maintenance tools:
 
 ```sh
@@ -87,9 +93,18 @@ Errors stop immediately; contract changes require manual review.
 Each update uses an isolated worktree and the existing `just update` validation.
 Only declared package files are committed and pushed to a version-specific branch.
 The PR title is `package: old-version -> new-version`; its body lists actual
-checks and untested platforms. Existing PRs, including closed ones, are not
-recreated. Branch conflicts fail without force-pushing; a pushed branch whose PR
-creation failed can be opened manually. Packages never share update commits. No Issues are created or PRs auto-merged.
+checks and untested platforms. By default, existing PRs, including closed ones,
+are not recreated. Branch conflicts fail without force-pushing; a pushed branch
+whose PR creation failed can be opened manually. Packages never share update
+commits. No Issues are created or PRs auto-merged.
+
+For an intentional rerun, enable `force` when manually dispatching the workflow
+(default: `false`), or use `just check-updates --pr --force` in the publishing
+environment described below. This ignores existing PRs and appends a fresh UUID
+to each update branch. Existing PRs and branches remain unchanged. All release,
+asset, clean-checkout, contract, build, test, and lint checks still apply; nothing
+is force-pushed. `--force` requires `--pr`. Scheduled runs keep normal deduplication,
+and local `act` runs remain validation-only even when `force` is enabled.
 
 `GITHUB_TOKEN` needs `contents: write`, `pull-requests: write`, and the repository
 setting allowing Actions to create pull requests. Its PRs do not trigger further
