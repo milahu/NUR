@@ -551,11 +551,11 @@ error:
    342|     let
 
 … in the right operand of the update (//) operator
-  at <nixpkgs> + /lib/fixed-points.nix:346:17:
-   345|     in
-   346|     fApplied // g final prev';
+  at <nixpkgs> + /lib/fixed-points.nix:345:17:
+   344|     in
+   345|     fApplied // g final (prev // fApplied);
       |                 ^
-   347|
+   346|
 
 … while calling the 'import' builtin
   at ./internal/packages.nix:9:6:
