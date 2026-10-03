@@ -13,6 +13,137 @@ Conformance is tracked separately as a ratchet against the official
 
 ### Performance
 
+- **`map.get` and `map.has-key` no longer copy the map they read.** Each call
+  copied every entry of the map before looking one up, so a lookup cost the
+  size of the map. A design system that reads its large configuration maps on
+  nearly every rule paid that each time. They now read the map in place, and
+  so do `map.keys`, `map.values`, and `length` and `nth` on a map. On a
+  200-entry map, a `map.get` went from 45,805 to 11,041 instructions and a
+  `length` from 36,357 to 1,608. Marginal instructions on Linux/x86_64, output
+  byte-identical:
+
+  ```
+                                  before     now        change
+    uswds                         3447.7M    3004.0M    -12.88%
+    module_calls.scss             26.67M     25.44M     -4.62%
+    govuk-frontend                192.2M     186.3M     -3.07%
+    vuetify                       316.4M     306.7M     -3.05%
+    bulma                         1874.2M    1826.2M    -2.57%
+    bootstrap                     808.2M     797.1M     -1.36%
+  ```
+
+- **`@extend` across many modules hashes with FxHash, not SipHash.** When
+  extensions span modules, sasso tracks which module loads which, and in what
+  order, to merge their extension stores the way dart does. The sets and maps
+  doing that are keyed by each module's full URL, and they used Rust's default
+  hasher, SipHash, which is built to resist hash flooding and is slow on long
+  keys. They now use the FxHash the rest of the evaluator uses. Only the hash
+  changes, and none of these tables is read in an order that reaches the
+  output. Marginal instructions on Linux/x86_64, output byte-identical:
+
+  ```
+                                  before     now        change
+    extend_modules (new corpus)   69.2M      43.5M      -37.1%
+    chirpy                        109.7M     88.7M      -19.11%
+    govuk-frontend                186.3M     168.2M     -9.70%
+    uswds                         3004.0M    2754.5M    -8.30%
+    bulma                         1826.2M    1811.6M    -0.80%
+  ```
+
+  `bench/corpus/gate/extend_modules/` is new: the existing `@extend` corpus is
+  a single file, and the multi-file one has no `@extend`.
+
+## [0.21.0] - 2026-10-02
+
+_A faster npm CLI, and a way around node for the tools that spawn it. One
+entry through the npm CLI on the native addon is 24–31% faster (#274). The
+release binary now ships in each platform package, and `"sasso/binary"`
+returns its path: 4.3 ms for the same entry, against 38.3 ms through node
+(#275). A variable reached through `@use … as *` no longer scans every module
+it misses in, which takes 41% of uswds's instructions (#273). Output is
+byte-identical to 0.20.0._
+
+### Added
+
+- **`"sasso/binary"`: the native `sasso` binary ships in the npm package**
+  (#272). Each prebuilt platform package (`sasso-native-<target>`) now carries
+  the release's command-line binary beside the addon, byte-identical to the
+  one on the Releases page, and `binaryPath()` returns its absolute path. It
+  returns `null` where there is no prebuild (Windows, musl) or optional
+  dependencies were skipped, and it throws, as `"sasso/native"` does, when
+  the binary it would return is from another version. It is for tools that
+  spawn the compiler, and for those it removes node from the run. One entry
+  of a real-world project, Linux/x86_64:
+  38.3 ms through `node_modules/.bin/sasso`, 4.3 ms through the binary, 20.7 ms
+  for dart-sass. Nothing uses the binary unless asked. `.bin/sasso` stays the
+  node CLI, and there is no install script: npm 12, pnpm 12 and yarn 4 skip
+  dependency install scripts by default, and pnpm 12 fails the install over
+  one. Each platform package's tarball grows by 1.2–1.4 MB (darwin-arm64: 1.45
+  → 2.62 MB).
+
+### Performance
+
+- **The npm CLI compiles a single entry 24–31% faster on the native addon**
+  (#272). A build watcher that spawns the CLI on every save compiles one
+  entry each time, and most of that run went to loading code the command
+  line never used. It loaded the whole JS API (importers, the Value classes,
+  the wasm loader) to reach the addon, and it imported `node:fs` through
+  ESM, whose export facade loads node's stream stack. It also loaded
+  `node:child_process` and `node:worker_threads` with nothing to spawn, and
+  on Linux it checked glibc by building the full diagnostic report three
+  times. The CLI now loads the addon core and what a command line uses. One
+  entry of a real-world project, run through a pnpm `.bin` shim, on
+  Linux/x86_64, medians of 60 interleaved runs:
+
+  ```
+                                             0.20.0     now        change
+    --embed-sources                          51.3 ms    39.0 ms    -24.1%
+    --style=compressed --no-source-map       49.6 ms    34.4 ms    -30.7%
+  ```
+
+  The second row is faster partly because it writes no source map: only
+  `--embed-sources` still triggers one young-generation GC (3.4 ms).
+
+  148 entries in one process: −5.4% (196.2 → 185.6 ms). On macOS/arm64, which
+  never paid the Linux glibc check, one entry is −6.6%. The wasm engine and the
+  hand-off to a binary on `PATH` are within 3%. Output, stderr and exit codes
+  are byte-identical to 0.20.0 on every engine.
+
+- **A variable reached through `@use … as *` no longer scans every module it
+  misses in.** A variable written without a namespace is looked up in each
+  module `@use`d `as *`, in order, and in each module's forwarded members, until
+  one has it. `-` and `_` are one character in a variable name, so a miss
+  compared the name against every variable the module had, one by one, in case
+  one was spelled the other way. The parser already writes every variable name
+  with `-`, so when none of a module's names contains `_` (nearly always), one
+  lookup now gives the same answer. A design system whose packages each
+  star-load a large shared core pays for that on every reference. uswds spent
+  a third of its compile there. Marginal instructions on Linux/x86_64, output
+  byte-identical:
+
+  ```
+                                  before     now        change
+    uswds                         5840.9M    3447.7M    -40.97%
+    star_forward (new corpus)     186.3M     17.5M      -90.6%
+    govuk-frontend                193.0M     192.2M     -0.38%
+  ```
+
+  `bench/corpus/gate/star_forward/` is new: no corpus reached this path
+  before.
+
+## [0.20.0] - 2026-10-02
+
+_Faster, and nothing else changes: output and diagnostics are byte-identical
+to 0.19.3 on every project and corpus measured, and sass-spec scores the
+same, stderr included. A call to a built-in or to a user `@function` or `@mixin` does much
+less work per call, and that is most of a compile for a framework built on
+them. Against 0.19.3, in instructions on Linux/x86_64: vuetify -24%, bulma
+-21%, govuk-frontend and minimal-mistakes -11%, bootstrap -8%, uswds -7%,
+and `large.scss` -10%. The argument checks 0.19.1 added to every built-in
+call (#260) no longer cost what they did._
+
+### Performance
+
 - **Built-in calls cost about what they did before 0.19.1 again** (#260).
   0.19.1 began checking every built-in call against dart's declaration (#62),
   and 0.19.2 added the passed-twice rule (#147). No output changed, but a
@@ -151,6 +282,30 @@ Conformance is tracked separately as a ratchet against the official
   runs once, or never, pay for all fifteen answers, and it made mastodon
   0.3% slower. The lazy version is no slower than before on any project
   measured.
+- **A built-in call skips the families that cannot answer it.** A built-in is
+  dispatched down a chain of eight families (colour, the colour extras, math,
+  string, map, list, meta, selector). Each one compares the name against its
+  own list and passes the call on, so a call to `nth` was turned down five
+  times before the list family took it. Each call site now records where in
+  the chain its name can first be claimed, and it also records the
+  declaration a global call is verified against, so neither is looked up
+  again. Namespaced calls get the same skip from the member index they
+  already consult. Per call, a global built-in saves 100–510 instructions
+  (`nth($l, 1)` went from 2,876 to 2,457) and a namespaced one 120–330
+  (`list.nth` from 2,721 to 2,393). Marginal instructions on Linux/x86_64,
+  output byte-identical:
+
+  ```
+                                  before     now        change
+    vuetify                       334.0M     316.4M     -5.28%
+    module_calls.scss             27.47M     26.67M     -2.91%
+    legacy_deprecations.scss      109.07M    106.16M    -2.67%
+    bulma                         1911.9M    1874.2M    -1.98%
+    minimal-mistakes              161.9M     159.0M     -1.78%
+    bootstrap                     820.6M     808.3M     -1.50%
+    govuk-frontend                195.5M     193.0M     -1.32%
+    large.scss                    94.31M     93.62M     -0.73%
+  ```
 
 ## [0.19.3] - 2026-09-30
 
@@ -3876,7 +4031,9 @@ real-world SCSS byte-identically to dart-sass.
 - Distribution: CLI binary (prebuilt via cargo-dist), library crate, and a
   zero-dependency WebAssembly build published to npm as `@momiji-rs/sasso`.
 
-[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.19.3...HEAD
+[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.21.0...HEAD
+[0.21.0]: https://github.com/momiji-rs/sasso/compare/v0.20.0...v0.21.0
+[0.20.0]: https://github.com/momiji-rs/sasso/compare/v0.19.3...v0.20.0
 [0.19.3]: https://github.com/momiji-rs/sasso/compare/v0.19.2...v0.19.3
 [0.19.2]: https://github.com/momiji-rs/sasso/compare/v0.19.1...v0.19.2
 [0.19.1]: https://github.com/momiji-rs/sasso/compare/v0.19.0...v0.19.1

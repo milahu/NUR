@@ -36,6 +36,16 @@ in CI:
                                  single `@function`, so the user-callable path
                                  (argument binding, the environment swap, the
                                  call frame) was measured nowhere.
+  gate/star_forward/**           large modules reached through `@forward` and
+                                 several `@use ... as *`, the shape of a design
+                                 system such as uswds: a variable is looked up
+                                 in each starred module before the one that has
+                                 it, and every miss used to scan the module.
+  gate/extend_modules/**         `@extend` across a graph of modules: placeholders
+                                 in one shared module, extended from many
+                                 component modules. Single-file `extend_heavy`
+                                 cannot reach the per-module-scope store-merge
+                                 ordering this exercises.
 
 Deterministic by construction -- no PRNG, no clock, no environment -- so
 re-running rewrites byte-identical files. The output is checked into git, like
@@ -59,7 +69,7 @@ import json
 import sys
 from pathlib import Path
 
-GENERATOR_VERSION = 4
+GENERATOR_VERSION = 6
 REPO_ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = REPO_ROOT / "bench" / "corpus" / "gate"
 
@@ -661,6 +671,96 @@ $layers: (base: 1, dropdown: 10, sticky: 20, modal: 100);
     return "".join(out)
 
 
+# ----------------------------------------------------------------- corpus 7
+
+STAR_BUNDLES = 6
+STAR_VARS_PER_BUNDLE = 120
+STAR_RULES = 300
+
+
+def star_forward() -> dict[str, str]:
+    """Large modules, each forwarded once more, all `@use`d `as *`.
+
+    Returns a `{relative path: contents}` map rooted at `gate/star_forward/`.
+
+    A variable named without a namespace is looked up in every starred module,
+    in order, until one has it. So most lookups here miss in several modules
+    first, as they do in a design system whose packages each star-load a
+    shared core (uswds is the measured case). The forwarding layer matters
+    too: a forwarded variable is found through the module's forwarded-origin
+    table, which a miss consults as well.
+    """
+    files: dict[str, str] = {}
+    for b in range(1, STAR_BUNDLES + 1):
+        lines = [HEADER.rstrip("\n")]
+        for v in range(1, STAR_VARS_PER_BUNDLE + 1):
+            lines.append("$s%d-v%d: %dpx !default;" % (b, v, (b * 7 + v) % 97))
+        files["_settings_%d.scss" % b] = "\n".join(lines) + "\n"
+        files["_bundle_%d.scss" % b] = HEADER + '@forward "settings_%d";\n' % b
+    files["_marker.scss"] = HEADER + "@mixin gate-marker {\n  %s { --generated: true; }\n}\n" % MARKER
+
+    entry = [HEADER.rstrip("\n")]
+    for b in range(1, STAR_BUNDLES + 1):
+        entry.append('@use "bundle_%d" as *;' % b)
+    entry.append('@use "marker" as m;')
+    entry.append("")
+    for r in range(1, STAR_RULES + 1):
+        # Spread the references over every bundle, the later ones included,
+        # so a lookup misses in each module before the one that has it.
+        b1 = r % STAR_BUNDLES + 1
+        b2 = (r * 5) % STAR_BUNDLES + 1
+        v1 = (r * 13) % STAR_VARS_PER_BUNDLE + 1
+        v2 = (r * 29) % STAR_VARS_PER_BUNDLE + 1
+        entry.append(
+            ".u-%d { margin: $s%d-v%d; padding: $s%d-v%d $s%d-v%d; }"
+            % (r, b1, v1, b2, v2, STAR_BUNDLES, (r % STAR_VARS_PER_BUNDLE) + 1)
+        )
+    entry += ["", "@include m.gate-marker;", ""]
+    files["entry.scss"] = "\n".join(entry)
+    return files
+
+
+# ----------------------------------------------------------------- corpus 8
+
+EXTEND_MODULES = 30
+EXTEND_PLACEHOLDERS = 12
+
+
+def extend_modules() -> dict[str, str]:
+    """Placeholders in one module, extended from many modules that load it.
+
+    Returns a `{relative path: contents}` map rooted at `gate/extend_modules/`.
+
+    `extend_heavy` is one file, so every extension lives in one store. Across
+    modules dart keeps a store per module and merges them in an order that
+    depends on who loads whom, and sasso works that order out per module scope
+    in the output (`ExtendOrderCtx::rank_for`). That walk, and the sets keyed
+    by module URL around it, run once per scope, so they grow with the module
+    count. govuk-frontend, uswds and chirpy have this shape.
+    """
+    files: dict[str, str] = {}
+    base = [HEADER.rstrip("\n")]
+    for p in range(1, EXTEND_PLACEHOLDERS + 1):
+        base.append("%%ph-%d { color: #%02x%02x%02x; margin: %dpx; }" % (p, p * 17 % 256, p * 31 % 256, p * 47 % 256, p))
+    base.append("@mixin gate-marker {\n  %s { --generated: true; }\n}" % MARKER)
+    files["_base.scss"] = "\n".join(base) + "\n"
+    for c in range(1, EXTEND_MODULES + 1):
+        lines = [HEADER.rstrip("\n"), '@use "base";', ""]
+        for k in range(1, 5):
+            p = (c * k) % EXTEND_PLACEHOLDERS + 1
+            lines.append(
+                ".c%d-e%d { @extend %%ph-%d; padding: %dpx; &:hover { @extend %%ph-%d; } }"
+                % (c, k, p, k, (p % EXTEND_PLACEHOLDERS) + 1)
+            )
+        files["_comp_%d.scss" % c] = "\n".join(lines) + "\n"
+    entry = [HEADER.rstrip("\n"), '@use "base";']
+    for c in range(1, EXTEND_MODULES + 1):
+        entry.append('@use "comp_%d";' % c)
+    entry += ["", "@include base.gate-marker;", ""]
+    files["entry.scss"] = "\n".join(entry)
+    return files
+
+
 # --------------------------------------------------------------------- main
 
 
@@ -675,6 +775,10 @@ def build() -> dict[str, str]:
     }
     for rel, text in use_graph().items():
         files["use_graph/" + rel] = text
+    for rel, text in star_forward().items():
+        files["star_forward/" + rel] = text
+    for rel, text in extend_modules().items():
+        files["extend_modules/" + rel] = text
     return files
 
 
