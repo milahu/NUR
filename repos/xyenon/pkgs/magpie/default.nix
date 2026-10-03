@@ -21,16 +21,24 @@ buildGoModule (finalAttrs: {
   __structuredAttrs = true;
 
   pname = "magpie";
-  version = "0.1.603";
+  version = "0.1.661";
 
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "magpie";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-RBFNI+vtut/uEw8wMlG6VRsqrn8HKutRtiZSawLJnMs=";
+    hash = "sha256-/Z+84p6rY7zxhmGjVMlWdf8uD6SDdSlvVpiNZVREIEQ=";
   };
 
   vendorHash = "sha256-XEaHZVw3co0yUV6fLUlSkvg9LlroKFj2B2sjMW1e6BU=";
+
+  patches = lib.optionals (guiSupport && stdenv.hostPlatform.isLinux) [
+    ./linux-launcher.patch
+  ];
+  postPatch = lib.optionalString (guiSupport && stdenv.hostPlatform.isLinux) ''
+    substituteInPlace internal/autostart/autostart.go internal/autostart/launcher_linux_test.go \
+      --replace-fail '@magpie@' "$out/bin/magpie"
+  '';
 
   subPackages = [ "." ];
   tags =

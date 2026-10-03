@@ -141,7 +141,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>magpie</code></strong> — Manage models, providers, and accounts for AI coding agents in one place</summary>
 
-- **Version:** `0.1.603`
+- **Version:** `0.1.661`
 - **License:** MIT
 - **Homepage:** [https://github.com/yetone/magpie](https://github.com/yetone/magpie)
 - **Build:** `nix build github:XYenon/nur-packages#magpie`
@@ -195,6 +195,26 @@ Uncomment this if you use travis:
 - **License:** Apache-2.0
 - **Homepage:** [https://opendal.apache.org/apps/oli/](https://opendal.apache.org/apps/oli/)
 - **Build:** `nix build github:XYenon/nur-packages#oli`
+
+</details>
+
+<details>
+<summary><strong><code>pgbot</code></strong> — In-database observability for PostgreSQL</summary>
+
+- **Version:** `0.8.1`
+- **License:** Apache-2.0
+- **Homepage:** [https://pgbot.dev](https://pgbot.dev)
+- **Build:** `nix build github:XYenon/nur-packages#pgbot`
+
+</details>
+
+<details>
+<summary><strong><code>pgterm</code></strong> — Multi-database terminal UI for PostgreSQL powered by pgbot</summary>
+
+- **Version:** `0.3.1`
+- **License:** Apache-2.0
+- **Homepage:** [https://pgterm.dev](https://pgterm.dev)
+- **Build:** `nix build github:XYenon/nur-packages#pgterm`
 
 </details>
 
@@ -261,7 +281,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>waypipe-darwin</code></strong> — Proxy for Wayland clients optimized for macOS/Darwin</summary>
 
-- **Version:** `0.11.0-darwin.1-unstable-2026-07-15`
+- **Version:** `0.11.2-darwin.1-unstable-2026-10-02`
 - **License:** GPL-3.0-or-later
 - **Homepage:** [https://github.com/J-x-Z/waypipe-darwin](https://github.com/J-x-Z/waypipe-darwin)
 - **Build:** `nix build github:XYenon/nur-packages#waypipe-darwin`
