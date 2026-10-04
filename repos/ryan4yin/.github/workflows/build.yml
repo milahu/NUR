@@ -1,5 +1,8 @@
 name: "Build and populate cache"
 on:
+  # Manual trigger, useful to re-run after GitHub auto-disables the schedule
+  # for repository inactivity.
+  workflow_dispatch:
   pull_request:
   push:
     branches:
