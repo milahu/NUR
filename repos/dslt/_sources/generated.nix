@@ -66,18 +66,18 @@
   };
   chatgpt-aarch64 = {
     pname = "chatgpt-aarch64";
-    version = "26.930.21537";
+    version = "26.930.31730";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.930.21537_arm64.deb";
-      sha256 = "sha256-9kbAHuvTekkxfvYq7eh3wina7uTxyrnvPrYaHPZClWQ=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.930.31730_arm64.deb";
+      sha256 = "sha256-3ZgAhel0b62L1FtINUiF0uo6mtCYieDw1iMvHYGbJrI=";
     };
   };
   chatgpt-x86_64 = {
     pname = "chatgpt-x86_64";
-    version = "26.930.21537";
+    version = "26.930.31730";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.930.21537_amd64.deb";
-      sha256 = "sha256-YP222JXXdviDH/NaeD3gTNv6KA8PPZclhDFfmOV6olY=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.930.31730_amd64.deb";
+      sha256 = "sha256-4BdNjQpfQUEUVFjIFPPC2GPdZ+lCuGh4Wh9drJy6PhY=";
     };
   };
   classin-aarch64 = {
@@ -180,22 +180,22 @@
   };
   qq-wayland-fix = {
     pname = "qq-wayland-fix";
-    version = "32d5b681b7335536e8ac27c8cd326412a5357a06";
+    version = "9b4c35596905f1c786c1fa6b4265d07de32ba948";
     src = fetchFromGitHub {
       owner = "SHORiN-KiWATA";
       repo = "linuxqq-wayland-fix";
-      rev = "32d5b681b7335536e8ac27c8cd326412a5357a06";
+      rev = "9b4c35596905f1c786c1fa6b4265d07de32ba948";
       fetchSubmodules = false;
-      sha256 = "sha256-n+4SkPDzL7BPbxj9PdQLN0Xk3Zln43IhIru8UNjJLPc=";
+      sha256 = "sha256-+H0b3fDi+3CGd2hlFA1YE+wWO0XMtJPNBMht/bh1O3c=";
     };
-    date = "2026-10-02";
+    date = "2026-10-03";
   };
   qq-wayland-fix-bin-x86_64 = {
     pname = "qq-wayland-fix-bin-x86_64";
-    version = "0.2.7";
+    version = "0.2.13";
     src = fetchurl {
-      url = "https://github.com/SHORiN-KiWATA/linuxqq-wayland-fix/releases/download/v0.2.7/linuxqq-wayland-fix_0.2.7-1.debian12_amd64.deb";
-      sha256 = "sha256-Z2y+CTK2fV97lUE5kWiW766p+i7yPPstdcV+CLWY2/g=";
+      url = "https://github.com/SHORiN-KiWATA/linuxqq-wayland-fix/releases/download/v0.2.13/linuxqq-wayland-fix_0.2.13-1.debian12_amd64.deb";
+      sha256 = "sha256-ZjkVUJwkU/6HLLpANKjxk7qOvrBACKdDk7FFUdnHkZU=";
     };
   };
   qq-x86_64 = {
