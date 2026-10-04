@@ -13,6 +13,29 @@ Conformance is tracked separately as a ratchet against the official
 
 ### Performance
 
+- **A `sasso` of another version on `PATH` no longer slows every npm CLI run.**
+  The npm CLI hands its command line to a `sasso` binary on `PATH` only when
+  that binary is exactly the package's version. To find out, it ran the binary
+  with `--version` on every run, which also meant loading
+  `node:child_process`, and with a mismatched one, such as an older Homebrew
+  sasso, the answer was always no. The binary now embeds its version as a
+  marker (`\0sasso-cli-version=<version>\0`), and the CLI reads that from the
+  file first. With no marker, or another version in it, the CLI compiles
+  in-process without starting anything. A matching marker still goes through
+  the `--version` check before anything is handed over, and `--engine` still
+  asks the binary itself. One entry of a real-world project, macOS/arm64, 60
+  interleaved runs:
+
+  ```
+                                          before     now
+    a mismatched sasso on PATH costs      4.8 ms     1.3 ms
+    no sasso on PATH                      45.9 ms    46.0 ms
+    a matched sasso on PATH (hand-off)    48.5 ms    49.1 ms
+  ```
+
+  What is left of the mismatched case is reading the file. A binary older
+  than the marker has to be read to the end to show it has none.
+
 - **`map.get` and `map.has-key` no longer copy the map they read.** Each call
   copied every entry of the map before looking one up, so a lookup cost the
   size of the map. A design system that reads its large configuration maps on
@@ -52,6 +75,17 @@ Conformance is tracked separately as a ratchet against the official
 
   `bench/corpus/gate/extend_modules/` is new: the existing `@extend` corpus is
   a single file, and the multi-file one has no `@extend`.
+
+- **A call no longer scans a `@use … as *` module that lacks it, when the
+  module's names are all spelled with `-`.** A function or mixin called
+  without a namespace is looked up in each module `@use`d `as *`, built-ins
+  included, and each module that lacked the name was scanned name by name in
+  case one was spelled with `_`. Names are stored with `-`, so for such a module
+  one lookup now gives the same answer, as variable lookup already does (#273).
+  A module whose names keep a `_`, such as one forwarded `as p_*`, still scans.
+  With three starred modules of 80 functions each, a call to `abs()` went from
+  33,915 to 4,197 instructions. Marginal instructions on
+  Linux/x86_64, output byte-identical: govuk-frontend −0.88%, uswds −0.72%.
 
 ## [0.21.0] - 2026-10-02
 
