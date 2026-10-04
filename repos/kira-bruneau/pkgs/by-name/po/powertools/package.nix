@@ -9,6 +9,7 @@
   nodejs,
   pnpm,
   pnpmConfigHook,
+  pnpmBuildHook,
   rustc,
   pciutils,
   nix-update-script,
@@ -35,10 +36,13 @@ stdenv.mkDerivation (finalAttrs: {
   cargoRoot = "backend";
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit (finalAttrs) pname version src;
+    inherit (finalAttrs)
+      pname
+      version
+      src
+      cargoRoot
+      ;
     patches = [ ./fix-time.patch ];
-    sourceRoot = "source/${finalAttrs.cargoRoot}";
-    patchFlags = [ "-p2" ];
     hash = "sha256-YTppt5/kKgkheG0TtlX3Y3is+49vY+97lkEqQy6fEtE=";
   };
 
@@ -59,6 +63,7 @@ stdenv.mkDerivation (finalAttrs: {
     nodejs
     pnpm
     pnpmConfigHook
+    pnpmBuildHook
     rustc
     rustPlatform.bindgenHook
     rustPlatform.cargoBuildHook
@@ -75,8 +80,9 @@ stdenv.mkDerivation (finalAttrs: {
 
   cargoBuildType = "release";
 
-  postBuild = ''
-    pnpm run build
+  buildPhase = ''
+    runHook cargoBuildHook
+    runHook pnpmBuildHook
   '';
 
   cargoCheckType = finalAttrs.cargoBuildType;
