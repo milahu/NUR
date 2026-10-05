@@ -21,46 +21,46 @@ error:
    984|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:661:5:
-   660|     in
-   661|     { meta, attrs }:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:662:5:
+   661|     in
+   662|     { meta, attrs }:
       |     ^
-   662|     let
+   663|     let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:666:5:
-   665|     in
-   666|     if invalid == null then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:667:5:
+   666|     in
+   667|     if invalid == null then
       |     ^
-   667|       if problems == null then
+   668|       if problems == null then
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:663:17:
-   662|     let
-   663|       invalid = checkValidity' attrs;
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:664:17:
+   663|     let
+   664|       invalid = checkValidity' attrs;
       |                 ^
-   664|       problems = checkProblems attrs;
+   665|       problems = checkProblems attrs;
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:348:5:
-   347|     in
-   348|     attrs:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:349:5:
+   348|     in
+   349|     attrs:
       |     ^
-   349|     if !attrs ? meta then
+   350|     if !attrs ? meta then
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:390:10:
-   389|       }
-   390|     else if hasUnsupportedPlatform' attrs then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:391:10:
+   390|       }
+   391|     else if hasUnsupportedPlatform' attrs then
       |          ^
-   391|       let
+   392|       let
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:390:13:
-   389|       }
-   390|     else if hasUnsupportedPlatform' attrs then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:391:13:
+   390|       }
+   391|     else if hasUnsupportedPlatform' attrs then
       |             ^
-   391|       let
+   392|       let
 
 … while calling anonymous lambda
   at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:149:7:
