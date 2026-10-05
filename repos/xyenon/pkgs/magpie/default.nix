@@ -9,9 +9,11 @@
   wrapGAppsHook3,
   makeDesktopItem,
   copyDesktopItems,
+  imagemagick,
   versionCheckHook,
   nix-update-script,
   coreutils,
+  python3,
   dbus,
   xdg-utils,
   xcbuild,
@@ -22,13 +24,13 @@ buildGoModule (finalAttrs: {
   __structuredAttrs = true;
 
   pname = "magpie";
-  version = "0.1.708";
+  version = "0.1.934";
 
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "magpie";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-FijmFDwcKyW6mG1jZKLzfM4lnpocFAeJ2Gta/KEjOoI=";
+    hash = "sha256-/wkjFskfLJkVrtIL6+llTxlUMeXIWBjjc7OBgiRaTHM=";
   };
 
   vendorHash = "sha256-XEaHZVw3co0yUV6fLUlSkvg9LlroKFj2B2sjMW1e6BU=";
@@ -55,6 +57,12 @@ buildGoModule (finalAttrs: {
   ];
 
   preCheck = ''
+    substituteInPlace internal/gateway/automode_test.go \
+      --replace-fail '#!/usr/bin/env python3' '#!${lib.getExe python3}'
+    # Allow the filesystem change-time clock to advance before the same-size rewrite.
+    substituteInPlace internal/sessions/codex_archive_test.go \
+      --replace-fail 'writeLines(t, archived, `{"x":2}`)' \
+        'time.Sleep(20 * time.Millisecond); writeLines(t, archived, `{"x":2}`)'
     substituteInPlace internal/agent/cliupdate_test.go internal/library/rtk_upgrade_test.go \
       --replace-fail '/bin/cat' '${lib.getExe' coreutils "cat"}'
     substituteInPlace internal/library/rtk_test.go \
@@ -79,12 +87,19 @@ buildGoModule (finalAttrs: {
         }
         // AppleScript unescapes it back to the script'
   '';
-  nativeCheckInputs =
-    lib.optionals stdenv.hostPlatform.isLinux [ dbus ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin [ xcbuild ];
+  nativeCheckInputs = [
+    python3
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [ dbus ]
+  ++ lib.optionals stdenv.hostPlatform.isDarwin [ xcbuild ];
+  # The native AppKit/WebKit panel test fails in the Darwin build sandbox.
+  checkFlags = lib.optionals stdenv.hostPlatform.isDarwin [
+    "-skip=^TestTrayCellClickReleasedPanel$"
+  ];
   checkPhase = ''
     runHook preCheck
-    go test -tags=${lib.concatStringsSep "," finalAttrs.tags} ./...
+    export GOFLAGS=''${GOFLAGS//-trimpath/}
+    buildGoDir test ./...
     runHook postCheck
   '';
 
@@ -92,6 +107,7 @@ buildGoModule (finalAttrs: {
     pkg-config
     wrapGAppsHook3
     copyDesktopItems
+    imagemagick
   ];
   buildInputs = lib.optionals (guiSupport && stdenv.hostPlatform.isLinux) [
     gtk3
@@ -129,7 +145,9 @@ buildGoModule (finalAttrs: {
       ''
     else
       ''
-        install -Dm644 internal/gui/icon-1024.png $out/share/icons/hicolor/1024x1024/apps/magpie.png
+        install -Dm644 internal/gui/icon-1024.png $out/share/icons/hicolor/512x512@2/apps/magpie.png
+        mkdir -p $out/share/icons/hicolor/512x512/apps
+        magick internal/gui/icon-1024.png -resize 512x512 $out/share/icons/hicolor/512x512/apps/magpie.png
       ''
   );
 

@@ -41,7 +41,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>caddy</code></strong> — Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS</summary>
 
-- **Version:** `2.11.4`
+- **Version:** `2.11.7`
 - **License:** Apache-2.0
 - **Homepage:** [https://caddyserver.com](https://caddyserver.com)
 - **Build:** `nix build github:XYenon/nur-packages#caddy`
@@ -101,7 +101,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>libkazv</code></strong> — Sans-io C++ (gnu++17) matrix client library</summary>
 
-- **Version:** `1.0.0-unstable-2026-08-30`
+- **Version:** `1.0.0-unstable-2026-10-03`
 - **License:** AGPL-3.0-or-later
 - **Homepage:** [https://lily-is.land/kazv/libkazv](https://lily-is.land/kazv/libkazv)
 - **Build:** `nix build github:XYenon/nur-packages#libkazv`
@@ -141,7 +141,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>magpie</code></strong> — Manage models, providers, and accounts for AI coding agents in one place</summary>
 
-- **Version:** `0.1.708`
+- **Version:** `0.1.934`
 - **License:** MIT
 - **Homepage:** [https://github.com/yetone/magpie](https://github.com/yetone/magpie)
 - **Build:** `nix build github:XYenon/nur-packages#magpie`
