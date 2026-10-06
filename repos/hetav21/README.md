@@ -10,6 +10,7 @@ Personal [NUR (Nix User Repository)](https://github.com/nix-community/NUR) repos
 | Package | Description | Upstream |
 | :--- | :--- | :--- |
 | [`direnv-nvim`](./pkgs/direnv-nvim) | Direnv integration for Neovim written in Lua | [NotAShelf/direnv.nvim](https://github.com/NotAShelf/direnv.nvim) |
+| [`px0`](./pkgs/px0) | IDE built for reviewing AI-generated code, optimized for speed | [px0-ai/px0](https://github.com/px0-ai/px0) |
 | [`wsl-notify-send`](./pkgs/wsl-notify-send) | Send Windows 10/11 toast notifications from WSL | [stuartleeks/wsl-notify-send](https://github.com/stuartleeks/wsl-notify-send) |
 
 ---
@@ -39,6 +40,7 @@ nix.settings = {
 ```nix
 nixConfig = {
   extra-substituters = [ "https://hetav21.cachix.org" ];
+  extra-trusted-substituters = [ "https://hetav21.cachix.org" ];
   extra-trusted-public-keys = [ "hetav21.cachix.org-1:O5O3aE7/wLp4F0uMLu4vJEr/Rn5UUWu97clxBxFALzc=" ];
 };
 ```
@@ -60,6 +62,7 @@ nixConfig = {
   # Optional: Binary cache for faster builds
   nixConfig = {
     extra-substituters = [ "https://hetav21.cachix.org" ];
+    extra-trusted-substituters = [ "https://hetav21.cachix.org" ];
     extra-trusted-public-keys = [ "hetav21.cachix.org-1:O5O3aE7/wLp4F0uMLu4vJEr/Rn5UUWu97clxBxFALzc=" ];
   };
 
@@ -73,6 +76,7 @@ nixConfig = {
         ({ pkgs, ... }: {
           environment.systemPackages = [
             pkgs.nur.repos.hetav21.direnv-nvim
+            pkgs.nur.repos.hetav21.px0
             pkgs.nur.repos.hetav21.wsl-notify-send
           ];
         })
