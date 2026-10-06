@@ -18,17 +18,17 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "renovate";
-  version = "44.125.1";
+  version = "44.138.0";
 
   src = fetchFromGitHub {
     owner = "renovatebot";
     repo = "renovate";
     tag = finalAttrs.version;
-    hash = "sha256-/mrhYyoDpVm0NhGfxMnSogyMklQN4uUpbYreV+TMeVg=";
+    hash = "sha256-32b9ZrkYZOFX8ve1bLcozEQqCoREVKAVUei7Cpl70Cg=";
   };
 
   patches = [
-    ./40282.diff
+    ./45258.diff
   ];
 
   postPatch = ''
@@ -54,7 +54,7 @@ stdenv.mkDerivation (finalAttrs: {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_11;
     fetcherVersion = 4;
-    hash = "sha256-75k57qK8TnmOHEgERLJH/ja3Ir5MHf4SLAvRIeKgi0U=";
+    hash = "sha256-B0sFXZroqgXJVboyMhPyM+uSz6kDYQcp99zpgzHYYvs=";
   };
 
   env.COREPACK_ENABLE_STRICT = 0;
@@ -121,7 +121,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   passthru.updateScript = [
-    "wget https://patch-diff.githubusercontent.com/raw/renovatebot/renovate/pull/40282.diff -O ./packages/renovate/40282.diff"
+    "wget https://patch-diff.githubusercontent.com/raw/renovatebot/renovate/pull/45258.diff -O ./packages/renovate/45258.diff"
     "&&"
   ]
   ++ nix-update-script {
