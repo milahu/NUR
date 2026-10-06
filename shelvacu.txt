@@ -1,17 +1,17 @@
 error:
 … while evaluating the attribute 'list-auto-roots'
-  at <nixpkgs> + /lib/attrsets.nix:1356:9:
-  1355|         inherit name;
-  1356|         value = f name;
+  at <nixpkgs> + /lib/attrsets.nix:1343:9:
+  1342|         inherit name;
+  1343|         value = f name;
       |         ^
-  1357|       }) names
+  1344|       }) names
 
 … from call site
-  at <nixpkgs> + /lib/attrsets.nix:1356:17:
-  1355|         inherit name;
-  1356|         value = f name;
+  at <nixpkgs> + /lib/attrsets.nix:1343:17:
+  1342|         inherit name;
+  1343|         value = f name;
       |                 ^
-  1357|       }) names
+  1344|       }) names
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/attrsets.nix:591:44:
