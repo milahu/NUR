@@ -1,0 +1,21 @@
+{
+  "owner": "aejimmi",
+  "version": "v1.5.5",
+  "hashes": {
+    "x86_64-linux": {
+      "musl": {
+        "sha256": "ee54185edab0e1a0e2396171c5231648f24cf993fff3cb93a8b9a1321bf2de0c",
+        "template": "https://github.com/__owner__/__pname__/releases/download/__version__/__pname__-__bare_version__-linux-amd64.tar.gz",
+        "targetSystem": "x86_64-unknown-linux-musl"
+      }
+    },
+    "aarch64-linux": {
+      "musl": {
+        "sha256": "7da7fd53038d35ed8ff3e617d8b7d53f2251a9ea804a004f89c123d38d52c96d",
+        "template": "https://github.com/__owner__/__pname__/releases/download/__version__/__pname__-__bare_version__-linux-arm64.tar.gz",
+        "targetSystem": "aarch64-unknown-linux-musl"
+      }
+    }
+  },
+  "autoupdate": false
+}
