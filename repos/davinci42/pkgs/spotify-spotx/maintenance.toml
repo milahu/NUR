@@ -1,0 +1,13 @@
+files = ["default.nix", "spotx.nix"]
+checkIntervalHours = 168
+tests = [
+  ["nix", "build", "-f", "tests/spotify-spotx.nix", "--no-link"],
+]
+
+[snapshot]
+name = "SpotX"
+repository = "SpotX-Official/SpotX-Bash"
+branch = "main"
+attribute = "spotify-spotx.spotx"
+command = ["just", "update-spotx"]
+files = ["spotx.nix"]
