@@ -10,6 +10,8 @@
   makeDesktopItem,
   copyDesktopItems,
   imagemagick,
+  ast-grep,
+  gotools,
   versionCheckHook,
   nix-update-script,
   coreutils,
@@ -24,22 +26,22 @@ buildGoModule (finalAttrs: {
   __structuredAttrs = true;
 
   pname = "magpie";
-  version = "0.1.934";
+  version = "0.1.1099";
 
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "magpie";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-/wkjFskfLJkVrtIL6+llTxlUMeXIWBjjc7OBgiRaTHM=";
+    hash = "sha256-PTMMRbYw9H/H6li2y6lu89flwLKVZFM5HCXLkoSBiA4=";
   };
 
-  vendorHash = "sha256-XEaHZVw3co0yUV6fLUlSkvg9LlroKFj2B2sjMW1e6BU=";
+  vendorHash = "sha256-dqFc8UTREaRFt3G3DS7IllBx8ysOlcA5JUqGaQ/XlcI=";
 
-  patches = lib.optionals (guiSupport && stdenv.hostPlatform.isLinux) [
-    ./linux-launcher.patch
-  ];
   postPatch = lib.optionalString (guiSupport && stdenv.hostPlatform.isLinux) ''
-    substituteInPlace internal/autostart/autostart.go internal/autostart/launcher_linux_test.go \
+    bash ${./linux-launcher.sh} "$out/bin/magpie"
+    cp ${./scheme_linux_test.go} internal/gui/nix_scheme_linux_test.go
+    cp ${./launcher_linux_test.go} internal/autostart/nix_launcher_linux_test.go
+    substituteInPlace internal/autostart/nix_launcher_linux_test.go \
       --replace-fail '@magpie@' "$out/bin/magpie"
   '';
 
@@ -68,7 +70,8 @@ buildGoModule (finalAttrs: {
     substituteInPlace internal/library/rtk_test.go \
       --replace-fail '/bin/mkdir' '${lib.getExe' coreutils "mkdir"}'
     substituteInPlace internal/gui/providers_fetching_unix_test.go \
-      --replace-fail '"/usr/bin"+string(os.PathListSeparator)+"/bin"' '"${lib.makeBinPath [ coreutils ]}"'
+      --replace-fail '"/usr/bin"' '"${lib.getBin coreutils}/bin"' \
+      --replace-fail '"/bin"' '"${lib.getBin coreutils}/bin"'
     # The source policy check must not scan dependencies added by buildGoModule.
     substituteInPlace internal/proc/proc_test.go \
       --replace-fail 'd.Name() == "node_modules"' 'd.Name() == "node_modules" || d.Name() == "vendor"'
@@ -92,9 +95,19 @@ buildGoModule (finalAttrs: {
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [ dbus ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [ xcbuild ];
-  # The native AppKit/WebKit panel test fails in the Darwin build sandbox.
-  checkFlags = lib.optionals stdenv.hostPlatform.isDarwin [
-    "-skip=^TestTrayCellClickReleasedPanel$"
+  checkFlags = [
+    "-skip=^(${
+      lib.concatStringsSep "|" (
+        [
+          # Downloads Bun from GitHub, which is unavailable in the build sandbox.
+          "TestPluginListSaysMiddleware"
+          # The WSL probe finds omp but reports an empty version in Linux sandbox builds.
+          "TestWSLProbeFindsBunOmp"
+        ]
+        # The native AppKit/WebKit panel test fails in the Darwin build sandbox.
+        ++ lib.optional stdenv.hostPlatform.isDarwin "TestTrayCellClickReleasedPanel"
+      )
+    })$"
   ];
   checkPhase = ''
     runHook preCheck
@@ -108,6 +121,8 @@ buildGoModule (finalAttrs: {
     wrapGAppsHook3
     copyDesktopItems
     imagemagick
+    ast-grep
+    gotools
   ];
   buildInputs = lib.optionals (guiSupport && stdenv.hostPlatform.isLinux) [
     gtk3
