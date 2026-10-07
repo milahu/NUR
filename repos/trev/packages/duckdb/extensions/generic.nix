@@ -21,6 +21,9 @@
   # other extensions (by attribute name) this extension loads
   dependencies ? [ ],
   duckdbBuildInputs ? [ ],
+  duckdbNativeBuildInputs ? [ ],
+  # pkg-config modules whose libraries programs linking the extension statically also need
+  pkgConfigModules ? [ ],
   duckdbPostPatch ? "",
 }:
 
@@ -65,6 +68,8 @@ stdenvNoCC.mkDerivation {
         linkable
         dependencies
         duckdbBuildInputs
+        duckdbNativeBuildInputs
+        pkgConfigModules
         duckdbPostPatch
         ;
     };

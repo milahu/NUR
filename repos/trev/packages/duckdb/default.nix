@@ -8,6 +8,7 @@
   lndir,
   makeWrapper,
   ninja,
+  pkg-config,
   openssl,
   openjdk11,
   nix-update-script,
@@ -147,6 +148,12 @@ let
   linkedExtensions = lib.filter (extension: !isLoadable extension) externalExtensions;
   loadableExtensions = lib.filter isLoadable externalExtensions;
 
+  # system libraries of linked extensions, resolved at build time for passthru.link.static
+  pkgConfigModules = lib.unique (
+    lib.concatMap (extension: extension.pkgConfigModules) linkedExtensions
+  );
+  systemLibrariesFile = "nix-support/duckdb-static-ldflags";
+
   formatExtensionLoad =
     extension:
     if extension.loadOptions == [ ] then
@@ -194,7 +201,8 @@ let
         cmake
         ninja
         python3
-      ];
+      ]
+      ++ extension.duckdbNativeBuildInputs;
       buildInputs = [ openssl ] ++ extension.duckdbBuildInputs;
 
       postPatch = mkPostPatch [ extension ] [ extension ];
@@ -289,7 +297,9 @@ withLoadableExtensions (
       cmake
       ninja
       python3
-    ];
+    ]
+    ++ lib.concatMap (extension: extension.duckdbNativeBuildInputs) linkedExtensions
+    ++ lib.optionals (pkgConfigModules != [ ]) [ pkg-config ];
     buildInputs = [
       openssl
     ]
@@ -305,6 +315,15 @@ withLoadableExtensions (
     ];
 
     postPatch = mkPostPatch (inTreeExtensions ++ linkedExtensions) linkedExtensions;
+
+    postInstall =
+      if pkgConfigModules == [ ] then
+        null
+      else
+        ''
+          mkdir -p "$dev/${builtins.dirOf systemLibrariesFile}"
+          "$PKG_CONFIG" --static --libs ${lib.escapeShellArgs pkgConfigModules} > "$dev/${systemLibrariesFile}"
+        '';
 
     cmakeFlags = [
       (lib.cmakeBool "BUILD_ODBC_DRIVER" withOdbc)
@@ -374,6 +393,7 @@ withLoadableExtensions (
             "test/sql/copy/csv/test_mixed_lines.test"
             "test/parquet/parquet_long_string_stats.test"
             "test/sql/attach/attach_remote.test"
+            "test/sql/attach/attach_remote_http_logging.test"
             "test/sql/attach/remote_file_concurrently.test"
             "test/sql/copy/csv/test_sniff_httpfs.test"
             "test/sql/httpfs/internal_issue_2490.test"
@@ -447,38 +467,45 @@ withLoadableExtensions (
       link =
         let
           libDir = "${finalAttrs.finalPackage.lib}/lib";
+          # always loaded by extension/extension_config.cmake
+          builtinExtensions = map mkExtension [
+            "core_functions"
+            "parquet"
+          ];
+          staticExtensions = builtinExtensions ++ inTreeExtensions ++ linkedExtensions;
+          # add_third_party in CMakeLists.txt, which only builds jemalloc on 64-bit linux
+          thirdPartyLibraries = [
+            "fastpforlib"
+            "fmt"
+            "fsst"
+            "hyperloglog"
+            "mbedtls"
+            "miniz"
+            "pg_query"
+            "re2"
+            "skiplistlib"
+            "utf8proc"
+            "yyjson"
+            "zstd"
+          ]
+          ++ lib.optionals (
+            stdenv.hostPlatform.isLinux && stdenv.hostPlatform.is64bit && !stdenv.hostPlatform.isAndroid
+          ) [ "jemalloc" ];
           archiveNames = [
             "libduckdb_static.a"
             "libduckdb_generated_extension_loader.a"
-            "libautocomplete_extension.a"
-            "libcore_functions_extension.a"
-            "libhttpfs_extension.a"
-            "libicu_extension.a"
-            "libjson_extension.a"
-            "libparquet_extension.a"
-            "libquack_extension.a"
-            "libtpcds_extension.a"
-            "libtpch_extension.a"
-            "libduckdb_fastpforlib.a"
-            "libduckdb_fmt.a"
-            "libduckdb_fsst.a"
-            "libduckdb_hyperloglog.a"
-            "libduckdb_jemalloc.a"
-            "libduckdb_mbedtls.a"
-            "libduckdb_miniz.a"
-            "libduckdb_pg_query.a"
-            "libduckdb_re2.a"
-            "libduckdb_skiplistlib.a"
-            "libduckdb_utf8proc.a"
-            "libduckdb_yyjson.a"
-            "libduckdb_zstd.a"
-          ];
+          ]
+          ++ map (extension: "lib${extension.name}_extension.a") staticExtensions
+          ++ map (library: "libduckdb_${library}.a") thirdPartyLibraries;
           archives = map (archive: "${libDir}/${archive}") archiveNames;
           systemLibraries = [
             "stdc++"
             "m"
           ];
           driverFlags = [ "-pthread" ];
+          # gcc and clang read the linker flags of extension system libraries from this file
+          systemLibraryFlagsFile =
+            if pkgConfigModules == [ ] then null else "${finalAttrs.finalPackage.dev}/${systemLibrariesFile}";
         in
         {
           includeDir = "${finalAttrs.finalPackage.dev}/include";
@@ -493,13 +520,20 @@ withLoadableExtensions (
           };
 
           static = {
-            inherit archives systemLibraries driverFlags;
+            inherit
+              archives
+              systemLibraries
+              driverFlags
+              pkgConfigModules
+              systemLibraryFlagsFile
+              ;
             groupArchives = true;
             flags = [
               "-Wl,--start-group"
             ]
             ++ archives
             ++ [ "-Wl,--end-group" ]
+            ++ lib.optional (systemLibraryFlagsFile != null) "@${systemLibraryFlagsFile}"
             ++ map (library: "-l${library}") systemLibraries
             ++ driverFlags;
           };
