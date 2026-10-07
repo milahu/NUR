@@ -7,13 +7,15 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "xt_rtpengine";
-  version = "0-unstable-2026-10-05";
+  version = "0-unstable-2026-10-06";
   src = fetchFromGitHub {
     owner = "sipwise";
     repo = "rtpengine";
-    rev = "cfef09b355c45b49ac85428a8c54f33277caf529";
-    hash = "sha256-Og/UfYsOzsAPF8Q03djbE/NAVRQDWwYwz9qukZkJNnY=";
+    rev = "eaa388824d0ebf2e6c45f50fa1d6c159f352bd07";
+    hash = "sha256-O4P7kfWl/hqDMePABtYz1aKlW9Nyu7veoGgyq3L7fxU=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   sourceRoot = "source/kernel-module";
 
   hardeningDisable = [
@@ -22,8 +24,8 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
-  KSRC = "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build";
-  INSTALL_MOD_PATH = placeholder "out";
+  env.KSRC = "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build";
+  env.INSTALL_MOD_PATH = placeholder "out";
 
   postPatch = ''
     patchShebangs .
