@@ -28,7 +28,9 @@
   helixnotes = lib.callPackage ./pkgs/helixnotes {};
   moonplayer = lib.callPackage ./pkgs/moonplayer {};
   noisetorch = lib.callPackage ./pkgs/noisetorch {};
+  streamnook = lib.callPackage ./pkgs/streamnook {};
   altersend = lib.callPackage ./pkgs/altersend {};
+  genoffice = lib.callPackage ./pkgs/genoffice {};
   equicord = lib.callPackage ./pkgs/equicord {};
   orbolay = lib.callPackage ./pkgs/orbolay {};
   wg-nord = lib.callPackage ./pkgs/wg-nord {};
@@ -39,6 +41,7 @@
   mcman = lib.callPackage ./pkgs/mcman {};
   nuvio = lib.callPackage ./pkgs/nuvio {};
   sfw = lib.callPackage ./pkgs/sfw {};
+  orb = lib.callPackage ./pkgs/orb {};
   fx = lib.callPackage ./pkgs/fx {};
 
   keka-external-helper = lib.callPackage ./pkgs/keka-external-helper {};
