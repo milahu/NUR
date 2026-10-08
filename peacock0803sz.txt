@@ -1,0 +1,120 @@
+error:
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/customisation.nix:417:13:
+   416|           drvPath =
+   417|             assert condition;
+      |             ^
+   418|             drv.drvPath;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
+   982|       };
+   983|       validity = assertValidity { inherit meta attrs; };
+      |                  ^
+   984|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:663:5:
+   662|     in
+   663|     { meta, attrs }:
+      |     ^
+   664|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:668:5:
+   667|     in
+   668|     if invalid == null then
+      |     ^
+   669|       if problems == null then
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:665:17:
+   664|     let
+   665|       invalid = checkValidity' attrs;
+      |                 ^
+   666|       problems = checkProblems attrs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:350:5:
+   349|     in
+   350|     attrs:
+      |     ^
+   351|     if !attrs ? meta then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:374:10:
+   373|     # --- Put checks that can be ignored here ---
+   374|     else if hasDeniedUnfreeLicense attrs && !(nonEmptyAllowList && hasAllowlistedLicense attrs) then
+      |          ^
+   375|       {
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:374:42:
+   373|     # --- Put checks that can be ignored here ---
+   374|     else if hasDeniedUnfreeLicense attrs && !(nonEmptyAllowList && hasAllowlistedLicense attrs) then
+      |                                          ^
+   375|       {
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:374:13:
+   373|     # --- Put checks that can be ignored here ---
+   374|     else if hasDeniedUnfreeLicense attrs && !(nonEmptyAllowList && hasAllowlistedLicense attrs) then
+      |             ^
+   375|       {
+
+… while calling 'hasUnfreeLicense'
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:137:22:
+   136|
+   137|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                      ^
+   138|
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:137:50:
+   136|
+   137|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                                                  ^
+   138|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:137:53:
+   136|
+   137|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                                                     ^
+   138|
+
+… while calling 'isUnfree'
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:121:5:
+   120|   isUnfree =
+   121|     licenses:
+      |     ^
+   122|     # ? is non-strict in its type, so it doubles as performing an isAttrs check
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:123:5:
+   122|     # ? is non-strict in its type, so it doubles as performing an isAttrs check
+   123|     if licenses ? licenseType then
+      |     ^
+   124|       !(isFree licenses)
+
+… while evaluating the attribute 'meta.license'
+  at ./pkgs/gwq/default.nix:28:5:
+    27|     homepage = "https://github.com/d-kuro/gwq";
+    28|     license = lib.licenses.apsl20;
+      |     ^
+    29|     platforms = lib.platforms.all;
+
+… while evaluating the attribute 'licenses.apsl20'
+  at <nixpkgs> + /lib/default.nix:76:7:
+    75|       # constants
+    76|       licenses = callLibs ./licenses;
+      |       ^
+    77|       sourceTypes = callLibs ./source-types.nix;
+
+error: attribute 'apsl20' missing
+at ./pkgs/gwq/default.nix:28:15:
+    27|     homepage = "https://github.com/d-kuro/gwq";
+    28|     license = lib.licenses.apsl20;
+      |               ^
+    29|     platforms = lib.platforms.all;
+Did you mean one of asl20, afl20, epl20, mpl20 or zpl20?
