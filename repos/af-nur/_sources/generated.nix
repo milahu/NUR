@@ -66,18 +66,18 @@
   };
   chatgpt-aarch64 = {
     pname = "chatgpt-aarch64";
-    version = "26.928.31416";
+    version = "26.930.31730";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.928.31416_arm64.deb";
-      sha256 = "sha256-s8Pzfe38V9ty6BCh3FvnsiWG8LmbfUh1hosGvdhVuoY=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.930.31730_arm64.deb";
+      sha256 = "sha256-3ZgAhel0b62L1FtINUiF0uo6mtCYieDw1iMvHYGbJrI=";
     };
   };
   chatgpt-x86_64 = {
     pname = "chatgpt-x86_64";
-    version = "26.928.31416";
+    version = "26.930.31730";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.928.31416_amd64.deb";
-      sha256 = "sha256-xGNyfx7V3O14M4yOKmXYib0VMnb/Nz/XdpjMua8y0YE=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.930.31730_amd64.deb";
+      sha256 = "sha256-4BdNjQpfQUEUVFjIFPPC2GPdZ+lCuGh4Wh9drJy6PhY=";
     };
   };
   classin-aarch64 = {
@@ -110,16 +110,16 @@
   };
   linuxqq-clipsync = {
     pname = "linuxqq-clipsync";
-    version = "cfb43a3c28258bf5a664abc0cda6c9acfdb5b5e3";
+    version = "8cdef645940bf8d7ffc77fef2b3b0caf38cbabda";
     src = fetchFromGitHub {
       owner = "SHORiN-KiWATA";
       repo = "linuxqq-clipsync";
-      rev = "cfb43a3c28258bf5a664abc0cda6c9acfdb5b5e3";
+      rev = "8cdef645940bf8d7ffc77fef2b3b0caf38cbabda";
       fetchSubmodules = false;
-      sha256 = "sha256-j2VdbHuQMcqELa8g5edtL5wzvtJfUoFv2v5ByN/LDws=";
+      sha256 = "sha256-qYhCHb6Xy4cg3YYB9u5n1+m7pOBcrqIluOnB6r2esOM=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-j2VdbHuQMcqELa8g5edtL5wzvtJfUoFv2v5ByN_LDws=/Cargo.lock";
+      lockFile = ./. + "/sha256-qYhCHb6Xy4cg3YYB9u5n1+m7pOBcrqIluOnB6r2esOM=/Cargo.lock";
       outputHashes = {
 
       };
@@ -178,17 +178,25 @@
       sha256 = "sha256-GBuJXLVzVI45blS7BUjMqS/9wbGksBj6RVG7BiOF/co=";
     };
   };
-  qq-wlss = {
-    pname = "qq-wlss";
-    version = "c5b84d930178fe6eb4f97b5f89d3933e63f514e9";
+  qq-wayland-fix = {
+    pname = "qq-wayland-fix";
+    version = "9b4c35596905f1c786c1fa6b4265d07de32ba948";
     src = fetchFromGitHub {
       owner = "SHORiN-KiWATA";
-      repo = "linuxqq-wayland-screenshare-fix";
-      rev = "c5b84d930178fe6eb4f97b5f89d3933e63f514e9";
+      repo = "linuxqq-wayland-fix";
+      rev = "9b4c35596905f1c786c1fa6b4265d07de32ba948";
       fetchSubmodules = false;
-      sha256 = "sha256-bBv1iUgQTGDxbkO0tvTdMlXoH942oNlEGquqlvVdF8s=";
+      sha256 = "sha256-+H0b3fDi+3CGd2hlFA1YE+wWO0XMtJPNBMht/bh1O3c=";
     };
-    date = "2026-10-01";
+    date = "2026-10-03";
+  };
+  qq-wayland-fix-bin-x86_64 = {
+    pname = "qq-wayland-fix-bin-x86_64";
+    version = "0.2.13";
+    src = fetchurl {
+      url = "https://github.com/SHORiN-KiWATA/linuxqq-wayland-fix/releases/download/v0.2.13/linuxqq-wayland-fix_0.2.13-1.debian12_amd64.deb";
+      sha256 = "sha256-ZjkVUJwkU/6HLLpANKjxk7qOvrBACKdDk7FFUdnHkZU=";
+    };
   };
   qq-x86_64 = {
     pname = "qq-x86_64";

@@ -62,13 +62,13 @@ printf 'https://qqdl.aflare.top/%s\n' "${url#https://qqdl.gtimg.cn/}"
 fetch.url = "$ver"
 
 [aiot-ide]
-# The download page renders the artifact list from a content-hashed VuePress
-# JS chunk, so resolve the chunk that mentions the artifact and read the
-# version field from it instead of hardcoding the chunk name.
+# Resolve the content-hashed download component from scripts loaded by this page.
+# VuePress also prefetches chunks for other pages; scanning those can exceed
+# nvchecker's command timeout before reaching the download component.
 src.cmd = '''
 u=https://iot.mi.com/vela/quickapp
 page=$(curl -fsSL "$u/zh/guide/start/use-ide.html") || exit 1
-for chunk in $(printf '%s' "$page" | grep -oE 'assets/js/[0-9]+\.[0-9a-f]+\.js' | sort -u); do
+for chunk in $(printf '%s' "$page" | grep -oE '<script[^>]+src="[^"]*assets/js/[0-9]+\.[0-9a-f]+\.js"' | grep -oE 'assets/js/[0-9]+\.[0-9a-f]+\.js'); do
   body=$(curl -fsSL "$u/$chunk") || continue
   case "$body" in
   *AIoT_IDE_ubuntu*)
@@ -188,6 +188,13 @@ src.github = "txperl/PixivBiu"
 src.prefix = "v"
 fetch.url = "https://github.com/txperl/PixivBiu/releases/download/v$ver/PixivBiu_$ver_linux_arm64.tar.gz"
 
+[qq-wayland-fix-bin-x86_64]
+# Upstream's release bundles carry the launcher, the four compiled shims and the
+# desktop entry (no QQ itself); no aarch64 asset is published yet.
+src.github = "SHORiN-KiWATA/linuxqq-wayland-fix"
+src.prefix = "v"
+fetch.url = "https://github.com/SHORiN-KiWATA/linuxqq-wayland-fix/releases/download/v$ver/linuxqq-wayland-fix_$ver-1.debian12_amd64.deb"
+
 [rikkahub-desktop-bin]
 src.github = "yuh-G/rikkahub-desktop"
 src.prefix = "v"
@@ -210,9 +217,9 @@ git.date_tz = "UTC"
 # not needed any more.
 cargo_lock = ["Cargo.lock"]
 
-[qq-wlss]
-src.git = "https://github.com/SHORiN-KiWATA/linuxqq-wayland-screenshare-fix"
-fetch.github = "SHORiN-KiWATA/linuxqq-wayland-screenshare-fix"
+[qq-wayland-fix]
+src.git = "https://github.com/SHORiN-KiWATA/linuxqq-wayland-fix"
+fetch.github = "SHORiN-KiWATA/linuxqq-wayland-fix"
 git.date_tz = "UTC"
 
 # --------------------------------------------------------------------------
