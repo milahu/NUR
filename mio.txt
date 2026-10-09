@@ -1,130 +1,80 @@
 error:
-… while evaluating attribute 'nativeBuildInputs' of derivation 'hanga-kani-0.1.0'
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:719:11:
-   718|           depsBuildBuild = buildBuildOutputs;
-   719|           nativeBuildInputs = buildHostOutputs;
-      |           ^
-   720|           depsBuildTarget = buildTargetOutputs;
-
-… in the condition of the assert statement
-  at <nixpkgs> + /lib/customisation.nix:433:13:
-   432|           outPath =
-   433|             assert condition;
-      |             ^
-   434|             drv.${outputName}.outPath;
+… while evaluating the attribute 'swift'
+  at ./packages.nix:31:19:
+    30|                   inherit name;
+    31|                   value = self.callPackage (subdir + "/${name}/package.nix") { };
+      |                   ^
+    32|                 })
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
-   982|       };
-   983|       validity = assertValidity { inherit meta attrs; };
-      |                  ^
-   984|
+  at ./packages.nix:31:27:
+    30|                   inherit name;
+    31|                   value = self.callPackage (subdir + "/${name}/package.nix") { };
+      |                           ^
+    32|                 })
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:663:5:
-   662|     in
-   663|     { meta, attrs }:
-      |     ^
-   664|     let
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
+      |       ^
+   324|     else
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:668:5:
-   667|     in
-   668|     if invalid == null then
-      |     ^
-   669|       if problems == null then
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:665:17:
-   664|     let
-   665|       invalid = checkValidity' attrs;
-      |                 ^
-   666|       problems = checkProblems attrs;
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:350:5:
-   349|     in
-   350|     attrs:
-      |     ^
-   351|     if !attrs ? meta then
-
-… while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:392:10:
-   391|       }
-   392|     else if hasUnsupportedPlatform' attrs then
-      |          ^
-   393|       let
-
-… from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:392:13:
-   391|       }
-   392|     else if hasUnsupportedPlatform' attrs then
-      |             ^
-   393|       let
-
-… while calling anonymous lambda
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:149:7:
-   148|       in
-   149|       pkg:
-      |       ^
-   150|       # in almost all cases, platforms are a simple list of strings, and we
-
-… in the left operand of the OR (||) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:157:7:
-   156|       )
-   157|       || (
-      |       ^
-   158|         pkg ? meta.badPlatforms
-
-… in the right operand of the AND (&&) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:9:
-   154|         pkg ? meta.platforms
-   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
-      |         ^
-   156|       )
-
-… in the argument of the not operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:52:
-   154|         pkg ? meta.platforms
-   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
-      |                                                    ^
-   156|       )
-
-… in the left operand of the OR (||) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:52:
-   154|         pkg ? meta.platforms
-   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
-      |                                                    ^
-   156|       )
-
-… while calling the 'elem' builtin
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:14:
-   154|         pkg ? meta.platforms
-   155|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
-      |              ^
-   156|       )
-
-… while evaluating the attribute 'meta.platforms'
-  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:9:
-   180|         # default to Rust's platforms
-   181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
-      |         ^
-   182|       };
-
-… while calling the 'filter' builtin
-  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:21:
-   180|         # default to Rust's platforms
-   181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
-      |                     ^
-   182|       };
+  at ./by-name/sw/swift/package.nix:1:1:
+     1| { pkgs, lib }:
+      | ^
+     2| let
 
 … while calling the 'import' builtin
-  at ./by-name/ca/cargo-kani/package.nix:17:11:
-    16|   };
-    17|   fenix = import fenix_repo { inherit pkgs; };
-      |           ^
-    18|   toolchain_components = fenix.targets.x86_64-unknown-linux-gnu.toolchainOf {
+  at ./by-name/sw/swift/package.nix:7:19:
+     6|   };
+     7|   nixpkgs-swift = import src {
+      |                   ^
+     8|     system = pkgs.system;
 
-… while realising the context of path '/nix/store/m59fpwh68il91pw6rcw038vig8d2ir2f-source'
+… while realising the context of path '/nix/store/ir11251q6i0pp9671xb1dcgzsvpbgf6m-source'
 
-error: path '/nix/store/3cz60zl6y8pqyfwy284n0b2a2qbq7bzm-source.drv' is not valid
+error: path '/nix/store/i7v9qk2q9dq89hlnsmfk7gsd1s9gjb4x-source.drv' is not valid
