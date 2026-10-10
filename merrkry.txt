@@ -1,0 +1,87 @@
+error:
+… while evaluating the attribute 'delta'
+  at ./default.nix:9:5:
+     8|     codex-bin = pkgs.callPackage ./pkgs/codex-bin { };
+     9|     delta = pkgs.callPackage ./pkgs/delta { };
+      |     ^
+    10|     determinate-nix = pkgs.callPackage ./pkgs/determinate-nix { };
+
+… from call site
+  at ./default.nix:9:13:
+     8|     codex-bin = pkgs.callPackage ./pkgs/codex-bin { };
+     9|     delta = pkgs.callPackage ./pkgs/delta { };
+      |             ^
+    10|     determinate-nix = pkgs.callPackage ./pkgs/determinate-nix { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
+      |       ^
+   324|     else
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… while calling anonymous lambda
+  at ./pkgs/delta/default.nix:1:1:
+     1| {
+      | ^
+     2|   pkgs,
+
+… while calling the 'scopedImport' builtin
+  at ./pkgs/delta/default.nix:17:14:
+    16|   # including its overlays and configuration.
+    17|   upstream = builtins.scopedImport {
+      |              ^
+    18|     import = _: _: pkgs;
+
+… while realising the context of a path
+
+… while calling the 'fetchTarball' builtin
+  at ./pkgs/delta/default.nix:11:20:
+    10|   # Fetch during evaluation so the top-level NUR package does not require IFD.
+    11|   upstreamSource = builtins.fetchTarball {
+      |                    ^
+    12|     inherit (source.src) url;
+
+error: access to URI 'https://github.com/zed-industries/delta-nix/archive/refs/tags/v0.19.1.tar.gz' is forbidden in restricted mode

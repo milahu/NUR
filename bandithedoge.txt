@@ -1,66 +1,66 @@
 error:
 … from call site
-  at <nixpkgs> + /lib/attrsets.nix:1724:11:
-  1723|         zipAttrsWith (
-  1724|           name: values:
+  at <nixpkgs> + /lib/attrsets.nix:1706:11:
+  1705|         zipAttrsWith (
+  1706|           name: values:
       |           ^
-  1725|           let
+  1707|           let
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/attrsets.nix:1724:17:
-  1723|         zipAttrsWith (
-  1724|           name: values:
+  at <nixpkgs> + /lib/attrsets.nix:1706:17:
+  1705|         zipAttrsWith (
+  1706|           name: values:
       |                 ^
-  1725|           let
+  1707|           let
 
 … while calling the 'head' builtin
-  at <nixpkgs> + /lib/attrsets.nix:1729:13:
-  1728|           if length values == 1 || pred here (elemAt values 1) (head values) then
-  1729|             head values
+  at <nixpkgs> + /lib/attrsets.nix:1711:13:
+  1710|           if length values == 1 || pred here (elemAt values 1) (head values) then
+  1711|             head values
       |             ^
-  1730|           else
+  1712|           else
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/attrsets.nix:1724:17:
-  1723|         zipAttrsWith (
-  1724|           name: values:
+  at <nixpkgs> + /lib/attrsets.nix:1706:17:
+  1705|         zipAttrsWith (
+  1706|           name: values:
       |                 ^
-  1725|           let
+  1707|           let
 
 … while calling the 'head' builtin
-  at <nixpkgs> + /lib/attrsets.nix:1729:13:
-  1728|           if length values == 1 || pred here (elemAt values 1) (head values) then
-  1729|             head values
+  at <nixpkgs> + /lib/attrsets.nix:1711:13:
+  1710|           if length values == 1 || pred here (elemAt values 1) (head values) then
+  1711|             head values
       |             ^
-  1730|           else
+  1712|           else
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/attrsets.nix:1724:17:
-  1723|         zipAttrsWith (
-  1724|           name: values:
+  at <nixpkgs> + /lib/attrsets.nix:1706:17:
+  1705|         zipAttrsWith (
+  1706|           name: values:
       |                 ^
-  1725|           let
+  1707|           let
 
 … while calling the 'head' builtin
-  at <nixpkgs> + /lib/attrsets.nix:1729:13:
-  1728|           if length values == 1 || pred here (elemAt values 1) (head values) then
-  1729|             head values
+  at <nixpkgs> + /lib/attrsets.nix:1711:13:
+  1710|           if length values == 1 || pred here (elemAt values 1) (head values) then
+  1711|             head values
       |             ^
-  1730|           else
+  1712|           else
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/attrsets.nix:1195:17:
-  1194|         mapAttrs (
-  1195|           name: value:
+  at <nixpkgs> + /lib/attrsets.nix:1182:17:
+  1181|         mapAttrs (
+  1182|           name: value:
       |                 ^
-  1196|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+  1183|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
 
 … from call site
-  at <nixpkgs> + /lib/attrsets.nix:1196:85:
-  1195|           name: value:
-  1196|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+  at <nixpkgs> + /lib/attrsets.nix:1183:85:
+  1182|           name: value:
+  1183|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
       |                                                                                     ^
-  1197|         );
+  1184|         );
 
 … while calling anonymous lambda
   at ./default.nix:12:10:
