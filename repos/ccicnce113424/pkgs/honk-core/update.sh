@@ -5,4 +5,4 @@ set -euo pipefail
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
 cd "$SCRIPT_DIR/.."
 
-nix-update --use-github-releases enimul
+nix-update --use-github-releases --version=unstable --version-regex '^debug\.(.+)$' --subpackage honk-ebpf honk-core

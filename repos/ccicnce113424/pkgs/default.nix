@@ -20,6 +20,8 @@ lib.makeScope pkgs.newScope (
 
     dav2d = self.callPackage ./dav2d/package.nix { };
 
+    doona-web = self.callPackage ./doona-web/package.nix { };
+
     dorion-git = self.callPackage ./dorion-git {
       inherit (lib.importJSON ./dorion-git/src-info.json) hash;
       sources = fetchedSrc.dorion-git;
@@ -65,6 +67,8 @@ lib.makeScope pkgs.newScope (
           };
         }
       );
+
+    honk-core = self.callPackage ./honk-core/package.nix { };
 
     jj-lsp = self.callPackage ./jj-lsp rec {
       sources = fetchedSrc.jj-lsp;
@@ -196,6 +200,46 @@ lib.makeScope pkgs.newScope (
         postInstall = "";
         passthru = lib.recursiveUpdate prev.passthru {
           schedulers = [ "scx_pandemonium" ];
+        };
+      }
+    );
+
+    scx_rustscheds = pkgs.scx.rustscheds.overrideAttrs (
+      final: prev: {
+        version = "1.1.3";
+        src = prev.src.overrideAttrs {
+          hash = "sha256-LK0go5blWgCtDpS5xm9BQc7C2NvbfrW+Jp66ImIThxA=";
+        };
+        cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+          inherit (final)
+            pname
+            version
+            src
+            ;
+          hash = "sha256-vEsbpor52DEUpYO5OubFPMzRltO5kUXjqAoO/9hsKXc=";
+        };
+        passthru = lib.recursiveUpdate prev.passthru {
+          schedulers = [
+            "scx_beerland"
+            "scx_bpfland"
+            "scx_cake"
+            "scx_chaos"
+            "scx_characterize"
+            "scx_cosmos"
+            "scx_flash"
+            "scx_flow"
+            "scx_forge"
+            "scx_lavd"
+            "scx_layered"
+            "scx_mitosis"
+            "scx_mlfq"
+            "scx_p2dq"
+            "scx_pandemonium"
+            "scx_rlfifo"
+            "scx_rustland"
+            "scx_rusty"
+            "scx_tickless"
+          ];
         };
       }
     );
