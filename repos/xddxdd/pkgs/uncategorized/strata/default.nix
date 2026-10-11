@@ -11,7 +11,7 @@
 }:
 
 let
-  version = "0.1.41";
+  version = "0.1.42";
   llamaRev = "3cf03257f219afbe7334045ff7c6a06ac68c627d";
   llamaSrc = fetchFromGitHub {
     owner = "ggml-org";
@@ -28,15 +28,12 @@ let
     ps.requests
     ps.pillow
     ps.psutil
+    ps.packaging
   ]);
   hydrateScript = ''
     dest="''${XDG_DATA_HOME:-''$HOME/.local/share}/strata"
-    if [[ ! -f "$dest/.nix-store-version" || "''$(< "$dest/.nix-store-version")" != "${version}" ]]; then
-      rm -rf "$dest"
-      cp -a "${placeholder "out"}/share/strata/" "$dest/"
-      chmod -R u+w "$dest"
-      echo "${version}" > "$dest/.nix-store-version"
-    fi
+    ${lib.getExe pythonEnv} "${placeholder "out"}/libexec/strata/hydrate.py" \
+      "${placeholder "out"}/share/strata" "$dest"
   '';
 in
 cudaPackages_13.backendStdenv.mkDerivation (finalAttrs: {
@@ -46,7 +43,7 @@ cudaPackages_13.backendStdenv.mkDerivation (finalAttrs: {
     owner = "Niko1221";
     repo = "Strata";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-WhoIwg8GgeG3jAXYLSjNoZyN3RZ3T3JhgJX57fM80eE=";
+    hash = "sha256-FPwm4cuGTFiXgWkK5eTcfD9VIrH/OnVZiG6ToQFOfMQ=";
   };
 
   __structuredAttrs = true;
@@ -79,15 +76,27 @@ cudaPackages_13.backendStdenv.mkDerivation (finalAttrs: {
 
   ninjaFlags = [ "strata" ];
 
+  postBuild = ''
+    cmake -S "$cmakeDir/tools/vision" -B "$cmakeDir/build-vision" -G Ninja \
+      ${lib.cmakeFeature "CMAKE_BUILD_TYPE" "Release"} \
+      ${lib.cmakeFeature "LLAMA_DIR" "${llamaSrc}"} \
+      ${lib.cmakeBool "STRATA_VISION_CUDA" true} \
+      ${lib.escapeShellArg (lib.cmakeFeature "CMAKE_CUDA_ARCHITECTURES" cudaArchitectures)}
+    cmake --build "$cmakeDir/build-vision" --target strata-vision -j "$NIX_BUILD_CORES"
+  '';
+
   installPhase = ''
     runHook preInstall
 
     cd "$cmakeDir"
 
     install -Dm755 build/strata "$out/share/strata/engine/strata"
+    install -Dm755 build-vision/bin/strata-vision "$out/share/strata/engine/strata-vision"
+    install -Dm644 ${./hydrate.py} "$out/libexec/strata/hydrate.py"
 
     cp -a . "$out/share/strata/"
-    rm -rf "$out/share/strata/build"
+    cp -a ${llamaSrc} "$out/share/strata/third_party/llama.cpp"
+    rm -rf "$out/share/strata/build" "$out/share/strata/build-vision"
 
     sed -i -e '/^cmake==/d' -e '/^ninja==/d' "$out/share/strata/requirements.txt"
 
@@ -102,7 +111,9 @@ cudaPackages_13.backendStdenv.mkDerivation (finalAttrs: {
         "source": "local",
         "version": "${finalAttrs.version}",
         "archs": [int(a) for a in "${cudaArchitectures}".split(";")],
-        "vision": "none",
+        "vision": "gpu",
+        "vision_archs": [int(a) for a in "${cudaArchitectures}".split(";")],
+        "vision_src": setup.source_hash(setup.VISION_SOURCES),
         "cuda": 13,
         "src": setup.source_hash(setup.ENGINE_SOURCES),
     }
@@ -124,6 +135,13 @@ cudaPackages_13.backendStdenv.mkDerivation (finalAttrs: {
       --add-flags '"''$dest/chat.py"'
 
     runHook postInstall
+  '';
+
+  doInstallCheck = true;
+  installCheckPhase = ''
+    runHook preInstallCheck
+    ${lib.getExe pythonEnv} ${./test-hydrate.py} "$out/libexec/strata/hydrate.py"
+    runHook postInstallCheck
   '';
 
   passthru.llamaSrc = llamaSrc;
