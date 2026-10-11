@@ -7,11 +7,11 @@
   unzip,
   zip,
   util-linux,
+  nix-update-script,
   spotxFlags ? [ ],
 }:
 let
   spotx = callPackage ./spotx.nix { };
-  spotxSource = spotx.src;
   spotifyVersion = builtins.head (lib.splitString ".g" spotify.version);
   clientPath = "$out/share/spotify";
   allowedFlags = [
@@ -43,16 +43,30 @@ spotify.overrideAttrs (old: {
       export SPOTX_BUILD_MODE=true
       mkdir -p "$HOME"
       chmod -R u+w "${clientPath}"
-      ${lib.getExe bash} ${spotxSource} \
+      ${lib.getExe bash} ${spotx.src} \
         --noninteractive --nocolor -P "${clientPath}" -F ${lib.escapeShellArg spotifyVersion} \
         ${lib.escapeShellArgs spotxFlags}
     )
     install -Dm644 ${./SpotX-Bash-LICENSE} "$out/share/licenses/spotify-spotx/SpotX-Bash-LICENSE"
   '';
 
-  passthru = removeAttrs (old.passthru or { }) [ "updateScript" ] // {
-    inherit spotx spotxSource spotxFlags;
-    unpatchedSpotify = spotify;
+  passthru = (old.passthru or { }) // {
+    inherit spotx spotxFlags;
+    updateScript = {
+      attrPath = "spotify-spotx.spotx";
+      command = nix-update-script {
+        attrPath = "spotify-spotx.spotx";
+        extraArgs = [
+          "-f"
+          "."
+          "--version=branch=main"
+          "--url"
+          "https://github.com/SpotX-Official/SpotX-Bash"
+          "--src-only"
+        ];
+      };
+    };
+    tests.packaging = callPackage ../../tests/pkgs/spotify-spotx.nix { };
   };
 
   meta = old.meta // {
