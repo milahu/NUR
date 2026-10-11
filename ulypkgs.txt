@@ -76,11 +76,11 @@ error:
     12|       removeAttrs ulypkgsPackages [ "ulypkgsPackagesDerivationsOnly" ] # avoid infrec
 
 … while calling 'isDerivation'
-  at <nixpkgs> + /lib/attrsets.nix:1427:18:
-  1426|   */
-  1427|   isDerivation = value: value.type or null == "derivation";
+  at <nixpkgs> + /lib/attrsets.nix:1414:18:
+  1413|   */
+  1414|   isDerivation = value: value.type or null == "derivation";
       |                  ^
-  1428|
+  1415|
 
 … while evaluating the attribute 'python2'
   at ./pkgs/default.nix:117:5:
@@ -250,6 +250,6 @@ error:
       |                 ^
     17|     inherit
 
-… while realising the context of path '/nix/store/s2cn801ra94x0v7w2xj7rwdbxfbfbj39-6qdpccb77vmah3jywf8mrskwca05as1z-source/pkgs/development/interpreters/python/passthrufun.nix'
+… while realising the context of path '/nix/store/l7jm92f6v03d3754xxpr3xgrjncv99g7-rfcpg2ryywgma7wlswjzna99g9gq8laq-source/pkgs/development/interpreters/python/passthrufun.nix'
 
-error: path '/nix/store/s2cn801ra94x0v7w2xj7rwdbxfbfbj39-6qdpccb77vmah3jywf8mrskwca05as1z-source' is not valid
+error: path '/nix/store/l7jm92f6v03d3754xxpr3xgrjncv99g7-rfcpg2ryywgma7wlswjzna99g9gq8laq-source' is not valid
