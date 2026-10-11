@@ -10,11 +10,16 @@
   powershell,
   makeDesktopItem,
   copyDesktopItems,
+  makeWrapper,
+  pkg-config,
   alsa-lib,
   mpv-unwrapped,
   libplacebo,
   libappindicator,
   webkitgtk_4_1,
+  gtk3,
+  libx11,
+  libxi,
 }:
 let
   description = "Third-party Bilibili client developed in Flutter";
@@ -25,6 +30,8 @@ flutter.buildFlutterApplication {
   inherit (sources) pname src;
   inherit version pubspecLock gitHashes;
 
+  passthru.updateScript = [ ./update.sh ];
+
   patches = [
     ./disable-auto-update.patch
     ./no-remove-before-patch.patch
@@ -34,6 +41,8 @@ flutter.buildFlutterApplication {
     gitMinimal # used extensively in lib/scripts/patch.ps1
     powershell
     copyDesktopItems
+    pkg-config
+    makeWrapper
   ];
 
   buildInputs = [
@@ -42,9 +51,35 @@ flutter.buildFlutterApplication {
     libplacebo
     libappindicator
     webkitgtk_4_1
+    gtk3
+    libx11
+    libxi
   ];
 
   preBuild = ''
+    # package:hooks runs native-asset build hooks (cnativeapi) in a stripped
+    # environment where only PATH, HOME, TMP*, NIX_* ... survive, so
+    # PKG_CONFIG_PATH is lost and its `pkg-config --cflags gtk+-3.0 x11 xi`
+    # cannot find the .pc files. Wrap pkg-config to restore the search path
+    # when it is missing; the hook resolves it through PATH, which is passed
+    # through. When PKG_CONFIG_PATH is already set (e.g. the Linux CMake
+    # build), stay out of the way so the pkg-config wrapper's own role-based
+    # search path keeps working.
+    hookPkgConfigPath="''${PKG_CONFIG_PATH:-}"
+    for v in "''${PKG_CONFIG_PATH_FOR_BUILD:-}" "''${PKG_CONFIG_PATH_FOR_TARGET:-}"; do
+      [ -z "$v" ] || hookPkgConfigPath="$hookPkgConfigPath:$v"
+    done
+    mkdir -p .pkg-config-wrapper
+    cat > .pkg-config-wrapper/pkg-config <<EOF
+    #!$(command -v sh)
+    if [ -z "\$PKG_CONFIG_PATH" ]; then
+      export PKG_CONFIG_PATH="$hookPkgConfigPath"
+    fi
+    exec "${pkg-config}/bin/pkg-config" "\$@"
+    EOF
+    chmod +x .pkg-config-wrapper/pkg-config
+    export PATH="$PWD/.pkg-config-wrapper:$PATH"
+
     # see lib/scripts/build.ps1
     cat <<JSON > pili_release.json
     {
@@ -98,6 +133,14 @@ flutter.buildFlutterApplication {
   '';
 
   flutterBuildFlags = [ "--dart-define-from-file=pili_release.json" ];
+
+  postFixup = ''
+    # cnativeapi's @Native bindings dlopen libcnativeapi.so by bare name;
+    # DynamicLibrary.open() is called from libflutter_linux_gtk.so and ignores
+    # the executable RUNPATH, so put the bundle's lib/ dir on LD_LIBRARY_PATH.
+    wrapProgram $out/bin/piliplus \
+      --prefix LD_LIBRARY_PATH : "$out/app/piliplus/lib"
+  '';
 
   postInstall = ''
     declare -A sizes=(
