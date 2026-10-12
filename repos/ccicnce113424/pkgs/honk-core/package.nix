@@ -13,13 +13,13 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "honk-core";
-  version = "2026.10.9.native-api.3";
+  version = "2026.10.12.native-api.1";
 
   src = fetchFromGitHub {
     owner = "Glassyiris";
     repo = "honk";
     tag = "debug.${finalAttrs.version}";
-    hash = "sha256-IzdWN/nktfaERVVGBxscrbN1JvTdk/WfT0plsyImIZ0=";
+    hash = "sha256-cO6Sx5akV8CwlZqf1UTAvVvx36FVHfrdGi86ED2q3jM=";
   };
   cargoHash = "sha256-NaQ28zDXBKiW6hx2AzrsJUlZVKiOdd+dq6sOeNGYJcM=";
 
@@ -150,9 +150,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     touch $objDir/honk-ebpf $objDir/honk-ebpf.toolchain
   '';
 
-  # The NixOS module consumes this unit through systemd.packages.
+  # Installed as honk-core.service — the name doona's restart notice uses.
+  # The NixOS module consumes it through systemd.packages.
   postInstall = ''
-    install -Dm444 install/honk.service $out/lib/systemd/system/honk.service
+    install -Dm444 install/honk.service $out/lib/systemd/system/honk-core.service
   '';
 
   # The test suite exercises eBPF, network namespaces and live endpoints
