@@ -216,15 +216,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "058ac472b340fc5e25f5b35ac33da0c422a6def8";
+    version = "778d4daf947ccfd97b9985cc98e3cfb4f45d538d";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "058ac472b340fc5e25f5b35ac33da0c422a6def8";
+      rev = "778d4daf947ccfd97b9985cc98e3cfb4f45d538d";
       fetchSubmodules = false;
-      sha256 = "sha256-90AtHq5memtjLJWTQBs2Axf6fUAmTFO0jfOLhiZbkdQ=";
+      sha256 = "sha256-x2O44A6t0AK0nNBmTpF81KebnwYR39O7TvSeSD+A8i8=";
     };
-    date = "2026-10-09";
+    date = "2026-10-12";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -313,16 +313,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.0.1";
+    version = "v4.1.0-beta.1";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.0.1";
+      rev = "v4.1.0-beta.1";
       fetchSubmodules = false;
-      sha256 = "sha256-ViMwZA3HsouYH7bV5BWPuNrOxT1ySfOruBRIyPrasgw=";
+      sha256 = "sha256-naumNFU/vlGLg6X6iTnga2PitWQv6bG83mJwVIPAyAQ=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-ViMwZA3HsouYH7bV5BWPuNrOxT1ySfOruBRIyPrasgw=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-naumNFU_vlGLg6X6iTnga2PitWQv6bG83mJwVIPAyAQ=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
