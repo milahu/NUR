@@ -6,7 +6,7 @@
 
 buildNpmPackage (finalAttrs: {
   pname = "narumitw-pi-usage";
-  version = "0.64.3";
+  version = "0.65.1";
 
   __structuredAttrs = true;
 
@@ -14,11 +14,11 @@ buildNpmPackage (finalAttrs: {
     owner = "narumiruna";
     repo = "pi-extensions";
     tag = "@narumitw/pi-usage@${finalAttrs.version}";
-    hash = "sha256-4xFhLPnXK7u0u6c2C0ju3sErnreIGQAv0GFVHXqbGyE=";
+    hash = "sha256-qqEMKCbEpPbpPoq/q/6f5E6tQZERw3QgW3NCGD9z2bo=";
   };
 
   npmDepsFetcherVersion = 2;
-  npmDepsHash = "sha256-siG812xtzNswkSBdEKqFk56bAdx6CGK2uIztbrofKDM=";
+  npmDepsHash = "sha256-gJDc4oTetLCDqq5NBCljns0el7ix0qQ1NC/YRWtx7tQ=";
 
   npmWorkspace = "packages/pi-usage";
 
