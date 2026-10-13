@@ -73,7 +73,7 @@ error:
      6|   };
      7|   nixpkgs-swift = import src {
       |                   ^
-     8|     system = pkgs.system;
+     8|     system = pkgs.stdenv.hostPlatform.system;
 
 … while realising the context of path '/nix/store/ir11251q6i0pp9671xb1dcgzsvpbgf6m-source'
 
