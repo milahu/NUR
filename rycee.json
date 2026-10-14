@@ -1,16 +1,16 @@
 {
 "name":"rycee",
-"fetch_time":0.251,
-"eval_time":1.757,
+"fetch_time":0.28,
+"eval_time":1.799,
 "source":{
 "url":"https://gitlab.com/rycee/nur-expressions",
-"rev":"21011acbf120a5554a218aa9e2764808169b84d0",
-"sha256":"1l0c33ynzmvf97jgb1q1knqm2laqsq0wkhm65drvsvzzy48jad56",
+"rev":"fb4681ee3a3ecd54416fc999fd410e8eb59bbb55",
+"sha256":"1kz2djl6hhm8iw96pgy9dzl7dggcmv0lvc5349iiwnap65vm300l",
 "date":null
 },
-"source_storepath":"/nix/store/27sv4k14dzs751hpbyv1fykmxd7sd25f-source",
+"source_storepath":"/nix/store/l3r9pwphrhv63sbjsbk7n3v5z7qx6f0x-source",
 "nixpkgs_storepath":"/nix/store/rfcpg2ryywgma7wlswjzna99g9gq8laq-source",
-"nur_combined_rev":"4c187b6d91069b0bded8116dc278f8d8164c6b73",
+"nur_combined_rev":"629e25bc549c57fa00711e713777686c5217d3d6",
 "packages":{
 "firefox-addons.a11ycss":{
 "drvPath":"/nix/store/a9gdpafmcz42ryvnn3nf9zwncpbh71n9-a11ycss-2.1.0.drv",
@@ -3036,7 +3036,7 @@
 "version":"1.2"
 },
 "firefox-addons.archivebox-exporter":{
-"drvPath":"/nix/store/xzl7baag783371b0xszkk4w7f0q77ddx-archivebox-exporter-3.3.15.drv",
+"drvPath":"/nix/store/85n4005fafyhjnfny6xszky66fqnlmpb-archivebox-exporter-3.3.18.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3088,7 +3088,7 @@
 "contextMenus",
 "unlimitedStorage"
 ],
-"name":"archivebox-exporter-3.3.15",
+"name":"archivebox-exporter-3.3.18",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3184,14 +3184,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"archivebox-exporter-3.3.15",
+"name":"archivebox-exporter-3.3.18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"archivebox-exporter",
 "system":"x86_64-linux",
-"version":"3.3.15"
+"version":"3.3.18"
 },
 "firefox-addons.are-na":{
 "drvPath":"/nix/store/02f26xsa62c4wwcchby68xlqigq2d6r7-are-na-2.14.3.drv",
@@ -10605,7 +10605,7 @@
 "version":"3.4.0"
 },
 "firefox-addons.bypass-paywalls-clean":{
-"drvPath":"/nix/store/k2fnjjya1q48i1n3sr8psch670rz6x28-bypass-paywalls-clean-4.4.6.6.drv",
+"drvPath":"/nix/store/lv3h0k518qhh1dz14whmhr3lphcjzvjn-bypass-paywalls-clean-4.4.7.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10714,7 +10714,6 @@
 "*://*.bazonline.ch/*",
 "*://*.bbc.com/*",
 "*://*.bd.nl/*",
-"*://*.beleggersbelangen.nl/*",
 "*://*.belfasttelegraph.co.uk/*",
 "*://*.bendigoadvertiser.com.au/*",
 "*://*.benzinga.com/*",
@@ -10873,6 +10872,7 @@
 "*://*.eastwest.eu/*",
 "*://*.echo-online.de/*",
 "*://*.economictimes.com/*",
+"*://*.economist.com/*",
 "*://*.ed.nl/*",
 "*://*.editorialedomani.it/*",
 "*://*.elcomercio.es/*",
@@ -10924,13 +10924,11 @@
 "*://*.farodevigo.es/*",
 "*://*.fastcompany.com/*",
 "*://*.faz.net/*",
-"*://*.femmesdaujourdhui.be/*",
 "*://*.fieldandstream.com/*",
 "*://*.financialexpress.com/*",
 "*://*.financialpost.com/*",
 "*://*.firstthings.com/*",
 "*://*.fiskeribladet.no/*",
-"*://*.flair.be/*",
 "*://*.flair.nl/*",
 "*://*.flugrevue.de/*",
 "*://*.fmrmagazine.com/*",
@@ -11061,14 +11059,12 @@
 "*://*.kathimerini.gr/*",
 "*://*.kentucky.com/*",
 "*://*.kn-online.de/*",
-"*://*.knack.be/*",
 "*://*.knoxnews.com/*",
 "*://*.kompas.id/*",
 "*://*.komputerswiat.pl/*",
 "*://*.krautreporter.de/*",
 "*://*.ksta.de/*",
 "*://*.kurier.at/*",
-"*://*.kw.be/*",
 "*://*.kystens.no/*",
 "*://*.la-croix.com/*",
 "*://*.labusinessjournal.com/*",
@@ -11134,9 +11130,7 @@
 "*://*.letelegramme.fr/*",
 "*://*.letemps.ch/*",
 "*://*.levante-emv.com/*",
-"*://*.levif.be/*",
 "*://*.lexpress.fr/*",
-"*://*.libelle.be/*",
 "*://*.libelle.nl/*",
 "*://*.liberation-champagne.fr/*",
 "*://*.liberation.fr/*",
@@ -11146,6 +11140,7 @@
 "*://*.literaryreview.co.uk/*",
 "*://*.livelaw.in/*",
 "*://*.livemint.com/*",
+"*://*.livescience.com/*",
 "*://*.ln-online.de/*",
 "*://*.lne.es/*",
 "*://*.loebclassics.com/*",
@@ -11633,7 +11628,7 @@
 "*://gitflic.ru/*",
 "*://*/*"
 ],
-"name":"bypass-paywalls-clean-4.4.6.6",
+"name":"bypass-paywalls-clean-4.4.7.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -11729,14 +11724,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bypass-paywalls-clean-4.4.6.6",
+"name":"bypass-paywalls-clean-4.4.7.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bypass-paywalls-clean",
 "system":"x86_64-linux",
-"version":"4.4.6.6"
+"version":"4.4.7.2"
 },
 "firefox-addons.c-c-search-extension":{
 "drvPath":"/nix/store/j8nydp20rc4ia3fwnjq46jqh56fchb4v-c-c-search-extension-0.4.0.drv",
@@ -13345,6 +13340,16 @@
 "system":"x86_64-linux",
 "version":"2.7.1"
 },
+"firefox-addons.chessvision-ai":{
+"name":"chessvision-ai-3.8.2",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"chessvision-ai",
+"system":"x86_64-linux",
+"version":"3.8.2"
+},
 "firefox-addons.chrome-mask":{
 "drvPath":"/nix/store/i6dcphp3fpgcd79vgywdwq7fgrg3jf3r-chrome-mask-10.1.0.drv",
 "meta":{
@@ -13484,7 +13489,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1940",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1966",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -13642,7 +13647,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1961",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1987",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14000,7 +14005,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1982",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2008",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14020,7 +14025,7 @@
 "version":"1.27.3"
 },
 "firefox-addons.click-and-read":{
-"drvPath":"/nix/store/yrwzphfi7dw8vmap2fxm624gk4l533j5-click-and-read-4.5.4.drv",
+"drvPath":"/nix/store/1j5gklkdy5dlg58m23ax3w6w51l4sk14-click-and-read-4.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14072,7 +14077,7 @@
 "notifications",
 "<all_urls>"
 ],
-"name":"click-and-read-4.5.4",
+"name":"click-and-read-4.7.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -14158,7 +14163,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2203",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2229",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14168,14 +14173,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"click-and-read-4.5.4",
+"name":"click-and-read-4.7.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"click-and-read",
 "system":"x86_64-linux",
-"version":"4.5.4"
+"version":"4.7.0"
 },
 "firefox-addons.cliget":{
 "drvPath":"/nix/store/j60bsp4scgpb7c9i8r3ykjgc4mfan6hd-cliget-2.1.0.drv",
@@ -14314,7 +14319,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2224",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2250",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14465,7 +14470,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2238",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2264",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14618,7 +14623,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2252",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2278",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14775,7 +14780,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2267",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2293",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14930,7 +14935,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2286",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2312",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15087,7 +15092,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2301",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2327",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15249,7 +15254,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2316",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2342",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15406,7 +15411,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2341",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2367",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15564,7 +15569,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2355",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2381",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15724,7 +15729,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2377",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2403",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15895,7 +15900,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2400",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2426",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16055,7 +16060,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2434",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2460",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16215,7 +16220,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2457",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2483",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16373,7 +16378,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2480",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2506",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16546,7 +16551,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2527",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2553",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16703,7 +16708,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2553",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2579",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16863,7 +16868,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2568",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2594",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17021,7 +17026,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2590",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2616",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17180,7 +17185,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2612",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2638",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17338,7 +17343,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2634",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2660",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17496,7 +17501,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2655",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2681",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17652,7 +17657,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2675",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2701",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17670,6 +17675,164 @@
 "pname":"copy-link-to-highlight",
 "system":"x86_64-linux",
 "version":"1.0"
+},
+"firefox-addons.copy-plaintext":{
+"drvPath":"/nix/store/18qfbqd7g0crgpp86wsysss218sr9i3s-copy-plaintext-1.15.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"Copy Plain Text without any formatting",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mpl20",
+"spdxId":"MPL-2.0",
+"url":"https://spdx.org/licenses/MPL-2.0.html"
+},
+"maintainers":[],
+"mozPermissions":[
+"activeTab",
+"clipboardRead",
+"clipboardWrite",
+"menus",
+"notifications",
+"storage"
+],
+"name":"copy-plaintext-1.15",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
+"i686-cygwin",
+"x86_64-cygwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasip1",
+"wasm32-wasip1",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2720",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"copy-plaintext-1.15",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"copy-plaintext",
+"system":"x86_64-linux",
+"version":"1.15"
 },
 "firefox-addons.copy-selected-links":{
 "drvPath":"/nix/store/zkim2ws3dpx9kpxznnl3rlhcnm2zcj5i-copy-selected-links-2.4.1.drv",
@@ -17809,7 +17972,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2695",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2742",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17970,7 +18133,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2714",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2761",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18128,7 +18291,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2739",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2786",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18283,7 +18446,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2759",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2806",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18443,7 +18606,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2774",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2821",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18629,7 +18792,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2797",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2844",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18796,7 +18959,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2846",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2893",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18954,7 +19117,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2876",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2923",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19106,7 +19269,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2897",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2944",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19260,7 +19423,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2912",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2959",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19415,7 +19578,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2926",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2973",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19572,7 +19735,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2940",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2987",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19724,7 +19887,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2961",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3008",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19885,7 +20048,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2995",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3042",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20045,7 +20208,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3010",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3057",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20201,7 +20364,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3033",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3080",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20356,7 +20519,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3048",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3095",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20510,7 +20673,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3062",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3109",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20664,7 +20827,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3077",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3124",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20823,7 +20986,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3092",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3139",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20996,7 +21159,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3148",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3195",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21156,7 +21319,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3174",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3221",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21310,7 +21473,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3197",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3244",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21461,7 +21624,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3211",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3258",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21620,7 +21783,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3225",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3272",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21778,7 +21941,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3248",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3295",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21929,7 +22092,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3268",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3315",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -22081,7 +22244,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3283",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3330",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -22234,7 +22397,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3297",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3344",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -22395,7 +22558,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3312",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3359",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -22554,7 +22717,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3336",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3383",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -22711,7 +22874,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3358",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3405",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -22863,7 +23026,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3378",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3425",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -23019,7 +23182,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3393",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3440",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -23175,7 +23338,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3412",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3459",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -23524,7 +23687,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3427",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3474",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -23684,7 +23847,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3639",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3686",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -23849,7 +24012,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3662",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3709",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -24032,7 +24195,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3734",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3781",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -24186,7 +24349,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3760",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3807",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -24342,7 +24505,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3775",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3822",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -24505,7 +24668,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3790",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3837",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -24664,7 +24827,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3816",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3863",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -24820,7 +24983,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3838",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3885",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -24982,7 +25145,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3853",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3900",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -25127,7 +25290,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3878",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3925",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -25284,7 +25447,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3892",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3939",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -25441,7 +25604,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3912",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3959",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -25599,7 +25762,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3932",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3979",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -25767,7 +25930,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3979",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4026",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -25923,7 +26086,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4000",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4047",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -26096,7 +26259,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4015",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4062",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -26257,7 +26420,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4051",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4098",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -26419,7 +26582,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4075",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4122",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -26580,7 +26743,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4100",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4147",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -26749,7 +26912,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4150",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4197",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -26908,7 +27071,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4172",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4219",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -27076,7 +27239,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4223",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4270",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -27241,7 +27404,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4283",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4330",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -27398,7 +27561,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4298",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4345",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -27557,7 +27720,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4318",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4365",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -27729,7 +27892,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4340",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4387",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -27886,7 +28049,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4374",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4421",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -28051,7 +28214,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4427",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4474",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -28212,7 +28375,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4442",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4489",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -28378,7 +28541,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4466",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4513",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -28539,7 +28702,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4495",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4542",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -28699,7 +28862,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4519",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4566",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -28860,7 +29023,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4542",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4589",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -29028,7 +29191,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4566",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4613",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -29196,7 +29359,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4597",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4644",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -29358,7 +29521,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4628",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4675",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -29681,7 +29844,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4699",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4746",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -29832,7 +29995,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4713",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4760",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -29992,7 +30155,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4728",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4775",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -30294,7 +30457,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4750",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4797",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -30456,7 +30619,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4765",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4812",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -30612,7 +30775,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4780",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4827",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -30776,7 +30939,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4795",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4842",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -30930,7 +31093,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4822",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4869",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -31087,7 +31250,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4837",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4884",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -31256,7 +31419,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4857",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4904",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -31414,7 +31577,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4889",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4936",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -31572,7 +31735,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4910",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4957",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -31732,7 +31895,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4931",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4978",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -31887,7 +32050,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4953",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5000",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -32044,7 +32207,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4972",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5019",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -32199,7 +32362,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4992",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5039",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -32358,7 +32521,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5007",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5054",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -32514,7 +32677,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5028",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5075",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -32670,7 +32833,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5042",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5089",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -32831,7 +32994,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5062",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5109",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -32994,7 +33157,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5086",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5133",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -33159,7 +33322,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5112",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5159",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -33325,7 +33488,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5261",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5308",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -33482,7 +33645,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5276",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5323",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -33646,7 +33809,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5291",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5338",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -33798,7 +33961,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5318",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5365",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -33954,7 +34117,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5333",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5380",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -34110,7 +34273,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5348",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5395",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -34266,7 +34429,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5362",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5409",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -34426,7 +34589,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5382",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5429",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -34580,7 +34743,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5405",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5452",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -34750,7 +34913,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5449",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5496",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -34907,7 +35070,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5472",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5519",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -35065,7 +35228,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5487",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5534",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -35224,7 +35387,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5507",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5554",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -35386,7 +35549,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5530",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5577",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -35543,7 +35706,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5555",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5602",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -36716,7 +36879,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5570",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5617",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -36871,7 +37034,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6606",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6653",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -37028,7 +37191,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6621",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6668",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -37187,7 +37350,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6636",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6683",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -37339,7 +37502,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6658",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6705",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -37500,7 +37663,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6673",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6720",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -37671,7 +37834,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6697",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6744",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -37829,7 +37992,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6731",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6778",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -37847,6 +38010,162 @@
 "pname":"iina-open-in-mpv",
 "system":"x86_64-linux",
 "version":"2.4.3"
+},
+"firefox-addons.image-block":{
+"drvPath":"/nix/store/qc52yf24incml2vq3iil8v3mj3fn5p6n-image-block-5.1resigned1.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"Image Block adds a toggle button that conditionally blocks/allows loading of images on webpages. Blocking images results in faster browsing, especially helpful on handheld devices or slower connections.",
+"homepage":"http://hemantvats.com/image-block/",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":true,
+"free":true,
+"fullName":"GNU Lesser General Public License v2.1",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"lgpl21",
+"spdxId":"LGPL-2.1",
+"url":"https://spdx.org/licenses/LGPL-2.1.html"
+},
+"maintainers":[],
+"mozPermissions":[
+"webRequest",
+"webRequestBlocking",
+"<all_urls>"
+],
+"name":"image-block-5.1resigned1",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
+"i686-cygwin",
+"x86_64-cygwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasip1",
+"wasm32-wasip1",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6799",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"image-block-5.1resigned1",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"image-block",
+"system":"x86_64-linux",
+"version":"5.1resigned1"
 },
 "firefox-addons.image-max-url":{
 "drvPath":"/nix/store/bds5ffsy6m1c86bw8nli8a296pw7g7s5-image-max-url-2026.6.0.drv",
@@ -37988,7 +38307,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6752",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6814",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -38146,7 +38465,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6774",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6836",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -38315,7 +38634,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6823",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6885",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -38644,7 +38963,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6902",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6964",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -38798,7 +39117,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6922",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6984",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -38961,7 +39280,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6937",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6999",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -39136,7 +39455,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7007",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7069",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -39291,7 +39610,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7022",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7084",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -39466,7 +39785,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7068",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7130",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -39623,7 +39942,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7096",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7158",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -39784,7 +40103,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7116",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7178",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -39945,7 +40264,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7140",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7202",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -40106,7 +40425,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7164",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7226",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -40265,7 +40584,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7188",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7250",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -40409,7 +40728,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7210",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7272",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -40565,7 +40884,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7223",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7285",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -40720,7 +41039,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7237",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7299",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -40879,7 +41198,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7252",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7314",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -41037,7 +41356,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7274",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7336",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -41206,7 +41525,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7327",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7389",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -41370,7 +41689,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7387",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7449",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -41538,7 +41857,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7402",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7464",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -41568,7 +41887,7 @@
 "version":"18.1.1"
 },
 "firefox-addons.kiss-translator":{
-"drvPath":"/nix/store/yzg1cph02b5c8mxkxzlfrz3zkjy2w5wk-kiss-translator-2.1.0.drv",
+"drvPath":"/nix/store/ln43b486nh64wycczza9zks7hbn9400h-kiss-translator-2.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41621,7 +41940,7 @@
 "declarativeNetRequest",
 "file://*/*"
 ],
-"name":"kiss-translator-2.1.0",
+"name":"kiss-translator-2.1.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -41707,7 +42026,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7476",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7538",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -41717,14 +42036,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"kiss-translator-2.1.0",
+"name":"kiss-translator-2.1.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"kiss-translator",
 "system":"x86_64-linux",
-"version":"2.1.0"
+"version":"2.1.1"
 },
 "firefox-addons.kristofferhagen-nord-theme":{
 "drvPath":"/nix/store/741cfgxvh29fyhvy3wvyjprsmg2b48yk-kristofferhagen-nord-theme-2.0.drv",
@@ -41859,7 +42178,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7498",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7560",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -42022,7 +42341,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7513",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7575",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -42203,7 +42522,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7615",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7677",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -42929,7 +43248,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7639",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7701",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -43084,7 +43403,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8227",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8289",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -43238,7 +43557,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8246",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8308",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -43397,7 +43716,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8261",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8323",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -43566,7 +43885,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8311",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8373",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -43728,7 +44047,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8333",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8395",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -43891,7 +44210,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8384",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8446",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -44071,7 +44390,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8399",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8461",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -44227,7 +44546,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8442",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8504",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -44381,7 +44700,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8457",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8519",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -44539,7 +44858,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8472",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8534",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -44890,7 +45209,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8493",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8555",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -45045,7 +45364,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8707",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8769",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -45203,7 +45522,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8721",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8783",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -45368,7 +45687,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8743",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8805",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -45529,7 +45848,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8771",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8833",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -45692,7 +46011,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8795",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8857",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -45851,7 +46170,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8821",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8883",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -46010,7 +46329,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8843",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8905",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -46165,7 +46484,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8865",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8927",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -46324,7 +46643,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8880",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8942",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -47114,7 +47433,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8902",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8964",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -47273,7 +47592,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9555",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9617",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -47439,7 +47758,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9577",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9639",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -47600,7 +47919,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9620",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9682",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -47751,7 +48070,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9634",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9696",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -47983,7 +48302,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9649",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9711",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -48138,7 +48457,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9744",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9806",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -48292,7 +48611,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9758",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9820",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -48464,7 +48783,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9776",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9838",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -48622,7 +48941,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9810",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9872",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -48776,7 +49095,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9841",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9903",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -48954,7 +49273,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9903",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9965",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -49123,7 +49442,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9949",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10011",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -49277,7 +49596,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9971",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10033",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -49435,7 +49754,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9986",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10048",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -49590,7 +49909,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10007",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10069",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -49907,7 +50226,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10022",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10084",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -50068,7 +50387,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10051",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10113",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -50224,7 +50543,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10075",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10137",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -50378,7 +50697,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10094",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10156",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -50542,7 +50861,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10129",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10191",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -50720,7 +51039,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10144",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10206",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -50882,7 +51201,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10185",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10247",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -51039,7 +51358,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10209",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10271",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -51190,7 +51509,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10229",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10291",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -51350,7 +51669,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10244",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10306",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -51505,7 +51824,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10267",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10329",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -51657,7 +51976,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10282",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10344",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -51820,7 +52139,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10297",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10359",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -51976,7 +52295,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10323",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10385",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -52138,7 +52457,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10358",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10420",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -52299,7 +52618,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10373",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10435",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -52453,7 +52772,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10396",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10458",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -52609,7 +52928,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10411",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10473",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -52765,7 +53084,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10426",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10488",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -52916,7 +53235,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10440",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10502",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -53068,7 +53387,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10455",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10517",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -53221,7 +53540,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10470",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10532",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -53386,7 +53705,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10485",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10547",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -53541,7 +53860,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10513",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10575",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -53706,7 +54025,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10528",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10590",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -53869,7 +54188,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10555",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10617",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -54029,7 +54348,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10582",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10644",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -54178,7 +54497,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10605",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10667",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -54334,7 +54653,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10626",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10688",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -54500,7 +54819,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10671",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10733",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -54660,7 +54979,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10690",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10752",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -54801,7 +55120,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10712",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10774",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -54955,7 +55274,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10726",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10788",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -55137,7 +55456,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10830",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10892",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -55292,7 +55611,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10855",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10917",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -55450,7 +55769,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10870",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10932",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -55604,7 +55923,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10890",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10952",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -55759,7 +56078,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10905",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10967",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -55912,7 +56231,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10919",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10981",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -56067,7 +56386,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10934",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10996",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -56222,7 +56541,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10949",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11011",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -56389,7 +56708,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10976",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11038",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -56549,7 +56868,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11006",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11068",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -56710,7 +57029,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11060",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11122",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -56872,7 +57191,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11083",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11145",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -57043,7 +57362,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11134",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11196",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -57198,7 +57517,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10949",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11011",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -57354,7 +57673,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11158",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11220",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -57509,7 +57828,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11173",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11235",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -57665,7 +57984,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11188",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11250",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -57828,7 +58147,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11203",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11265",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -58006,7 +58325,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11229",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11291",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -58163,7 +58482,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11270",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11332",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -58305,7 +58624,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11285",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11347",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -58452,7 +58771,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11299",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11361",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -58612,7 +58931,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11313",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11375",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -58772,7 +59091,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11335",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11397",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -58939,7 +59258,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11385",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11447",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -59490,7 +59809,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11400",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11462",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -59648,7 +59967,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11814",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11876",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -59812,7 +60131,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11835",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11897",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -59997,7 +60316,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11862",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11924",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -60153,7 +60472,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11910",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11972",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -60310,7 +60629,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11925",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11987",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -60471,7 +60790,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11945",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12007",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -60627,7 +60946,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11969",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12031",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -60787,7 +61106,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11984",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12046",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -60949,7 +61268,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12007",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12069",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -61114,7 +61433,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12032",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12094",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -61278,7 +61597,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12060",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12122",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -61436,7 +61755,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12087",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12149",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -61592,7 +61911,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12108",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12170",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -61878,7 +62197,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12126",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12188",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -62039,7 +62358,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12140",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12202",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -62197,7 +62516,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12164",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12226",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -62361,7 +62680,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12185",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12247",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -62520,7 +62839,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12212",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12274",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -62674,7 +62993,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12233",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12295",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -62832,7 +63151,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12247",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12309",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -62986,7 +63305,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12269",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12331",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -63145,7 +63464,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12284",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12346",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -63304,7 +63623,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12306",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12368",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -63461,7 +63780,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12328",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12390",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -63619,7 +63938,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12343",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12405",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -63778,7 +64097,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12364",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12426",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -63937,7 +64256,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12385",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12447",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -64092,7 +64411,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12407",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12469",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -64250,7 +64569,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12422",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12484",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -64407,7 +64726,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12443",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12505",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -64631,7 +64950,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12486",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12548",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -64792,7 +65111,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12563",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12625",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -64947,7 +65266,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12587",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12649",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -65108,7 +65427,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12602",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12664",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -65273,7 +65592,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12626",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12688",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -65426,7 +65745,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12653",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12715",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -65775,7 +66094,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12668",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12730",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -65936,7 +66255,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12880",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12942",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -66095,7 +66414,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12904",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12966",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -66255,7 +66574,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12926",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12988",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -66409,7 +66728,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12948",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13010",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -66565,7 +66884,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12966",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13028",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -66722,7 +67041,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12984",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13046",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -66877,7 +67196,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13005",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13067",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -67037,7 +67356,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13020",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13082",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -67195,7 +67514,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13043",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13105",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -67352,7 +67671,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13064",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13126",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -67510,7 +67829,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13084",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13146",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -67672,7 +67991,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13105",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13167",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -67849,7 +68168,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13130",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13192",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -68008,7 +68327,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13170",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13232",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -68181,7 +68500,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13222",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13284",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -68332,7 +68651,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13248",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13310",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -68495,7 +68814,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13263",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13325",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -68658,7 +68977,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13289",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13351",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -68835,7 +69154,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13335",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13397",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -68991,7 +69310,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13365",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13427",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -69162,7 +69481,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13400",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13462",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -69467,7 +69786,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13423",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13485",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -69699,7 +70018,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13438",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13500",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -69858,7 +70177,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13533",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13595",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -70020,7 +70339,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13555",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13617",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -70182,7 +70501,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13580",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13642",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -70347,7 +70666,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13605",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13667",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -70498,7 +70817,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13632",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13694",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -70656,7 +70975,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13647",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13709",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -70823,7 +71142,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13668",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13730",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -70981,7 +71300,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13698",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13760",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -71141,7 +71460,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13719",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13781",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -71171,7 +71490,7 @@
 "version":"3.4.10"
 },
 "firefox-addons.single-file":{
-"drvPath":"/nix/store/dadyn8k3f6m1p69gw2h6lmr8dmp3ppx6-single-file-1.29.0.drv",
+"drvPath":"/nix/store/j1aq8przn7nlszvp1dliyf8pgwv3rlnp-single-file-1.31.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -71224,7 +71543,7 @@
 "tabs",
 "<all_urls>"
 ],
-"name":"single-file-1.29.0",
+"name":"single-file-1.31.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -71310,7 +71629,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13766",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13828",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -71320,14 +71639,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"single-file-1.29.0",
+"name":"single-file-1.31.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"single-file",
 "system":"x86_64-linux",
-"version":"1.29.0"
+"version":"1.31.1"
 },
 "firefox-addons.skip-redirect":{
 "drvPath":"/nix/store/bh67ld5p8rhrhgq6h16fs06s78ybla39-skip-redirect-3.0.2.drv",
@@ -71469,7 +71788,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13787",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13849",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -71628,7 +71947,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13810",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13872",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -71792,7 +72111,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13832",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13894",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -71952,7 +72271,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13859",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13921",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -72106,7 +72425,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13882",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13944",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -72257,7 +72576,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13896",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13958",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -72418,7 +72737,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13929",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13991",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -72599,7 +72918,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13944",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14006",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -72747,7 +73066,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13987",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14049",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -72906,7 +73225,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14008",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14070",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -73064,7 +73383,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14030",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14092",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -73221,7 +73540,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14050",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14112",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -73424,7 +73743,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14071",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14133",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -73619,7 +73938,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14137",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14199",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -73775,7 +74094,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14195",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14257",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -73937,7 +74256,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14210",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14272",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -74100,7 +74419,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14235",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14297",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -74255,7 +74574,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14261",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14323",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -74432,7 +74751,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14303",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14365",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -74583,7 +74902,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14332",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14394",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -74744,7 +75063,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14347",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14409",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -74908,7 +75227,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14371",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14433",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -75062,7 +75381,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14398",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14460",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -75224,7 +75543,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14413",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14475",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -75382,7 +75701,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14437",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14499",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -75543,7 +75862,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14459",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14521",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -75707,7 +76026,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14483",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14545",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -75862,7 +76181,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14510",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14572",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -76019,7 +76338,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14524",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14586",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -76185,7 +76504,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14539",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14601",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -76341,7 +76660,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14568",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14630",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -76500,7 +76819,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14583",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14645",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -76667,7 +76986,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14641",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14703",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -76829,7 +77148,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14661",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14723",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -76991,7 +77310,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14686",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14748",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -77146,7 +77465,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14711",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14773",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -77304,7 +77623,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14725",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14787",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -77460,7 +77779,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14746",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14808",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -77617,7 +77936,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14761",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14823",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -77792,7 +78111,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14860",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14922",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -77934,7 +78253,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14875",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14937",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -78098,7 +78417,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14917",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14979",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -78254,7 +78573,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14932",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14994",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -78418,7 +78737,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14947",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15009",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -78579,7 +78898,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14974",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15036",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -78745,7 +79064,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15012",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15074",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -78903,7 +79222,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15027",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15089",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -79067,7 +79386,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15048",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15110",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -79237,7 +79556,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15105",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15167",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -79402,7 +79721,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15128",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15190",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -79556,7 +79875,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15155",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15217",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -79714,7 +80033,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15170",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15232",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -79871,7 +80190,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15190",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15252",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -80026,7 +80345,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15210",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15272",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -80182,7 +80501,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15224",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15286",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -80343,7 +80662,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15239",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15301",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -80520,7 +80839,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15272",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15334",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -80825,7 +81144,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15311",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15373",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -80980,7 +81299,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15325",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15387",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -81134,7 +81453,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15339",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15401",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -81288,7 +81607,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15353",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15415",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -81445,7 +81764,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15368",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15430",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -81600,7 +81919,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15382",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15444",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -81756,7 +82075,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15397",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15459",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -81910,7 +82229,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15412",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15474",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -82067,7 +82386,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15427",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15489",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -82244,7 +82563,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15500",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15562",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -82410,7 +82729,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15514",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15576",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -82763,7 +83082,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15544",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15606",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -82939,7 +83258,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15760",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15822",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -83115,7 +83434,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15760",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15822",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -83273,7 +83592,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15799",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15861",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -83576,7 +83895,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15820",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15882",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -83740,7 +84059,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15835",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15897",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -83898,7 +84217,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15862",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15924",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -84061,7 +84380,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15877",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15939",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -84217,7 +84536,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15903",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15965",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -84382,7 +84701,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15946",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16008",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -84538,7 +84857,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15961",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16023",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -84696,7 +85015,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15976",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16038",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -84850,7 +85169,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:15996",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16058",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -85003,7 +85322,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16010",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16072",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -85299,7 +85618,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16024",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16086",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -85456,7 +85775,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16184",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16246",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -85633,7 +85952,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16284",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16346",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -85974,7 +86293,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16299",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16361",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -86136,7 +86455,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16503",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16565",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -86303,7 +86622,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16528",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16590",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -86466,7 +86785,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16558",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16620",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -86629,7 +86948,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16584",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16646",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -86786,7 +87105,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16610",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16672",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -86941,7 +87260,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16625",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16687",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -87112,7 +87431,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16671",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16733",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -87269,7 +87588,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16695",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16757",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -87444,7 +87763,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16737",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16799",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -87620,7 +87939,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16789",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16851",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -87787,7 +88106,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16818",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16880",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -87949,7 +88268,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16848",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16910",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -88109,7 +88428,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16873",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16935",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -88265,7 +88584,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16895",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16957",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -88423,7 +88742,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16910",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16972",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -88770,7 +89089,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16931",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:16993",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -88916,7 +89235,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17141",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17203",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -89074,7 +89393,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17155",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17217",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -89298,7 +89617,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17176",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17238",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -89458,7 +89777,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17263",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17325",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -89613,7 +89932,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17286",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17348",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -89779,7 +90098,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17303",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17365",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -89961,7 +90280,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17353",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17415",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -90113,7 +90432,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17388",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17450",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -90275,7 +90594,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17403",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17465",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -90430,7 +90749,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17428",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17490",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -90585,7 +90904,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17443",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17505",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -90605,7 +90924,7 @@
 "version":"1.3.7"
 },
 "firefox-addons.yang":{
-"drvPath":"/nix/store/8zcl1gsk38z3wb2spmpzii5l9b00r089-yang-2.1.1.drv",
+"drvPath":"/nix/store/9i62fsifjr9c068sqy0di31ckh0bvjn0-yang-2.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -90656,7 +90975,7 @@
 "activeTab",
 "storage"
 ],
-"name":"yang-2.1.1",
+"name":"yang-2.1.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -90742,7 +91061,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17458",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17520",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -90752,14 +91071,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yang-2.1.1",
+"name":"yang-2.1.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"yang",
 "system":"x86_64-linux",
-"version":"2.1.1"
+"version":"2.1.2"
 },
 "firefox-addons.yank":{
 "drvPath":"/nix/store/7q54qs1rp8s06zq0r27a8xxk71bcwykg-yank-2.1.1.drv",
@@ -90899,7 +91218,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17473",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17535",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -91055,7 +91374,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17493",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17555",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -91217,7 +91536,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17508",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17570",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -91373,7 +91692,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17532",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17594",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -91529,7 +91848,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17552",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17614",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -91688,7 +92007,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17567",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17629",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -91859,7 +92178,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17613",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17675",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -92015,7 +92334,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17637",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17699",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -92160,7 +92479,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17655",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17717",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -92315,7 +92634,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17673",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17735",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -92480,7 +92799,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17715",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17777",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -92637,7 +92956,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17730",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17792",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -92792,7 +93111,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17749",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17811",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -92942,7 +93261,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17768",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17830",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -93098,7 +93417,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17790",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17852",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -93257,7 +93576,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17808",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17870",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -93413,7 +93732,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17831",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17893",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -93572,7 +93891,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17846",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17908",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -93732,7 +94051,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17867",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17929",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -93885,7 +94204,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17890",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17952",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -94039,7 +94358,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17905",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17967",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -94195,7 +94514,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17920",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17982",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -94354,7 +94673,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17935",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17997",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -94515,7 +94834,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17956",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:18018",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -94672,7 +94991,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:17981",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:18043",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -94976,7 +95295,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:18000",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:18062",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -96226,6 +96545,170 @@
 "system":"x86_64-linux",
 "version":"1.3"
 },
+"thunderbird-addons.gmail-conversation-view":{
+"drvPath":"/nix/store/qv32wyyscnsxwbbgk0mlscaj5xprrjzw-gmail-conversation-view-4.3.16.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"This addon provides a conversation view for Thunderbird, grouping messages together and allowing you to reply \"inline\" thus providing a more efficient workflow.",
+"homepage":"https://github.com/thunderbird-conversations/thunderbird-conversations/wiki",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mpl20",
+"spdxId":"MPL-2.0",
+"url":"https://spdx.org/licenses/MPL-2.0.html"
+},
+"maintainers":[],
+"mozPermissions":[
+"accountsRead",
+"addressBooks",
+"messagesRead",
+"messagesModifyPermanent",
+"messagesMove",
+"messagesDelete",
+"messagesUpdate",
+"messagesTags",
+"messagesTagsList",
+"storage",
+"tabs"
+],
+"name":"gmail-conversation-view-4.3.16",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
+"i686-cygwin",
+"x86_64-cygwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasip1",
+"wasm32-wasip1",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:146",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"gmail-conversation-view-4.3.16",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"gmail-conversation-view",
+"system":"x86_64-linux",
+"version":"4.3.16"
+},
 "thunderbird-addons.grammar-and-spell-checker":{
 "name":"grammar-and-spell-checker-8.11.2",
 "outputName":"out",
@@ -96372,7 +96855,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:178",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:205",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -96524,7 +97007,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:193",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:220",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -96688,7 +97171,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:241",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:268",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -96868,7 +97351,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:285",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:312",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -96888,7 +97371,7 @@
 "version":"10.7.8"
 },
 "thunderbird-addons.tb-langpack-de":{
-"drvPath":"/nix/store/a7wpvml2y80cpzmb2zdfvi0sgw9cy6nm-tb-langpack-de-159.0.20261008.220118.drv",
+"drvPath":"/nix/store/h931kkgsabn4fxiswx4rvd34a0ii88df-tb-langpack-de-153.5.20261013.11825.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -96933,7 +97416,7 @@
 },
 "maintainers":[],
 "mozPermissions":[],
-"name":"tb-langpack-de-159.0.20261008.220118",
+"name":"tb-langpack-de-153.5.20261013.11825",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -97019,7 +97502,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:317",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:344",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -97029,14 +97512,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tb-langpack-de-159.0.20261008.220118",
+"name":"tb-langpack-de-153.5.20261013.11825",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tb-langpack-de",
 "system":"x86_64-linux",
-"version":"159.0.20261008.220118"
+"version":"153.5.20261013.11825"
 },
 "thunderbird-addons.tbkeys":{
 "drvPath":"/nix/store/7gf1mkxar0zd72zn2s0f08474zhrjjra-tbkeys-2.4.4.drv",
@@ -97323,7 +97806,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:331",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:358",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -97475,7 +97958,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:346",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:373",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -97631,7 +98114,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:361",
+"position":"./pkgs/thunderbird-addons/generated-thunderbird-addons.nix:388",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
