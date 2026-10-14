@@ -22,6 +22,7 @@ TESTS_SKIPPED=0
 PACKAGES=(
     "cybergrub2077"
     "nmssaveeditor"
+    "rea-agents"
     "rimsort-appimage"
     "scopebuddy"
     "wowup-cf"
@@ -161,6 +162,9 @@ main() {
 
         echo
     done
+
+    # Offline workflow regression tests must never contact upstream or run Nix.
+    python3 "$SCRIPT_DIR/update-workflow.py"
 
     echo "======================================"
     echo "Test Summary"
