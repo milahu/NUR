@@ -73,19 +73,6 @@
     displayManager.cosmic-greeter.enable = lib.mkForce false;
     kanata.enable = lib.mkForce false;
   };
-  fileSystems."/mnt/POOL" = {
-    device = "/dev/disk/by-label/POOL";
-    fsType = "btrfs";
-    options = [
-      "nofail"
-      "noatime"
-      "lazytime"
-      "compress-force=zstd"
-      "space_cache=v2"
-      "autodefrag"
-      "ssd_spread"
-    ];
-  };
   jovian = {
     devices.steamdeck.enable = true;
     steam.enable = true;
@@ -97,54 +84,88 @@
     maliit-keyboard
     pwvucontrol
   ];
-  disko.devices.disk.nvme0n1 = {
-    type = "disk";
-    device = "/dev/nvme0n1";
-    content = {
-      type = "gpt";
-      partitions = {
-        ESP = {
-          name = "ESP";
-          size = "500M";
-          type = "EF00";
-          content = {
-            type = "filesystem";
-            format = "vfat";
-            mountpoint = "/boot";
-            extraArgs = [
-              "-n"
-              "BOOT"
-            ];
+  disko.devices.disk = {
+    nvme0n1 = {
+      type = "disk";
+      device = "/dev/nvme0n1";
+      content = {
+        type = "gpt";
+        partitions = {
+          ESP = {
+            name = "ESP";
+            size = "500M";
+            type = "EF00";
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot";
+              extraArgs = [
+                "-n"
+                "BOOT"
+              ];
+            };
+          };
+          root = {
+            size = "100%";
+            content = {
+              type = "btrfs";
+              extraArgs = [
+                "-f"
+                "-L"
+                "NIXOS"
+              ];
+              subvolumes = {
+                "@" = {
+                  mountpoint = "/";
+                };
+                "@home" = {
+                  mountOptions = [ "compress=zstd" ];
+                  mountpoint = "/home";
+                };
+                "@var" = {
+                  mountOptions = [ "compress=zstd" ];
+                  mountpoint = "/var";
+                };
+                "@nix" = {
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                  mountpoint = "/nix";
+                };
+              };
+            };
           };
         };
-        root = {
-          size = "100%";
-          content = {
-            type = "btrfs";
-            extraArgs = [
-              "-f"
-              "-L"
-              "NIXOS"
-            ];
-            subvolumes = {
-              "@" = {
-                mountpoint = "/";
-              };
-              "@home" = {
-                mountOptions = [ "compress=zstd" ];
-                mountpoint = "/home";
-              };
-              "@var" = {
-                mountOptions = [ "compress=zstd" ];
-                mountpoint = "/var";
-              };
-              "@nix" = {
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-                mountpoint = "/nix";
-              };
+      };
+    };
+    mmcblk0 = {
+      type = "disk";
+      device = "/dev/mmcblk0";
+      content = {
+        type = "gpt";
+        partitions = {
+          pool = {
+            size = "100%";
+            content = {
+              device = "/dev/disk/by-label/POOL";
+              type = "btrfs";
+              extraArgs = [
+                "-f"
+                "-L"
+                "POOL"
+              ];
+              mountpoint = "/mnt/POOL";
+              mountOptions = [
+                "autodefrag"
+                "compress-force=zstd"
+                "compress=zstd"
+                "lazytime"
+                "noatime"
+                "nofail"
+                "space_cache=v2"
+                "ssd_spread"
+              ];
             };
           };
         };
