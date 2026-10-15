@@ -22,6 +22,36 @@
       sha256 = "sha256-nYMDNSpyyCHRKIBhP++sA7FmodSHBUwRSPEM8yLFaF0=";
     };
   };
+  daed-next-core = {
+    pname = "daed-next-core";
+    version = "fe020b996ecc047fc653be02d52ce6a15a208026";
+    src = fetchFromGitHub {
+      owner = "ksong008";
+      repo = "DaeNext";
+      rev = "fe020b996ecc047fc653be02d52ce6a15a208026";
+      fetchSubmodules = false;
+      sha256 = "sha256-1QWAAVM0Aq461gru/Xd/E9pxNoo29LLRBrlkjW2dQ7A=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./. + "/sha256-1QWAAVM0Aq461gru_Xd_E9pxNoo29LLRBrlkjW2dQ7A=/Cargo.lock";
+      outputHashes = {
+        
+      };
+    };
+    date = "2026-10-14";
+  };
+  daed-next-web = {
+    pname = "daed-next-web";
+    version = "dc4af0e4d9e855e0d6ba6d719a2cc70f0be64327";
+    src = fetchFromGitHub {
+      owner = "ksong008";
+      repo = "DaedNext";
+      rev = "dc4af0e4d9e855e0d6ba6d719a2cc70f0be64327";
+      fetchSubmodules = false;
+      sha256 = "sha256-xKt93addeBZEypPW3wZOiRsR5GUsHUeddmmQzKcKluQ=";
+    };
+    date = "2026-10-10";
+  };
   dorion-git = {
     pname = "dorion-git";
     version = "9f75ff43ba971c7327a0ff91a2e0cb21ec553ab8";
@@ -216,15 +246,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "cc336796b93d83ea1ee01f1c0eefba4496181616";
+    version = "edab44bad7fa4c438f9c743a5fb97370f3be7287";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "cc336796b93d83ea1ee01f1c0eefba4496181616";
+      rev = "edab44bad7fa4c438f9c743a5fb97370f3be7287";
       fetchSubmodules = false;
-      sha256 = "sha256-iuY00ZCgaZ0nK6gKrT8yf+zHwY64Uy0OfYRzwmHI4lQ=";
+      sha256 = "sha256-6ugge9mowo6ZB4X/11sterwk4og4cBS2xiFTmh1mPPs=";
     };
-    date = "2026-10-13";
+    date = "2026-10-14";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -240,22 +270,22 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "e53843b1fbab6c58f0b8d14962ac67059d711887";
+    version = "3353e3ae488bbd79cab1725711c8f51cc13bbb47";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "e53843b1fbab6c58f0b8d14962ac67059d711887";
+      rev = "3353e3ae488bbd79cab1725711c8f51cc13bbb47";
       fetchSubmodules = false;
-      sha256 = "sha256-TFi1sP5y2PqRVaTVlCSsHssqt8FI94nt4MmeDkZ+/Qw=";
+      sha256 = "sha256-9NxvqHR6SRWwdYs0Mv6qNif2LsgxnNRHhwxQtr6fAys=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-TFi1sP5y2PqRVaTVlCSsHssqt8FI94nt4MmeDkZ+_Qw=/Cargo.lock";
+      lockFile = ./. + "/sha256-9NxvqHR6SRWwdYs0Mv6qNif2LsgxnNRHhwxQtr6fAys=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-10-13";
+    date = "2026-10-15";
   };
   piliplus = {
     pname = "piliplus";
@@ -313,16 +343,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.0-beta.2";
+    version = "v4.1.0-beta.5";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.0-beta.2";
+      rev = "v4.1.0-beta.5";
       fetchSubmodules = false;
-      sha256 = "sha256-k5D6BVAxlIeuB5aCijlfB1QaScOFwCyvnrzsp4zoXfc=";
+      sha256 = "sha256-y1rWH9V1aGbQBCpEG+Idoooj3YEXH/PERNj7LFx8SGw=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-k5D6BVAxlIeuB5aCijlfB1QaScOFwCyvnrzsp4zoXfc=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-y1rWH9V1aGbQBCpEG+Idoooj3YEXH_PERNj7LFx8SGw=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -344,16 +374,16 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "24e89262489bae03256bc55babadd8a331a2776c";
+    version = "81077a9668064015241fce474b2604b15f91b778";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "24e89262489bae03256bc55babadd8a331a2776c";
+      rev = "81077a9668064015241fce474b2604b15f91b778";
       fetchSubmodules = false;
-      sha256 = "sha256-fAWmkPj3JCTR9eyMu5EdfbfaEuUrxLX5J+HfL4ANwzU=";
+      sha256 = "sha256-e5UgOIZNMNkbu9EBJXK6tsnnJmWqu3OW+G1yLNX+Pec=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-fAWmkPj3JCTR9eyMu5EdfbfaEuUrxLX5J+HfL4ANwzU=/Cargo.lock";
+      lockFile = ./. + "/sha256-e5UgOIZNMNkbu9EBJXK6tsnnJmWqu3OW+G1yLNX+Pec=/Cargo.lock";
       outputHashes = {
         
       };
@@ -415,10 +445,10 @@
   };
   waywallen-display-bin = {
     pname = "waywallen-display-bin";
-    version = "0.4.1";
+    version = "0.4.2";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.1/waywallen-kde-0.4.1-x86_64-embed.zip";
-      sha256 = "sha256-U1jOFpOiO2nH/hdR0bivuXbvTJZXSHXuhFo43wE4N0M=";
+      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.2/waywallen-kde-0.4.2-x86_64-embed.zip";
+      sha256 = "sha256-atexRwiyYG8Xo5mfTpbGNiuAigCwZX98z1X4E2cpgFA=";
     };
   };
   zhuque = {
