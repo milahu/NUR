@@ -17,6 +17,7 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   # Games
+  bbport = pkgs.callPackage ./pkgs/bbport { };
 
   # Themes
   cybergrub2077 = pkgs.callPackage ./pkgs/cybergrub2077 { };
@@ -28,6 +29,5 @@
 
   # Tools
   pig = pkgs.callPackage ./pkgs/pig { };
-  rea-agents = pkgs.callPackage ./pkgs/rea-agents { };
   scopebuddy = pkgs.callPackage ./pkgs/scopebuddy { };
 }

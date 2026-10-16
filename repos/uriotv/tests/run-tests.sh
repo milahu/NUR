@@ -20,9 +20,9 @@ TESTS_SKIPPED=0
 
 # Test packages
 PACKAGES=(
+    "bbport"
     "cybergrub2077"
     "nmssaveeditor"
-    "rea-agents"
     "rimsort-appimage"
     "scopebuddy"
     "wowup-cf"
