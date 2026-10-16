@@ -192,22 +192,27 @@ eachSystemOp (
     }
     // (f system packages);
 
-    crossPlatforms =
-      if system == "aarch64-darwin" then
-        lib.filter (platform: platform.system != system) platforms
-      else
-        platforms;
-
     crosses = map (
       platform:
-      let
-        packages = mkCrossPackages system platform;
-      in
-      {
-        inherit packages platform;
-        flake = f system packages;
-      }
-    ) crossPlatforms;
+      # Reuse the native package set for the local platform. Compare by config, since
+      # lib.systems.equals also compares cross-only attributes like xcodePlatform, which
+      # would make nixpkgs cross-compile darwin to itself.
+      if
+        platform.config == packages.stdenv.hostPlatform.config
+        && platform.isStatic == packages.stdenv.hostPlatform.isStatic
+      then
+        {
+          inherit packages platform flake;
+        }
+      else
+        let
+          packages = mkCrossPackages system platform;
+        in
+        {
+          inherit packages platform;
+          flake = f system packages;
+        }
+    ) platforms;
   in
 
   builtins.foldl' (
@@ -294,8 +299,25 @@ eachSystemOp (
               (!lib.isDerivation flake.${key} || lib.meta.availableOn packages.stdenv.hostPlatform flake.${key})
               {
                 ${system} =
+                  # Replace unavailable checks with a stub instead of filtering them out,
+                  # so listing check names doesn't force every check
                   if key == "checks" then
-                    lib.filterAttrs (_: check: lib.meta.availableOn packages.stdenv.hostPlatform check) flake.${key}
+                    builtins.mapAttrs (
+                      name: check:
+                      if lib.meta.availableOn packages.stdenv.hostPlatform check then
+                        check
+                      else
+                        packages.runCommand "${name}-skipped"
+                          {
+                            # Lets the checks schema skip building the stub
+                            passthru.skipped = true;
+                            meta.description = "Skipped: ${name} is not available on ${system}";
+                          }
+                          ''
+                            echo "${name} is not available on ${system}, skipping"
+                            touch $out
+                          ''
+                    ) flake.${key}
                   else
                     flake.${key};
               };
