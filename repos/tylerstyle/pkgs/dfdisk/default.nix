@@ -1,25 +1,27 @@
 {
   lib,
+  stdenv,
   rustPlatform,
   fetchFromGitHub,
   runCommand,
   makeWrapper,
-  pkg-config,
   libewf,
-  smartmontools,
   ddrescue,
+  smartmontools,
   util-linux,
   systemd,
+  hdparm,
+  nvme-cli,
 }:
 
 let
-  version = "0.1.10";
+  version = "0.2.0";
 
   dfdiskSrc = fetchFromGitHub {
     owner = "tylerstyle";
     repo = "dfdisk";
     tag = "v${version}";
-    hash = "sha256-jurQjYXuzR4ILpfPQTu6uwK/LOzcit4pRRJM1kYH8GM=";
+    hash = "sha256-5gCYQOi6DHQIhdJfYG4KnQFBrhxIVvNE449jpuRckD0=";
   };
 
   # dfdisk depends on dfcore via `path = "../dfcore"`; pin the revision
@@ -27,9 +29,20 @@ let
   dfcoreSrc = fetchFromGitHub {
     owner = "tylerstyle";
     repo = "dfcore";
-    rev = "ffce902b0119830f70211ec3efc3512c8bf7f365";
-    hash = "sha256-mzwV620LnaWlUM9PawWg3pg04U6FrvAfk9VGyjFC0Ek=";
+    rev = "d1a97cd05bbf6fb95123f9236fae37ea352926cf";
+    hash = "sha256-CUcFeUqfEKERS9RU9Y039uP/1MAeMXiKRkIWgfiClLU=";
   };
+
+  # The tools dfdisk runs (package.nix passthru.runtimeTools); none is linked
+  runtimeTools = [
+    libewf
+    ddrescue
+    smartmontools
+    util-linux
+    systemd
+    hdparm
+    nvme-cli
+  ];
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "dfdisk";
@@ -46,32 +59,32 @@ rustPlatform.buildRustPackage (finalAttrs: {
   '';
   sourceRoot = "${finalAttrs.src.name}/dfdisk";
 
-  cargoHash = "sha256-sVHI2WehQXMK/0/AaK4902eBcuf199SbarY5cHQl4E8=";
+  cargoHash = "sha256-Q3ZD8Cp+8NggHQVpKiDLryXGULB4jr6up7hPGyid1m4=";
 
-  nativeBuildInputs = [
-    pkg-config
-    makeWrapper
-  ];
+  # build.rs cannot run git in the sandbox. dfdiskSrc is fetched by tag (its
+  # rev is "refs/tags/v..."), so the release workflow writes the tag's commit
+  # here; the dfcore revision is the pinned one
+  env = {
+    DFDISK_GIT_REV = "bf6987309b2fe8aab6dbdca3f4e6612be6533470";
+    DFCORE_GIT_REV = dfcoreSrc.rev;
+  };
 
-  buildInputs = [
+  nativeBuildInputs = [ makeWrapper ];
+
+  # The tool tests run against the real libewf and ddrescue (and a C compiler
+  # for the fake-device shim) instead of skipping
+  nativeCheckInputs = [
     libewf
-    smartmontools
     ddrescue
-    util-linux
-    systemd
+    stdenv.cc
   ];
+  preCheck = ''
+    export DFDISK_REQUIRE_TOOLS=1
+  '';
 
   postInstall = ''
     wrapProgram $out/bin/dfdisk \
-      --prefix PATH : ${
-        lib.makeBinPath [
-          libewf
-          smartmontools
-          ddrescue
-          util-linux
-          systemd
-        ]
-      }
+      --prefix PATH : ${lib.makeBinPath runtimeTools}
   '';
 
   meta = {
