@@ -10,6 +10,7 @@ Ray's personal [NUR](https://github.com/nix-community/NUR) repository
 | Attribute | Documentation |
 | --- | --- |
 | `ab-download-manager` | [Usage](pkgs/ab-download-manager/README.md) |
+| `alger-music-player` | [Upstream](https://github.com/algerkong/AlgerMusicPlayer) |
 | `baidunetdisk` | [Upstream](https://pan.baidu.com/) |
 | `baidupcs-go` | [Upstream](https://github.com/qjfoidnh/BaiduPCS-Go) |
 | `bluez-5_86` | [Upstream](https://github.com/bluez/bluez) |
@@ -25,10 +26,13 @@ Ray's personal [NUR](https://github.com/nix-community/NUR) repository
 | `kotlin-lsp` | [Usage](pkgs/kotlin-lsp/README.md) |
 | `peazip-rar` | [Usage](pkgs/peazip-rar/README.md) |
 | `r-maple-mono-nf-cn` | [Usage](pkgs/r-maple-mono-nf-cn/README.md) |
+| `rime-lmdg` | [Upstream](https://github.com/amzxyz/rime-wanxiang-data) |
+| `rime-wanxiang` | [Upstream](https://github.com/amzxyz/rime-wanxiang) |
 | `sunloginclient` | [Usage](pkgs/sunloginclient/README.md) |
 | `xwayland-satellite` | [Upstream](https://github.com/Supreeeme/xwayland-satellite) |
 | `yanhekt-autoslides` | [Upstream](https://github.com/BIT-Admin/Yanhekt-AutoSlides) |
 | `winboat-unstable` | [Usage](pkgs/winboat-unstable/README.md) |
+| `yesplaymusic` | [Upstream](https://github.com/qier222/YesPlayMusic) |
 
 ## [NUR](https://github.com/nix-community/NUR)
 

@@ -4,6 +4,7 @@
 
 {
   ab-download-manager = pkgs.callPackage ./pkgs/ab-download-manager { };
+  alger-music-player = pkgs.callPackage ./pkgs/alger-music-player { };
   baidunetdisk = pkgs.callPackage ./pkgs/baidunetdisk { };
   baidupcs-go = pkgs.callPackage ./pkgs/baidupcs-go { };
   bluez-5_86 = pkgs.callPackage ./pkgs/bluez-5_86 { };
@@ -20,10 +21,13 @@
   niri = pkgs.callPackage ./pkgs/niri { };
   peazip-rar = pkgs.callPackage ./pkgs/peazip-rar { };
   r-maple-mono-nf-cn = pkgs.callPackage ./pkgs/r-maple-mono-nf-cn { };
+  rime-lmdg = pkgs.callPackage ./pkgs/rime-lmdg { };
+  rime-wanxiang = pkgs.callPackage ./pkgs/rime-wanxiang { };
   sunloginclient = pkgs.callPackage ./pkgs/sunloginclient { };
   yanhekt-autoslides = pkgs.callPackage ./pkgs/yanhekt-autoslides { };
   winboat-unstable = pkgs.callPackage ./pkgs/winboat-unstable { };
   xwayland-satellite = pkgs.callPackage ./pkgs/xwayland-satellite { };
+  yesplaymusic = pkgs.callPackage ./pkgs/yesplaymusic { };
 
   homeModules = import ./home-modules;
   nixosModules = import ./nixos-modules;
