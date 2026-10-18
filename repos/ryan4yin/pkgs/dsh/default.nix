@@ -33,8 +33,8 @@ let
   # pinned in its own package.json, so ship that exact version instead of
   # the (newer) nixpkgs pnpm. Bump together with the dsh version.
   pnpmPinned = pkgs.callPackage (pkgs.path + "/pkgs/development/tools/pnpm/generic.nix") {
-    version = "11.7.0";
-    hash = "sha256-3q+n7JihIYtqBHKJuS++I5XB4i00lbtxFlMBMhjuFe4=";
+    version = "11.28.5";
+    hash = "sha256-HvTkR6aHE2VgZPPxdMD0RxmWCgQ6P+IpkWnQjPHb+O4=";
   };
 
   # The prebuilt node-addon-require-builtin probes V8 getter machine code and
@@ -56,6 +56,31 @@ let
     exports.isAllowedInternalId = isAllowedInternalId;
     exports.getBindingInfo = getBindingInfo;
     exports.default = { requireBuiltin, isAllowedInternalId, getBindingInfo };
+  '';
+
+  # Several upstream plugins spawn Workers with an explicit `execArgv: []`
+  # (experimental-inspector, plugin-market, session-persistence-jsonl,
+  # libreoffice-kit), which drops the `--expose-internals` the shim above
+  # depends on. Re-add the flag once through the public Worker API instead of
+  # patching each vendored plugin bundle; the preload runs before any ESM
+  # module captures `node:worker_threads`.
+  workerExecArgvFix = writeText "dsh-worker-exec-argv.cjs" ''
+    "use strict";
+    const workerThreads = require("node:worker_threads");
+    const BaseWorker = workerThreads.Worker;
+    workerThreads.Worker = new Proxy(BaseWorker, {
+      construct(target, args, newTarget) {
+        const [filename, options] = args;
+        if (
+          options &&
+          Array.isArray(options.execArgv) &&
+          !options.execArgv.includes("--expose-internals")
+        ) {
+          args = [filename, { ...options, execArgv: [...options.execArgv, "--expose-internals"] }];
+        }
+        return Reflect.construct(target, args, newTarget);
+      },
+    });
   '';
 
   # The npm tarball ships no lockfile. Ours is generated without
@@ -105,6 +130,8 @@ buildNpmPackage {
     makeWrapper ${lib.getExe nodejs} $out/bin/dsh \
       --argv0 dsh \
       --add-flags "--expose-internals" \
+      --add-flags "--require" \
+      --add-flags "${workerExecArgvFix}" \
       --add-flags "$out/lib/node_modules/@deepseek-ai/dsh/lib/bin.js" \
       --prefix PATH : ${
         lib.makeBinPath (
