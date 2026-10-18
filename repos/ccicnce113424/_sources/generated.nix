@@ -24,21 +24,21 @@
   };
   daed-next-core = {
     pname = "daed-next-core";
-    version = "7b7198c48a4d2abf1eab86248f954288caedca13";
+    version = "341d67da7db6ce414be5cbea41d0e08637616854";
     src = fetchFromGitHub {
       owner = "ksong008";
       repo = "DaeNext";
-      rev = "7b7198c48a4d2abf1eab86248f954288caedca13";
+      rev = "341d67da7db6ce414be5cbea41d0e08637616854";
       fetchSubmodules = false;
-      sha256 = "sha256-RRlPZbi/MmuMmGyBHkH/ovHWK4LYB8g3DfJksO/ftcw=";
+      sha256 = "sha256-8paDkd7PwhvBW2t3DvU9XCfWhQFSklCxSOxH1aQIRug=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-RRlPZbi_MmuMmGyBHkH_ovHWK4LYB8g3DfJksO_ftcw=/Cargo.lock";
+      lockFile = ./. + "/sha256-8paDkd7PwhvBW2t3DvU9XCfWhQFSklCxSOxH1aQIRug=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-10-16";
+    date = "2026-10-17";
   };
   daed-next-web = {
     pname = "daed-next-web";
@@ -54,16 +54,16 @@
   };
   dorion-git = {
     pname = "dorion-git";
-    version = "9ed4406d328500d1ce73e44024b98822419c0415";
+    version = "53370347b150ff477bd1ac2f00cd46d50157c7da";
     src = fetchFromGitHub {
       owner = "SpikeHD";
       repo = "Dorion";
-      rev = "9ed4406d328500d1ce73e44024b98822419c0415";
+      rev = "53370347b150ff477bd1ac2f00cd46d50157c7da";
       fetchSubmodules = false;
-      sha256 = "sha256-KQoxWSZk5FM+5wCXJgE+tWr+GixFY+YDV/KW8j+WBNk=";
+      sha256 = "sha256-HvhUbP6sDryisgU3gINVbOml+AMPG69a4n2ndK5CYBU=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-KQoxWSZk5FM+5wCXJgE+tWr+GixFY+YDV_KW8j+WBNk=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-HvhUbP6sDryisgU3gINVbOml+AMPG69a4n2ndK5CYBU=/src-tauri/Cargo.lock";
       outputHashes = {
         "simple-websockets-0.1.6" = "sha256-iySzwntHw5Wf5HwKMBYL8mrMl7kjGZrZonL7/zrkeCo=";
         "livesplit-hotkey-0.8.0" = "sha256-iYAzlkYMEN2v4IhsnljWpUZkJO5CN1vcqz5thAJvbXc=";
@@ -72,7 +72,7 @@
         "rsrpc-0.29.0" = "sha256-7zS833bmy6JUjk4PqCENz6ikoTOtelcymXMi2pxD3V0=";
       };
     };
-    date = "2026-10-16";
+    date = "2026-10-17";
   };
   dxvk-gplall = {
     pname = "dxvk-gplall";
@@ -217,10 +217,10 @@
   };
   lxgw-wenkai-gb = {
     pname = "lxgw-wenkai-gb";
-    version = "v1.522";
+    version = "v1.530";
     src = fetchurl {
-      url = "https://github.com/lxgw/LxgwWenkaiGB/releases/download/v1.522/lxgw-wenkai-gb-v1.522.tar.gz";
-      sha256 = "sha256-arcHfwuy5GK3FwikzJi7Qo0Cn/+6ShxLCoHin8RTpww=";
+      url = "https://github.com/lxgw/LxgwWenkaiGB/releases/download/v1.530/lxgw-wenkai-gb-v1.530.tar.gz";
+      sha256 = "sha256-QsEefftGIYZkxAUI0/v+IYV4KZKv82Br9zk+OTzHrRY=";
     };
   };
   lyrica = {
@@ -371,16 +371,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.0-beta.9";
+    version = "v4.1.0-beta.10";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.0-beta.9";
+      rev = "v4.1.0-beta.10";
       fetchSubmodules = false;
-      sha256 = "sha256-OdmVjxLwMSn873eiTf3MMg2d5dhIXDM9DLPZ/lFztGQ=";
+      sha256 = "sha256-0FFJb9Q9V+ot9qPZNk+3DoRths/h6GZRSX3/FNzbFMc=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-OdmVjxLwMSn873eiTf3MMg2d5dhIXDM9DLPZ_lFztGQ=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-0FFJb9Q9V+ot9qPZNk+3DoRths_h6GZRSX3_FNzbFMc=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -402,16 +402,16 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "2f42a315f80d70b55613f76baa5a37953e32287a";
+    version = "68834a4fdc11f1d9eb692922e4ef77508d7e61d2";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "2f42a315f80d70b55613f76baa5a37953e32287a";
+      rev = "68834a4fdc11f1d9eb692922e4ef77508d7e61d2";
       fetchSubmodules = false;
-      sha256 = "sha256-yfnwTvwE9pGb/NNBCDRbSVWFCIPSMoMIrZv0RgRUwGU=";
+      sha256 = "sha256-5wOn6FW6O+58BX1kW+qwaZiDZVGlcPbEIeTNvFJF3lk=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-yfnwTvwE9pGb_NNBCDRbSVWFCIPSMoMIrZv0RgRUwGU=/Cargo.lock";
+      lockFile = ./. + "/sha256-5wOn6FW6O+58BX1kW+qwaZiDZVGlcPbEIeTNvFJF3lk=/Cargo.lock";
       outputHashes = {
         
       };
