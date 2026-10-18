@@ -4,14 +4,14 @@ error:
      9|     codex-bin = pkgs.callPackage ./pkgs/codex-bin { };
     10|     delta = pkgs.callPackage ./pkgs/delta { };
       |     ^
-    11|     determinate-nix = pkgs.callPackage ./pkgs/determinate-nix { };
+    11|     deepseek-harness = pkgs.callPackage ./pkgs/deepseek-harness { };
 
 … from call site
   at ./default.nix:10:13:
      9|     codex-bin = pkgs.callPackage ./pkgs/codex-bin { };
     10|     delta = pkgs.callPackage ./pkgs/delta { };
       |             ^
-    11|     determinate-nix = pkgs.callPackage ./pkgs/determinate-nix { };
+    11|     deepseek-harness = pkgs.callPackage ./pkgs/deepseek-harness { };
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/customisation.nix:308:19:
