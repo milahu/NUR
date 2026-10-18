@@ -3,8 +3,9 @@
   buildNpmPackage,
   callPackage,
   copyDesktopItems,
-  electron_41,
+  electron,
   ffmpeg,
+  imagemagick,
   lib,
   makeDesktopItem,
   makeWrapper,
@@ -15,9 +16,6 @@
   zip,
 }:
 
-let
-  electron = electron_41;
-in
 buildNpmPackage (finalAttrs: {
   pname = "yanhekt-autoslides";
   inherit (source) npmDepsHash src version;
@@ -34,6 +32,7 @@ buildNpmPackage (finalAttrs: {
   nativeBuildInputs = [
     autoPatchelfHook
     copyDesktopItems
+    imagemagick
     makeWrapper
     zip
   ];
@@ -105,11 +104,23 @@ buildNpmPackage (finalAttrs: {
       --set ELECTRON_FORCE_IS_PACKAGED 1 \
       --inherit-argv0
 
-    install -Dm444 \
-      resources/img/icon.png \
-      "$out/share/icons/hicolor/1024x1024/apps/autoslides.png"
+    install -d "$out/share/icons/hicolor/512x512/apps"
+    magick resources/img/icon.png -resize 512x512 \
+      "$out/share/icons/hicolor/512x512/apps/autoslides.png"
 
     runHook postInstall
+  '';
+
+  # FIXME:
+  # patchelf can relocate libvips' .init without updating DT_INIT (NixOS/patchelf#639).
+  # Patch the other ELF files, then restore libvips; Sharp's addon supplies its C++ runtime.
+  dontAutoPatchelf = true;
+  postFixup = ''
+    autoPatchelf "$out"
+
+    for libvips in "$out"/share/yanhekt-autoslides/resources/@img/sharp-libvips-linux-*; do
+      cp node_modules/@img/"''${libvips##*/}"/lib/libvips-cpp.so.* "$libvips/lib/"
+    done
   '';
 
   desktopItems = [

@@ -1,12 +1,21 @@
 {
-  buildGo125Module,
+  buildGoModule,
+  buildPackages,
   lib,
   source,
   version,
   zip,
 }:
 
-buildGo125Module {
+let
+  # The Windows guest is pure Go, so its cross toolchain does not need CGO.
+  go = buildPackages.go.overrideAttrs (previousAttrs: {
+    env = previousAttrs.env // {
+      CGO_ENABLED = 0;
+    };
+  });
+in
+buildGoModule.override { inherit go; } {
   pname = "winboat-guest-server";
   inherit version;
   inherit (source) src;
