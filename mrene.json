@@ -1,19 +1,19 @@
 {
 "name":"mrene",
-"fetch_time":1.226,
-"eval_time":2.37,
+"fetch_time":0.931,
+"eval_time":2.465,
 "source":{
 "url":"https://github.com/mrene/nur-packages",
-"rev":"86f98e3d0fe1e64446c0d79383485d9f2c5bbecf",
-"sha256":"0xj039rngdxryzmzi1dcqkrhn8gyq1igp7dr85251bgwxvva6g2c",
+"rev":"92f2f9e7c76dac626bd210772105a0ed6f217379",
+"sha256":"0ibm1yk4w40hfxj3x6lwj70sxdwjkakzrh0ycn3mk7h4yp3b237v",
 "date":null
 },
-"source_storepath":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source",
-"nixpkgs_storepath":"/nix/store/pn6a4x31aka18c71zpqgp7aq3klb3z00-source",
-"nur_combined_rev":"fc530ff5180be1de77df195089b9de2a545d5884",
+"source_storepath":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source",
+"nixpkgs_storepath":"/nix/store/4b8fr08m7yklfr8vmfsjsclvv2aa0764-source",
+"nur_combined_rev":"325a59c166ceec0a266d34a82ba86da6be491cba",
 "packages":{
 "clock-weather-card":{
-"drvPath":"/nix/store/84f18mylxki2ndn3bm03rl90q0k88y0r-clock-weather-card-2.9.4.drv",
+"drvPath":"/nix/store/1lg0rldaks34pkc2zjxprcmxjr981hhz-clock-weather-card-2.9.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -70,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/clock-weather-card/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/clock-weather-card/package.nix",
 "line":53
 },
 "name":"clock-weather-card-2.9.4",
@@ -126,7 +126,7 @@
 "version":"2.9.4"
 },
 "connectlife-ha":{
-"drvPath":"/nix/store/zjpsgz9igqykcynbsi2dfzc4yli96vma-python3.14-oyvindwe-connectlife-0.37.0.drv",
+"drvPath":"/nix/store/qj989lc8rq2gcmsrlya8hjrm8005dgs9-python3.14-oyvindwe-connectlife-0.52.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -215,10 +215,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/connectlife-ha/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/connectlife-ha/package.nix",
 "line":45
 },
-"name":"python3.14-oyvindwe/connectlife-0.37.0",
+"name":"python3.14-oyvindwe/connectlife-0.52.0",
 "nonTeamMaintainers":[
 {
 "email":"mathieu.rene@gmail.com",
@@ -316,17 +316,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-oyvindwe-connectlife-0.37.0",
+"name":"python3.14-oyvindwe-connectlife-0.52.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"python3.14-oyvindwe-connectlife",
 "system":"x86_64-linux",
-"version":"0.37.0"
+"version":"0.52.0"
 },
 "fan-control":{
-"drvPath":"/nix/store/93xfc263vgyk9gn2rasv5wbr1jjg2hlx-fan-control-2025.3.0.drv",
+"drvPath":"/nix/store/r7yywgkgws4layary3s76jaysdndg20p-fan-control-2025.3.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -395,7 +395,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/fan-control/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/fan-control/package.nix",
 "line":111
 },
 "name":"fan-control-2025.3.0",
@@ -446,10 +446,11 @@
 "version":"2025.3.0"
 },
 "gnuradio-boost181":{
-"drvPath":"/nix/store/7z0ryqawx6avsy5zcbddi3s0998j7hxi-gnuradio-wrapped-3.10.12.0.drv",
+"drvPath":"/nix/store/q0xwawpbswpk47a728bx8sfdn1x286kv-gnuradio-wrapped-3.10.12.0.drv",
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/gnuradio/gnuradio/releases/tag/v3.10.12.0",
 "description":"Software Defined Radio (SDR) software",
 "homepage":"https://www.gnuradio.org",
 "identifiers":{
@@ -527,8 +528,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pn6a4x31aka18c71zpqgp7aq3klb3z00-source/pkgs/applications/radio/gnuradio/shared.nix",
-"line":160
+"file":"/nix/store/4b8fr08m7yklfr8vmfsjsclvv2aa0764-source/pkgs/applications/radio/gnuradio/default.nix",
+"line":443
 },
 "name":"gnuradio-3.10.12.0",
 "nonTeamMaintainers":[
@@ -613,7 +614,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/radio/gnuradio/shared.nix:146",
+"position":"<nixpkgs> + /pkgs/applications/radio/gnuradio/default.nix:428",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -629,7 +630,7 @@
 "version":"3.10.12.0"
 },
 "gnuradio-modules.gr-fhss_utils":{
-"drvPath":"/nix/store/c5abq7pj1fwa5r2ykn4bix5w6a5hwlxv-gr-fhss-utils-0-unstable-2023-08-17.drv",
+"drvPath":"/nix/store/8z1svn2f56swsk6gmp133nz5q97c58xd-gr-fhss-utils-0-unstable-2023-08-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -679,7 +680,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-fhss_utils/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-fhss_utils/package.nix",
 "line":58
 },
 "name":"gr-fhss-utils-0-unstable-2023-08-17",
@@ -754,7 +755,7 @@
 "version":"0-unstable-2023-08-17"
 },
 "gnuradio-modules.gr-foo":{
-"drvPath":"/nix/store/a37zqnrm1rqkhsg5d56w40b94kprw965-gr-foo-deprecated_next_branch.drv",
+"drvPath":"/nix/store/ap1igvzca0wq2gypr1cazxdp2wynlkfw-gr-foo-deprecated_next_branch.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -804,7 +805,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-foo/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-foo/package.nix",
 "line":50
 },
 "name":"gr-foo-deprecated_next_branch",
@@ -879,7 +880,7 @@
 "version":""
 },
 "gnuradio-modules.gr-fosphor":{
-"drvPath":"/nix/store/5q5skxpgayk7id5jvdb0isshv4dr50gh-gr-fosphor-0-unstable-2024-03-23.drv",
+"drvPath":"/nix/store/ihxiw85k1p7bymz7f2l8422p2r12f3r3-gr-fosphor-0-unstable-2024-03-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -929,7 +930,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-fosphor/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-fosphor/package.nix",
 "line":75
 },
 "name":"gr-fosphor-0-unstable-2024-03-23",
@@ -1004,7 +1005,7 @@
 "version":"0-unstable-2024-03-23"
 },
 "gnuradio-modules.gr-ieee-802-15-4":{
-"drvPath":"/nix/store/3ym0hbbwghlqn2iypmxczfg8cdr9k22g-gr-ieee802-15-4-3.6.drv",
+"drvPath":"/nix/store/vvdnd61sn8yc5qiskvw8cjs582sx1jap-gr-ieee802-15-4-3.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1054,7 +1055,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-ieee-802-15-4/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-ieee-802-15-4/package.nix",
 "line":50
 },
 "name":"gr-ieee802-15-4-3.6",
@@ -1129,7 +1130,7 @@
 "version":"15-4-3.6"
 },
 "gnuradio-modules.gr-pdu_utils":{
-"drvPath":"/nix/store/566fvicsngk8dzny256mx7fqk7fvsrr0-gr-pdu-utils-1.2.drv",
+"drvPath":"/nix/store/2v0nfb20rv645k15vpkwqc7fizc4257s-gr-pdu-utils-1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1179,7 +1180,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-pdu_utils/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-pdu_utils/package.nix",
 "line":56
 },
 "name":"gr-pdu-utils-1.2",
@@ -1254,7 +1255,7 @@
 "version":"1.2"
 },
 "gnuradio-modules.gr-sandia_utils":{
-"drvPath":"/nix/store/36vkffc8gnnnwjxfxdh0f2c5b6d4sbqi-gr-sandia-utils-0-unstable-2022-12-05.drv",
+"drvPath":"/nix/store/f7wwl6y9iy77nf7rldsa2xbba5gs35s0-gr-sandia-utils-0-unstable-2022-12-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1304,7 +1305,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-sandia_utils/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-sandia_utils/package.nix",
 "line":64
 },
 "name":"gr-sandia-utils-0-unstable-2022-12-05",
@@ -1379,7 +1380,7 @@
 "version":"0-unstable-2022-12-05"
 },
 "gnuradio-modules.gr-smart_meters":{
-"drvPath":"/nix/store/0rfmalx5dva6ksslmzwr48ffha3spyc5-gr-smart-meters-0-unstable-2023-09-25.drv",
+"drvPath":"/nix/store/8qayn6gr616y3c654slcyj17dyp46m1n-gr-smart-meters-0-unstable-2023-09-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1429,7 +1430,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-smart_meters/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-smart_meters/package.nix",
 "line":87
 },
 "name":"gr-smart-meters-0-unstable-2023-09-25",
@@ -1504,7 +1505,7 @@
 "version":"0-unstable-2023-09-25"
 },
 "gnuradio-modules.gr-timing_utils":{
-"drvPath":"/nix/store/fgrj91rw0prx0pl7j4blp8gvyidxh06d-gr-timing-utils-1.2.drv",
+"drvPath":"/nix/store/lsdhvg2ydk3xcka7s9bwlbbn7bmkl5nb-gr-timing-utils-1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1554,7 +1555,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/gnuradio-modules/gr-timing_utils/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/gnuradio-modules/gr-timing_utils/package.nix",
 "line":54
 },
 "name":"gr-timing-utils-1.2",
@@ -1629,7 +1630,7 @@
 "version":"1.2"
 },
 "ha-bambulab":{
-"drvPath":"/nix/store/09f51q4rch0scl3rpmxmn0bb3s2gd2a2-python3.14-greghesp-bambu_lab-2.2.22.drv",
+"drvPath":"/nix/store/s49iv79jxl67h83rqsi5spiz1cgijn2x-python3.14-greghesp-bambu_lab-2.2.22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1709,7 +1710,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/ha-bambulab/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/ha-bambulab/package.nix",
 "line":42
 },
 "name":"python3.14-greghesp/bambu_lab-2.2.22",
@@ -1765,7 +1766,7 @@
 "version":"2.2.22"
 },
 "hass-browser-mod":{
-"drvPath":"/nix/store/j13619d9dxnclm58pzqm058gkfxi5ay6-hass-browser-mod-3.2.2.drv",
+"drvPath":"/nix/store/qqkz83hxzpvsd99s29j7lh3si72cjzsg-hass-browser-mod-3.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1815,7 +1816,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/hass-browser-mod/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/hass-browser-mod/package.nix",
 "line":40
 },
 "name":"hass-browser-mod-3.2.2",
@@ -1869,7 +1870,7 @@
 "version":"3.2.2"
 },
 "hctl":{
-"drvPath":"/nix/store/xxj9kilf5yx3l0c9fn6plj7cxcb80b7v-hctl-0.9.0.drv",
+"drvPath":"/nix/store/zvzpin47j71f2n1kbyc1pznfa88rrzfx-hctl-0.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1926,7 +1927,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/hctl/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/hctl/package.nix",
 "line":47
 },
 "name":"hctl-0.9.0",
@@ -1988,7 +1989,7 @@
 "version":"0.9.0"
 },
 "ice9-bluetooth-sniffer":{
-"drvPath":"/nix/store/yvv226276ingi0pg5f6ckpxghrd056j8-ice9-bluetooth-sniffer-23.06.0.drv",
+"drvPath":"/nix/store/1693mk5rfrk4srakdlcm4ad9jff5rxl6-ice9-bluetooth-sniffer-23.06.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2045,7 +2046,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/ice9-bluetooth-sniffer/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/ice9-bluetooth-sniffer/package.nix",
 "line":68
 },
 "name":"ice9-bluetooth-sniffer-23.06.0",
@@ -2122,7 +2123,7 @@
 "version":"23.06.0"
 },
 "ieee-802-15-4-sniffer":{
-"drvPath":"/nix/store/s4pyfzwasw907ff1v373k1f1qpxxxc7k-ieee-802-15-4-sniffer-1.0.drv",
+"drvPath":"/nix/store/8dqw0z8x45i4jjyay1dpablryq19n1vv-ieee-802-15-4-sniffer-1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2236,7 +2237,7 @@
 "version":"1.5.3"
 },
 "irp-transmogrifier":{
-"drvPath":"/nix/store/35fa9461806dzba545fds10ixhmf9c8z-irp-transmogrifier-1.2.14.drv",
+"drvPath":"/nix/store/z38cj30ns380q7hdsw3cm032n9qrg218-irp-transmogrifier-1.2.14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2292,7 +2293,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/irp-transmogrifier/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/irp-transmogrifier/package.nix",
 "line":49
 },
 "name":"irp-transmogrifier-1.2.14",
@@ -2332,7 +2333,7 @@
 "version":"1.2.14"
 },
 "jira-cli-go":{
-"drvPath":"/nix/store/9b0yag2ypsakv2x8312ppgldgqdrbw6v-jira-cli-go-1.7.0.drv",
+"drvPath":"/nix/store/i1krx7ppqk5fn0jvqhdnvnd4al1b1ln0-jira-cli-go-1.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2401,7 +2402,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/jira-cli-go/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/jira-cli-go/package.nix",
 "line":66
 },
 "name":"jira-cli-go-1.7.0",
@@ -2524,7 +2525,7 @@
 "version":"1.7.0"
 },
 "lovelace-auto-entities":{
-"drvPath":"/nix/store/6nlfj4fk40xkxkskyw6cc2qw474111ip-lovelace-auto-entities-1.16.1.drv",
+"drvPath":"/nix/store/hak6dzs7wi3p3ljsddiamn7wcyc739xr-lovelace-auto-entities-1.16.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2581,7 +2582,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/lovelace-auto-entities/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/lovelace-auto-entities/package.nix",
 "line":41
 },
 "name":"lovelace-auto-entities-1.16.1",
@@ -2637,7 +2638,7 @@
 "version":"1.16.1"
 },
 "lovelace-big-slider-card":{
-"drvPath":"/nix/store/p4hiinlk5rvghsi9ffnjs07lsz2i9ykh-lovelace-big-slider-card-1.2.9.drv",
+"drvPath":"/nix/store/lfc85wmms8z321ifk2vy3gw6lpp8sqlr-lovelace-big-slider-card-1.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2687,7 +2688,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/lovelace-big-slider-card/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/lovelace-big-slider-card/package.nix",
 "line":42
 },
 "name":"lovelace-big-slider-card-1.2.9",
@@ -2796,7 +2797,7 @@
 "version":"1.2.9"
 },
 "lovelace-mushroom":{
-"drvPath":"/nix/store/4djiylzcw6r8nb4fmhk08j3hg40a9p0v-mushroom-5.2.2.drv",
+"drvPath":"/nix/store/p4isqffnv5zqcg0fqyddizfsbz9nzky3-mushroom-5.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2854,7 +2855,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/lovelace-mushroom/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/lovelace-mushroom/package.nix",
 "line":34
 },
 "name":"mushroom-5.2.2",
@@ -2908,7 +2909,7 @@
 "version":"5.2.2"
 },
 "lovelace-slider-entity-row":{
-"drvPath":"/nix/store/1hshy4gs3d6vqrhnl1k15d84bdqhll8p-lovelace-slider-entity-row-17.5.0.drv",
+"drvPath":"/nix/store/8brgs6qdz4cmcv6s1h7ldj2d0ijwc8z6-lovelace-slider-entity-row-17.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2958,7 +2959,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/lovelace-slider-entity-row/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/lovelace-slider-entity-row/package.nix",
 "line":37
 },
 "name":"lovelace-slider-entity-row-17.5.0",
@@ -3012,7 +3013,7 @@
 "version":"17.5.0"
 },
 "macpow":{
-"drvPath":"/nix/store/qk9gwnk254qrjs956l64b0zyahjzwcy3-macpow-0.1.17.drv",
+"drvPath":"/nix/store/cgl1r74halsk8va4jkfr6sv9978gbqg0-macpow-0.1.17.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3073,7 +3074,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/macpow/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/macpow/package.nix",
 "line":24
 },
 "name":"macpow-0.1.17",
@@ -3141,7 +3142,7 @@
 "version":"0.1.17"
 },
 "narwal-ha":{
-"drvPath":"/nix/store/kwgqlvb4z8wyc7vk6p0f13h5ns7il9yw-python3.14-sjmotew-narwal-1.0.0-unstable-2026-05-30.drv",
+"drvPath":"/nix/store/qhs77pf0xnf6xmxhdpd5hd2d45jq91n6-python3.14-sjmotew-narwal-1.0.0-unstable-2026-05-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3230,7 +3231,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/narwal-ha/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/narwal-ha/package.nix",
 "line":47
 },
 "name":"python3.14-sjmotew/narwal-1.0.0-unstable-2026-05-30",
@@ -3341,7 +3342,7 @@
 "version":"1.0.0-unstable-2026-05-30"
 },
 "open-knowledge":{
-"drvPath":"/nix/store/7djqvzgjp957ax9ls94n32a50q8hlhaz-open-knowledge-0.63.6.drv",
+"drvPath":"/nix/store/q3m6m0c6g5m19qrm0z0bapyqb5in7wl4-open-knowledge-0.63.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3399,7 +3400,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/open-knowledge/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/open-knowledge/package.nix",
 "line":147
 },
 "name":"open-knowledge-0.63.6",
@@ -3449,7 +3450,7 @@
 "version":""
 },
 "pyspinel":{
-"drvPath":"/nix/store/7z3v08i76vcc9iz0cmbp27q2bz9v2pqk-pyspinel-1.0.3.drv",
+"drvPath":"/nix/store/c90wa9ab1sqyc159gj8mcyi08ykwn4di-pyspinel-1.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3539,7 +3540,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/pyspinel/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/pyspinel/package.nix",
 "line":34
 },
 "name":"pyspinel-1.0.3",
@@ -3603,7 +3604,7 @@
 "version":"1.0.3"
 },
 "resterm":{
-"drvPath":"/nix/store/65qj7byxys25crpz4kl6zx7a9kxd1yvd-resterm-1.3.1.drv",
+"drvPath":"/nix/store/6an0l9kv63ai3ismwc2yfcvw2n46nfnp-resterm-1.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3654,7 +3655,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/resterm/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/resterm/package.nix",
 "line":30
 },
 "name":"resterm-1.3.1",
@@ -3714,7 +3715,7 @@
 "version":"1.3.1"
 },
 "rx-tools":{
-"drvPath":"/nix/store/kpjx36s521gwarm8qcpv33g1qaxq2ahr-rx-tools-win32_with_tuner_bandwidth_2016-06-05.drv",
+"drvPath":"/nix/store/ysvh0cq6kghipvxfnmm7fgqr4l7hqv9w-rx-tools-win32_with_tuner_bandwidth_2016-06-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3786,7 +3787,7 @@
 "version":"06-05"
 },
 "synp":{
-"drvPath":"/nix/store/r9pwkvyrz3lkfhqy4q3fg8wmx65kx2cj-synp-1.9.14.drv",
+"drvPath":"/nix/store/nn1mzjnzmdf9hz1k1vf9hgl4prycv03n-synp-1.9.14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3837,7 +3838,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/synp/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/synp/package.nix",
 "line":41
 },
 "name":"synp-1.9.14",
@@ -3946,7 +3947,7 @@
 "version":"1.9.14"
 },
 "timer-bar-card":{
-"drvPath":"/nix/store/if4hbvzdxjdvp7p0dpxjk97nfqv8cgvn-timer-bar-card-1.31.1.drv",
+"drvPath":"/nix/store/10kn8hr3bkawxk51bnmjppv107chllid-timer-bar-card-1.31.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4003,7 +4004,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/timer-bar-card/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/timer-bar-card/package.nix",
 "line":40
 },
 "name":"timer-bar-card-1.31.1",
@@ -4114,7 +4115,7 @@
 "version":"1.31.1"
 },
 "trunk-recorder":{
-"drvPath":"/nix/store/hp7av1q16jv2zfzmhhrn20azq9l9yagr-trunk-recorder-5.2.1.drv",
+"drvPath":"/nix/store/fq80da92a5nvvv68lczmvhjyqv2z8j1m-trunk-recorder-5.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4165,7 +4166,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jhapvgxhmv43nb7lxrfq2qsjz1d0l4bh-source/pkgs/trunk-recorder/package.nix",
+"file":"/nix/store/nlrk0lsspvk34xzgssgrj4183v6876nk-source/pkgs/trunk-recorder/package.nix",
 "line":76
 },
 "name":"trunk-recorder-5.2.1",
@@ -4274,7 +4275,7 @@
 "version":"5.2.1"
 },
 "wireshark-extcap":{
-"drvPath":"/nix/store/y9akw9q7difwxjy12ysipcaasd0ani0i-wireshark-wrapped.drv",
+"drvPath":"/nix/store/s7n7qggvj42pdkp1ybkckdpg4zp2bb67-wireshark-wrapped.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4344,7 +4345,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pn6a4x31aka18c71zpqgp7aq3klb3z00-source/pkgs/by-name/wi/wireshark/package.nix",
+"file":"/nix/store/4b8fr08m7yklfr8vmfsjsclvv2aa0764-source/pkgs/by-name/wi/wireshark/package.nix",
 "line":236
 },
 "name":"wireshark-qt-4.6.9",
