@@ -6,18 +6,18 @@
 
 buildGo126Module rec {
   pname = "pig";
-  version = "0.4.1";
+  version = "0.5.1";
 
   src = fetchFromGitHub {
     owner = "MichaelKinsy";
     repo = "PiG";
     rev = "v${version}";
-    hash = "sha256-JmsDIQMIfIr6StkLO7IJPajenJfOotYuZ0ZZCYVzMeA=";
+    hash = "sha256-53kFcFaIeYYdggZ0qX8ninwXmY0pbW5G2rftR31IXQQ=";
   };
 
   # The upstream project includes several unrelated Go tools in go.mod; only
   # build the standalone PiG executable and ship no runtime dependencies.
-  vendorHash = "sha256-dG+bUBsTYi7yKvxBPKbLTTB/OTHQ6OTky6fQkrPIanc=";
+  vendorHash = "sha256-yXR8ThdDwgunmy6nI2sSGmg+6xo3FHMouCX0osdThVk=";
   subPackages = [ "cmd/pig" ];
   proxyVendor = true;
 
