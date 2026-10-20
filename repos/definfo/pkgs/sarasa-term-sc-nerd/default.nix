@@ -14,7 +14,7 @@ assert lib.asserts.assertOneOf "Font variance" variance [
 ];
 
 let
-  version = "2.3.1";
+  version = "4.0.0";
 
   source = {
     hinted = fetchurl {
@@ -52,7 +52,9 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version-regex=v(.*)" ]; };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [ "--version-regex=^v(?!4[.]0[.]0$)(.*)$" ];
+  };
 
   meta = with lib; {
     description = "Nerd font based on Sarasa Term SC";
