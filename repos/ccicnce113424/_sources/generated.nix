@@ -303,17 +303,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "e86cffd0e42c9a9db3fed56c6493a1030892680f";
+    version = "c5d2671e944a7f7dca4026c4b9f72bb986e9e566";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "e86cffd0e42c9a9db3fed56c6493a1030892680f";
+      rev = "c5d2671e944a7f7dca4026c4b9f72bb986e9e566";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-drDq2eOi2easSvpHmo/9oRrwncVLtjdCmRG2UwV33SQ=";
+      sha256 = "sha256-wwOHWh2YWCtFB226w/SvqrgagOPhkABhWm0z+Y8Ds/M=";
     };
-    date = "2026-10-16";
+    date = "2026-10-19";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -402,21 +402,21 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "d37e44b3486728bc8eb2d99c2a2ffbdf47ee6933";
+    version = "05a4e5929030df21a8448ddb24c77dbd353f974e";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "d37e44b3486728bc8eb2d99c2a2ffbdf47ee6933";
+      rev = "05a4e5929030df21a8448ddb24c77dbd353f974e";
       fetchSubmodules = false;
-      sha256 = "sha256-FfYr0qYyQa9bygF8cDFMLTSnWbxCGs3epspSPpDlu+U=";
+      sha256 = "sha256-cSwiHGzUWkweVJSNATsArQ6Fp3u+gX1k7YDNcFt7Oms=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-FfYr0qYyQa9bygF8cDFMLTSnWbxCGs3epspSPpDlu+U=/Cargo.lock";
+      lockFile = ./. + "/sha256-cSwiHGzUWkweVJSNATsArQ6Fp3u+gX1k7YDNcFt7Oms=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-10-18";
+    date = "2026-10-19";
   };
   svt-av1-essential = {
     pname = "svt-av1-essential";
