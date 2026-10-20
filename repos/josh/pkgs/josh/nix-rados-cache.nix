@@ -7,13 +7,13 @@
 }:
 buildGoModule {
   pname = "nix-rados-cache";
-  version = "0-unstable-2026-10-15";
+  version = "0-unstable-2026-10-19";
 
   src = fetchFromGitHub {
     owner = "josh";
     repo = "nix-rados-cache";
-    rev = "39bcf029ca97c397f70edc4a937ade081a9d7f36";
-    hash = "sha256-fmqsFHYYKuBjsQ+eekXzQ8rKeVG/TOPBCp6mhRDevC4=";
+    rev = "836535ca4eaa2c35c53af19f392bc5269fdc7ad3";
+    hash = "sha256-wq1SzORa/fS3y7YOAACF0rDWVCwdAc507jyk3BMXpWE=";
   };
 
   vendorHash = "sha256-9ECa9ji0VZb2/8YVaZxpNgnDUP6/ZajCof5BmIKPPbA=";
