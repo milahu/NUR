@@ -1,19 +1,19 @@
 {
 "name":"uriotv",
-"fetch_time":0.434,
-"eval_time":2.616,
+"fetch_time":1.072,
+"eval_time":2.13,
 "source":{
 "url":"https://github.com/urioTV/urio-nur",
-"rev":"805dfb70b99a1a3447148986727ae1de4c82f912",
-"sha256":"0hqdrwnlh28nfzb5x4ax1w631lv2s8jdwsc4mc6xgihw7xqh150l",
+"rev":"d9223b8595771e64f777e8de3a69b0529b12d38c",
+"sha256":"0ffqa93qrvlsn58yrjpvy1p3swgx22z7qfx60454vw6d5m4ac5d7",
 "date":null
 },
-"source_storepath":"/nix/store/f5gjrv44j66qnr241gadwy2pxw5nx9ln-source",
-"nixpkgs_storepath":"/nix/store/higq6bfz582ljkmk2fjkz0kb7x1mjcyx-source",
-"nur_combined_rev":"7d811621d505f6da337fb675ba0421902d23f861",
+"source_storepath":"/nix/store/xx61kaa6vz6d7xl0chb99cdqjspjvihh-source",
+"nixpkgs_storepath":"/nix/store/zsrn88vjmb5hmshm6fimai52blbk3nlc-source",
+"nur_combined_rev":"c5f7d71dd0fa0dea6cad3186e91234969308b1de",
 "packages":{
 "bbport":{
-"drvPath":"/nix/store/xnf73ff02q3m9b4fama5iakjc28b80y3-bbport-0.6.drv",
+"drvPath":"/nix/store/5fnvd37pxnkxf6sgsxzcv4r68idh5ny4-bbport-0.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -89,7 +89,7 @@
 "version":"0.6"
 },
 "cybergrub2077":{
-"drvPath":"/nix/store/wsz3bzv7srj8ym5a7nigdqrsdhbrqp1p-cyber-grub-2077-2.0.1-unstable-2026-02-28.drv",
+"drvPath":"/nix/store/sc8lwdvagzmnq60sfpv1qg2j8sxcqkcp-cyber-grub-2077-2.0.1-unstable-2026-02-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -128,12 +128,12 @@
 "license":{
 "deprecated":false,
 "free":true,
-"fullName":"MIT License",
+"fullName":"The Unlicense",
 "licenseType":"simple",
 "redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
+"shortName":"unlicense",
+"spdxId":"Unlicense",
+"url":"https://spdx.org/licenses/Unlicense.html"
 },
 "maintainers":[],
 "name":"cyber-grub-2077-2.0.1-unstable-2026-02-28",
@@ -197,7 +197,7 @@
 "version":"1.21.0"
 },
 "pig":{
-"drvPath":"/nix/store/kp91cqn29r065sw0a5vyq3wqwyzj5wsb-pig-0.5.1.drv",
+"drvPath":"/nix/store/ma3zjlhvq0w8av9qz6rcm7r5x8qfim10-pig-0.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -248,7 +248,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/f5gjrv44j66qnr241gadwy2pxw5nx9ln-source/pkgs/pig/default.nix",
+"file":"/nix/store/xx61kaa6vz6d7xl0chb99cdqjspjvihh-source/pkgs/pig/default.nix",
 "line":37
 },
 "name":"pig-0.5.1",
@@ -323,7 +323,7 @@
 "version":"0.5.1"
 },
 "rimsort-appimage":{
-"drvPath":"/nix/store/njl66cyvwxy5wzpg15gfqsi18c2kxhzn-rimsort-1.17.0.drv",
+"drvPath":"/nix/store/4fqlcgyw1hvl3sslpk9vi4q93fsawpqw-rimsort-1.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -405,7 +405,7 @@
 "version":"1.17.0"
 },
 "scopebuddy":{
-"drvPath":"/nix/store/c5n6dq5vqpjdkymbjv7c5h3bfqvqvskd-scopebuddy-1.5.0.drv",
+"drvPath":"/nix/store/h0ss1hgjfrcq0xjbxrwn6cjc420597xf-scopebuddy-1.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -504,7 +504,7 @@
 "version":"1.5.0"
 },
 "storyforge":{
-"drvPath":"/nix/store/jjr4pwjs5la5773kr9y39vgnrhf1ll1q-storyforge-2.0.8.drv",
+"drvPath":"/nix/store/l92z708hfxdfshysnb9c32qsf7ay695v-storyforge-2.0.8.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -589,7 +589,7 @@
 "mips64el-linux",
 "riscv32-linux"
 ],
-"position":"./pkgs/storyforge/default.nix:79",
+"position":"./pkgs/storyforge/default.nix:77",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -609,7 +609,7 @@
 "version":"2.0.8"
 },
 "wowup-cf":{
-"drvPath":"/nix/store/igk15fs5fids3j25f2x78l1900pnbbms-wowup-cf-2.24.0.drv",
+"drvPath":"/nix/store/j0fx27vc0qz3shh8d7mwldhzasas0m8v-wowup-cf-2.24.0.drv",
 "meta":{
 "available":true,
 "broken":false,
