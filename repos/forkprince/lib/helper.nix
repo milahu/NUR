@@ -297,7 +297,10 @@
     meta ? {},
     desktopName ? pname,
     desktopComment ? meta.description or "",
+    desktopId ? pname,
     categories ? [],
+    icon ? pname,
+    startupWMClass ? null,
     exec ? "${pname} %U",
     terminal ? false,
     extraDesktopItem ? {},
@@ -305,27 +308,31 @@
   }: let
     contents = pkgs.appimageTools.extract {inherit pname version src;};
 
-    desktopItem =
-      pkgs.makeDesktopItem {
-        name = pname;
-        inherit desktopName exec terminal categories;
+    desktopItem = pkgs.makeDesktopItem ({
+        name = desktopId;
+        inherit desktopName exec terminal categories icon;
         comment = desktopComment;
-        icon = pname;
       }
-      // extraDesktopItem;
+      // lib.optionalAttrs (startupWMClass != null) {inherit startupWMClass;}
+      // extraDesktopItem);
   in
     pkgs.appimageTools.wrapType2 {
       inherit pname version src meta;
 
       extraInstallCommands =
         ''
-          install -Dm444 ${desktopItem}/share/applications/*.desktop $out/share/applications/${pname}.desktop
-          if [ -d ${contents}/usr/share/icons ]; then
-            cp -r ${contents}/usr/share/icons $out/share/ || true
-          fi
-          icon=$(find ${contents} -maxdepth 2 -name "*.png" | head -n1)
-          if [ -n "$icon" ]; then
-            install -Dm444 "$icon" $out/share/icons/hicolor/512x512/apps/${pname}.png || true
+          install -Dm444 ${desktopItem}/share/applications/*.desktop $out/share/applications/${desktopId}.desktop
+          for iconsDir in ${contents}/usr/share/icons ${contents}/share/icons; do
+            if [ -d "$iconsDir" ]; then
+              cp -r "$iconsDir" $out/share/
+              chmod -R u+w $out/share/icons
+            fi
+          done
+        ''
+        + lib.optionalString (icon == pname) ''
+          iconPath=$(find ${contents} -maxdepth 2 -xtype f -name "*.png" | head -n1)
+          if [ -n "$iconPath" ] && [ ! -e $out/share/icons/hicolor/512x512/apps/${pname}.png ]; then
+            install -Dm444 "$iconPath" $out/share/icons/hicolor/512x512/apps/${pname}.png
           fi
         ''
         + extraInstallCommands;
