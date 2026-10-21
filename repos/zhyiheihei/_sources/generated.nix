@@ -152,6 +152,14 @@
       hash = "sha256-pl7f53lShOiCcEPXsWQNgFlKWuqzvTWzJkD6CYeT9uU=";
     };
   };
+  qingjian = {
+    pname = "qingjian";
+    version = "0.2.1";
+    src = fetchurl {
+      url = "https://github.com/qingjian-team/qingjian/releases/download/v0.2.1/qingjian-0.2.1-linux-x86_64.tar.gz";
+      hash = "sha256-UyS0mASQLJCcxz7g5AlxOxQSZ9RIKEDgCgBsGpZtIK0=";
+    };
+  };
   sublinkpro-linux-amd64 = {
     pname = "sublinkpro-linux-amd64";
     version = "1.2.21";
@@ -188,12 +196,12 @@
   };
   telegramify-markdown = {
     pname = "telegramify-markdown";
-    version = "pypi_1.4.0";
+    version = "v1.4.1";
     src = fetchFromGitHub {
       owner = "sudoskys";
       repo = "telegramify-markdown";
-      tag = "pypi_1.4.0";
-      hash = "sha256-6u4FTLZo73jF50gXLJqCg84GONZgSNMC7pnHR3WxjNA=";
+      tag = "v1.4.1";
+      hash = "sha256-6MJ4mEIcDm78vPz4t8CCpaa1+04XQQvKkKzT4qiv3+w=";
     };
   };
   torrentool = {
@@ -245,10 +253,10 @@
   };
   zcode = {
     pname = "zcode";
-    version = "3.15.3";
+    version = "3.16.2";
     src = fetchurl {
-      url = "https://cdn-zcode.z.ai/zcode/electron/releases/3.15.3/linux-x64/ZCode-3.15.3-linux-x64.deb";
-      hash = "sha256-vLNsxbZLOJkSngylIJAejumW+BwHKI2GgIvpb1bWYBU=";
+      url = "https://cdn-zcode.z.ai/zcode/electron/releases/3.16.2/linux-x64/ZCode-3.16.2-linux-x64.deb";
+      hash = "sha256-Mbp1Gc3dcy27YffB5S720mCB0bE1+pOVDbxdQAwmq7w=";
     };
   };
   zhconv-rs = {
