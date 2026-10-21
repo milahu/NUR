@@ -246,15 +246,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "95413a38dea1be822fdf649d9b34a276c9d040d0";
+    version = "2f897895c5044130ef1ec35b7b648897142a785d";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "95413a38dea1be822fdf649d9b34a276c9d040d0";
+      rev = "2f897895c5044130ef1ec35b7b648897142a785d";
       fetchSubmodules = false;
-      sha256 = "sha256-+SW2uF18jEL3cPsyvmkzG7ObpDkkqrwO5Zbe31m17/I=";
+      sha256 = "sha256-OpF0wCemSh/7s4OYfnCjFn1AgNiEHLygh3j9jltuFkg=";
     };
-    date = "2026-10-18";
+    date = "2026-10-20";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -303,17 +303,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "c5d2671e944a7f7dca4026c4b9f72bb986e9e566";
+    version = "e0ca5ed944df3ec73cd616787b0db3121116429a";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "c5d2671e944a7f7dca4026c4b9f72bb986e9e566";
+      rev = "e0ca5ed944df3ec73cd616787b0db3121116429a";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-wwOHWh2YWCtFB226w/SvqrgagOPhkABhWm0z+Y8Ds/M=";
+      sha256 = "sha256-ZYZng1DGxqWXQ3zchu8mqo6VZ3wtUrmhOMoV6psTHjM=";
     };
-    date = "2026-10-19";
+    date = "2026-10-20";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -371,16 +371,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.0-beta.10";
+    version = "v4.1.0";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.0-beta.10";
+      rev = "v4.1.0";
       fetchSubmodules = false;
-      sha256 = "sha256-0FFJb9Q9V+ot9qPZNk+3DoRths/h6GZRSX3/FNzbFMc=";
+      sha256 = "sha256-g/EQTqOf/SdQq6x5m8fKgdnXWmTlLivJvW9zOjftQpo=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-0FFJb9Q9V+ot9qPZNk+3DoRths_h6GZRSX3_FNzbFMc=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-g_EQTqOf_SdQq6x5m8fKgdnXWmTlLivJvW9zOjftQpo=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -402,21 +402,21 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "05a4e5929030df21a8448ddb24c77dbd353f974e";
+    version = "05dbbeb8886ce17c72c77b39136b9cc0594219de";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "05a4e5929030df21a8448ddb24c77dbd353f974e";
+      rev = "05dbbeb8886ce17c72c77b39136b9cc0594219de";
       fetchSubmodules = false;
-      sha256 = "sha256-cSwiHGzUWkweVJSNATsArQ6Fp3u+gX1k7YDNcFt7Oms=";
+      sha256 = "sha256-qkmqGKiylwX9cw+aK+P9pb5Y7sxAt8MyIVvyL5zYMV8=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-cSwiHGzUWkweVJSNATsArQ6Fp3u+gX1k7YDNcFt7Oms=/Cargo.lock";
+      lockFile = ./. + "/sha256-qkmqGKiylwX9cw+aK+P9pb5Y7sxAt8MyIVvyL5zYMV8=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-10-19";
+    date = "2026-10-20";
   };
   svt-av1-essential = {
     pname = "svt-av1-essential";
@@ -465,18 +465,18 @@
   };
   waywallen-bin = {
     pname = "waywallen-bin";
-    version = "0.4.4";
+    version = "0.5.0";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen/releases/download/v0.4.4/waywallen-0.4.4-x86_64.AppImage";
-      sha256 = "sha256-P1KWhxhGYFNUiYcRs8ARN/dUsFg5vWJNaacxYfuch8U=";
+      url = "https://github.com/waywallen/waywallen/releases/download/v0.5.0/waywallen-0.5.0-x86_64.AppImage";
+      sha256 = "sha256-5iFsX//HBWEisQXldFlQye53cQ4pSmO2h8Szhx4ZAIM=";
     };
   };
   waywallen-display-bin = {
     pname = "waywallen-display-bin";
-    version = "0.4.2";
+    version = "0.4.3";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.2/waywallen-kde-0.4.2-x86_64-embed.zip";
-      sha256 = "sha256-atexRwiyYG8Xo5mfTpbGNiuAigCwZX98z1X4E2cpgFA=";
+      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.3/waywallen-kde-0.4.3-x86_64-embed.zip";
+      sha256 = "sha256-3Vu5k04sD7Dq0UlgVxzT+4S2bb3jJmzvgeSrfqjlHts=";
     };
   };
   zhuque = {
