@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":1.34,
-"eval_time":2.281,
+"fetch_time":0.834,
+"eval_time":1.748,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"9acd75793273dda849ed3801a14eb72eb0367e48",
-"sha256":"13lhviwfirw8jxys4s36g079aa089g9dkbh32ms36dygwc2y8hsr",
+"rev":"c5380a813ab0fca42cccd16c02d96e4cff06a611",
+"sha256":"0ny7kdg7d16bms3ir3jp66bxvzdxp9qd0f3klz9i17scqz9pzgq6",
 "date":null
 },
-"source_storepath":"/nix/store/9v893b7hjqancp97xd2cxmf9057df964-source",
-"nixpkgs_storepath":"/nix/store/zsrn88vjmb5hmshm6fimai52blbk3nlc-source",
-"nur_combined_rev":"30538a9911f50eaf2d976a2327bce071cad4df6e",
+"source_storepath":"/nix/store/1y11xcllf6ak9j824x44y0llnfiw7x20-source",
+"nixpkgs_storepath":"/nix/store/z4xg2jq2qzz0cky14s0ai69n8nqqd5b5-source",
+"nur_combined_rev":"c4259a6ea959bef51865245142e2717f81d18f40",
 "packages":{
 "benchstat":{
 "drvPath":"/nix/store/zwk5qq5dyx2xw6zgq6f2jrsl5difk2fh-benchstat-0-unstable-2026-10-09.drv",
@@ -892,11 +892,11 @@
 "version":"1.11.0"
 },
 "cliproxyapi":{
-"drvPath":"/nix/store/ppn67wsq2a9mqxgiy31fq8fw0znjrb83-cliproxyapi-8.0.35.drv",
+"drvPath":"/nix/store/19kh9898f8sad5kc4frm0z4lv2rf5r3p-cliproxyapi-8.0.37.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.35",
+"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.37",
 "description":"Proxy server providing OpenAI-compatible APIs for CLI models",
 "homepage":"https://github.com/router-for-me/CLIProxyAPI",
 "identifiers":{
@@ -941,7 +941,7 @@
 },
 "mainProgram":"cli-proxy-api",
 "maintainers":[],
-"name":"cliproxyapi-8.0.35",
+"name":"cliproxyapi-8.0.37",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1003,14 +1003,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cliproxyapi-8.0.35",
+"name":"cliproxyapi-8.0.37",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cliproxyapi",
 "system":"x86_64-linux",
-"version":"8.0.35"
+"version":"8.0.37"
 },
 "duckdb":{
 "drvPath":"/nix/store/c8kmd65jns4k4b6v0y2mckq7vmp0vkcn-duckdb-1.5.6.drv",
@@ -1071,7 +1071,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/9v893b7hjqancp97xd2cxmf9057df964-source/packages/duckdb/default.nix",
+"file":"/nix/store/1y11xcllf6ak9j824x44y0llnfiw7x20-source/packages/duckdb/default.nix",
 "line":556
 },
 "name":"duckdb-1.5.6",
@@ -1184,7 +1184,7 @@
 "version":"1.5.6"
 },
 "fetch-hash":{
-"drvPath":"/nix/store/7ndr7l8had7c198pqvrq8zhnp0i8n7bw-fetch-hash.drv",
+"drvPath":"/nix/store/k752m18vn8pkldz5b7i2xp761b0pmnvy-fetch-hash.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1602,11 +1602,11 @@
 "version":"0.5.3"
 },
 "flake-release":{
-"drvPath":"/nix/store/qjl0rzfnyjb6344pzb5pr7k7qkchfyjv-flake-release-0.41.1.drv",
+"drvPath":"/nix/store/2z9rw3kz8n5vf7cxlrjq6a34aqvs7811-flake-release-0.41.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://trev.zip/llc/flake-release/releases/tag/v0.41.1",
+"changelog":"https://trev.zip/llc/flake-release/releases/tag/v0.41.2",
 "description":"Flake package releaser",
 "homepage":"https://trev.zip/llc/flake-release",
 "identifiers":{
@@ -1651,7 +1651,7 @@
 },
 "mainProgram":"flake-release",
 "maintainers":[],
-"name":"flake-release-0.41.1",
+"name":"flake-release-0.41.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1713,14 +1713,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"flake-release-0.41.1",
+"name":"flake-release-0.41.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"flake-release",
 "system":"x86_64-linux",
-"version":"0.41.1"
+"version":"0.41.2"
 },
 "gleescript":{
 "drvPath":"/nix/store/19c812vi63fiyzxsgbi33f022xyz9hlc-gleescript-1.5.2.drv",
@@ -3985,7 +3985,7 @@
 "version":"1.1.0"
 },
 "nix-scan":{
-"drvPath":"/nix/store/8743d49mr71s7x44n5rpaf4mx67nk6nc-nix-scan-1.1.2.drv",
+"drvPath":"/nix/store/j10vxy8hxpyhdl7sg4hpzk9wfic2g2kv-nix-scan-1.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4130,7 +4130,7 @@
 "version":"1.1.2"
 },
 "nvtop-exporter":{
-"drvPath":"/nix/store/8a0m2wi2qjhn5bzc84rqassjaczgybmp-python3.14-nvtop-exporter-0.0.11.drv",
+"drvPath":"/nix/store/r2fs8d8z4lbdxxsrli14fj451iw5a603-python3.14-nvtop-exporter-0.0.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4490,7 +4490,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9v893b7hjqancp97xd2cxmf9057df964-source/packages/paper-mono/default.nix",
+"file":"/nix/store/1y11xcllf6ak9j824x44y0llnfiw7x20-source/packages/paper-mono/default.nix",
 "line":243
 },
 "name":"paper-mono-1.000-unstable-2026-08-26",
@@ -4960,11 +4960,11 @@
 "version":"8.34"
 },
 "renovate":{
-"drvPath":"/nix/store/xnkvv4y4xm65q56x5krhpzihi87zgyha-renovate-44.171.8.drv",
+"drvPath":"/nix/store/5ryjccjgg3mhy91467h7fh8h4n30spb1-renovate-44.175.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.171.8",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.175.2",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -5009,7 +5009,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-44.171.8",
+"name":"renovate-44.175.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5047,14 +5047,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-44.171.8",
+"name":"renovate-44.175.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"44.171.8"
+"version":"44.175.2"
 },
 "req":{
 "drvPath":"/nix/store/4mgswakgaxlkpp30i70q85g7xhb82y22-erlang28.5.0.8-req-0.7.5.drv",
@@ -5801,7 +5801,7 @@
 "version":"0.3.0"
 },
 "uv-build-latest":{
-"drvPath":"/nix/store/6y7n6n3indva8s7kjhsxwqqjy3y5hnv7-python3.14-uv-build-0.13.3.drv",
+"drvPath":"/nix/store/d0666wmd0y35riy5vbxxmbwh3yn62csq-python3.14-uv-build-0.13.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5894,7 +5894,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.14-uv-build-0.13.3",
+"name":"python3.14-uv-build-0.13.4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5990,7 +5990,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-uv-build-0.13.3",
+"name":"python3.14-uv-build-0.13.4",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -5998,7 +5998,7 @@
 },
 "pname":"python3.14-uv-build",
 "system":"x86_64-linux",
-"version":"0.13.3"
+"version":"0.13.4"
 },
 "xdg-desktop-portal-hyprland":{
 "drvPath":"/nix/store/a30fc4cap3522vpjgh5x8vbrgwzp2xm0-xdg-desktop-portal-hyprland-1.4.1-unstable-2026-10-13.drv",
@@ -6199,11 +6199,11 @@
 "version":"0.1.21"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/vdjiz8kz8fppjf344pxbzhjxxx4s6i6z-yt-dlp-2026.08.19-unstable-2026-10-10.drv",
+"drvPath":"/nix/store/r89xfny5j0d0fqffphdy8ry12s3fd7ap-yt-dlp-2026.08.19-unstable-2026-10-21.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/897341241f2bfb2439fe0367f4c7c9ccd29a3828",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/fe84bef3969de96ceb39ca988425fdd3895bbfb1",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -6281,7 +6281,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.08.19-unstable-2026-10-10",
+"name":"yt-dlp-2026.08.19-unstable-2026-10-21",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -6299,7 +6299,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.08.19-unstable-2026-10-10",
+"name":"yt-dlp-2026.08.19-unstable-2026-10-21",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -6307,7 +6307,7 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.08.19-unstable-2026-10-10"
+"version":"2026.08.19-unstable-2026-10-21"
 },
 "yt-dlp-ejs":{
 "drvPath":"/nix/store/gariixbvzykxnvmyzj3knaz8b6amz3bb-python3.14-yt-dlp-ejs-0.8.0-unstable-2026-06-20.drv",
