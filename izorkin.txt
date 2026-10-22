@@ -1,14 +1,9 @@
 error:
-… while querying the derivation named 'spidermonkey-1.8.5'
+… while querying the derivation named 'curl-8.14.1'
 
-… <borked>
-
-error: attribute 'maaintainers' missing
-
-at ./pkgs/development/spidermonkey/1.8.5.nix:77:24:
-
-    76|     # TODO: MPL/GPL/LGPL tri-license.
-    77|     maintainers = with lib.maaintainers; [ goibhniu ];
-      |                        ^
-    78|     platforms = lib.platforms.linux;
-Did you mean maintainers?
+error: undefined variable 'lovek323'
+at ./pkgs/tools/curl/default.nix:214:43:
+   213|     license = lib.licenses.curl;
+   214|     maintainers = with lib.maintainers; [ lovek323 ];
+      |                                           ^
+   215|     platforms = lib.platforms.all;
