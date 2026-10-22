@@ -14,16 +14,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cocoa-way";
-  version = "2.1.0";
+  version = "2.1.2";
 
   src = fetchFromGitHub {
     owner = "J-x-Z";
     repo = "cocoa-way";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-dUHI5X9S0RVAReenzNWT+zaVyCRgtqWAAOqsH0Tun60=";
+    hash = "sha256-WJ8B79ED9+v3HN+XKQaknQiKLWWwq0YELfarXUmOatw=";
   };
 
-  cargoHash = "sha256-jCtkQ+2C1+OquDiUOjpDM6lOnb+t0DJ3HPHye9HFefI=";
+  cargoHash = "sha256-FVdbKeIUqSSqDNiwzIB+ME+6nSg5LLOeOxRFY4ejGbE=";
 
   nativeBuildInputs = [
     pkg-config
@@ -34,6 +34,19 @@ rustPlatform.buildRustPackage (finalAttrs: {
     libxkbcommon
     pixman
   ];
+
+  preCheck = ''
+    # AppKit button frames include decoration outside their Auto Layout alignment rects.
+    substituteInPlace tests/native_panel_layout.rs \
+      --replace-fail 'convertRect: button.bounds()' \
+        'convertRect: button.alignmentRectForFrame(button.bounds())'
+
+    # Fixed /tmp fixtures collide between Darwin build users.
+    # Keep /tmp/cw- short for the Unix socket path-length regression tests.
+    substituteInPlace src/container_sessions.rs \
+      --replace-fail '/tmp/' "$TMPDIR/" \
+      --replace-fail "$TMPDIR/cw-" '/tmp/cw-'
+  '';
 
   postInstall = ''
     install -Dm755 run_waypipe.sh $out/bin/run_waypipe.sh
