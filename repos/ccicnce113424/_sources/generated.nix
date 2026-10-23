@@ -215,14 +215,6 @@
       "pubspec.lock" = ./. + "/sha256-FB7HUpDNjVcwAx65hjOpZUT5hHDhnLEaeUTm8Xufwes=/pubspec.lock";
     };
   };
-  lxgw-wenkai-gb = {
-    pname = "lxgw-wenkai-gb";
-    version = "v1.530";
-    src = fetchurl {
-      url = "https://github.com/lxgw/LxgwWenkaiGB/releases/download/v1.530/lxgw-wenkai-gb-v1.530.tar.gz";
-      sha256 = "sha256-QsEefftGIYZkxAUI0/v+IYV4KZKv82Br9zk+OTzHrRY=";
-    };
-  };
   lyrica = {
     pname = "lyrica";
     version = "464089f575956cbac82e7605bf08f41c1936a279";
@@ -270,22 +262,22 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "e5b43f4491e6bd9806029860a1fe6d905b702dd7";
+    version = "5dd0332cd07e006dcdfa55d05bc011775e2ca6d1";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "e5b43f4491e6bd9806029860a1fe6d905b702dd7";
+      rev = "5dd0332cd07e006dcdfa55d05bc011775e2ca6d1";
       fetchSubmodules = false;
-      sha256 = "sha256-P7t+jROTvemAyhRob7Dc2V09HKMYShyF6Czyc6X/1XI=";
+      sha256 = "sha256-6E1ObeChsECqtN7sCd9d4MaS/8TuiTK6LPvlgIjI+w0=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-P7t+jROTvemAyhRob7Dc2V09HKMYShyF6Czyc6X_1XI=/Cargo.lock";
+      lockFile = ./. + "/sha256-6E1ObeChsECqtN7sCd9d4MaS_8TuiTK6LPvlgIjI+w0=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-10-16";
+    date = "2026-10-22";
   };
   piliplus = {
     pname = "piliplus";
@@ -303,17 +295,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "b359cb0a198795cf9602f963c41df8bc00849944";
+    version = "110e1a42cefa0c144cb1905bf18d8ba2b0eaa069";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "b359cb0a198795cf9602f963c41df8bc00849944";
+      rev = "110e1a42cefa0c144cb1905bf18d8ba2b0eaa069";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-9cKNicTwAEWyVTQx0BE6EgaKvd66y+5SgKwclsLYfYo=";
+      sha256 = "sha256-lN967GqIEWCaawEwryEClJCj13UVgHoATKFOMnAO2OI=";
     };
-    date = "2026-10-21";
+    date = "2026-10-22";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -477,14 +469,6 @@
     src = fetchurl {
       url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.3/waywallen-kde-0.4.3-x86_64-embed.zip";
       sha256 = "sha256-3Vu5k04sD7Dq0UlgVxzT+4S2bb3jJmzvgeSrfqjlHts=";
-    };
-  };
-  zhuque = {
-    pname = "zhuque";
-    version = "v0.212";
-    src = fetchurl {
-      url = "https://github.com/TrionesType/zhuque/releases/download/v0.212/ZhuqueFangsong-v0.212.zip";
-      sha256 = "sha256-u4tmGnZD0ilqctnRBTCgCUlBnE5Sf7YXg/c8K6GowGI=";
     };
   };
 }
