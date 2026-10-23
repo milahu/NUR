@@ -1,13 +1,16 @@
 {pkgs ? import <nixpkgs> {}}: let
   inherit (pkgs) lib;
 
-  packages = lib.packagesFromDirectoryRecursive {
-    inherit (pkgs) newScope;
+  polyfill.lib = lib.recursiveUpdate pkgs.lib {
+    # Missing in nixos-26.05
+    maintainers.examosa.github = "examosa";
+  };
 
-    callPackage = lib.callPackageWith (lib.recursiveUpdate pkgs {
-      # Missing in nixos-26.05
-      lib.maintainers.examosa.github = "examosa";
-    });
+  packages = lib.packagesFromDirectoryRecursive {
+    callPackage = lib.callPackageWith (pkgs // polyfill);
+
+    newScope = extra:
+      pkgs.newScope (extra // polyfill);
 
     directory = ./packages;
   };
