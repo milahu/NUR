@@ -81,7 +81,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>kazv</code></strong> — Convergent qml/kirigami matrix client based on libkazv</summary>
 
-- **Version:** `0.7.0-unstable-2026-10-15`
+- **Version:** `0.7.0-unstable-2026-10-22`
 - **License:** AGPL-3.0-or-later
 - **Homepage:** [https://lily-is.land/kazv/kazv](https://lily-is.land/kazv/kazv)
 - **Build:** `nix build github:XYenon/nur-packages#kazv`
@@ -91,7 +91,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>lazyrsync</code></strong> — Terminal UI for rsync with profiles, dry-run preview, and live progress</summary>
 
-- **Version:** `0.3.0`
+- **Version:** `0.4.0`
 - **License:** MIT
 - **Homepage:** [https://github.com/westpoint-io/lazyrsync](https://github.com/westpoint-io/lazyrsync)
 - **Build:** `nix build github:XYenon/nur-packages#lazyrsync`
@@ -141,7 +141,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>magpie</code></strong> — Manage models, providers, and accounts for AI coding agents in one place</summary>
 
-- **Version:** `0.1.1318`
+- **Version:** `0.1.1327`
 - **License:** MIT
 - **Homepage:** [https://github.com/yetone/magpie](https://github.com/yetone/magpie)
 - **Build:** `nix build github:XYenon/nur-packages#magpie`
@@ -151,7 +151,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>nginx</code></strong> — Reverse proxy and lightweight webserver</summary>
 
-- **Version:** `1.30.5`
+- **Version:** `1.30.6`
 - **License:** BSD-2-Clause
 - **Homepage:** [https://nginx.org](https://nginx.org)
 - **Build:** `nix build github:XYenon/nur-packages#nginx`
@@ -161,7 +161,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>nginxMainline</code></strong> — Reverse proxy and lightweight webserver</summary>
 
-- **Version:** `1.31.6`
+- **Version:** `1.31.7`
 - **License:** BSD-2-Clause
 - **Homepage:** [https://nginx.org](https://nginx.org)
 - **Build:** `nix build github:XYenon/nur-packages#nginxMainline`
@@ -171,7 +171,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>nh-unwrapped</code></strong> — Yet another nix cli helper</summary>
 
-- **Version:** `4.4.2-unstable-2026-10-10`
+- **Version:** `4.4.2-unstable-2026-10-22`
 - **License:** EUPL-1.2
 - **Homepage:** [https://github.com/XYenon/nh](https://github.com/XYenon/nh)
 - **Build:** `nix build github:XYenon/nur-packages#nh-unwrapped`
@@ -181,7 +181,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>nix-package-versions</code></strong> — List package versions across Nixpkgs revisions</summary>
 
-- **Version:** `0-unstable-2026-09-23`
+- **Version:** `0-unstable-2026-10-22`
 - **License:** BSD-3-Clause
 - **Homepage:** [https://github.com/lazamar/nix-package-versions](https://github.com/lazamar/nix-package-versions)
 - **Build:** `nix build github:XYenon/nur-packages#nix-package-versions`
