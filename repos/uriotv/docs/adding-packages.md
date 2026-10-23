@@ -96,13 +96,20 @@ successful no-op checks, not the number of changed files.
 
 Package updates never silently advance `flake.lock`. Use `nix flake update`
 as a separate deliberate maintenance change and validate it before committing.
+The independently defined CachyOS packages keep source/config/patch metadata in
+`pkgs/<kernel>/source.json`; their version-only updater reads CachyOS directly.
+Their shared recipe and deliberately separate nixpkgs pin live in `lib/cachyos/`.
+Changing that toolchain pin is also a manual maintenance action, never a daily
+updater side effect. See [the kernel recipe notes](../lib/cachyos/README.md).
 
 ## Licenses and public cache
 
 `lib/ci-policy.nix` separates **building** from **redistribution**:
 
 - Every supported, non-broken package is built, even if unfree or
-  `preferLocalBuild = true`.
+  `preferLocalBuild = true`. Exception: `meta.ciBuild = false` (currently the
+  CachyOS latest v3 and BORE v3 kernels) is built out of band by `kernel.yml`, on the
+  self-hosted builder; `build.yml` neither builds nor publishes it.
 - For each `meta.license` entry, an explicit `redistributable` boolean wins;
   otherwise `free == true` permits publication. Every entry must allow it.
 - Empty/missing metadata, unknown strings, nonfree/nonredistributable entries
@@ -119,7 +126,7 @@ closures, so dependencies also must be redistributable. Never mislabel a package
 or dependency merely to make it upload. NMSSaveEditor currently stays unfree and
 is built for validation but never explicitly sent to the public cache.
 
-Publication is explicit and only from a successful `main` run, after offline
+Publication is automatic, but only from a successful `main` run, after offline
 tests and all package builds pass. The helper cross-checks built outputs against
 the manifest and verifies public narinfo `StorePath` values. PRs/updaters have no
 Cachix write token. Public cache misses can still lead consumers to build locally;
@@ -136,6 +143,7 @@ python3 -B tests/registry-eval.py
 
 # Evaluation with the locked nixpkgs; may fetch evaluation inputs, no compilation.
 nix eval --json --no-write-lock-file .#ci.x86_64-linux.policyTests
+nix eval --json --no-write-lock-file .#ci.x86_64-linux.kernelTests
 nix eval --json --no-write-lock-file .#ci.x86_64-linux.manifest
 nix flake check --no-build --no-write-lock-file
 

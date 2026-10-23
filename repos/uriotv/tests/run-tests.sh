@@ -166,6 +166,10 @@ main() {
     python3 -B "$SCRIPT_DIR/storyforge-update.py"
     python3 -B "$SCRIPT_DIR/storyforge-compatibility.py"
     python3 -B "$SCRIPT_DIR/nur-notification.py"
+    python3 -B "$SCRIPT_DIR/cachyos-kernel-update.py"
+    python3 -B "$SCRIPT_DIR/kernel-publication.py"
+    python3 -B "$SCRIPT_DIR/attic-push.py"
+    python3 -B "$SCRIPT_DIR/publication-cache.py"
 
     echo "======================================"
     echo "Test Summary"

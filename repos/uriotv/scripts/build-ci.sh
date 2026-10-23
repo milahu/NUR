@@ -9,7 +9,12 @@ outfile=${CI_BUILT_OUTPUTS_FILE:-${RUNNER_TEMP:-/tmp}/ci-built-outputs.txt}
 publish=${CI_PUBLISH_ONLY:-false}
 
 if [[ "$publish" == true ]]; then
-  if [[ "${GITHUB_REF:-}" != refs/heads/main || ! "${GITHUB_EVENT_NAME:-}" =~ ^(push|workflow_dispatch|schedule)$ ]]; then
+  trusted_event=false
+  if [[ "${GITHUB_EVENT_NAME:-}" =~ ^(push|workflow_dispatch|schedule)$ ]] ||
+     [[ "${GITHUB_EVENT_NAME:-}" == workflow_run && "${CI_TRUSTED_UPDATE_COMPLETION:-false}" == true ]]; then
+    trusted_event=true
+  fi
+  if [[ "${GITHUB_REF:-}" != refs/heads/main || "$trusted_event" != true ]]; then
     echo 'Read-only CI: no cache publication for this event/ref'
     exit 0
   fi
@@ -106,6 +111,12 @@ assert built == expected, "Incomplete or unexpected built outputs; refusing publ
 paths = {path for p in rows if p["cacheable"] for path in p["outputs"]}
 print("\n".join(sorted(paths)), end="\n" if paths else "")
 PY
+# Export the verified list for independent follow-up steps (private attic mirror).
+# Written before cachix runs, so a cachix failure does not hide what was verified.
+if [[ -n "${CI_PUBLISH_LIST_FILE:-}" ]]; then
+  cp "$work/cacheable" "$CI_PUBLISH_LIST_FILE"
+fi
+
 if [[ -s "$work/cacheable" ]]; then
   cachix push uriotv < "$work/cacheable"
   while IFS= read -r path; do
