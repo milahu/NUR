@@ -54,16 +54,16 @@
   };
   dorion-git = {
     pname = "dorion-git";
-    version = "9b664d7785ecfcd7be40c52c8be8255978100274";
+    version = "8fb41fc4d1616d334ff4629f5ef4e33b01d894f8";
     src = fetchFromGitHub {
       owner = "SpikeHD";
       repo = "Dorion";
-      rev = "9b664d7785ecfcd7be40c52c8be8255978100274";
+      rev = "8fb41fc4d1616d334ff4629f5ef4e33b01d894f8";
       fetchSubmodules = false;
-      sha256 = "sha256-TwHqno17pOx2COMZfp2D2f8OdAJ9uRdCF38hsyumeaw=";
+      sha256 = "sha256-lQI7+ElASc39Ri8DqyuD2L9cv9xWeCsVxPo99O3Wn6Q=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-TwHqno17pOx2COMZfp2D2f8OdAJ9uRdCF38hsyumeaw=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-lQI7+ElASc39Ri8DqyuD2L9cv9xWeCsVxPo99O3Wn6Q=/src-tauri/Cargo.lock";
       outputHashes = {
         "simple-websockets-0.1.6" = "sha256-iySzwntHw5Wf5HwKMBYL8mrMl7kjGZrZonL7/zrkeCo=";
         "livesplit-hotkey-0.8.0" = "sha256-iYAzlkYMEN2v4IhsnljWpUZkJO5CN1vcqz5thAJvbXc=";
@@ -72,7 +72,7 @@
         "rsrpc-0.29.0" = "sha256-7zS833bmy6JUjk4PqCENz6ikoTOtelcymXMi2pxD3V0=";
       };
     };
-    date = "2026-10-17";
+    date = "2026-10-22";
   };
   dxvk-gplall = {
     pname = "dxvk-gplall";
@@ -262,22 +262,22 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "5dd0332cd07e006dcdfa55d05bc011775e2ca6d1";
+    version = "1aeeab88cd58ba386cc26ecc485237ac5495fee4";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "5dd0332cd07e006dcdfa55d05bc011775e2ca6d1";
+      rev = "1aeeab88cd58ba386cc26ecc485237ac5495fee4";
       fetchSubmodules = false;
-      sha256 = "sha256-6E1ObeChsECqtN7sCd9d4MaS/8TuiTK6LPvlgIjI+w0=";
+      sha256 = "sha256-bvJP4XbJDtg/JN8z2pRYrpWT6iSxSYB6ndaLbFWUUA0=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-6E1ObeChsECqtN7sCd9d4MaS_8TuiTK6LPvlgIjI+w0=/Cargo.lock";
+      lockFile = ./. + "/sha256-bvJP4XbJDtg_JN8z2pRYrpWT6iSxSYB6ndaLbFWUUA0=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-10-22";
+    date = "2026-10-23";
   };
   piliplus = {
     pname = "piliplus";
@@ -295,17 +295,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "110e1a42cefa0c144cb1905bf18d8ba2b0eaa069";
+    version = "73974598fafeea9491f0f36a31bdaef2352dbd4f";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "110e1a42cefa0c144cb1905bf18d8ba2b0eaa069";
+      rev = "73974598fafeea9491f0f36a31bdaef2352dbd4f";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-lN967GqIEWCaawEwryEClJCj13UVgHoATKFOMnAO2OI=";
+      sha256 = "sha256-T95p5YownZZJePEQGoE9eoQD6CiQAvSzXyXupzqAaas=";
     };
-    date = "2026-10-22";
+    date = "2026-10-23";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
