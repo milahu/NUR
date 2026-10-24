@@ -1,21 +1,21 @@
 {
   fetchFromGitHub,
   lib,
-  buildGoModule,
+  buildGo127Module,
   nix-update-script,
 }:
-buildGoModule (finalAttrs: {
+buildGo127Module (finalAttrs: {
   pname = "cliproxyapi";
-  version = "8.0.39";
+  version = "8.0.41";
   src = fetchFromGitHub {
     owner = "router-for-me";
     repo = "CLIProxyAPI";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-1SFI4jewXJq0bI0Z7l5h9rWFvjZOzVFfAPiUThnOShg=";
+    hash = "sha256-arwHtMDM3OqPGnZmef2qsDqqKjvhJikG/5JLFZ6CCF8=";
   };
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-ju7dRQIDvz/oHP5Y6y0hklEBNPzwrtWqSQ7cr51jwTY=";
+  vendorHash = "sha256-iIzT2vOFKgl1qhwYMjq6HPaw3FUiw+mlPMuohf3OgL4=";
 
   proxyVendor = true;
 
