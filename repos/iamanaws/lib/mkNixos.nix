@@ -1,7 +1,10 @@
-{ inputs, outputs }:
 {
-  name,
-  path,
+  inputs,
+  outputs,
+  userKeys,
+}:
+{
+  host,
   extraModules ? [ ],
   specialArgs ? { },
 }:
@@ -10,12 +13,14 @@ let
   hostUtils = import ./hostUtils.nix { inherit lib; };
   nixpkgsConfig = import ./nixpkgsConfig.nix { inherit lib; };
 
-  loadedDeviceConfig = hostUtils.loadDeviceConfig path;
-  deviceConfig = loadedDeviceConfig // {
-    hostname = loadedDeviceConfig.hostname or name;
-  };
+  inherit (host)
+    name
+    path
+    device
+    users
+    hostConfig
+    ;
   homeUsersRoot = inputs.self + "/home/users";
-  outputsForHM = hostUtils.mkOutputsForHM { inherit outputs inputs; };
   rawNixosModules = hostUtils.mkModuleTree (inputs.self + /nixos);
   nixosModules =
     rawNixosModules
@@ -26,39 +31,11 @@ let
   hasHardware = builtins.pathExists (path + "/hardware.nix");
   hasDisko = builtins.pathExists (path + "/disko.nix");
 
-  profileModulePath =
-    let
-      profile = deviceConfig.profile or null;
-      invalidPath = lib.any (
-        part:
-        lib.elem part [
-          ""
-          "."
-          ".."
-        ]
-      ) (lib.splitString "/" profile);
-      base = ../nixos/profiles;
-      directDir = if profile == null then null else base + "/${profile}";
-      directFile = if profile == null then null else base + "/${profile}.nix";
-    in
-    deviceConfig.profileModulePath or (
-      if profile == null then
-        null
-      else if invalidPath then
-        throw "Host '${name}': profile must be a relative module name, optionally qualified with a variant."
-      else if builtins.pathExists directFile then
-        directFile
-      else if builtins.pathExists (directDir + "/default.nix") then
-        directDir
-      else
-        throw "Host '${name}': no profile module found for '${profile}'. Expected ${toString directFile} or ${toString directDir}/default.nix."
-    );
-
-  userSpecs = map hostUtils.normalizeUser (deviceConfig.users or [ ]);
-  hostConfig = {
-    device = deviceConfig;
-  }
-  // hostUtils.mkHostContext deviceConfig;
+  profileModulePath = import ./profileModule.nix {
+    inherit lib name;
+    profilesDir = ../nixos/profiles;
+    inherit (device) profile;
+  };
 
   hmModuleFor =
     user: mode:
@@ -76,9 +53,9 @@ let
         ../nixos/common
       ];
 
-      device = deviceConfig;
+      inherit device;
       nixpkgs.config = nixpkgsConfig;
-      nixpkgs.hostPlatform = lib.mkDefault (deviceConfig.system or "x86_64-linux");
+      nixpkgs.hostPlatform = lib.mkDefault device.system;
 
       users.users = lib.mkMerge (
         map (u: {
@@ -87,7 +64,7 @@ let
             extraGroups = lib.mkDefault u.groups;
             packages = lib.mkDefault u.packages;
           };
-        }) userSpecs
+        }) users
       );
 
       home-manager = {
@@ -99,20 +76,14 @@ let
           }
         ];
         extraSpecialArgs = {
-          inherit inputs;
-          outputs = outputsForHM;
+          inherit inputs outputs;
           flakeRoot = inputs.self;
           inherit hostConfig;
         };
         users = lib.mkMerge (
-          lib.filter (x: x != { }) (
-            map (
-              u:
-              lib.optionalAttrs (u.homeManager.enable or true) {
-                ${u.name} = lib.mkDefault (import (hmModuleFor u.name (u.homeManager.module or "auto")));
-              }
-            ) userSpecs
-          )
+          map (u: {
+            ${u.name} = lib.mkDefault (import (hmModuleFor u.name u.homeManager.module));
+          }) (lib.filter (u: u.homeManager.enable) users)
         );
       };
     };
@@ -122,15 +93,16 @@ let
   ]
   ++ lib.optional hasHardware (path + "/hardware.nix")
   ++ lib.optional hasDisko (path + "/disko.nix")
-  ++ lib.optional (profileModulePath != null) profileModulePath
-  ++ [ path ]
+  ++ [
+    profileModulePath
+    path
+  ]
   ++ extraModules;
 in
 inputs.nixpkgs.lib.nixosSystem {
   inherit modules;
   specialArgs = {
-    inherit inputs;
-    outputs = outputsForHM;
+    inherit inputs outputs userKeys;
     flakeRoot = inputs.self;
     nixosRoot = inputs.self + /nixos;
     homeRoot = inputs.self + /home;

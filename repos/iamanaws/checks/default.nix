@@ -7,9 +7,24 @@ let
   inherit (pkgs) lib;
 in
 {
+  profiles =
+    assert import ./profiles.nix { inherit lib; };
+    pkgs.runCommand "profile-module-checks" { } ''
+      touch "$out"
+    '';
+  nix-store-policy =
+    assert import ./nix-store-policy.nix { inherit lib; };
+    pkgs.runCommand "nix-store-policy-checks" { } ''
+      touch "$out"
+    '';
   device-schema =
     assert import ./device-schema.nix { inherit lib hostRegistry; };
     pkgs.runCommand "device-schema-checks" { } ''
+      touch "$out"
+    '';
+  host-builders =
+    assert import ./host-builders.nix { inherit lib; };
+    pkgs.runCommand "host-builder-checks" { } ''
       touch "$out"
     '';
   home-manager =
@@ -18,8 +33,23 @@ in
       touch "$out"
     '';
 }
+// import ./integration.nix { inherit pkgs inputs hostRegistry; }
 // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
-  dmenu-wpctl = pkgs.callPackage ../pkgs/dmenu-wpctl/package.nix { };
+  virtual-machines =
+    assert import ./virtual-machines.nix { inherit inputs; };
+    pkgs.runCommand "virtual-machine-config-checks" { } ''
+      touch "$out"
+    '';
+  user-secrets =
+    let
+      config = inputs.self.nixosConfigurations.daedalus.config;
+    in
+    assert config.sops.secrets.passwd.neededForUsers;
+    assert config.users.users.iamanaws.hashedPasswordFile == config.sops.secrets.passwd.path;
+    assert lib.elem "setupSecretsForUsers" config.system.activationScripts.users.deps;
+    pkgs.runCommand "user-secret-order-checks" { } ''
+      touch "$out"
+    '';
   dunst-scripts =
     pkgs.runCommand "dunst-script-checks"
       {

@@ -1,11 +1,10 @@
 {
+  lib,
+  pkgs,
   outputs,
   ...
 }:
 
-let
-  flakeOverlays = if outputs ? overlays then outputs.overlays else import ../../../../overlays;
-in
 {
   imports = [
     ../../config/shell
@@ -24,7 +23,9 @@ in
     homeDirectory = "/home/iamanaws";
   };
 
-  home.packages = [ ];
+  home.packages = [ pkgs.pcmanfm ];
+
+  wayland.windowManager.hyprland.settings.codeEditor._var = lib.mkForce "code";
 
   home.sessionVariables = {
     EDITOR = "vim";
@@ -34,8 +35,8 @@ in
 
   nixpkgs = {
     overlays = [
-      flakeOverlays.additions
-      flakeOverlays.modifications
+      outputs.overlays.additions
+      outputs.overlays.modifications
     ];
   };
 
