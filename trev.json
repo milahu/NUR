@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.595,
-"eval_time":2.652,
+"fetch_time":1.259,
+"eval_time":2.012,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"14432136e33ffd15557b20dfd6b1d910ce73e5da",
-"sha256":"1ik1jhcb2i1k6kgxfrnabgmkxjg7zy992d29lax5njyndpvcm756",
+"rev":"eb09cc0015d30a50cc015feb00f53c34ec15260d",
+"sha256":"0s50nca8k2xx1m52v6j7acl47mmmcz7lkwsb7y5g6nwzkpx9d44h",
 "date":null
 },
-"source_storepath":"/nix/store/6dsbbscv8nvf89dy7kzbdbq4xqgfrcav-source",
+"source_storepath":"/nix/store/s31bgl0hsbifkbqzz1bmfm8hj059hk65-source",
 "nixpkgs_storepath":"/nix/store/z4xg2jq2qzz0cky14s0ai69n8nqqd5b5-source",
-"nur_combined_rev":"18f2ace11c8f17ddda02842d95ae46a90bfafdd0",
+"nur_combined_rev":"573e6b1c36396978bb3328ede425bf8287721cc0",
 "packages":{
 "benchstat":{
 "drvPath":"/nix/store/zwk5qq5dyx2xw6zgq6f2jrsl5difk2fh-benchstat-0-unstable-2026-10-09.drv",
@@ -1071,7 +1071,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/6dsbbscv8nvf89dy7kzbdbq4xqgfrcav-source/packages/duckdb/default.nix",
+"file":"/nix/store/s31bgl0hsbifkbqzz1bmfm8hj059hk65-source/packages/duckdb/default.nix",
 "line":556
 },
 "name":"duckdb-1.5.6",
@@ -4490,7 +4490,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/6dsbbscv8nvf89dy7kzbdbq4xqgfrcav-source/packages/paper-mono/default.nix",
+"file":"/nix/store/s31bgl0hsbifkbqzz1bmfm8hj059hk65-source/packages/paper-mono/default.nix",
 "line":243
 },
 "name":"paper-mono-1.000-unstable-2026-08-26",
@@ -4883,11 +4883,11 @@
 "version":"0.5.0"
 },
 "qsvenc":{
-"drvPath":"/nix/store/h3wrpz4g90vql4ix64v6qp5aaysrmdid-qsvenc-8.34.drv",
+"drvPath":"/nix/store/kz2xcsnw7n84b121dx1kd4nqy3045cby-qsvenc-8.35.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.34",
+"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.35",
 "description":"QSV high-speed encoding performance experiment tool",
 "homepage":"https://github.com/rigaya/QSVEnc",
 "identifiers":{
@@ -4932,7 +4932,7 @@
 },
 "mainProgram":"qsvencc",
 "maintainers":[],
-"name":"qsvenc-8.34",
+"name":"qsvenc-8.35",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -4950,21 +4950,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qsvenc-8.34",
+"name":"qsvenc-8.35",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsvenc",
 "system":"x86_64-linux",
-"version":"8.34"
+"version":"8.35"
 },
 "renovate":{
-"drvPath":"/nix/store/djqpcn7is4x3y14r654mhi3a03vx1laa-renovate-44.177.0.drv",
+"drvPath":"/nix/store/0n4rbrxc1kbakwrac1vc12kfd90jll7p-renovate-44.181.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.177.0",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.181.0",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -5009,7 +5009,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-44.177.0",
+"name":"renovate-44.181.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5047,14 +5047,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-44.177.0",
+"name":"renovate-44.181.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"44.177.0"
+"version":"44.181.0"
 },
 "req":{
 "drvPath":"/nix/store/4mgswakgaxlkpp30i70q85g7xhb82y22-erlang28.5.0.8-req-0.7.5.drv",
@@ -6199,11 +6199,11 @@
 "version":"0.1.21"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/l9c807gl36hq7rz4504wfv9zbp5wvc04-yt-dlp-2026.10.21-unstable-2026-10-21.drv",
+"drvPath":"/nix/store/7aj0inj4vfqlkz7995l6ahn7sy9jjy0y-yt-dlp-2026.10.21-unstable-2026-10-23.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/43a45ae37419b2a90db710c9fd06cd250ef524d3",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/9b58cb33d0cd3e823c8d8732f6adce8faa1f37e3",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -6281,7 +6281,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.10.21-unstable-2026-10-21",
+"name":"yt-dlp-2026.10.21-unstable-2026-10-23",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -6299,7 +6299,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.10.21-unstable-2026-10-21",
+"name":"yt-dlp-2026.10.21-unstable-2026-10-23",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -6307,7 +6307,7 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.10.21-unstable-2026-10-21"
+"version":"2026.10.21-unstable-2026-10-23"
 },
 "yt-dlp-ejs":{
 "drvPath":"/nix/store/gariixbvzykxnvmyzj3knaz8b6amz3bb-python3.14-yt-dlp-ejs-0.8.0-unstable-2026-06-20.drv",
