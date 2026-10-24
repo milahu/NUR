@@ -1,3 +1,14 @@
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/x71c9/tempesta/HEAD/.github/logo-dark.svg">
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/x71c9/tempesta/HEAD/.github/logo-light.svg">
+    <img alt="Tempesta logo" width="160"
+      src="https://raw.githubusercontent.com/x71c9/tempesta/HEAD/.github/logo-light.svg">
+  </picture>
+</div>
+
 # Tempesta
 
 The fastest and lightest bookmark manager CLI written in Rust.\
@@ -398,3 +409,8 @@ If you are using `rofi` you can pipe the result of `tempesta list` to it:
 tempesta list | rofi -dmenu -i -p "tempesta" | xargs tempesta open
 ```
 
+---
+
+### Credits
+
+Logo credits [https://www.jacopotripodi.com/](https://www.jacopotripodi.com/)
