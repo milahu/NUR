@@ -14,53 +14,53 @@ error:
      8|     deepseek-harness = pkgs.callPackage ./pkgs/deepseek-harness { };
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/customisation.nix:308:19:
-   307|     in
-   308|     autoArgs: fn: args:
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
       |                   ^
-   309|     let
+   313|     let
 
 … while calling a functor (an attribute set with a '__functor' attribute)
-  at <nixpkgs> + /lib/customisation.nix:323:7:
-   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
-   323|       makeOverridable f allArgs
+  at <nixpkgs> + /lib/customisation.nix:327:7:
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   327|       makeOverridable f allArgs
       |       ^
-   324|     else
+   328|     else
 
 … from call site
-  at <nixpkgs> + /lib/trivial.nix:1183:7:
-  1182|     g: {
-  1183|       __functor = self: g;
-      |       ^
-  1184|       __functionArgs = fArgs;
+  at <nixpkgs> + /lib/customisation.nix:157:9:
+   156|       mirrorArgs = g: {
+   157|         __functor = self: g;
+      |         ^
+   158|         __functionArgs = fArgs;
 
 … while calling 'f''
-  at <nixpkgs> + /lib/customisation.nix:159:9:
-   158|       f' =
-   159|         origArgs:
+  at <nixpkgs> + /lib/customisation.nix:162:9:
+   161|       f' =
+   162|         origArgs:
       |         ^
-   160|         let
+   163|         let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/customisation.nix:175:9:
-   174|         in
-   175|         if isAttrs result then
+  at <nixpkgs> + /lib/customisation.nix:178:9:
+   177|         in
+   178|         if isAttrs result then
       |         ^
-   176|           result
+   179|           result
 
 … while calling the 'isAttrs' builtin
-  at <nixpkgs> + /lib/customisation.nix:175:12:
-   174|         in
-   175|         if isAttrs result then
+  at <nixpkgs> + /lib/customisation.nix:178:12:
+   177|         in
+   178|         if isAttrs result then
       |            ^
-   176|           result
+   179|           result
 
 … from call site
-  at <nixpkgs> + /lib/customisation.nix:161:20:
-   160|         let
-   161|           result = f origArgs;
+  at <nixpkgs> + /lib/customisation.nix:164:20:
+   163|         let
+   164|           result = f origArgs;
       |                    ^
-   162|
+   165|
 
 … while calling anonymous lambda
   at ./pkgs/delta/default.nix:1:1:

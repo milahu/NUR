@@ -1,10 +1,10 @@
 error:
 … in the condition of the assert statement
-  at <nixpkgs> + /lib/customisation.nix:417:13:
-   416|           drvPath =
-   417|             assert condition;
+  at <nixpkgs> + /lib/customisation.nix:421:13:
+   420|           drvPath =
+   421|             assert condition;
       |             ^
-   418|             drv.drvPath;
+   422|             drv.drvPath;
 
 … from call site
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:

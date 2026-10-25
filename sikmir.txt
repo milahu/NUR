@@ -1,0 +1,78 @@
+error:
+… while evaluating attribute 'nativeBuildInputs' of derivation 'embox-aarch64-qemu-0.7.3'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:719:11:
+   718|           depsBuildBuild = buildBuildOutputs;
+   719|           nativeBuildInputs = buildHostOutputs;
+      |           ^
+   720|           depsBuildTarget = buildTargetOutputs;
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:563:13:
+   562|           else
+   563|             map (drv: getDev drv.__spliced.buildHost or drv) (
+      |             ^
+   564|               checkDependencyList "nativeBuildInputs" nativeBuildInputs'
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:564:15:
+   563|             map (drv: getDev drv.__spliced.buildHost or drv) (
+   564|               checkDependencyList "nativeBuildInputs" nativeBuildInputs'
+      |               ^
+   565|             );
+
+… while calling 'checkDependencyList''
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:490:26:
+   489|       checkDependencyList' =
+   490|         positions: name: deps:
+      |                          ^
+   491|         if all isSingularDependency deps then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:491:9:
+   490|         positions: name: deps:
+   491|         if all isSingularDependency deps then
+      |         ^
+   492|           deps
+
+… while calling the 'all' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:491:12:
+   490|         positions: name: deps:
+   491|         if all isSingularDependency deps then
+      |            ^
+   492|           deps
+
+… while calling 'isSingularDependency'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:136:26:
+   135|
+   136|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                          ^
+   137|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:136:79:
+   135|
+   136|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                                                                               ^
+   137|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:136:63:
+   135|
+   136|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                                                               ^
+   137|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:136:43:
+   135|
+   136|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                                           ^
+   137|
+
+error: attribute 'stdenv'' missing
+at ./pkgs/by-name/em/embox/package.nix:65:54:
+    64|     ]
+    65|     ++ lib.optional (arch != "x86" && arch != "arm") pkgsCross."${arch}-embedded".stdenv'.cc
+      |                                                      ^
+    66|     ++ lib.optional (arch == "arm") gcc-arm-embedded;
+Did you mean stdenv?
