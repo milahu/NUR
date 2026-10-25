@@ -8,13 +8,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "rfmoz-grafana-dashboards";
-  version = "0-unstable-2026-10-23";
+  version = "0-unstable-2026-10-24";
 
   src = fetchFromGitHub {
     owner = "rfmoz";
     repo = "grafana-dashboards";
-    rev = "a7bbd2228f16c5eeedc371253f80f829fb510b53";
-    hash = "sha256-38BQTZFbNISw+i33H0D3VtTBjEuRUG1wv/sDBbEuIiM=";
+    rev = "a741a41aeb5d3fb6dc414a72613213d812ec6a1a";
+    hash = "sha256-QNUQSTt3+AeQ8kPxym4zL7v4WbzqM8sFXF6P2/5AJu0=";
   };
 
   installPhase = ''
@@ -29,18 +29,12 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
 
   passthru.tests = {
-    json =
-      runCommand "test-rfmoz-grafana-dashboards-json"
-        {
-          __structuredAttrs = true;
-          nativeBuildInputs = [ jq ];
-        }
-        ''
-          readarray -t files < <(find ${finalAttrs.finalPackage} -name '*.json')
-          [ "''${#files[@]}" -gt 0 ]
-          jq --exit-status . "''${files[@]}" >/dev/null
-          touch $out
-        '';
+    json = runCommand "test-rfmoz-grafana-dashboards-json" { nativeBuildInputs = [ jq ]; } ''
+      readarray -t files < <(find ${finalAttrs.finalPackage} -name '*.json')
+      [ "''${#files[@]}" -gt 0 ]
+      jq --exit-status . "''${files[@]}" >/dev/null
+      touch $out
+    '';
   };
 
   meta = {

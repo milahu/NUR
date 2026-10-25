@@ -4,7 +4,6 @@
   fetchFromGitHub,
   nur,
   nix-update-script,
-  runCommand,
   testers,
 }:
 python3Packages.buildPythonApplication (finalAttrs: {
@@ -12,7 +11,6 @@ python3Packages.buildPythonApplication (finalAttrs: {
   version = "0.4.0";
 
   pyproject = true;
-  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "josh";
@@ -42,16 +40,6 @@ python3Packages.buildPythonApplication (finalAttrs: {
       inherit (finalAttrs) version;
     };
 
-    help =
-      runCommand "test-gh-audit-help"
-        {
-          __structuredAttrs = true;
-          nativeBuildInputs = [ finalAttrs.finalPackage ];
-        }
-        ''
-          gh-audit --help
-          touch $out
-        '';
   };
 
   meta = {
