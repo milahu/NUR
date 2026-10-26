@@ -125,7 +125,18 @@ let
 in
 {
   imports = [
-    inputs.nixcfg.modules.nixos.default
+    inputs.nixcfg.modules.os.nix
+    inputs.nixcfg.modules.os.security
+    inputs.nixcfg.modules.os.home-manager
+    inputs.nixcfg.modules.os.console
+    inputs.nixcfg.modules.os.toyvo
+    inputs.nixcfg.modules.nixos.ids
+    inputs.nixcfg.modules.nixos.boot
+    inputs.nixcfg.modules.nixos.networking
+    inputs.nixcfg.modules.nixos.system
+    inputs.nixcfg.modules.nixos.k3s
+    inputs.nixcfg.modules.nixos.monitoring
+    inputs.nixcfg.modules.nixos.internet
     ./kea.nix
     ./virtual-hosts.nix
     inputs.catppuccin.nixosModules.catppuccin
@@ -325,13 +336,34 @@ in
   virtualisation.containers.enable = true;
   nixcfg = {
     nix.enable = true;
+    k3s = {
+      enable = true;
+      role = "server";
+      clusterInit = false;
+      serverAddr = "https://10.1.0.3:6443";
+      tokenFile = config.sops.secrets."k3s-token".path;
+      # Quorum vote only: no kubelet, no workloads on the edge box.
+      disableAgent = true;
+      # Traefik must be enabled on EVERY server: k3s shares one Addon
+      # object per packaged chart, and a server with --disable=traefik
+      # deletes it cluster-wide (observed: router join uninstalled Traefik
+      # 26s later). No pods land here (no kubelet).
+      traefik.enable = true;
+      # enp2s0 is WAN-facing (toyvo.dev is public); k3s ports stay on LAN.
+      firewallInterfaces = [ "br0" ];
+      extraSANs = [
+        "10.1.0.1"
+        "router"
+        "router.diekvoss.net"
+      ];
+    };
     security.enable = true;
     home-manager.enable = true;
     networking.enable = true;
     system.enable = true;
     boot.enable = true;
   };
-  userPresets.toyvo.enable = true;
+  nixcfg.users.toyvo.enable = true;
   systemd = {
     network = {
       enable = true;
@@ -640,6 +672,7 @@ in
     "wireguard-router-private-key" = { };
     technitium_api_key = { };
     technitium_admin_password = { };
+    "k3s-token" = { };
   };
   disko.devices.disk.nvme0n1 = {
     type = "disk";

@@ -15,10 +15,43 @@ let
 in
 {
   imports = [
-    inputs.nixcfg.modules.nixos.default
+    inputs.nixcfg.modules.os.nix
+    inputs.nixcfg.modules.os.security
+    inputs.nixcfg.modules.os.home-manager
+    inputs.nixcfg.modules.os.console
+    inputs.nixcfg.modules.os.gui
+    inputs.nixcfg.modules.os.dev
+    inputs.nixcfg.modules.os.podman
+    inputs.nixcfg.modules.os.toyvo
+    inputs.nixcfg.modules.os.chloe
+    inputs.nixcfg.modules.os.root
+    inputs.nixcfg.modules.os.agent
+    inputs.nixcfg.modules.nixos.ids
+    inputs.nixcfg.modules.nixos.boot
+    inputs.nixcfg.modules.nixos.networking
+    inputs.nixcfg.modules.nixos.system
+    inputs.nixcfg.modules.nixos.nix-ld
+    inputs.nixcfg.modules.nixos.podman
+    inputs.nixcfg.modules.nixos.k3s
+    inputs.nixcfg.modules.nixos.k3s-homepage
+    inputs.nixcfg.modules.nixos.k3s-storage
+    inputs.nixcfg.modules.nixos.k3s-starr
+    inputs.nixcfg.modules.nixos.monitoring
+    inputs.nixcfg.modules.nixos.ollama
+    inputs.nixcfg.modules.nixos.protonmail-bridge
+    inputs.nixcfg.modules.nixos.repo-maintainer
+    inputs.nixcfg.modules.nixos.signal-cli
+    inputs.nixcfg.modules.nixos.syncthing
+    inputs.nixcfg.modules.nixos.tmpfiles
+    inputs.nixcfg.modules.nixos.authentik_container
+    inputs.nixcfg.modules.nixos.home-assistant_container
+    inputs.nixcfg.modules.nixos.immich_container
+    inputs.nixcfg.modules.nixos.jellyfin_container
+    inputs.nixcfg.modules.nixos.monitoring_container
+    inputs.nixcfg.modules.nixos.nextcloud_container
+    inputs.nixcfg.modules.nixos.starr_container
     inputs.hermes-agent.nixosModules.default
     ./samba.nix
-    ./homepage.nix
     inputs.catppuccin.nixosModules.catppuccin
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.default
@@ -40,52 +73,7 @@ in
     };
     sharedModules = [ ./home.nix ];
     users.toyvo.programs.git.settings.safe.directory = "/mnt/POOL/agent/*";
-    users.agent = {
-      home.username = "agent";
-      home.homeDirectory = "/mnt/POOL/agent";
-      nixcfg = {
-        shells.enable = true;
-        session.enable = true;
-        sops-home.enable = true;
-      };
-      programs = {
-        git = {
-          enable = true;
-          settings = {
-            user.name = "AI Agent (${config.services.hermes-agent.settings.model.default} via ${config.services.hermes-agent.settings.model.provider}) for Collin Diekvoss";
-            user.email = "agent@diekvoss.com";
-            safe.directory = "/home/toyvo/*";
-            core.editor = lib.mkForce "hx";
-          };
-        };
-        nvf.defaultEditor = lib.mkForce false;
-        helix = {
-          enable = true;
-          defaultEditor = true;
-        };
-        direnv = {
-          enable = true;
-          nix-direnv.enable = true;
-        };
-        fzf = {
-          enable = true;
-        };
-      };
-      home.packages = with pkgs; [
-        ripgrep
-        fd
-        jq
-        yq
-        nix-output-monitor
-        nix-tree
-        gh
-        tlrc
-        procs
-        dust
-        sd
-        hyperfine
-      ];
-    };
+    users.agent.home.homeDirectory = lib.mkForce "/mnt/POOL/agent";
   };
 
   # Allow root (and libgit2 via nix) to access the flake repo for rebuilds
@@ -111,6 +99,10 @@ in
         3000 # forgejo
         8642 # hermes-agent API
         9119 # hermes-dashboard
+        2049 # NFSv4 for k3s shared storage
+        4001 # lockd (fixed port, deterministic firewall)
+        4002 # mountd (fixed port, deterministic firewall)
+        4003 # statd (fixed port, deterministic firewall)
       ];
       allowedUDPPorts = [
         53
@@ -137,6 +129,28 @@ in
   };
   nixcfg = {
     nix.enable = true;
+    k3s = {
+      enable = true;
+      role = "server";
+      traefik.enable = true;
+      clusterInit = true;
+      tokenFile = config.sops.secrets."k3s-token".path;
+      extraSANs = [
+        "10.1.0.3"
+        "nas"
+        "nas.diekvoss.net"
+        "10.1.0.1"
+        "10.1.0.6"
+        "10.1.0.12"
+      ];
+    };
+    # First migration passenger; manifests deploy cluster-wide from here.
+    k3sHomepage.enable = true;
+    # Shared NFS storage (csi-driver-nfs + static pool PVs).
+    # Single writer: enable ONLY here, never on another server.
+    k3sStorage.enable = true;
+    # First starr migration; manifests deploy cluster-wide from here.
+    k3sStarr.prowlarr.enable = true;
     security.enable = true;
     home-manager.enable = true;
     networking.enable = true;
@@ -145,11 +159,14 @@ in
     nix-ld.enable = true;
     gui.enable = true;
     dev.enable = true;
-    users.agent.enable = true;
+    users = {
+      agent.enable = true;
+      chloe.enable = true;
+      root.enable = true;
+      toyvo.enable = true;
+    };
   };
-  userPresets.chloe.enable = true;
-  userPresets.toyvo.enable = true;
-  users.users.agent.home = "/mnt/POOL/agent";
+  users.users.agent.home = lib.mkForce "/mnt/POOL/agent";
   services = {
     cockpit = {
       enable = true;
@@ -223,7 +240,6 @@ in
         ];
       };
     };
-    homepage-dashboard.enable = true;
     nix-serve = {
       enable = true;
       openFirewall = true;
@@ -254,6 +270,19 @@ in
     };
     protonmail-bridge.enable = true;
     samba.enable = true;
+    nfs.server = {
+      enable = true;
+      # Fixed ports so the firewall stays deterministic (v4-only traffic,
+      # single port 2049 in practice).
+      lockdPort = 4001;
+      mountdPort = 4002;
+      statdPort = 4003;
+      createMountPoints = true;
+      exports = ''
+        /mnt/POOL/k3s-test 10.1.0.0/24(rw,sync,no_subtree_check,root_squash)
+        /mnt/POOL/Public 10.1.0.0/24(ro,sync,no_subtree_check,root_squash)
+      '';
+    };
     spice-vdagentd.enable = true;
     monitoring.enable = true;
     syncthing = {
@@ -277,6 +306,13 @@ in
   # doesn't cover the autoUpgrade reboot itself — the workflow schedule is
   # kept outside the 01:00-05:00 reboot window for that.)
   systemd.services.forgejo-runner-nas.restartIfChanged = false;
+
+  # Cap runner memory so a future blowup fails the job instead of letting
+  # the kernel OOM-kill the whole unit and starve postgres/forgejo (seen
+  # 2026-10-25: 18 GB mem + 12 GB swap peak). Headroom above the ~19 GB
+  # single-evaluation peak on a 31 GB + 15 GB-zram box.
+  systemd.services.forgejo-runner-nas.serviceConfig.MemoryHigh = "26G";
+  systemd.services.forgejo-runner-nas.serviceConfig.MemoryMax = "28G";
 
   # The new forgejo-runner module manages the .runner credentials file
   # itself from settings+secrets (DynamicUser, no registration step), so the
@@ -456,10 +492,6 @@ in
     %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/nixos-container *
     %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/journalctl *
     %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/systemctl status *
-    agent ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/nixos-container *
-    agent ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/journalctl *
-    agent ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/systemctl status *
-    agent ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/nixos-rebuild *
   '';
 
   systemd.targets = {
@@ -546,6 +578,7 @@ in
   # Administration -> Actions -> Runners -> Create new runner). The template
   # wraps it into the TOKEN= env file used when rendering .runner credentials.
   sops.secrets."forgejo-runner-token-nas" = { };
+  sops.secrets."k3s-token" = { };
   sops.secrets."agent.env".owner = "agent";
   # Maintainer shares the existing opencode key (owner call) and needs a
   # Forgejo PAT with repo scope: create it in the Forgejo UI, then add the
@@ -574,12 +607,6 @@ in
   # it can be bind-mounted read-only into the starr container, where the WireGuard
   # interface and network namespace are actually configured.
   sops.secrets."protonvpn-US-IL-503.key" = { };
-
-  nix.settings.trusted-users = [
-    "toyvo"
-    "root"
-    "agent"
-  ];
 
   # Set ACLs so container users can access external storage directories.
   # systemd-tmpfiles handles default ACLs (for new files); the apply-generated-acls

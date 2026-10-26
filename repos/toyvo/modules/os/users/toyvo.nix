@@ -6,12 +6,18 @@
   ...
 }:
 let
-  cfg = config.userPresets;
+  cfg = config.nixcfg.users;
   homePath = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
   enableGui = config.nixcfg.gui.enable or false;
 in
 {
-  options.userPresets = {
+  # `nixcfg.gui` is read below; `config.ids.*` is read under `isLinux`
+  # guards only. nix-darwin has no `ids` option, so this module must NOT
+  # import it — NixOS hosts importing this module must also import
+  # `inputs.nixcfg.modules.nixos.ids`.
+  imports = [ ../gui.nix ];
+
+  options.nixcfg.users = {
     toyvo = {
       enable = lib.mkEnableOption "toyvo user";
       name = lib.mkOption {

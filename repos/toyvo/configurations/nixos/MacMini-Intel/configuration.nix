@@ -1,4 +1,5 @@
 {
+  config,
   ekaPkgs,
   homelab,
   inputs,
@@ -11,7 +12,16 @@
 }:
 {
   imports = [
-    inputs.nixcfg.modules.nixos.default
+    inputs.nixcfg.modules.os.nix
+    inputs.nixcfg.modules.os.security
+    inputs.nixcfg.modules.os.home-manager
+    inputs.nixcfg.modules.os.console
+    inputs.nixcfg.modules.os.toyvo
+    inputs.nixcfg.modules.nixos.ids
+    inputs.nixcfg.modules.nixos.boot
+    inputs.nixcfg.modules.nixos.networking
+    inputs.nixcfg.modules.nixos.system
+    inputs.nixcfg.modules.nixos.k3s
     inputs.catppuccin.nixosModules.catppuccin
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.default
@@ -66,8 +76,20 @@
     ];
     kernelModules = [ "kvm-intel" ];
   };
-  userPresets.toyvo.enable = true;
+  nixcfg.users.toyvo.enable = true;
   nixcfg = {
+    k3s = {
+      enable = true;
+      role = "server";
+      traefik.enable = true;
+      clusterInit = false;
+      serverAddr = "https://10.1.0.3:6443";
+      tokenFile = config.sops.secrets."k3s-token".path;
+      extraSANs = [
+        "10.1.0.12"
+        "MacMini-Intel-NixOS"
+      ];
+    };
     nix.enable = true;
     security.enable = true;
     home-manager.enable = true;
@@ -80,6 +102,7 @@
     autoEnable = true;
   };
   services.openssh.enable = true;
+  sops.secrets."k3s-token" = { };
   environment.systemPackages = with pkgs; [
     signal-cli
   ];
