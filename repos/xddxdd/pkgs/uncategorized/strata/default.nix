@@ -12,7 +12,7 @@
 }:
 
 let
-  version = "0.2.4.2";
+  version = "0.2.6";
   llamaRev = "3cf03257f219afbe7334045ff7c6a06ac68c627d";
   llamaSrc = fetchFromGitHub {
     owner = "ggml-org";
@@ -31,6 +31,10 @@ let
     ps.psutil
     ps.packaging
   ]);
+  runtimePython = python3.withPackages (ps: [
+    ps.textual
+    ps.truststore
+  ]);
   hydrateScript = ''
     dest="''${XDG_DATA_HOME:-''$HOME/.local/share}/strata"
     ${lib.getExe pythonEnv} "${placeholder "out"}/libexec/strata/hydrate.py" \
@@ -43,7 +47,7 @@ let
       owner = "Niko1221";
       repo = "Strata";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-rjkHoWjzXoJQoJ4ArTodNhCmPG2edYo1QeRpI5O3fGk=";
+      hash = "sha256-HLlmKl+RDIP84KdifVUzduQ+ZN+51DbGaw9t+ITJkm8=";
     };
 
     __structuredAttrs = true;
@@ -172,11 +176,11 @@ symlinkJoin {
   postBuild = ''
     for program in strata strata-chat; do
       wrapProgram "$out/bin/$program" \
-        --prefix PYTHONPATH : "${python3.pkgs.truststore}/${python3.sitePackages}"
+        --prefix PYTHONPATH : "${runtimePython}/${python3.sitePackages}"
     done
-    PYTHONPATH="${python3.pkgs.truststore}/${python3.sitePackages}:$out/share/strata" \
+    STRATA_NO_ACQUIRE=1 PYTHONPATH="${runtimePython}/${python3.sitePackages}:$out/share/strata" \
       ${lib.getExe pythonEnv} -c \
-      'import setup; setup.pip_install(setup.requirement_lines(), "runtime dependencies")'
+      'import setup; setup.pip_install(setup.runtime_packages(), "runtime dependencies"); import strata_cli.monitor'
   '';
 
   inherit (unwrapped) src meta;
