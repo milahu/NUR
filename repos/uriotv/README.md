@@ -57,11 +57,18 @@ apply the overlay:
 }
 ```
 
-The overlay builds ordinary packages against your system's nixpkgs. The two CachyOS
-kernels are the exception: the flake overlay takes them from this repository's
-`flake.lock`, so you get exactly the derivations CI publishes, whatever your nixpkgs
-is. Only their out-of-tree modules (`linuxPackagesFor`) use your nixpkgs. Direct
-flake outputs (`urio-nur.packages.<system>.<name>`) also use this repository's lock.
+The flake's `overlays.default` takes every registered package recipe from this
+repository's `legacyPackages`, pinned by its `flake.lock`. Therefore package
+`drvPath`s match the direct flake outputs and CI/cache regardless of the consumer's
+nixpkgs, overlays, or package configuration. The `rimsort` compatibility alias
+points to the pinned `rimsort-appimage` derivation.
+
+The CachyOS `linuxPackages-*` convenience sets are the exception: they are built
+with the consumer's `linuxPackagesFor` so out-of-tree modules match the consumer's
+kernel package machinery, while the kernel derivations themselves remain pinned.
+The ordinary NUR overlay (`urio-nur.overlays.unpinned`) is also available explicitly
+for consumers who want recipes evaluated against their own nixpkgs. Direct flake
+outputs (`urio-nur.packages.<system>.<name>`) use this repository's lock as well.
 
 Do not set `inputs.nixpkgs.follows` on the `urio-nur` input. It replaces this
 repository's nixpkgs with yours, which changes the kernel derivation and makes Nix
@@ -132,7 +139,6 @@ Required repository secrets:
 |---|---|
 | `PAT_FOR_UPDATES` | Token that creates the update PR and enables auto-merge. It must trigger PR CI, so `GITHUB_TOKEN` cannot be used. |
 | `CACHIX_AUTH_TOKEN` | Write access to `uriotv`, used only in the publication steps on `main`. |
-| `ATTIC_TOKEN` | Push access to the private attic cache `urio` (`https://attic.urio.dev`), used after the cachix publication on `main`. Without it the attic push fails and the `cache` branch is not promoted. |
 
 ## CachyOS kernels
 
@@ -178,10 +184,9 @@ See [the kernel recipe notes](lib/cachyos/README.md) for details.
 
 ## Cache branch: consume only verified state
 
-The `cache` branch is a copy of a `main` commit whose publications all succeeded:
-packages and both kernels were pushed to `uriotv` and to the private attic cache,
-and the outputs were verified. It is moved only forward, never forced, and only by
-the automated workflow.
+The `cache` branch is a copy of a `main` commit whose eligible package and kernel
+outputs were published to `uriotv` and whose StorePaths were verified. It is moved
+only forward, never forced, and only by the automated workflow.
 
 Use it as your flake input to get exactly that state and nothing unverified:
 
@@ -195,7 +200,7 @@ otherwise the kernel derivation is not the published one.
 
 The public cache `uriotv` serves every eligible package and both kernels at that
 commit. Packages that are not redistributable are never published, so they build
-locally. The private attic cache is for the owner only.
+locally.
 
 ## Adding a package
 
