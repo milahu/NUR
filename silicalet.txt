@@ -1,10 +1,10 @@
 error:
 … while evaluating attribute 'cargoDeps' of derivation 'amber-lsp-0.3.0'
-  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:104:7:
-   103|
-   104|       cargoDeps =
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:105:7:
+   104|
+   105|       cargoDeps =
       |       ^
-   105|         if cargoVendorDir != null then
+   106|         if cargoVendorDir != null then
 
 … while calling the 'derivationStrict' builtin
   at «nix-internal»/derivation-internal.nix:37:12:

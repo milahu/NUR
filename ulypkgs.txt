@@ -97,53 +97,53 @@ error:
    118|     python2Packages = pkgs.python2.pkgs;
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/customisation.nix:308:19:
-   307|     in
-   308|     autoArgs: fn: args:
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
       |                   ^
-   309|     let
+   313|     let
 
 … while calling a functor (an attribute set with a '__functor' attribute)
-  at <nixpkgs> + /lib/customisation.nix:323:7:
-   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
-   323|       makeOverridable f allArgs
+  at <nixpkgs> + /lib/customisation.nix:327:7:
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   327|       makeOverridable f allArgs
       |       ^
-   324|     else
+   328|     else
 
 … from call site
-  at <nixpkgs> + /lib/trivial.nix:1183:7:
-  1182|     g: {
-  1183|       __functor = self: g;
-      |       ^
-  1184|       __functionArgs = fArgs;
+  at <nixpkgs> + /lib/customisation.nix:157:9:
+   156|       mirrorArgs = g: {
+   157|         __functor = self: g;
+      |         ^
+   158|         __functionArgs = fArgs;
 
 … while calling 'f''
-  at <nixpkgs> + /lib/customisation.nix:159:9:
-   158|       f' =
-   159|         origArgs:
+  at <nixpkgs> + /lib/customisation.nix:162:9:
+   161|       f' =
+   162|         origArgs:
       |         ^
-   160|         let
+   163|         let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/customisation.nix:175:9:
-   174|         in
-   175|         if isAttrs result then
+  at <nixpkgs> + /lib/customisation.nix:178:9:
+   177|         in
+   178|         if isAttrs result then
       |         ^
-   176|           result
+   179|           result
 
 … while calling the 'isAttrs' builtin
-  at <nixpkgs> + /lib/customisation.nix:175:12:
-   174|         in
-   175|         if isAttrs result then
+  at <nixpkgs> + /lib/customisation.nix:178:12:
+   177|         in
+   178|         if isAttrs result then
       |            ^
-   176|           result
+   179|           result
 
 … from call site
-  at <nixpkgs> + /lib/customisation.nix:161:20:
-   160|         let
-   161|           result = f origArgs;
+  at <nixpkgs> + /lib/customisation.nix:164:20:
+   163|         let
+   164|           result = f origArgs;
       |                    ^
-   162|
+   165|
 
 … while calling anonymous lambda
   at ./pkgs/python2/default.nix:1:1:
@@ -216,18 +216,18 @@ error:
   1016|       {
 
 … while calling 'extendDerivation'
-  at <nixpkgs> + /lib/customisation.nix:401:26:
-   400|   extendDerivation =
-   401|     condition: passthru: drv:
+  at <nixpkgs> + /lib/customisation.nix:405:26:
+   404|   extendDerivation =
+   405|     condition: passthru: drv:
       |                          ^
-   402|     let
+   406|     let
 
 … in the left operand of the update (//) operator
-  at <nixpkgs> + /lib/customisation.nix:414:12:
-   413|         )
-   414|         // passthru
+  at <nixpkgs> + /lib/customisation.nix:418:12:
+   417|         )
+   418|         // passthru
       |            ^
-   415|         // {
+   419|         // {
 
 … in the right operand of the update (//) operator
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1070:9:
@@ -250,6 +250,6 @@ error:
       |                 ^
     17|     inherit
 
-… while realising the context of path '/nix/store/ywm3rh4v1s4l2zk89s29rjyds0fgmz8z-4b8fr08m7yklfr8vmfsjsclvv2aa0764-source/pkgs/development/interpreters/python/passthrufun.nix'
+… while realising the context of path '/nix/store/p7y5c78d697pybhq0rgy6vhjac449d53-5h4wc9v7j6jbsi9spqlxvbmr825cbcip-source/pkgs/development/interpreters/python/passthrufun.nix'
 
-error: path '/nix/store/ywm3rh4v1s4l2zk89s29rjyds0fgmz8z-4b8fr08m7yklfr8vmfsjsclvv2aa0764-source' is not valid
+error: path '/nix/store/p7y5c78d697pybhq0rgy6vhjac449d53-5h4wc9v7j6jbsi9spqlxvbmr825cbcip-source' is not valid
