@@ -35,16 +35,16 @@ in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cadcraft";
-  version = "0.8.0";
+  version = "0.13.0";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "cadcraft";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-kJQAgQ9ebzSW2V4/pK2HxRuLLQfvZJ16miJshbYo0TU=";
+    hash = "sha256-lS9E30whUfGNq82jpgmJB5q3W81zZQNmqg0TcM1ul1M=";
   };
 
-  cargoHash = "sha256-ql6+1TmAhoDumKI7YbTE0gVSoRa0yr0amaH0OIKF+os=";
+  cargoHash = "sha256-BE34VV7+IwbpLvEMO61ombOGdcytlq2B7BJPWGjpdvA=";
   cargoBuildFlags = [ "--package" "cadcraft" "--package" "cadcraft-cli" ];
   cargoTestFlags = [ "--package" "cadcraft" "--package" "cadcraft-cli" ];
 
