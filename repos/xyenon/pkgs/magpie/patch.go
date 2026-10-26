@@ -3,7 +3,8 @@
 // Complete helper sources live in template files; inline fragments reuse upstream names,
 // import aliases or Nix paths and therefore remain next to their AST adaptations.
 //
-// Runtime patches (GUI builds only):
+// Runtime patches:
+//   - Use proc.Command for TUI background serving; it is identical to exec.Command on Unix.
 //   - Linux: replace scheme registration with cleanup of legacy Nix wrapper entries.
 //   - Linux: use the public autostart launcher while preserving AppImage handling.
 //   - Linux: refresh existing Nix autostart paths, preserving disabled and custom entries.
@@ -393,9 +394,22 @@ func (f *sourceFile) policyBody(fn *ast.FuncDecl, body string) error {
 	return nil
 }
 
-// patchRuntime applies Linux scheme/autostart policies and sets Bun's path in Darwin GUI builds.
+// patchRuntime preserves Unix command behavior and applies GUI launcher policies.
 // These edits enter the installed binary; only active platform and build-tag sources are patched.
 func patchRuntime(files []*sourceFile, o options) error {
+	// Upstream's new background server bypasses its own command-construction policy.
+	// proc.Command's batch/hide hooks are no-ops on both Nix platforms.
+	for _, f := range files {
+		if filepath.ToSlash(f.path) != "internal/tui/keep.go" {
+			continue
+		}
+		ast.Inspect(f.file, func(n ast.Node) bool {
+			if call, ok := n.(*ast.CallExpr); ok && f.call(call, "os/exec", "Command") {
+				f.replace(call.Fun, f.qualify("github.com/yetone/magpie/internal/proc", "Command"))
+			}
+			return true
+		})
+	}
 	if !o.gui {
 		return nil
 	}
@@ -662,6 +676,76 @@ func patchChecks(files []*sourceFile, o options) error {
 				}
 				continue
 			}
+			// Freeze only the backup clock: synctest also owns channels created by
+			// filememo, which later plugin callbacks must close outside its bubble.
+			if dir == "internal/provider" && fn.Name.Name == "TestUnreadLoginsWriteErrorsKeepCredentials" {
+				ast.Inspect(fn.Body, func(n ast.Node) bool {
+					call, ok := n.(*ast.CallExpr)
+					if !ok {
+						return true
+					}
+					if f.call(call, "testing/synctest", "Test") && len(call.Args) == 2 {
+						f.replace(call.Fun, f.text(call.Args[0])+".Run")
+						f.replace(call.Args[0], `"write"`)
+						if body, ok := call.Args[1].(*ast.FuncLit); ok {
+							f.insert(body.Body.Lbrace+1, "\nbackupTime := "+f.qualify("github.com/yetone/magpie/internal/lastgood", "NixFreezeBackupClock")+"(t)\n")
+						}
+					}
+					if f.call(call, "time", "Now") {
+						f.replace(call, "backupTime")
+					}
+					return true
+				})
+			}
+			// Model a read 150 ms after the observed stamp, including its coarse
+			// clock boundary, rather than after an arbitrary point in the real second.
+			if dir == "internal/usage" && fn.Name.Name == "TestUsageReadAfterAppendHashesNothingOnAFineClock" {
+				ast.Inspect(fn.Body, func(n ast.Node) bool {
+					assignment, ok := n.(*ast.AssignStmt)
+					if !ok || len(assignment.Lhs) != 1 || f.text(assignment.Lhs[0]) != "logIndexNow" {
+						return true
+					}
+					ast.Inspect(assignment, func(n ast.Node) bool {
+						if call, ok := n.(*ast.CallExpr); ok && f.call(call, "time", "Now") {
+							f.replace(call, "logChangeTime(mustStat(t))")
+						}
+						return true
+					})
+					return false
+				})
+			}
+			// The freshness fixture reads Chinese notes. Its first check must use
+			// that language too, or a legitimate translation fetch races the count.
+			if dir == "internal/gui" && fn.Name.Name == "TestStaleLatestIsNotUpToDate" {
+				ast.Inspect(fn.Body, func(n ast.Node) bool {
+					if literal, ok := n.(*ast.CompositeLit); ok && f.text(literal.Type) == "updater" && len(literal.Elts) == 0 {
+						f.replace(literal, `updater{lang: "zh"}`)
+					}
+					return true
+				})
+			}
+			// Cancelling the old test server only schedules Shutdown. Wait until it
+			// stops accepting before asserting that new requests reach its successor.
+			// The in-flight stream must still drain and every request must still succeed.
+			if dir == "internal/gateway" && fn.Name.Name == "TestHandedOverGatewayFinishesItsStream" && !strings.Contains(f.text(fn.Body), "handed-over listener did not close") {
+				for _, stmt := range fn.Body.List {
+					expr, ok := stmt.(*ast.ExprStmt)
+					if !ok {
+						continue
+					}
+					if call, ok := expr.X.(*ast.CallExpr); ok && f.call(call, "", "stopOld") {
+						f.insert(stmt.End(), `
+for deadline := time.Now().Add(10 * time.Second); ; {
+ file, err := old.ListenerFile()
+ if `+f.qualify("errors", "Is")+`(err, net.ErrClosed) { break }
+ if err != nil { t.Fatal(err) }
+ file.Close()
+ if time.Now().After(deadline) { t.Fatal("handed-over listener did not close") }
+ time.Sleep(time.Millisecond)
+}`)
+					}
+				}
+			}
 			// Nix checks have no external network access. Upstream's offline setup makes
 			// network-dependent tests use their intended offline behavior instead of timing out.
 			if fn.Name.Name == "TestMain" && !f.hasCall(fn.Body, "github.com/yetone/magpie/internal/testenv", "Offline") {
@@ -889,6 +973,9 @@ func installHelpers(files []*sourceFile, o options) error {
 		if err := installHelper(dir, "tempdir_test.go", o); err != nil {
 			return err
 		}
+	}
+	if err := installHelper("internal/lastgood", "backup_clock.go", o); err != nil {
+		return err
 	}
 	if o.gui && o.platform == "linux" {
 		// Exercise the Nix scheme and launcher policies against the real upstream packages.
