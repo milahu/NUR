@@ -56,6 +56,11 @@ in
 
     filesystems.enable = false;
 
+    kernel-modules = {
+      load = true; # allow runtime kernel module loading
+      disable.bluetooth-related = false; # allow Bluetooth with the maximum preset
+    };
+
     settings = {
       kernel = {
         # pti = false; # performance
@@ -69,12 +74,7 @@ in
     };
 
     extras = {
-      kernel = {
-        load-kernel-modules = true; # enable runtime kernel module loading
-      };
-
       network = {
-        bluetooth-kmodules = true;
         tcp-window-scaling = true;
       };
 
