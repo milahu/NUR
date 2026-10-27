@@ -46,14 +46,14 @@
   };
   epd-food-server = {
     pname = "epd-food-server";
-    version = "b8ad51e86309e039cef22eaac4bd76fceda74ac6";
+    version = "b269240f18c7605b70368aedb1f697c8c7e49baf";
     src = fetchgit {
       url = "https://github.com/zhyiheihei/EPD-Dashboard.git";
-      rev = "b8ad51e86309e039cef22eaac4bd76fceda74ac6";
+      rev = "b269240f18c7605b70368aedb1f697c8c7e49baf";
       fetchSubmodules = false;
-      hash = "sha256-V5qHtCi6xatVujtSTjXAx06OyhBMPWz2Z5ElS5KfDZw=";
+      hash = "sha256-pAgbD3UMM10YeiFCRFgJq3fFbbl7s0Jez39W9p9xYNs=";
     };
-    date = "2026-10-08";
+    date = "2026-10-27";
   };
   filecodebox = {
     pname = "filecodebox";
@@ -216,18 +216,18 @@
   };
   vaults3-linux-amd64 = {
     pname = "vaults3-linux-amd64";
-    version = "5.0.3";
+    version = "5.0.7";
     src = fetchurl {
-      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.3/vaults3-linux-amd64.tar.gz";
-      hash = "sha256-FHaMaY81t8pNn6hNCnUIspVBe0IUr43BDO4AOo02ZAA=";
+      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.7/vaults3-linux-amd64.tar.gz";
+      hash = "sha256-0KGFIXzxHMB81S6Pbuj1b43YT8T4ub5tvBKufPkkCrM=";
     };
   };
   vaults3-linux-arm64 = {
     pname = "vaults3-linux-arm64";
-    version = "5.0.3";
+    version = "5.0.7";
     src = fetchurl {
-      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.3/vaults3-linux-arm64.tar.gz";
-      hash = "sha256-ktIlJkTUkxbfUDTiCw1SCJHIPSEWOPH9ROErJ5Bl1tk=";
+      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.7/vaults3-linux-arm64.tar.gz";
+      hash = "sha256-Kwab8fZEquJIgWFyH4EE/krG6DdeXGYI3pc2KoJlwUU=";
     };
   };
   vertex = {
