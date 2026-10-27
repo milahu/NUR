@@ -52,16 +52,16 @@ buildGoModule (finalAttrs: {
   __structuredAttrs = true;
 
   pname = "magpie";
-  version = "0.1.1559";
+  version = "0.1.1664";
 
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "magpie";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-FI6AC5AuogQAgGKTjlYsGKGAE/T2pN7jtuOxc9ZFln8=";
+    hash = "sha256-RbhxodZezerYnR0/HfjhIATz9BxIyXTHZDkj7nvc7rk=";
   };
 
-  vendorHash = "sha256-pBk3sQZ9/1sVdz2ZteBGgQrI49fDfgsQ8ur7pzM477A=";
+  vendorHash = "sha256-TnyCe6gD8SC4625Fc5iFSDLbs0a0ehdi0MlN1kANoQg=";
 
   # Apply runtime policies before compiling the installed application.
   postPatch = ''
