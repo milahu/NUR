@@ -1,9 +1,0 @@
-error:
-… while evaluating a path segment
-  at ./pkgs/rayburst/package.nix:120:72:
-   119|     homepage = "https://github.com/AnInsomniacy/rayburst";
-   120|     changelog = "https://github.com/AnInsomniacy/rayburst/releases/tag/${finalAttrs.src.tag}";
-      |                                                                        ^
-   121|     license = with lib.licenses; [
-
-error: cannot coerce null to a string: null
