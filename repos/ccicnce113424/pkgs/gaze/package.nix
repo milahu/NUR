@@ -2,7 +2,6 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  nix-update-script,
   pkg-config,
   makeWrapper,
   clang,
@@ -26,6 +25,9 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "gaze";
+  # Held at 0.3.10 and out of the update job: 0.4.0 panics on every D-Bus
+  # configuration write and removed the TPM key pair of an existing store on
+  # upgrade (GunduLabs/gaze#851, GunduLabs/gaze#852). Bump it once both are fixed.
   version = "0.3.10";
 
   src = fetchFromGitHub {
@@ -98,7 +100,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
   # vendored dependency set.
   passthru = {
     inherit (finalAttrs) cargoDeps;
-    updateScript = nix-update-script { };
   };
 
   meta = {

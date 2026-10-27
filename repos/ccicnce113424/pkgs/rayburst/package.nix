@@ -26,16 +26,16 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "rayburst";
-  version = "4.1.0";
+  version = "4.1.1";
 
   src = fetchFromGitHub {
     owner = "AnInsomniacy";
     repo = "rayburst";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-g/EQTqOf/SdQq6x5m8fKgdnXWmTlLivJvW9zOjftQpo=";
+    hash = "sha256-dQGkY681vsPzeKK6a1bUY89Me6WLQqPs6vdlOrl9TMk=";
   };
 
-  cargoHash = "sha256-U2OJMzYoJrfiDtRs7t0lw8Qqs4VdMcMLQWylLoK7aOA=";
+  cargoHash = "sha256-2OwbO27u4faulirN6k/mzyoVhhTG3xZ8lbHjBLSXtpE=";
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs)
@@ -107,7 +107,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
         ]
       }
       # Tricky way to make the protocol handler desktop file point to the wrapper
-      --set-default APPIMAGE rayburst
+      --set APPIMAGE "$out/bin/rayburst"
     )
     wrapGApp $out/bin/rayburst
   '';
@@ -117,7 +117,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   meta = {
     description = "Desktop download manager for files, torrents and streams";
     homepage = "https://github.com/AnInsomniacy/rayburst";
-    changelog = "https://github.com/AnInsomniacy/rayburst/releases/tag/v${finalAttrs.version}";
+    changelog = "https://github.com/AnInsomniacy/rayburst/releases/tag/${finalAttrs.src.tag}";
     license = with lib.licenses; [
       mit
       gpl2Plus
