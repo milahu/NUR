@@ -151,6 +151,18 @@ in
     k3sStorage.enable = true;
     # First starr migration; manifests deploy cluster-wide from here.
     k3sStarr.prowlarr.enable = true;
+    # Second starr migration (sonarr); same template + RW media mount.
+    k3sStarr.sonarr.enable = true;
+    # Third starr migration (lidarr); same template again.
+    k3sStarr.lidarr.enable = true;
+    # Fourth starr migration (radarr); same template again.
+    k3sStarr.radarr.enable = true;
+    # Fifth starr migration (readarr); same template again.
+    k3sStarr.readarr.enable = true;
+    # Sixth starr migration (bazarr); same template, different wiring.
+    k3sStarr.bazarr.enable = true;
+    # Stateless solver for prowlarr; no storage at all.
+    k3sStarr.flaresolverr.enable = true;
     security.enable = true;
     home-manager.enable = true;
     networking.enable = true;
@@ -280,7 +292,10 @@ in
       createMountPoints = true;
       exports = ''
         /mnt/POOL/k3s-test 10.1.0.0/24(rw,sync,no_subtree_check,root_squash)
-        /mnt/POOL/Public 10.1.0.0/24(ro,sync,no_subtree_check,root_squash)
+        # RW: sonarr (and future *arrs) import into the library here.
+        # Pod-level read-only is still enforced separately via the
+        # pool-public-ro PV (mountOptions ro + csi.readOnly).
+        /mnt/POOL/Public 10.1.0.0/24(rw,sync,no_subtree_check,root_squash)
       '';
     };
     spice-vdagentd.enable = true;
@@ -406,6 +421,16 @@ in
     };
     starr = {
       enable = true;
+      # Retired to k3s (data migrated, traffic flipped; prowlarr 2026-10-26, sonarr + lidarr + radarr + readarr + bazarr + flaresolverr 2026-10-27).
+      disabledServices = [
+        "prowlarr"
+        "sonarr"
+        "lidarr"
+        "radarr"
+        "readarr"
+        "bazarr"
+        "flaresolverr"
+      ];
       natInterface = "eno1";
       hostAddress = "10.200.0.1";
       localAddress = "10.200.0.2";
@@ -424,6 +449,15 @@ in
             Password_PBKDF2 = "@ByteArray(w/tVwkQ82PheDXAAMg5D7A==:exy5JA4JdCm7pZ6n0cci16mEmZYxSaFe642TmZBvq9MIzps3tnZY7vbUIj3esJNClzy/YrRI4Dkexg1luhSveg==)";
           };
           General.Locale = "en";
+        };
+        # Default save path shared with the k8s *arr pods (they mount the
+        # media pool at /mnt): downloads land where every app can see them,
+        # no Remote Path Mappings needed. Declarative because the module
+        # regenerates qBittorrent.conf on every switch (WebUI edits revert).
+        BitTorrent = {
+          Session = {
+            DefaultSavePath = "/mnt/Downloads";
+          };
         };
       };
     };
