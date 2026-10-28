@@ -4,10 +4,9 @@
 // import aliases or Nix paths and therefore remain next to their AST adaptations.
 //
 // Runtime patches:
-//   - Use proc.Command for TUI background serving; it is identical to exec.Command on Unix.
-//   - Linux: replace scheme registration with cleanup of legacy Nix wrapper entries.
-//   - Linux: use the public autostart launcher while preserving AppImage handling.
-//   - Linux: refresh existing Nix autostart paths, preserving disabled and custom entries.
+//   - Linux: disable runtime scheme registration; the package supplies the desktop entry.
+//   - Linux: prefer the PATH launcher for autostart without resolving its symlinks.
+//   - Linux: refresh existing Nix autostart paths, preserving disable flags and custom commands.
 //   - Darwin: set the packaged Bun path in the native application entry point.
 //
 // Check patches:
@@ -324,39 +323,22 @@ func (f *sourceFile) fixtures(tools string, cleanup bool) {
 	}
 }
 
-// The packaged desktop file owns Linux scheme registration. A user entry targeting
-// .magpie-wrapped overrides it and bypasses the GTK/Bun environment set by the public launcher.
-// Remove only those legacy Nix entries; preserve custom and Flatpak entries.
-const schemeBody = `{
- if os.Getenv("FLATPAK_ID") != "" { return nil }
- data := appdir.Getenv("XDG_DATA_HOME")
- if data == "" { home, _ := os.UserHomeDir(); data = filepath.Join(home, ".local", "share") }
- path := filepath.Join(data, "applications", "magpie.desktop")
- old, err := os.ReadFile(path)
- if os.IsNotExist(err) { return nil }
- if err != nil { return err }
- if strings.Contains(string(old), "MimeType=x-scheme-handler/magpie;") {
-  for _, line := range strings.Split(string(old), "\n") {
-   if strings.HasPrefix(line, "Exec=/nix/store/") && strings.HasSuffix(line, "/bin/.magpie-wrapped %u") { return os.Remove(path) }
-  }
- }
- return nil
+// Keep profile symlinks so autostart follows upgrades instead of pinning a store path.
+const selfBody = `{
+ if p := os.Getenv("APPIMAGE"); p != "" { return p, nil }
+ if p, err := exec.LookPath("magpie"); err == nil { return p, nil }
+ return @launcher@, nil
 }`
 
 // Existing autostart entries can retain an obsolete store path after a package upgrade.
-// Upgrade Nix launchers without enabling missing or disabled entries.
+// Upgrade Nix launchers even in disabled entries, preserving their disable flags.
+// Missing entries are not created.
 // Keep custom commands, extra arguments and all fields other than the matching Exec line.
 const refreshBody = `{
  body, err := os.ReadFile(record())
  if os.IsNotExist(err) { return nil }
  if err != nil { return err }
  lines := strings.Split(string(body), "\n")
- for _, line := range lines {
-  key, value, ok := strings.Cut(line, "=")
-  if !ok { continue }
-  key, value = strings.TrimSpace(key), strings.TrimSpace(value)
-  if key == "Hidden" && value == "true" || key == "X-GNOME-Autostart-enabled" && value == "false" { return nil }
- }
  for i, line := range lines {
   key, value, ok := strings.Cut(line, "=")
   if !ok || strings.TrimSpace(key) != "Exec" { continue }
@@ -364,7 +346,10 @@ const refreshBody = `{
   if !strings.HasSuffix(value, " " + Arg) { return nil }
   exe := strings.Trim(strings.TrimSuffix(value, " " + Arg), "\"")
   if !strings.HasPrefix(exe, "/nix/store/") || !strings.HasSuffix(exe, "/bin/.magpie-wrapped") && !strings.HasSuffix(exe, "/bin/magpie") { return nil }
-  replacement := "Exec=" + @launcher@ + " " + Arg
+  launcher, err := self()
+  if err != nil { return err }
+  q := strings.NewReplacer("\\", "\\\\", "\"", "\\\"", "\x60", "\\\x60", "$", "\\$").Replace(launcher)
+  replacement := "Exec=\"" + q + "\" " + Arg
   if line == replacement { return nil }
   lines[i] = replacement
   return os.WriteFile(record(), []byte(strings.Join(lines, "\n")), 0o644)
@@ -372,11 +357,11 @@ const refreshBody = `{
  return nil
 }`
 
-// policyBody replaces Linux scheme registration or autostart refresh with Nix-owned policy,
+// policyBody replaces Linux scheme registration or autostart functions with Nix-owned policy,
 // adapting imports to upstream aliases and checking the replacement's syntax first.
 func (f *sourceFile) policyBody(fn *ast.FuncDecl, body string) error {
-	// These two implementations are owned by Nix; other runtime edits retain upstream logic.
-	for _, path := range []string{"os", "path/filepath", "strings", "github.com/yetone/magpie/internal/appdir"} {
+	// These implementations are owned by Nix; other runtime edits retain upstream logic.
+	for _, path := range []string{"os", "os/exec", "strings"} {
 		prefix := filepath.Base(path) + "."
 		if strings.Contains(body, prefix) {
 			body = strings.ReplaceAll(body, prefix, f.qualify(path, ""))
@@ -394,22 +379,9 @@ func (f *sourceFile) policyBody(fn *ast.FuncDecl, body string) error {
 	return nil
 }
 
-// patchRuntime preserves Unix command behavior and applies GUI launcher policies.
+// patchRuntime applies GUI launcher policies.
 // These edits enter the installed binary; only active platform and build-tag sources are patched.
 func patchRuntime(files []*sourceFile, o options) error {
-	// Upstream's new background server bypasses its own command-construction policy.
-	// proc.Command's batch/hide hooks are no-ops on both Nix platforms.
-	for _, f := range files {
-		if filepath.ToSlash(f.path) != "internal/tui/keep.go" {
-			continue
-		}
-		ast.Inspect(f.file, func(n ast.Node) bool {
-			if call, ok := n.(*ast.CallExpr); ok && f.call(call, "os/exec", "Command") {
-				f.replace(call.Fun, f.qualify("github.com/yetone/magpie/internal/proc", "Command"))
-			}
-			return true
-		})
-	}
 	if !o.gui {
 		return nil
 	}
@@ -462,29 +434,19 @@ func patchRuntime(files []*sourceFile, o options) error {
 			switch {
 			case dir == "internal/gui" && fn.Name.Name == "registerScheme":
 				found["registerScheme"] = true
-				if err := f.policyBody(fn, schemeBody); err != nil {
+				if err := f.policyBody(fn, "{ return nil }"); err != nil {
 					return err
 				}
 			case dir == "internal/autostart" && fn.Name.Name == "refresh":
 				found["refresh"] = true
-				body := strings.ReplaceAll(refreshBody, "@launcher@", strconv.Quote(strconv.Quote(o.launcher)))
-				if err := f.policyBody(fn, body); err != nil {
+				if err := f.policyBody(fn, refreshBody); err != nil {
 					return err
 				}
 			case dir == "internal/autostart" && fn.Name.Name == "self":
-				// os.Executable can expose .magpie-wrapped, bypassing the environment needed
-				// by GTK and Bun on autostart. Use the public launcher while retaining AppImage handling.
 				found["self"] = true
-				adapted := strings.Contains(f.text(fn.Body), strconv.Quote(o.launcher))
-				ast.Inspect(fn.Body, func(n ast.Node) bool {
-					if call, ok := n.(*ast.CallExpr); ok && f.call(call, "os", "Executable") {
-						f.replace(call, "func() (string, error) { return "+strconv.Quote(o.launcher)+", nil }()")
-						adapted = true
-					}
-					return true
-				})
-				if !adapted {
-					return fmt.Errorf("%s: cannot identify autostart executable source in self", f.path)
+				body := strings.ReplaceAll(selfBody, "@launcher@", strconv.Quote(o.launcher))
+				if err := f.policyBody(fn, body); err != nil {
+					return err
 				}
 			}
 		}
@@ -621,10 +583,50 @@ func patchChecks(files []*sourceFile, o options) error {
 	for _, f := range files {
 		dir := filepath.ToSlash(filepath.Dir(f.path))
 		test := strings.HasSuffix(f.path, "_test.go")
+		// Cargo's home locates the rtk executable, not an agent's configuration.
+		if filepath.ToSlash(f.path) == "internal/agent/agentenv_test.go" {
+			ast.Inspect(f.file, func(n ast.Node) bool {
+				spec, ok := n.(*ast.ValueSpec)
+				if !ok || len(spec.Names) != 1 || spec.Names[0].Name != "notAnAgent" || len(spec.Values) != 1 {
+					return true
+				}
+				if table, ok := spec.Values[0].(*ast.CompositeLit); ok && !strings.Contains(f.text(table), `"CARGO_HOME"`) {
+					f.insert(table.Lbrace+1, "\n\"CARGO_HOME\": \"Cargo's tool installation folder, used to locate rtk, not an agent's configuration\",\n")
+				}
+				return false
+			})
+		}
 		for _, decl := range f.file.Decls {
 			fn, ok := decl.(*ast.FuncDecl)
 			if !ok || fn.Body == nil {
 				continue
+			}
+			// Codex's metadata has its own versioned request. These fixtures count
+			// ordinary model listings; keep their exact-once assertions for those.
+			if test && dir == "internal/provider" && (fn.Name.Name == "TestFetchAsksOneListOnceForTwoBasesOfIt" || fn.Name.Name == "TestFetchUnionsProtocolListsWithoutChat" || fn.Name.Name == "TestFetchAsksASharedBaseOnce") {
+				ast.Inspect(fn.Body, func(n ast.Node) bool {
+					call, ok := n.(*ast.CallExpr)
+					if !ok || !f.call(call, "net/http", "HandlerFunc") || len(call.Args) != 1 {
+						return true
+					}
+					handler, ok := call.Args[0].(*ast.FuncLit)
+					if ok && !strings.Contains(f.text(handler.Body), `"client_version"`) {
+						f.insert(handler.Body.Lbrace+1, "\nif r.URL.Query().Has(\"client_version\") { http.NotFound(w, r); return }\n")
+					}
+					return true
+				})
+			}
+			// Keep intentionally polls other writers on a five-second wall-clock
+			// beat. Place this 50 ms quiet-window assertion between those beats.
+			if test && dir == "internal/awake" && fn.Name.Name == "TestKeepOffWaitsForTheSetting" && !strings.Contains(f.text(fn.Body), "nixUntilPoll") {
+				f.beforeCalls(fn.Body, func(call *ast.CallExpr) bool { return f.call(call, "context", "WithCancel") }, func(_ *ast.BlockStmt) string {
+					return `if nixUntilPoll := time.Until(time.Now().Truncate(filememo.OthersEvery()).Add(filememo.OthersEvery())); nixUntilPoll < 100*time.Millisecond { time.Sleep(nixUntilPoll) }`
+				})
+			}
+			// This fixture has no Codex CLI cache. Models known only to the
+			// subscription are now offered through magpie, with their catalog ID.
+			if test && dir == "internal/tui" && fn.Name.Name == "openModelPicker" {
+				f.replace(fn.Body, strings.Replace(f.text(fn.Body), `return m, "gpt-6-luna" // Codex's own account: its models bare`, `return m, "codex/gpt-6-luna" // No CLI cache: this model is served through magpie.`, 1))
 			}
 			program := !test && dir == "internal/testenv" && fn.Name.Name == "WriteProgram"
 			// Wrap the whole installer, including Darwin's warmed executable rewrite.
@@ -675,36 +677,6 @@ func patchChecks(files []*sourceFile, o options) error {
 					})
 				}
 				continue
-			}
-			// Linux tries GPUs through the Vulkan helper, not pf-serve's Metal
-			// backend. Install that stand-in in fixtures asserting GPU behavior.
-			if o.platform == "linux" && dir == "internal/pii" &&
-				(fn.Name.Name == "TestFindJoinsTextsAndMapsBack" || fn.Name.Name == "TestGPUDeathMovesToCPU" ||
-					fn.Name.Name == "TestServeStartsWithoutResidencyHeartbeat" || fn.Name.Name == "TestWarm") {
-				ast.Inspect(fn.Body, func(n ast.Node) bool {
-					if call, ok := n.(*ast.CallExpr); ok && f.call(call, "", "fakeInstall") && len(call.Args) == 3 &&
-						(firstString(call.Args[1]) == "ok" || firstString(call.Args[1]) == "gpudies") {
-						f.replace(call.Args[2], "true")
-					}
-					if literal, ok := n.(*ast.BasicLit); ok && firstString(literal) == "start pf-serve MTL0" {
-						f.replace(literal, strconv.Quote("start pf-serve-vulkan MTL0"))
-					}
-					return true
-				})
-			}
-			// The timeout response can release the masker before its timer records
-			// the final route. Wait for completion before checking the same error.
-			if dir == "internal/gateway" && fn.Name.Name == "TestHeldForTheMaskingModelSaysSo" &&
-				!strings.Contains(f.text(fn.Body), "the masking route never finished") {
-				for _, statement := range fn.Body.List {
-					assignment, ok := statement.(*ast.AssignStmt)
-					if ok && len(assignment.Lhs) == 1 && f.text(assignment.Lhs[0]) == "rs" {
-						f.insert(statement.Pos(), `eventually(t, "the masking route never finished", func() bool {
-							rs := routesOf(s, "probe/text")
-							return len(rs) == 1 && rs[0].Done
-						})`+"\n")
-					}
-				}
 			}
 			// Freeze only the backup clock: synctest also owns channels created by
 			// filememo, which later plugin callbacks must close outside its bubble.
@@ -816,7 +788,7 @@ for deadline := time.Now().Add(10 * time.Second); ; {
 					if name == "" {
 						return ""
 					}
-					return "if " + f.qualify("os", "Getenv") + "(\"FLATPAK_ID\") == \"\" { " + name + ".Skip(\"Nix registration is covered by TestNixSchemeCleanup\") }"
+					return "if " + f.qualify("os", "Getenv") + "(\"FLATPAK_ID\") == \"\" { " + name + ".Skip(\"Nix registration is covered by TestNixSchemeNoop\") }"
 				})
 			}
 			// Non-WAL log inserts can keep both size and mtime within one filesystem tick.
