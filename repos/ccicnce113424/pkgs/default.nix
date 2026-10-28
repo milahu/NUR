@@ -27,12 +27,19 @@ lib.makeScope pkgs.newScope (
 
     dav2d = self.callPackage ./dav2d/package.nix { };
 
+    doona-lite = self.doona-web.override { isLite = true; };
+
     doona-web = self.callPackage ./doona-web/package.nix { };
 
-    dorion-git = self.callPackage ./dorion-git {
-      inherit (lib.importJSON ./dorion-git/src-info.json) hash;
-      sources = fetchedSrc.dorion-git;
-    };
+    dorion-git =
+      let
+        info = lib.importJSON ./dorion-git/src-info.json;
+      in
+      self.callPackage ./dorion-git {
+        inherit (info) hash upstreamVersion;
+        cefInfo = info.cef;
+        sources = fetchedSrc.dorion-git;
+      };
 
     dxvk-gplall-bin-w32 = self.callPackage ./dxvk-gplall-bin rec {
       sources = fetchedSrc.dxvk-gplall;
@@ -86,6 +93,8 @@ lib.makeScope pkgs.newScope (
     gaze-gnome-extension = self.callPackage ./gaze-gnome-extension/package.nix { };
 
     gaze-gui = self.callPackage ./gaze-gui/package.nix { };
+
+    gaze-kcm = self.callPackage ./gaze-kcm/package.nix { };
 
     honk-core = self.callPackage ./honk-core/package.nix { };
 
