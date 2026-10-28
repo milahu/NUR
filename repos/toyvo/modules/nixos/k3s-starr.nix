@@ -24,6 +24,10 @@ let
   # No linuxserver build; official image, pinned and hub-verified. Stateless: no PUID/PGID, no volumes.
   flaresolverrImage = "flaresolverr/flaresolverr:v3.5.2";
   flaresolverrPort = 8191;
+  # nixpkgs ids.uids/gids.qbittorrent = 353; pinned to match existing ownership.
+  qbittorrentImage = "lscr.io/linuxserver/qbittorrent:5.3.0_v2.1.2-ls485";
+  wireguardImage = "lscr.io/linuxserver/wireguard:1.0.20260223-r0-ls127";
+  qbittorrentPort = 4080;
 in
 {
   options.nixcfg.k3sStarr.prowlarr.enable =
@@ -42,6 +46,9 @@ in
 
   options.nixcfg.k3sStarr.flaresolverr.enable =
     lib.mkEnableOption "FlareSolverr in k3s (stateless solver for prowlarr)";
+
+  options.nixcfg.k3sStarr.qbittorrent.enable =
+    lib.mkEnableOption "qBittorrent in k3s (VPN-isolated pod: wireguard + kill-switch + port-forward)";
 
   # Single writer: enable ONLY on nas. See k3s-storage.nix for why.
   config = lib.mkMerge [
@@ -1019,6 +1026,267 @@ in
                     backend.service = {
                       name = "flaresolverr";
                       port.number = flaresolverrPort;
+                    };
+                  }
+                ];
+              }
+            ];
+          };
+        };
+      };
+    })
+    (lib.mkIf cfg.qbittorrent.enable {
+      assertions = [
+        {
+          assertion = config.nixcfg.k3s.enable && config.nixcfg.k3s.role == "server";
+          message = "nixcfg.k3sStarr: starr manifests must live on a server (nas), never an agent.";
+        }
+      ];
+
+      services.k3s.manifests = {
+        "qbittorrent-media-pvc.yaml".content = {
+          apiVersion = "v1";
+          kind = "PersistentVolumeClaim";
+          metadata = {
+            name = "qbittorrent-media";
+          };
+          spec = {
+            accessModes = [ "ReadWriteMany" ];
+            storageClassName = "nfs-pool";
+            resources.requests.storage = "100Gi";
+          };
+        };
+        "qbittorrent-statefulset.yaml".content = {
+          apiVersion = "apps/v1";
+          kind = "StatefulSet";
+          metadata = {
+            name = "qbittorrent";
+            labels.app = "qbittorrent";
+          };
+          spec = {
+            serviceName = "qbittorrent";
+            replicas = 1;
+            selector.matchLabels.app = "qbittorrent";
+            template = {
+              metadata.labels.app = "qbittorrent";
+              spec = {
+                # DNS through the tunnel only: tracker lookups must never
+                # leak to LAN/ISP. Fails closed with the tunnel.
+                dnsPolicy = "None";
+                dnsConfig.nameservers = [ "10.2.0.1" ];
+                affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms = [
+                  {
+                    matchExpressions = [
+                      {
+                        key = "kubernetes.io/hostname";
+                        operator = "In";
+                        values = [ "nas" ];
+                      }
+                    ];
+                  }
+                ];
+                # No initContainer: the kill-switch (nft) and split-tunnel
+                # rules live in wg0.conf's PostUp (Secret-managed), which owns
+                # every rule/route with explicit prefs. An init-time ip rule
+                # would collide with PostUp's explicit pref and abort the
+                # tunnel; apk can't run pre-tunnel anyway (no DNS yet).
+                containers = [
+                  {
+                    name = "wireguard";
+                    image = wireguardImage;
+                    imagePullPolicy = "IfNotPresent";
+                    env = [
+                      {
+                        name = "PUID";
+                        value = "353";
+                      }
+                      {
+                        name = "PGID";
+                        value = "353";
+                      }
+                      {
+                        name = "TZ";
+                        value = "America/Chicago";
+                      }
+                    ];
+                    resources = {
+                      requests = {
+                        cpu = "50m";
+                        memory = "128Mi";
+                      };
+                      limits = {
+                        cpu = "500m";
+                        memory = "512Mi";
+                      };
+                    };
+                    securityContext.capabilities.add = [
+                      "NET_ADMIN"
+                      "SYS_MODULE"
+                    ];
+                    volumeMounts = [
+                      {
+                        name = "vpn-config";
+                        mountPath = "/config/wg0.conf";
+                        subPath = "wg0.conf";
+                      }
+                    ];
+                  }
+                  {
+                    name = "qbittorrent";
+                    image = qbittorrentImage;
+                    imagePullPolicy = "IfNotPresent";
+                    env = [
+                      {
+                        name = "PUID";
+                        value = "353";
+                      }
+                      {
+                        name = "PGID";
+                        value = "353";
+                      }
+                      {
+                        name = "TZ";
+                        value = "America/Chicago";
+                      }
+                      # The image hardcodes --webui-port on the command line,
+                      # overriding the config file: the env var is the only
+                      # way to match the Service port.
+                      {
+                        name = "WEBUI_PORT";
+                        value = "4080";
+                      }
+                    ];
+                    ports = [ { containerPort = qbittorrentPort; } ];
+                    resources = {
+                      requests = {
+                        cpu = "100m";
+                        memory = "512Mi";
+                      };
+                      limits = {
+                        cpu = "2000m";
+                        memory = "4Gi";
+                      };
+                    };
+                    volumeMounts = [
+                      {
+                        name = "config";
+                        mountPath = "/config";
+                      }
+                      {
+                        name = "media";
+                        mountPath = "/mnt";
+                      }
+                      # Transitional: live fastresume state references the old
+                      # container paths (/var/lib/qBittorrent/...). Mounts the
+                      # same host dir so existing torrents resume in place.
+                      # Remove once old downloads are migrated to /mnt/Downloads.
+                      {
+                        name = "legacy-state";
+                        mountPath = "/var/lib/qBittorrent";
+                      }
+                    ];
+                  }
+                  {
+                    name = "port-forward";
+                    image = "alpine:3.21.9";
+                    imagePullPolicy = "IfNotPresent";
+                    command = [
+                      "/bin/sh"
+                      "-c"
+                      ''
+                        apk add --no-cache natpmpc curl
+                        # Give qbittorrent's web server time to come up.
+                        sleep 5
+                        while true; do
+                          tcp_out=$(natpmpc -a 1 0 tcp 60 -g 10.2.0.1 2>&1) || true
+                          natpmpc -a 1 0 udp 60 -g 10.2.0.1 >/dev/null 2>&1 || true
+                          port=$(printf '%s\n' "$tcp_out" | grep "Mapped public port" | awk '{print $4}')
+                          if [ -n "$port" ]; then
+                            echo "NAT-PMP mapped port $port — updating qBittorrent listen port"
+                            curl -sf -X POST "http://127.0.0.1:4080/api/v2/app/setPreferences" \
+                              --data-urlencode "{\"listen_port\": $port}" \
+                              -o /dev/null || echo "Failed to update listen port (will retry)"
+                          else
+                            echo "NAT-PMP request failed:"
+                            printf '%s\n' "$tcp_out"
+                          fi
+                          sleep 45
+                        done
+                      ''
+                    ];
+                    resources = {
+                      requests = {
+                        cpu = "10m";
+                        memory = "32Mi";
+                      };
+                      limits = {
+                        cpu = "100m";
+                        memory = "128Mi";
+                      };
+                    };
+                  }
+                ];
+                volumes = [
+                  {
+                    name = "vpn-config";
+                    secret.secretName = "qbittorrent-vpn";
+                  }
+                  {
+                    name = "media";
+                    persistentVolumeClaim.claimName = "qbittorrent-media";
+                  }
+                  {
+                    name = "legacy-state";
+                    hostPath.path = "/mnt/POOL/starr/qbittorrent";
+                  }
+                ];
+              };
+            };
+            volumeClaimTemplates = [
+              {
+                metadata.name = "config";
+                spec = {
+                  accessModes = [ "ReadWriteOnce" ];
+                  resources.requests.storage = "5Gi";
+                };
+              }
+            ];
+          };
+        };
+        "qbittorrent-service.yaml".content = {
+          apiVersion = "v1";
+          kind = "Service";
+          metadata = {
+            name = "qbittorrent";
+          };
+          spec = {
+            selector.app = "qbittorrent";
+            ports = [
+              {
+                port = qbittorrentPort;
+                targetPort = qbittorrentPort;
+              }
+            ];
+          };
+        };
+        "qbittorrent-ingress.yaml".content = {
+          apiVersion = "networking.k8s.io/v1";
+          kind = "Ingress";
+          metadata = {
+            name = "qbittorrent";
+          };
+          spec = {
+            ingressClassName = "traefik";
+            rules = [
+              {
+                host = "qbittorrent.diekvoss.net";
+                http.paths = [
+                  {
+                    path = "/";
+                    pathType = "Prefix";
+                    backend.service = {
+                      name = "qbittorrent";
+                      port.number = qbittorrentPort;
                     };
                   }
                 ];

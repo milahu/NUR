@@ -163,6 +163,8 @@ in
     k3sStarr.bazarr.enable = true;
     # Stateless solver for prowlarr; no storage at all.
     k3sStarr.flaresolverr.enable = true;
+    # Last one: VPN-isolated torrent client.
+    k3sStarr.qbittorrent.enable = true;
     security.enable = true;
     home-manager.enable = true;
     networking.enable = true;
@@ -420,17 +422,13 @@ in
       grafanaSecretKeyFile = config.sops.secrets."grafana-secret-key".path;
     };
     starr = {
-      enable = true;
-      # Retired to k3s (data migrated, traffic flipped; prowlarr 2026-10-26, sonarr + lidarr + radarr + readarr + bazarr + flaresolverr 2026-10-27).
-      disabledServices = [
-        "prowlarr"
-        "sonarr"
-        "lidarr"
-        "radarr"
-        "readarr"
-        "bazarr"
-        "flaresolverr"
-      ];
+      # Container retired 2026-10-28: qBittorrent serves from k3s (VPN-isolated
+      # pod). Disabled (not deleted) so rollback is one flag flip; POOL state
+      # dirs remain on disk either way.
+      enable = false;
+      # qBittorrent only: the *arr suite + flaresolverr all retired to k3s
+      # (2026-10-26/27); their container definitions were deleted, so there
+      # is nothing left to disable. Retired POOL state dirs remain on disk.
       natInterface = "eno1";
       hostAddress = "10.200.0.1";
       localAddress = "10.200.0.2";
@@ -526,6 +524,9 @@ in
     %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/nixos-container *
     %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/journalctl *
     %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/systemctl status *
+    # TEMPORARY DEBUG (qBittorrent k3s migration): passwordless k3s for faster
+    # agent-driven diagnostics. REMOVE after cutover (tracked in todos).
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/k3s *
   '';
 
   systemd.targets = {
