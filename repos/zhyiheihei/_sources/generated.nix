@@ -21,7 +21,7 @@
     version = "0.5.24";
     src = fetchurl {
       url = "https://pypi.org/packages/source/c/cn2an/cn2an-0.5.24.tar.gz";
-      hash = "sha256-wnbPxLPJ51ghSEHeWXUC6xeN5QuNomM+00VWT5BwXw4=";
+      hash = "sha256-VWYx4P4lIN5FNx2wScAA45trkFkmQ75hjkU2nuBd0eM=";
     };
   };
   docker-proxy = {
@@ -46,35 +46,35 @@
   };
   epd-food-server = {
     pname = "epd-food-server";
-    version = "b269240f18c7605b70368aedb1f697c8c7e49baf";
+    version = "5b96085f2e108ce9acebee4749554298ff76d626";
     src = fetchgit {
       url = "https://github.com/zhyiheihei/EPD-Dashboard.git";
-      rev = "b269240f18c7605b70368aedb1f697c8c7e49baf";
+      rev = "5b96085f2e108ce9acebee4749554298ff76d626";
       fetchSubmodules = false;
-      hash = "sha256-pAgbD3UMM10YeiFCRFgJq3fFbbl7s0Jez39W9p9xYNs=";
+      hash = "sha256-VWYx4P4lIN5FNx2wScAA45trkFkmQ75hjkU2nuBd0eM=";
     };
     date = "2026-10-27";
   };
   filecodebox = {
     pname = "filecodebox";
-    version = "v2.8.4";
+    version = "v2.8.5";
     src = fetchFromGitHub {
       owner = "vastsa";
       repo = "FileCodeBox";
-      tag = "v2.8.4";
-      hash = "sha256-KsAkmvm8qQfzDfbdv9nDrKudD4ieUIUAAiX1qo+en/A=";
+      tag = "v2.8.5";
+      hash = "sha256-iAqHO/dyPEnv9IYlNGqiYgLjCbAP7tmCkt8SaxHoQ8g=";
     };
   };
   filecodebox-frontend = {
     pname = "filecodebox-frontend";
-    version = "bcc1dbda06b772d6f4afbcc12c6f12e60bbbc7da";
+    version = "2d6173e0d4fe4d543479143842408abb50bd5f9b";
     src = fetchgit {
       url = "https://github.com/vastsa/FileCodeBoxFronted.git";
-      rev = "bcc1dbda06b772d6f4afbcc12c6f12e60bbbc7da";
+      rev = "2d6173e0d4fe4d543479143842408abb50bd5f9b";
       fetchSubmodules = false;
-      hash = "sha256-i2VO6coUl/RfkJLZGVDJpw3XgOTdCPuAIXzyWgzFTOM=";
+      hash = "sha256-zNQ5FAPblY/BMuaVIwd8QXW2osga1dzzr8rH+RjPxyg=";
     };
-    date = "2026-10-10";
+    date = "2026-10-27";
   };
   hubproxy = {
     pname = "hubproxy";
@@ -108,22 +108,22 @@
   };
   nexus-media = {
     pname = "nexus-media";
-    version = "v4.27.2";
+    version = "v5.0.2";
     src = fetchFromGitHub {
       owner = "linyuan0213";
       repo = "nexus-media";
-      tag = "v4.27.2";
-      hash = "sha256-o8xp4LKcweZWTQx79vaBIoy1h6FLdZeX3vr3VFeVSzs=";
+      tag = "v5.0.2";
+      hash = "sha256-+xbWsFHIR+ZWYh02GEgVWo5CwoJ6vWCYTx2X3ecvSxA=";
     };
   };
   nexus-media-web = {
     pname = "nexus-media-web";
-    version = "v4.27.1";
+    version = "v5.0.2";
     src = fetchFromGitHub {
       owner = "linyuan0213";
       repo = "nexus-media-web";
-      tag = "v4.27.1";
-      hash = "sha256-FgisqB7a4nhHVnafTvwUOochQWpUI71UPlhu4fNs+dI=";
+      tag = "v5.0.2";
+      hash = "sha256-1YDT6SPe/5SKEkorDFGLcwG80VmyolbjuVUvpJMuMII=";
     };
   };
   pinyin2hanzi = {

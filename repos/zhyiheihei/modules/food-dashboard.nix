@@ -8,6 +8,7 @@
 #   - epd-food-push.service    oneshot 推送（供 timer 与手动调用）
 #   - epd-food-push.timer      每天 00:00 推送墨水屏（Persistent 补跑）
 #   - epd-food-retry.timer     每 15 分钟拉起一次传输失败后的退避重试
+#   - epd-food-watch.timer     每小时探一次设备状态，重启（面板内容丢失）就补推
 #
 # 私有服务：不开公网 vhost，WebUI/API 经 nginx 私网 vhost 暴露（accessibleBy private）。
 self:
@@ -33,6 +34,9 @@ let
   '';
 
   commonEnvironment = {
+    # dbus-fast 默认连 /var/run/dbus/system_bus_socket；chroot 里只有 /run/dbus，
+    # 不指路扫描就直接 ENOENT。
+    DBUS_SYSTEM_BUS_ADDRESS = "unix:path=/run/dbus/system_bus_socket";
     # 数据库/角色统一下划线名（psycopg DSN 免引号；ensureUsers 断言要求 db 与 role 同名）
     EPD_FOOD_DSN = "host=/run/postgresql dbname=epd_dashboard";
     EPD_FOOD_FONT_PATH = "${fontFile}";
@@ -222,6 +226,12 @@ in
     };
     users.groups.epd_dashboard = { };
 
+    # textfile 目录通常由采集方（root）建，用 ACL 给服务用户写权限：
+    # 不改 mode/owner，不与其它模块的 tmpfiles 规则互盖。
+    systemd.tmpfiles.settings."epd-food-metrics" = lib.mkIf (cfg.textfilePath != "") {
+      ${builtins.dirOf cfg.textfilePath}."a+".argument = "u:epd_dashboard:rwx";
+    };
+
     # 命名空间独立保留策略：容量小、保留久
     environment.etc."systemd/journald@${cfg.logNamespace}.conf" = lib.mkIf (cfg.logNamespace != "") {
       text = ''
@@ -386,6 +396,55 @@ in
         Persistent = true;
         RandomizedDelaySec = "30";
         Unit = "epd-food-retry.service";
+      };
+    };
+
+    # 面板内容只存在设备 RAM：上电/重启/OTA 后就是空的，而服务端不一定
+    # 知道它重启过。这条定时任务每小时连一次、只读 16 字节状态块就断开
+    # （不传图形、不刷屏），发现重启才补推；探测结果同时当硬件健康检查。
+    systemd.services.epd-food-watch = {
+      description = "EPD Food Dashboard 重启检测（广播扫描）";
+      after = [ "bluetooth.service" ];
+      wants = [
+        "postgresql.service"
+        "bluetooth.service"
+      ];
+
+      environment = commonEnvironment;
+      script =
+        let
+          caldavPasswordExport = lib.optionalString (cfg.caldavPasswordFile != null) ''
+            export EPD_FOOD_CALDAV_PASSWORD="$(cat ${cfg.caldavPasswordFile})"
+          '';
+        in
+        ''
+          ${caldavPasswordExport}
+          exec ${package}/bin/epd-food-server watch
+        '';
+
+      serviceConfig =
+        serviceHarden
+        // deviceBinds
+        // {
+          Type = "oneshot";
+          User = "epd_dashboard";
+          Group = "epd_dashboard";
+          StateDirectory = "epd_dashboard";
+          WorkingDirectory = "/var/lib/epd_dashboard";
+          TimeoutStartSec = "10min";
+        }
+        // lib.optionalAttrs (cfg.logNamespace != "") {
+          LogNamespace = cfg.logNamespace;
+        };
+    };
+
+    systemd.timers.epd-food-watch = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "hourly";
+        Persistent = true;
+        RandomizedDelaySec = "20";
+        Unit = "epd-food-watch.service";
       };
     };
 
