@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.474,
-"eval_time":2.965,
+"fetch_time":1.305,
+"eval_time":1.733,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"fd784a8d96d77e5b443ccdbde584632834db016e",
-"sha256":"13b5dgbhahxslc9krbvsvy499fl7wz34by5lvmjd513d6a1mcl2m",
+"rev":"b808cef9326417dcb7eb3e124dee820f90fc1a20",
+"sha256":"0ffw1nysvlfr9cfgmh8mic7y97iwakwrzgisgl4xk3c50j6j79b8",
 "date":null
 },
-"source_storepath":"/nix/store/hn68plp7afcbjca81d8lxca679n75p41-source",
-"nixpkgs_storepath":"/nix/store/ahq9la4zy84cgwc2fichjr2pp0qygdxm-source",
-"nur_combined_rev":"f36955a15528e396cf18f0747026e9b620710e17",
+"source_storepath":"/nix/store/d79fwqfv2v2wc0x7kc602659qjnb1p7n-source",
+"nixpkgs_storepath":"/nix/store/s7h058kpmmikihxmv5j6rz8ajl8qa24r-source",
+"nur_combined_rev":"ee150b042e98d161227bb49be06e3308bcaad9ec",
 "packages":{
 "benchstat":{
 "drvPath":"/nix/store/vjqkwg3pmian6m07iw8flv7nv862am1z-benchstat-0-unstable-2026-10-09.drv",
@@ -168,7 +168,7 @@
 "version":"0-unstable-2026-10-09"
 },
 "bumper":{
-"drvPath":"/nix/store/b49c3nq0s8h9aijvcm7836xa6yza2qp3-bumper-0.34.0.drv",
+"drvPath":"/nix/store/925lwcq4xkps39241hl8vd3v5n5hiwvk-bumper-0.35.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -183,9 +183,9 @@
 }
 ],
 "broken":false,
-"changelog":"https://trev.zip/llc/bumper/releases/tag/v0.34.0",
+"changelog":"https://trev.zip/llc/bumper/releases/tag/v0.35.0",
 "description":"Git semantic version bumper",
-"downloadPage":"https://trev.zip/llc/bumper/releases/tag/v0.34.0",
+"downloadPage":"https://trev.zip/llc/bumper/releases/tag/v0.35.0",
 "homepage":"https://trev.zip/llc/bumper",
 "identifiers":{
 "cpeParts":{
@@ -229,7 +229,7 @@
 },
 "mainProgram":"bumper",
 "maintainers":[],
-"name":"bumper-0.34.0",
+"name":"bumper-0.35.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -284,17 +284,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bumper-0.34.0",
+"name":"bumper-0.35.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bumper",
 "system":"x86_64-linux",
-"version":"0.34.0"
+"version":"0.35.0"
 },
 "burrito":{
-"drvPath":"/nix/store/0b0r2214gffc5f6pjpli9dwdvvlfz9np-erlang28.5.0.8-burrito-1.6.0.drv",
+"drvPath":"/nix/store/dnjmdpl28y2dvz428zdkxy48rp5k8fa6-erlang28.5.0.8-burrito-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -892,11 +892,11 @@
 "version":"1.12.0"
 },
 "cliproxyapi":{
-"drvPath":"/nix/store/pvyy9c8mdwy47pfqka6gm1ns9jnls0lh-cliproxyapi-8.0.44.drv",
+"drvPath":"/nix/store/7kcc1na3nq0m6czs4a4sk06xiz8dl9bc-cliproxyapi-8.0.46.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.44",
+"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.46",
 "description":"Proxy server providing OpenAI-compatible APIs for CLI models",
 "homepage":"https://github.com/router-for-me/CLIProxyAPI",
 "identifiers":{
@@ -941,7 +941,7 @@
 },
 "mainProgram":"cli-proxy-api",
 "maintainers":[],
-"name":"cliproxyapi-8.0.44",
+"name":"cliproxyapi-8.0.46",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1003,14 +1003,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cliproxyapi-8.0.44",
+"name":"cliproxyapi-8.0.46",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cliproxyapi",
 "system":"x86_64-linux",
-"version":"8.0.44"
+"version":"8.0.46"
 },
 "duckdb":{
 "drvPath":"/nix/store/qkwhqmnz20imy3jw12644v4kby4z2880-duckdb-2.0.0.drv",
@@ -1071,7 +1071,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/hn68plp7afcbjca81d8lxca679n75p41-source/packages/duckdb/default.nix",
+"file":"/nix/store/d79fwqfv2v2wc0x7kc602659qjnb1p7n-source/packages/duckdb/default.nix",
 "line":603
 },
 "name":"duckdb-2.0.0",
@@ -1326,7 +1326,7 @@
 "version":""
 },
 "finch":{
-"drvPath":"/nix/store/ns05h47vg0xkm135348m31znizznvm0j-erlang28.5.0.8-finch-0.24.0.drv",
+"drvPath":"/nix/store/vcsh68gdf37qmxgisd96jg3dbjhsn2yi-erlang28.5.0.8-finch-0.24.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1723,7 +1723,7 @@
 "version":"0.42.2"
 },
 "gleescript":{
-"drvPath":"/nix/store/9qvs17livhg49ri8h2wqlqwnliakzh3d-gleescript-1.5.2.drv",
+"drvPath":"/nix/store/f02ym77fklfq12p512h5vd8yf06z0x0b-gleescript-1.5.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1868,7 +1868,7 @@
 "version":"1.5.2"
 },
 "go-over":{
-"drvPath":"/nix/store/mbpzdgwf16iipsbdqzp6hg3z1kzfkhck-go-over-3.3.1.drv",
+"drvPath":"/nix/store/k1yjh162vi0iyiyh9n64r8r0g94w041a-go-over-3.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2023,11 +2023,11 @@
 "version":"3.3.1"
 },
 "helium":{
-"drvPath":"/nix/store/ba1ls9rvp391f5dal76jywskh7dqnz1f-helium-0.20.1.1.drv",
+"drvPath":"/nix/store/4rcwwh88kx1bpi1glkz1zl3pmigp2ppi-helium-0.20.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.20.1.1",
+"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.20.2.1",
 "description":"Helium Browser for Linux",
 "homepage":"https://github.com/imputnet/helium-linux",
 "identifiers":{
@@ -2072,7 +2072,7 @@
 },
 "mainProgram":"helium",
 "maintainers":[],
-"name":"helium-0.20.1.1",
+"name":"helium-0.20.2.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2096,17 +2096,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-0.20.1.1",
+"name":"helium-0.20.2.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium",
 "system":"x86_64-linux",
-"version":"0.20.1.1"
+"version":"0.20.2.1"
 },
 "hpax":{
-"drvPath":"/nix/store/s8x2bv9l2291vksvrpjqrfbwwvzsv5nh-erlang28.5.0.8-hpax-1.1.0.drv",
+"drvPath":"/nix/store/6yiia4izi4fzijh1bf62gr033balrvif-erlang28.5.0.8-hpax-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2357,7 +2357,7 @@
 "version":"1.3.2"
 },
 "jason":{
-"drvPath":"/nix/store/dhvj9qjr6lx4p3mjhigfgzz3068mg0sc-erlang28.5.0.8-jason-1.4.5.drv",
+"drvPath":"/nix/store/wggbvmdkpc9p9i684z42smghy72ynsk2-erlang28.5.0.8-jason-1.4.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2696,11 +2696,11 @@
 "version":"0-unstable-2025-04-18"
 },
 "kagimcp":{
-"drvPath":"/nix/store/b20agfgjrdkg7c3zmlsx3gbx4bxv2al6-python3.14-kagimcp-0.1.5-unstable-2026-07-07.drv",
+"drvPath":"/nix/store/m543nk4s6k0cj3mkdi3vpm8q142358p3-python3.14-kagimcp-0.1.5-unstable-2026-10-28.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/kagisearch/kagimcp/releases/tag/v0.1.5-unstable-2026-07-07",
+"changelog":"https://github.com/kagisearch/kagimcp/releases/tag/v0.1.5-unstable-2026-10-28",
 "description":"Model Context Protocol (MCP) server for Kagi Search",
 "homepage":"https://github.com/kagisearch/kagimcp",
 "identifiers":{
@@ -2778,7 +2778,7 @@
 },
 "mainProgram":"kagimcp",
 "maintainers":[],
-"name":"python3.14-kagimcp-0.1.5-unstable-2026-07-07",
+"name":"python3.14-kagimcp-0.1.5-unstable-2026-10-28",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2874,7 +2874,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-kagimcp-0.1.5-unstable-2026-07-07",
+"name":"python3.14-kagimcp-0.1.5-unstable-2026-10-28",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -2882,7 +2882,7 @@
 },
 "pname":"python3.14-kagimcp",
 "system":"x86_64-linux",
-"version":"0.1.5-unstable-2026-07-07"
+"version":"0.1.5-unstable-2026-10-28"
 },
 "kotlin-lsp":{
 "drvPath":"/nix/store/5rfk7k1pq12l06d25gzkvyq3wksa7bhj-kotlin-lsp-263.6379.0.drv",
@@ -3092,7 +3092,7 @@
 "version":"3.2.1"
 },
 "libwtf":{
-"drvPath":"/nix/store/7h9bl8qvwabzg8lhqkqxk40za8adsm2k-libwtf-0-unstable-2026-08-29.drv",
+"drvPath":"/nix/store/v93arqjxzivririy7hp15bc8l1dm4phh-libwtf-0-unstable-2026-10-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3140,7 +3140,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"libwtf-0-unstable-2026-08-29",
+"name":"libwtf-0-unstable-2026-10-27",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3181,17 +3181,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"libwtf-0-unstable-2026-08-29",
+"name":"libwtf-0-unstable-2026-10-27",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libwtf",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-08-29"
+"version":"0-unstable-2026-10-27"
 },
 "mime":{
-"drvPath":"/nix/store/6qgrhlsims8f4krgkml2xpgfvjl6zl91-erlang28.5.0.8-mime-2.0.7.drv",
+"drvPath":"/nix/store/j6kpff42vhmldfhmwrz4xysaj9wwcf5h-erlang28.5.0.8-mime-2.0.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3342,7 +3342,7 @@
 "version":"2.0.7"
 },
 "mint":{
-"drvPath":"/nix/store/yjlblwrppz4kzf8v7f2harxc6qh7j8a7-erlang28.5.0.8-mint-1.11.0.drv",
+"drvPath":"/nix/store/libkmmaz792maf4mbqz2ss9n2dlpjc5g-erlang28.5.0.8-mint-1.11.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3493,7 +3493,7 @@
 "version":"1.11.0"
 },
 "modal":{
-"drvPath":"/nix/store/wd26jqmpvdsfv03a7w8q4k5bivbkkqxc-python3.14-modal-1.6.2.drv",
+"drvPath":"/nix/store/zizgnzwx11plz6qwvrhflddxs7hmjv5g-python3.14-modal-1.6.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3576,7 +3576,7 @@
 },
 "mainProgram":"modal",
 "maintainers":[],
-"name":"python3.14-modal-1.6.2",
+"name":"python3.14-modal-1.6.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3672,7 +3672,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-modal-1.6.2",
+"name":"python3.14-modal-1.6.3",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3680,10 +3680,10 @@
 },
 "pname":"python3.14-modal",
 "system":"x86_64-linux",
-"version":"1.6.2"
+"version":"1.6.3"
 },
 "nimble_options":{
-"drvPath":"/nix/store/an800ci83fd022kxxa745whrvzwip9qh-erlang28.5.0.8-nimble_options-1.1.1.drv",
+"drvPath":"/nix/store/b7cbpmwz0fmmbix462sb5rikbjcc2hvb-erlang28.5.0.8-nimble_options-1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3834,7 +3834,7 @@
 "version":"1.1.1"
 },
 "nimble_pool":{
-"drvPath":"/nix/store/1vf59s68y1bg2p3x0ysy1mcic2pd7l13-erlang28.5.0.8-nimble_pool-1.1.0.drv",
+"drvPath":"/nix/store/fr5nnl04s23kn6yl0pdbmrlvxr6p342f-erlang28.5.0.8-nimble_pool-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4490,7 +4490,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hn68plp7afcbjca81d8lxca679n75p41-source/packages/paper-mono/default.nix",
+"file":"/nix/store/d79fwqfv2v2wc0x7kc602659qjnb1p7n-source/packages/paper-mono/default.nix",
 "line":243
 },
 "name":"paper-mono-1.000-unstable-2026-08-26",
@@ -4960,11 +4960,11 @@
 "version":"8.35"
 },
 "renovate":{
-"drvPath":"/nix/store/fkfrlwdh862dxg0ds8jz912sm45pz4lr-renovate-44.188.2.drv",
+"drvPath":"/nix/store/vsv2qf4bfc9w8576a90licgkw0kb0j2z-renovate-44.191.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.188.2",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.191.0",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -5009,7 +5009,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-44.188.2",
+"name":"renovate-44.191.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5047,17 +5047,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-44.188.2",
+"name":"renovate-44.191.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"44.188.2"
+"version":"44.191.0"
 },
 "req":{
-"drvPath":"/nix/store/hkzpcl13dk3gm9sm4wpdwmdxq79i9la1-erlang28.5.0.8-req-0.7.5.drv",
+"drvPath":"/nix/store/qh3g5y1ivw6wzzbnq81cjfln8791a1n3-erlang28.5.0.8-req-0.7.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5397,7 +5397,7 @@
 "version":"0.12.7"
 },
 "telemetry":{
-"drvPath":"/nix/store/s2cz8ac777mmsfi9drs3xry6pw9p528s-erlang28.5.0.8-telemetry-1.4.2.drv",
+"drvPath":"/nix/store/rmlja1fr0i2xd4fg0jq2j0dphw1vwfkr-erlang28.5.0.8-telemetry-1.4.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5650,7 +5650,7 @@
 "version":"20251108-unstable-2026-10-19"
 },
 "typed_struct":{
-"drvPath":"/nix/store/k9ynysk9nk6plsah2l6a646qv7xngrz7-erlang28.5.0.8-typed_struct-0.3.0.drv",
+"drvPath":"/nix/store/la33lkdpva2r6imazm5wr3nd6247pyli-erlang28.5.0.8-typed_struct-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5805,7 +5805,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/astral-sh/uv/blob/0.13.4/CHANGELOG.md",
+"changelog":"https://github.com/astral-sh/uv/blob/0.13.5/CHANGELOG.md",
 "description":"Minimal build backend for uv",
 "homepage":"https://docs.astral.sh/uv/reference/settings/#build-backend",
 "identifiers":{
@@ -6001,7 +6001,7 @@
 "version":"0.13.6"
 },
 "xdg-desktop-portal-hyprland":{
-"drvPath":"/nix/store/12ys2y41y26dbkpd0m8k8nikrwwrk8mv-xdg-desktop-portal-hyprland-1.4.1-unstable-2026-10-13.drv",
+"drvPath":"/nix/store/l0q78lrrbglrg6fdxglpbcgmlcy9ib9x-xdg-desktop-portal-hyprland-1.4.1-unstable-2026-10-13.drv",
 "meta":{
 "available":true,
 "broken":false,
