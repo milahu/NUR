@@ -6,14 +6,13 @@
   nix-update-script,
   fetchFromForgejo,
   fetchPnpmDeps,
-  fetchpatch,
   pnpm_12,
   pnpmConfigHook,
   nodejs_26,
   wasm-bindgen-cli_0_2_129,
   llvmPackages,
   binaryen,
-  withDeepfilternet ? true,
+  withDeepfilternet ? false,
 }:
 
 let
@@ -24,7 +23,7 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "sable-next-unwrapped";
-  version = "2.2.0";
+  version = "2.2.1";
 
   __structuredAttrs = true;
   strictDeps = true;
@@ -34,23 +33,16 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "SableClient";
     repo = "sable-next";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-J5IIDdw9DLHBV7npugJeQ7U/4q11nRkSy/p7kzEBBMU=";
+    hash = "sha256-aEK+x76RpCKoQ037o+hSzuHjW4pzqC02tPTV1GG6Bqc=";
   };
-
-  patches = [
-    (fetchpatch {
-      url = "https://git.sable.moe/SableClient/sable-next/pulls/1419.patch";
-      hash = "sha256-Az8qTSyipecCV18RgVbdhewidkVIFd7HXKwVRGXU2NM=";
-    })
-  ];
 
   cargoDeps = rustPlatform.fetchCargoVendor {
     inherit (finalAttrs) src;
-    hash = "sha256-XOy7hf6AfbuEKKb9xKnKGyPrTsJ2TTZRpUhwcm4+JsU=";
+    hash = "sha256-LK51fj/058jiER8ki+tgTP3ElQ3C+3H8PRK3gaQ2ivM=";
   };
 
   postPatch = lib.optionalString withDeepfilternet ''
-    cp --no-preserve all -r ${finalAttrs.deepfilternet} static/deepfilternet3
+    cp --no-preserve all -r ${finalAttrs.passthru.deepfilternet} static/deepfilternet3
   '';
 
   nativeBuildInputs = [
@@ -74,7 +66,7 @@ stdenv.mkDerivation (finalAttrs: {
     inherit (finalAttrs) pname version src;
     inherit pnpm;
     fetcherVersion = 5;
-    hash = "sha256-yGjMHlRCLAdF2cQXzqHDGCdxhECaErFrU5CHlzNblfM=";
+    hash = "sha256-CKoo5HPnLO5F3SWHOP8pRFQ7AOrbmTZiPEQqI+Lmd9s=";
   };
 
   env = {
@@ -99,9 +91,10 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  inherit deepfilternet;
-
-  passthru.updateScript = nix-update-script { };
+  passthru = {
+    updateScript = nix-update-script { };
+    inherit deepfilternet;
+  };
 
   meta = {
     description = "Sable rewrite in Rust and Svelte. An almost stable Matrix client";
