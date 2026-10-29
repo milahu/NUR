@@ -181,14 +181,19 @@
     ip = "10.200.0.8";
     services.home-assistant = {
       port = 8123;
+      # Served from k3s via Traefik (plan step: flip). Forward-auth unchanged.
+      upstreams = [
+        "10.1.0.3:30080"
+        "10.1.0.12:30080"
+      ];
       displayName = "Home Assistant";
       description = "Home Automation";
       category = "Home Assistant";
       icon = "sh-home-assistant";
       widget = {
         type = "homeassistant";
-        # Direct internal address; see technitium widget comment above.
-        url = "http://10.200.0.8:8123";
+        # Served from k3s (flipped 2026-10-28).
+        url = "https://home-assistant.diekvoss.net";
         key = "{{HOMEPAGE_VAR_HOMEASSISTANT_API_KEY}}";
       };
     };

@@ -34,6 +34,7 @@ in
     inputs.nixcfg.modules.nixos.podman
     inputs.nixcfg.modules.nixos.k3s
     inputs.nixcfg.modules.nixos.k3s-homepage
+    inputs.nixcfg.modules.nixos.k3s-homeassistant
     inputs.nixcfg.modules.nixos.k3s-storage
     inputs.nixcfg.modules.nixos.k3s-starr
     inputs.nixcfg.modules.nixos.monitoring
@@ -44,7 +45,6 @@ in
     inputs.nixcfg.modules.nixos.syncthing
     inputs.nixcfg.modules.nixos.tmpfiles
     inputs.nixcfg.modules.nixos.authentik_container
-    inputs.nixcfg.modules.nixos.home-assistant_container
     inputs.nixcfg.modules.nixos.immich_container
     inputs.nixcfg.modules.nixos.jellyfin_container
     inputs.nixcfg.modules.nixos.monitoring_container
@@ -146,6 +146,8 @@ in
     };
     # First migration passenger; manifests deploy cluster-wide from here.
     k3sHomepage.enable = true;
+    # Home Assistant (not starr); same cluster-wide pattern.
+    k3sHomeassistant.enable = true;
     # Shared NFS storage (csi-driver-nfs + static pool PVs).
     # Single writer: enable ONLY here, never on another server.
     k3sStorage.enable = true;
@@ -386,34 +388,8 @@ in
         domain = "diekvoss.com";
       };
     };
-    home-assistant = {
-      enable = true;
-      natInterface = "eno1";
-      stateDir = "/mnt/POOL/home-assistant";
-      package = stablePkgs.home-assistant.override {
-        extraComponents = [
-          "analytics"
-          "google_pubsub"
-          "google_translate"
-          "html5"
-          "isal"
-          "met"
-          "nest"
-          "radio_browser"
-          "shopping_list"
-          "tplink_omada"
-        ];
-        extraPackages = ps: with ps; [ grpcio ];
-      };
-      haConfig = {
-        default_config = { };
-        homeassistant = {
-          name = "Home";
-          unit_system = "metric";
-          temperature_unit = "F";
-        };
-      };
-    };
+    # home-assistant retired to k3s 2026-10-28 (module deleted); POOL state
+    # dirs remain on disk as backups. Rollback = revert this + the module.
     monitoring = {
       enable = true;
       natInterface = "eno1";

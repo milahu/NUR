@@ -5,7 +5,6 @@
   #
   # my-module = ./my-module;
   authentik_container = ./containers/authentik.nix;
-  home-assistant_container = ./containers/home-assistant.nix;
   immich_container = ./containers/immich.nix;
   jellyfin_container = ./containers/jellyfin.nix;
   minecraft_container = ./containers/minecraft.nix;
@@ -24,6 +23,7 @@
   ids = ./ids.nix;
   k3s = ./k3s.nix;
   k3s-homepage = ./k3s-homepage.nix;
+  k3s-homeassistant = ./k3s-homeassistant.nix;
   k3s-storage = ./k3s-storage.nix;
   k3s-starr = ./k3s-starr.nix;
   gaming = ./gaming.nix;
