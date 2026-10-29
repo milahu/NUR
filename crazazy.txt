@@ -1,17 +1,17 @@
 error:
 … while evaluating attribute 'cargoDeps' of derivation 'wasmtime-13ff1ce45671a517bd47e6df7b248e0ff3cc1d0f'
-  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:104:7:
-   103|
-   104|       cargoDeps =
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:96:7:
+    95|
+    96|       cargoDeps =
       |       ^
-   105|         if cargoVendorDir != null then
+    97|         if cargoVendorDir != null then
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:109:14:
-   108|           cargoDeps
-   109|         else if cargoLock != null then
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:101:14:
+   100|           cargoDeps
+   101|         else if cargoLock != null then
       |              ^
-   110|           importCargoLock cargoLock
+   102|           importCargoLock cargoLock
 
 … while evaluating the attribute 'wasmfxtime.cargoLock."./Cargo.lock"'
   at ./nix/_sources/generated.nix:66:3:

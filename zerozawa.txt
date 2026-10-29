@@ -1,25 +1,25 @@
 error:
-… while evaluating attribute 'installCheckPhase' of derivation 'rea-agents-6.7.0'
-  at ./pkgs/rea-agents/default.nix:236:3:
-   235|   doInstallCheck = true;
-   236|   installCheckPhase = ''
+… while evaluating attribute 'installCheckPhase' of derivation 'rea-agents-6.8.0'
+  at ./pkgs/rea-agents/default.nix:254:3:
+   253|   doInstallCheck = true;
+   254|   installCheckPhase = ''
       |   ^
-   237|     runHook preInstallCheck
+   255|     runHook preInstallCheck
 
 … while calling the 'import' builtin
-  at ./pkgs/rea-agents/default.nix:79:6:
-    78|   sigrokCli =
-    79|     (import (builtins.fetchTarball {
+  at ./pkgs/rea-agents/default.nix:67:6:
+    66|   sigrokCli =
+    67|     (import (builtins.fetchTarball {
       |      ^
-    80|       url = "https://github.com/NixOS/nixpkgs/archive/160b762eda6d139ac10ae081f8f78d640dd523eb.tar.gz";
+    68|       url = "https://github.com/NixOS/nixpkgs/archive/160b762eda6d139ac10ae081f8f78d640dd523eb.tar.gz";
 
 … while realising the context of a path
 
 … while calling the 'fetchTarball' builtin
-  at ./pkgs/rea-agents/default.nix:79:14:
-    78|   sigrokCli =
-    79|     (import (builtins.fetchTarball {
+  at ./pkgs/rea-agents/default.nix:67:14:
+    66|   sigrokCli =
+    67|     (import (builtins.fetchTarball {
       |              ^
-    80|       url = "https://github.com/NixOS/nixpkgs/archive/160b762eda6d139ac10ae081f8f78d640dd523eb.tar.gz";
+    68|       url = "https://github.com/NixOS/nixpkgs/archive/160b762eda6d139ac10ae081f8f78d640dd523eb.tar.gz";
 
 error: access to URI 'https://github.com/NixOS/nixpkgs/archive/160b762eda6d139ac10ae081f8f78d640dd523eb.tar.gz' is forbidden in restricted mode
