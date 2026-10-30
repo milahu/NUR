@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import shutil
 import subprocess
@@ -20,6 +21,7 @@ from update_lib import (  # noqa: E402 - the path above must run first
     is_newer,
     nix_build,
     nix_prefetch_file,
+    npm_highest_version,
     npm_latest_version,
     read_json,
     write_json,
@@ -55,7 +57,15 @@ def regenerate_lockfile(url: str) -> None:
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
 
         subprocess.run(
-            ["npm", "install", "--package-lock-only", "--ignore-scripts"],
+            [
+                "npm",
+                "install",
+                "--package-lock-only",
+                "--ignore-scripts",
+                # Alpha releases often depend on packages published the same
+                # day; do not let the user's npm release-age policy reject them.
+                "--min-release-age=0",
+            ],
             cwd=package_dir,
             check=True,
         )
@@ -65,11 +75,25 @@ def regenerate_lockfile(url: str) -> None:
 
 def main() -> None:
     """Update hashes.json when a newer dsh release exists on npm."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--tag",
+        default="all",
+        help="npm dist-tag to track, or 'all' for the highest version across "
+        "every dist-tag (default: all)",
+    )
+    args = parser.parse_args()
+
     hashes_file = PKG_DIR / "hashes.json"
     data = read_json(hashes_file)
     current = data["version"]
-    latest = npm_latest_version(PACKAGE)
-    print(f"current: {current}, latest: {latest}")
+    if args.tag == "all":
+        latest = npm_highest_version(PACKAGE)
+        channel = "all dist-tags"
+    else:
+        latest = npm_latest_version(PACKAGE, tag=args.tag)
+        channel = args.tag
+    print(f"current: {current}, latest ({channel}): {latest}")
     if not is_newer(latest, current):
         print("already up to date")
         return
