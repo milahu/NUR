@@ -20,6 +20,17 @@
 buildNpmPackage (finalAttrs: {
   inherit (source) pname src version;
 
+  patches = [
+    # Use the application's Nix resource directory instead of
+    # the shared Electron runtime's process.resourcesPath.
+    # Disable application-managed updates.
+    ./nix-resources-and-disable-updates.patch
+
+    # Upstream not accepts this, so we ship it ourselves
+    # See: https://github.com/YAQMC/YAQMC/pull/20
+    ./dynamic-artwork.patch
+  ];
+
   npmDeps = importNpmLock {
     npmRoot = source.src;
     package = lib.importJSON source.extract."package.json";
@@ -48,11 +59,6 @@ buildNpmPackage (finalAttrs: {
   buildInputs = [
     alsa-lib
   ];
-
-  # Use the application's Nix resource directory instead of
-  # the shared Electron runtime's process.resourcesPath.
-  # Disable application-managed updates.
-  patches = [ ./nix-resources-and-disable-updates.patch ];
 
   preBuild = ''
     cargo build --release --locked --offline -p yaqmc-core
