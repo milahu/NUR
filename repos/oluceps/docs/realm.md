@@ -38,7 +38,7 @@ Declare `ingress.<name>.backend` with one of these kinds:
 | `host-tcp` | `port`, IPv4 loopback `address` | Explicit host networking exception |
 | `native` | No backend address | Application terminates SPIFFE TLS |
 
-Native consumers must enforce the declared identities themselves. The Caddy and Envoy generators use the final ingress policy. The native flag alone does not implement authorization.
+Native consumers must enforce the declared identities themselves. The Caddy generators use the final ingress policy. The native flag alone does not implement authorization.
 
 Receiver grants support three forms:
 
@@ -70,9 +70,11 @@ For Internet access, set:
 realm.workloads.example.http.internet = true;
 ```
 
-This generates an `internet-proxy` egress and uppercase and lowercase proxy variables.
-Applications with their own proxy settings still need those settings.
-The Internet gateway must also admit the application's SPIFFE identity.
+This generates an `internet-proxy` egress. With realm-agent and transparent
+capture enabled, ordinary TCP/DNS uses that declared route without proxy
+variable injection. Otherwise the module supplies uppercase and lowercase
+HTTP/HTTPS proxy variables; clients that ignore those variables need their own
+proxy settings. The Internet gateway must also admit the application's SPIFFE identity.
 
 For internal HTTPS access, the site defines this gateway:
 
@@ -152,7 +154,7 @@ nix eval --json .#nixosConfigurations.eihort.config.realm.authorization.connecti
 
 The receiver table contains the final listener identities and grants. The connection report compares each caller with those grants. Manual targets have an unknown authorization result, represented by `null`.
 
-These reports describe identity admission. Caddy path rules, Envoy destination restrictions, database roles and application permissions still apply separately.
+These reports describe identity admission. Caddy path rules, Internet gateway destination restrictions, database roles and application permissions still apply separately.
 
 The current Azasos Caddy declares Atuin and Rustypaste egresses that their receivers do not admit. The report marks both connections as denied. Their existing receiver policies remain unchanged.
 
@@ -303,7 +305,7 @@ authenticated egress.
 
 Caddy is a systemd edge workload with host networking and a private `/run`
 view. Its management API listens on `/run/caddy/admin.sock` (0600), inside a
-0700 directory. Only its own egress directories, runtime directory and DNS resolver sockets are exposed. The Internet gateway is a separate Envoy process.
+0700 directory. Only its own egress directories, runtime directory and DNS resolver sockets are exposed. The Internet gateway is a separate Caddy process with native SPIFFE TLS and the forwardproxy plugin; its configuration API is disabled.
 vmagent keeps its existing network access while its other monitoring targets
 are migrated; its SeaweedFS egress is already authenticated. These exceptions
 use `isolation.privateNetwork = false` explicitly; the Internet gateway and vmagent
@@ -381,36 +383,46 @@ other optional server-side network integrations require separate egress
 declarations when enabled. Check database extension upgrades and backup
 privileges separately from the SPIFFE/peer authentication path.
 
-Internet access uses Envoy's dynamic forward proxy and CONNECT termination.
-Envoy is the native SPIFFE ingress on port 19328, registered as
-`internet-proxy`. Each Realm node runs a gateway. Both generated and manual
-`internet-proxy` egress declarations select the local node by default. An explicit
-`egress.<route>.node` can override that default. Clients retain their local proxy
-addresses, and the gateway uses the host's existing DNS and Internet routes.
-The shared caller allowlist and CONNECT port rules remain the same on every node.
-Local target selection does not restrict the listener to local callers or add
-automatic fallback to another gateway. SPIRE supplies
-its SVID and trust bundle through SDS. Updates apply to new connections without
-restarting the gateway or writing private keys to disk. The listener requires
-a client certificate whose URI SAN matches an exact ingress `allowedIDs` entry.
+Internet access uses Caddy with the pinned `forwardproxy` plugin for HTTP
+forwarding and CONNECT tunnels. Caddy is the native SPIFFE ingress on port
+19328, registered as `internet-proxy`. Each Realm node runs a gateway. Both
+generated and manual `internet-proxy` egress declarations select the local node
+by default. An explicit `egress.<route>.node` can override that default. The
+gateway uses the host's DNS and Internet routes. Local target selection does
+not restrict the listener to local callers or add automatic gateway fallback.
 
-The gateway permits public destinations without a domain allowlist. CONNECT
-preserves application TLS. The DNS cache removes private, loopback, link-local,
-multicast and Yggdrasil addresses from DNS answers. RBAC checks the saved
-resolved address and the selected upstream address, including IP literals.
-Private IPv4-mapped IPv6 destinations are also blocked. CONNECT permits port 443, with port
-8448 also permitted for the Synapse identity. Ordinary HTTP proxy requests
-permit ports 80 and 443. The listener waits for SDS credentials before it
-accepts connections. DNS publication does not wait for this readiness.
-Misskey's only proxy bypass is s3.nyaw.xyz, which uses its local adapter to the
-internal Caddy gateway.
+The current SPIFFE plugin obtains the gateway's SVID and trust bundle directly
+from the Workload API. Its client verifier checks the certificate chain,
+client-auth purpose and exact ingress `allowedIDs`. SVID and CA updates apply
+to new handshakes without restarting the gateway or writing private keys to
+disk. The historical static CA provider and Caddy source patch are not used.
 
-`mod/overlay.nix` exports and applies `overlays.envoy`. The package in
-`pkgs/by-name/envoy-realm.nix` pins Envoy 1.40.0 release binaries and hashes for
-x86_64-linux and aarch64-linux. The optional local Nix cache adapter is also
-configured for Envoy.
-Static gateway configuration changes restart `realm-internet.service`.
-Certificate updates use SDS and do not need a configuration reload.
+The gateway permits public destinations without a domain allowlist. Its ordered
+ACL rejects private, loopback, link-local, multicast, CGNAT and Yggdrasil
+addresses before the final allow rule. The proxy resolves the hostname, filters
+the candidates, and dials a checked numeric address. IPv4 CIDR checks also cover
+private IPv4-mapped IPv6 addresses. The service clears inherited proxy environment
+variables so an upstream proxy cannot bypass this direct dialing policy.
+
+CONNECT preserves application TLS. It permits port 443, with port 8448 also
+permitted for the Synapse identity. Ordinary HTTP proxy requests permit ports
+80 and 443. The reusable module combines all extra CONNECT grants per identity
+before emitting routes. GET, HEAD, OPTIONS and TRACE bodies are limited to 8 MiB
+because the forwardproxy plugin buffers those methods; other uploads stream.
+The listener waits for its Workload API identity before accepting connections.
+DNS publication does not wait for this readiness. Misskey's proxy bypass for
+s3.nyaw.xyz uses its local adapter to the internal Caddy gateway.
+
+`pkgs/by-name/caddy-realm.nix` combines the existing SPIFFE v0.2.0 plugin with
+`caddyserver/forwardproxy` pinned at `0aab84dad4fc`. Configuration changes restart
+`realm-internet.service`; certificate and trust-bundle updates need no reload.
+The loopback HTTP endpoint `127.0.0.1:19329/metrics` is scraped through the
+observation gateway as `internet-gateway`. The separate loopback TLS endpoint
+at port 19330 admits only the local identity observer and presents the same
+actual SVID source as the business listener. Caddy's configuration API is disabled.
+Core HTTP metrics cover requests and response errors. Access logs include the
+authenticated caller SPIFFE ID and completed CONNECT byte counts; the generic
+metrics do not provide dedicated, symmetric tunnel-byte totals per identity.
 
 ## Vaultix
 
@@ -536,25 +548,25 @@ SPIFFE routes. Both retain local PostgreSQL Unix peer authentication. Synapse's
 S3 backend and scheduled uploader use authenticated SeaweedFS routes. Calibre
 accepts requests only from Caddy's SPIFFE identity.
 
-Mautrix Telegram MTProto connections use a private SOCKS5 adapter, chained to
-that workload's authenticated HTTP Internet egress. `socksProxy.enable` adds
-this adapter for applications requiring SOCKS; container workloads receive it
-through an additional protected Unix socket. UDP and SOCKS BIND are disabled.
-The gateway permits public HTTP/HTTPS destinations; only the Synapse identity
-also receives CONNECT access to public port 8448 for federation. Federation
-servers advertising other custom ports require an explicit gateway policy.
+Mautrix Telegram MTProto connections use ordinary TCP captured by realm-agent
+and forwarded through the workload's declared Unix Internet egress, Ghostunnel
+and Internet Caddy. The bridge removes `socksProxy.enable` and sets the application
+`network.proxy.type = "disabled"` instead of its previous SOCKS address. This describes the configuration migration;
+it does not establish successful Telegram login, message delivery, reconnection
+or sustained synchronization after the change.
 
-Telegram Search is enabled on eihort as a rootless `network=none` container.
-Its frontend publishes a Unix socket to Caddy; database access uses a dedicated
-PostgreSQL ingress and peer role mapping. S3 TLS is preserved through Caddy's
-S3 ingress. GramJS uses the SOCKS adapter; Node HTTP requests use environment
-proxy support. The image's nginx worker setup retains CHOWN/SETUID/SETGID only
-inside the rootless user namespace. Its nginx state/log directories use disposable
-tmpfs mounts with `notmpcopyup`, so restrictive ownership from the image is not copied
-into those mounts and no DAC override capability is needed. Existing `/var/lib/tg-search` data ownership
-is migrated once to the rootless service account. The existing upstream
-`latest` image tag is retained; fixture tests do not validate a future image's
-layout or behavior. ARTEX and Magpie are outside this migration.
+The reusable `socksProxy.enable` adapter remains available for other clients
+that require SOCKS; UDP and SOCKS BIND are disabled. Internet Caddy authenticates
+the caller's SPIFFE ID and uses the forwardproxy plugin to restrict destinations.
+It denies private and selected special address ranges, checks resolved numeric
+addresses before dialing without a second hostname lookup, allows HTTP forwarding
+to ports 80/443 and defaults CONNECT to 443. Only the Synapse identity also
+receives CONNECT access to public port 8448 for federation. Other custom ports
+require explicit identity grants; transparent clients also need matching client
+port configuration.
+
+Telegram Search has been removed from the current service configuration.
+ARTEX and Magpie are outside this migration.
 
 Each exporter declares its endpoint next to its service via
 `realm.observability.endpoints`. Caddy publishes one mTLS observation ingress
@@ -607,17 +619,18 @@ exporters keep host visibility; infrastructure daemon networking is unchanged.
 permission, observation identity checks, path/query restrictions, blackbox
 allowlists, the shared business listener, the authenticated API listener with
 its caller allowlist, and direct backend firewall denial.
-`tests/realm-container.nix` imports both actual Misskey and Telegram Search
-profiles with a fixture image, including the latter's TCP-to-Unix ingress,
-rootless mapping, environment override, health check and the socket-activated
-SOCKS bridge.
+`tests/realm-container.nix` imports the actual Misskey profile with a fixture
+image to check rootless mapping, environment overrides, health checks and
+socket adapters. It does not validate the actual production image.
 
 
 Jellyfin, Vaultwarden, Forgejo and NCPS are isolated workloads declared in their
 own `mod/` service profiles. Caddy reaches the application HTTP backends through Unix
 mTLS egress sockets; NCPS instead accepts the dedicated Nix cache client. Their public Internet requests use the authenticated
-Internet gateway; Forgejo explicitly enables its application proxy and also sets
-libcurl proxy variables for Git subprocesses. Jellyfin media paths and device
+Internet gateway. Forgejo removes its application `settings.proxy` block and
+uses realm-agent's transparent TCP path, including Git subprocess traffic.
+Its internal S3, OIDC and self URL aliases still use the declared HTTPS gateway.
+Jellyfin media paths and device
 permissions are preserved; LAN discovery and direct media ports do not cross
 its private network namespace.
 
@@ -630,10 +643,11 @@ SMTP for Forgejo and Vaultwarden uses Stalwart's SPIFFE-authenticated
 `smtp-submission` ingress. S3 for Forgejo and NCPS uses Caddy's authenticated
 S3 ingress. Workload-local `/etc/hosts` aliases direct the original SMTP/S3
 hostnames to the local adapters, preserving application TLS verification and
-SNI. These aliases do not change host-wide DNS. No migrated profile needs a
-resolver: every outbound name is either aliased here or resolved by the gateway
-on the far side of a CONNECT request. The unused private DNS relay
-was removed. CoreDNS and the host resolver remain available to infrastructure.
+SNI. These aliases do not change host-wide DNS. The transparent worker answers
+workload DNS, including declared aliases; external names use DoH through the
+existing authenticated Internet egress. Explicit CONNECT clients can also let
+the gateway resolve the destination. CoreDNS and the host resolver remain
+available to infrastructure.
 No secret values need changing.
 Stalwart keeps its public mail edge networking. The existing Forgejo Actions
 runner remains a separate execution boundary with its existing container
@@ -648,10 +662,15 @@ NCPS observation, FFmpeg proxy requests, hidden runtime sockets and blocked dire
 It does not exercise real SMTP delivery, S3 durability or CI jobs.
 
 
-The `ncps-client` module is wired into realm hosts. It exposes only a loopback
-adapter at `http://127.0.0.1:18502`, permitting GET/HEAD cache reads and rejecting
-metrics/debug paths. It forwards to NCPS with the `nix-cache`
-SPIFFE identity. NCPS has no new public Caddy route and its old mesh plaintext
+The `ncps-client` module is wired into realm hosts. A dedicated
+`realm-ncps-client.service` Caddy process exposes the loopback adapter at
+`http://127.0.0.1:18502`, permitting GET/HEAD cache reads and rejecting
+metrics/debug prefixes, encoded paths and ambiguous path forms. It forwards
+through the existing Unix egress socket with the `nix-cache` SPIFFE identity;
+the adapter itself has no Workload API access or Caddy configuration API.
+`tests/realm-ncps-client.nix` checks module wiring and runs the generated routing
+against a local Unix HTTP fixture, including denied methods and path variants.
+NCPS has no new public Caddy route and its old mesh plaintext
 port remains closed. Nix substituter use remains opt-in (the existing commented
 entry in `mod/nix.nix` now points to this adapter). This grants Nix a cache
 capability without changing the Nix daemon's host infrastructure permissions.
