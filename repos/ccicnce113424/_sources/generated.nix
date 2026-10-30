@@ -296,17 +296,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "be282a9c427d584d66e632806ce705ad4500170d";
+    version = "5009ec694a0a6ec6351eac787769a128b6a168e1";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "be282a9c427d584d66e632806ce705ad4500170d";
+      rev = "5009ec694a0a6ec6351eac787769a128b6a168e1";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-mghe0L70SbZSRcL+gt2nXWSB3+KejOY6+18IpiHI/UA=";
+      sha256 = "sha256-+ChO6JopVl84Ggg2DOYpv8xUS0CmTAERgG8+xQ0EE5E=";
     };
-    date = "2026-10-28";
+    date = "2026-10-29";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -364,16 +364,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.1";
+    version = "v4.1.2-beta.1";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.1";
+      rev = "v4.1.2-beta.1";
       fetchSubmodules = false;
-      sha256 = "sha256-dQGkY681vsPzeKK6a1bUY89Me6WLQqPs6vdlOrl9TMk=";
+      sha256 = "sha256-+6ovN9oOR09t7PEzalzcZzFHXhN7zWIXQiLu5R2jSHQ=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-dQGkY681vsPzeKK6a1bUY89Me6WLQqPs6vdlOrl9TMk=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-+6ovN9oOR09t7PEzalzcZzFHXhN7zWIXQiLu5R2jSHQ=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -395,21 +395,21 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "006c580628e7a006255dd0a1578de0226e9f12a7";
+    version = "51917fda127e46ee3ff7ea54ac418c3b15c87f47";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "006c580628e7a006255dd0a1578de0226e9f12a7";
+      rev = "51917fda127e46ee3ff7ea54ac418c3b15c87f47";
       fetchSubmodules = false;
-      sha256 = "sha256-/E/MWc1ndUJ/N9b0J+Lf6WXhYyXaFVKrctVHoC8psQI=";
+      sha256 = "sha256-ku17QiwfLPPZb4GMQDlj/M4Iys3gEpxySzQc5I1iGrc=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-_E_MWc1ndUJ_N9b0J+Lf6WXhYyXaFVKrctVHoC8psQI=/Cargo.lock";
+      lockFile = ./. + "/sha256-ku17QiwfLPPZb4GMQDlj_M4Iys3gEpxySzQc5I1iGrc=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-10-24";
+    date = "2026-10-30";
   };
   svt-av1-essential = {
     pname = "svt-av1-essential";
@@ -446,15 +446,15 @@
   };
   uosc-danmaku-git = {
     pname = "uosc-danmaku-git";
-    version = "2ad35e4d5e1e5c0c28f9f68f118d6b24e11fc3ec";
+    version = "d896f179aac1c9e7e657664dbe8a69567a9a4900";
     src = fetchFromGitHub {
       owner = "Tony15246";
       repo = "uosc_danmaku";
-      rev = "2ad35e4d5e1e5c0c28f9f68f118d6b24e11fc3ec";
+      rev = "d896f179aac1c9e7e657664dbe8a69567a9a4900";
       fetchSubmodules = false;
-      sha256 = "sha256-6h4OXxqXlPrqiyJZV4KsH7oWo6RkfRP5TJ1f+GjuVYw=";
+      sha256 = "sha256-IDxylx61HTYki34Ehy3hgHDua8F1b8xEV0IW8xjV6uI=";
     };
-    date = "2026-10-25";
+    date = "2026-10-30";
   };
   waywallen-bin = {
     pname = "waywallen-bin";
