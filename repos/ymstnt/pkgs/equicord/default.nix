@@ -11,21 +11,23 @@
   buildWebExtension ? false,
 }:
 stdenv.mkDerivation (finalAttrs: {
+  # Upstream switched from date tags (e.g. 2026-10-08) to semver tags (e.g. v1.15.13.0).
+  # The old date tags still exist, so the update script only matches the semver ones.
   pname = "equicord";
-  version = "2026-10-08";
+  version = "1.15.14.0";
 
   src = fetchFromGitHub {
     owner = "Equicord";
     repo = "Equicord";
-    tag = "${finalAttrs.version}";
-    hash = "sha256-38mMUaDgS0nYwrW2WceQmuHDJk1vFU1PEi7HWvNxiZk=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-ijNxC/uR3Wy4JX/6qNnNGQwS5752+vK2T26N1bsLeG4=";
   };
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_11;
     fetcherVersion = 4;
-    hash = "sha256-hBZHHB5kRkNqep5vWMMnwIblNCAOZvLotDjJUJd9iMU=";
+    hash = "sha256-awZhZFF0v1rcEIL/W3F22Zef0T6ZkuDp1w0FdwO0FWs=";
   };
 
   nativeBuildInputs = [
