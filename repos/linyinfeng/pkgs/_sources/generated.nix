@@ -331,17 +331,17 @@
   };
   rime-cangjie = {
     pname = "rime-cangjie";
-    version = "52d90a1b1312e74042b38c1cbc8142defbc53171";
+    version = "fcb3d7dd94ac1304663d575727d24d8107f6b082";
     src = fetchgit {
       url = "https://github.com/rime/rime-cangjie.git";
-      rev = "52d90a1b1312e74042b38c1cbc8142defbc53171";
+      rev = "fcb3d7dd94ac1304663d575727d24d8107f6b082";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-dOwHk+nykmHCcwXZLgph7ucLmSwK3CUoBLg3zmdrqtY=";
+      sha256 = "sha256-NO5BYFew4vb3LemJARAU6IEhZg9aDh9i4PvopxJLOaI=";
     };
-    date = "2026-06-01";
+    date = "2026-10-30";
   };
   rime-cantonese = {
     pname = "rime-cantonese";
@@ -603,17 +603,17 @@
   };
   v86 = {
     pname = "v86";
-    version = "cc37f35c43bf14865d74ad76879ecf9410f69eb1";
+    version = "315b2b0b758703ef0e6cc7b4088d6068f83f3c20";
     src = fetchgit {
       url = "https://github.com/copy/v86.git";
-      rev = "cc37f35c43bf14865d74ad76879ecf9410f69eb1";
+      rev = "315b2b0b758703ef0e6cc7b4088d6068f83f3c20";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-8gUk/7InPpLs3nEWIWLu/bq33IIt6sxxTjWtfRMV568=";
+      sha256 = "sha256-rBeSilx12PhnCAiD4pdfF0gRkwGwkmR/6eELJIEDM1M=";
     };
-    date = "2026-10-18";
+    date = "2026-10-30";
   };
   vlmcsd = {
     pname = "vlmcsd";
