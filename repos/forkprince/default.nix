@@ -8,6 +8,7 @@
     overlays = import ./overlays;
     lib = import ./lib {inherit pkgs;};
 
+    kryoto-minecraft-launcher = lib.callPackage ./pkgs/kryoto-minecraft-launcher {};
     hyprcursor-bibata = lib.callPackage ./pkgs/hyprcursor-bibata {};
     twintaillauncher = lib.callPackage ./pkgs/twintaillauncher {};
     kryoto-desktop = lib.callPackage ./pkgs/kryoto-desktop {};
@@ -16,17 +17,18 @@
     syslock = lib.callPackage ./pkgs/syslock {};
     yapfast = lib.callPackage ./pkgs/yapfast {};
     sysbar = lib.callPackage ./pkgs/sysbar {};
-    xuan = lib.callPackage ./pkgs/xuan {};
 
     tinywiibackupmanager = lib.callPackage ./pkgs/tinywiibackupmanager {};
     note-block-studio = lib.callPackage ./pkgs/note-block-studio {};
     re-lunatic-player = lib.callPackage ./pkgs/re-lunatic-player {};
+    emerald-launcher = lib.callPackage ./pkgs/emerald-launcher {};
     punktfunk-client = lib.callPackage ./pkgs/punktfunk-client {};
     quiver-launcher = lib.callPackage ./pkgs/quiver-launcher {};
     nintoolbox-gui = lib.callPackage ./pkgs/nintoolbox-gui {};
     beeper-nightly = lib.callPackage ./pkgs/beeper-nightly {};
     app-librescore = lib.callPackage ./pkgs/app-librescore {};
     wiiudownloader = lib.callPackage ./pkgs/wiiudownloader {};
+    elixiroffice = lib.callPackage ./pkgs/elixiroffice {};
     ab-download-manager = lib.callPackage ./pkgs/abdm {};
     osu-tachyon = lib.callPackage ./pkgs/osu-tachyon {};
     nintoolbox = lib.callPackage ./pkgs/nintoolbox {};
@@ -37,6 +39,7 @@
     streamnook = lib.callPackage ./pkgs/streamnook {};
     altersend = lib.callPackage ./pkgs/altersend {};
     genoffice = lib.callPackage ./pkgs/genoffice {};
+    opentubex = lib.callPackage ./pkgs/opentubex {};
     equicord = lib.callPackage ./pkgs/equicord {};
     sm64plus = lib.callPackage ./pkgs/sm64plus {};
     orbolay = lib.callPackage ./pkgs/orbolay {};
@@ -47,6 +50,8 @@
     armsx2 = lib.callPackage ./pkgs/armsx2 {};
     mcman = lib.callPackage ./pkgs/mcman {};
     nuvio = lib.callPackage ./pkgs/nuvio {};
+    nexa = lib.callPackage ./pkgs/nexa {};
+    xuan = lib.callPackage ./pkgs/xuan {};
     sfw = lib.callPackage ./pkgs/sfw {};
     orb = lib.callPackage ./pkgs/orb {};
     fx = lib.callPackage ./pkgs/fx {};

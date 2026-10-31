@@ -1,6 +1,9 @@
 name: "Build/Populate Cache"
 on:
   push:
+    paths-ignore:
+      - 'README.md'
+      - '**/README.md'
   schedule:
     - cron: '05 7 * * *'
   workflow_dispatch:
@@ -140,6 +143,9 @@ jobs:
 
       - name: Update flake
         run: nix flake update
+
+      - name: Update README
+        run: bun scripts/readme.js
 
       - name: Commit and push
         run: |
