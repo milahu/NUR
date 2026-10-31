@@ -497,6 +497,12 @@ lib.mkOption {
               description = "Name of the context file to create/update during project initialization";
             };
 
+            max_background_jobs = lib.mkOption {
+              type = lib.types.nullOr lib.types.int;
+              default = 50;
+              description = "How many background shell jobs may run at once. Jobs that have finished never count against it. 0 or negative restores the default.";
+            };
+
             notifications = lib.mkOption {
               type = lib.types.nullOr (
                 lib.types.enum [
@@ -520,7 +526,7 @@ lib.mkOption {
             request_timeout = lib.mkOption {
               type = lib.types.nullOr lib.types.int;
               default = 60;
-              description = "Timeout in seconds for each LLM API request. Streaming responses are aborted only after this much inactivity, so slow but active streams are never killed. 0 disables it, negative values are invalid.";
+              description = "Timeout in seconds for each LLM API request. Streaming responses are aborted only after this much inactivity between tokens, so slow but active streams are never killed; the wait for the first token gets at least five minutes for prompt prefill. 0 disables it, negative values are invalid.";
             };
 
             skills_paths = lib.mkOption {
@@ -701,10 +707,25 @@ lib.mkOption {
                 type = lib.types.listOf (
                   lib.types.submodule {
                     options = {
-                      can_reason = lib.mkOption {
-                        type = lib.types.nullOr lib.types.bool;
-                        default = null;
-                        description = "Can reason";
+                      capabilities = lib.mkOption {
+                        type = lib.types.submodule {
+                          options = {
+                            audio = lib.mkOption {
+                              type = lib.types.nullOr lib.types.bool;
+                              default = null;
+                              description = "Audio";
+                            };
+
+                            vision = lib.mkOption {
+                              type = lib.types.nullOr lib.types.bool;
+                              default = null;
+                              description = "Vision";
+                            };
+
+                          };
+                        };
+                        default = { };
+                        description = "Capabilities";
                       };
 
                       context_window = lib.mkOption {
@@ -713,46 +734,22 @@ lib.mkOption {
                         description = "Context window";
                       };
 
-                      cost_per_1m_in = lib.mkOption {
-                        type = lib.types.nullOr lib.types.number;
-                        default = null;
-                        description = "Cost per 1m in";
-                      };
-
-                      cost_per_1m_in_cached = lib.mkOption {
-                        type = lib.types.nullOr lib.types.number;
-                        default = null;
-                        description = "Cost per 1m in cached";
-                      };
-
-                      cost_per_1m_out = lib.mkOption {
-                        type = lib.types.nullOr lib.types.number;
-                        default = null;
-                        description = "Cost per 1m out";
-                      };
-
-                      cost_per_1m_out_cached = lib.mkOption {
-                        type = lib.types.nullOr lib.types.number;
-                        default = null;
-                        description = "Cost per 1m out cached";
-                      };
-
                       default_max_tokens = lib.mkOption {
                         type = lib.types.nullOr lib.types.int;
                         default = null;
                         description = "Default max tokens";
                       };
 
-                      default_reasoning_effort = lib.mkOption {
-                        type = lib.types.nullOr lib.types.str;
-                        default = null;
-                        description = "Default reasoning effort";
-                      };
-
                       id = lib.mkOption {
                         type = lib.types.nullOr lib.types.str;
                         default = null;
                         description = "Id";
+                      };
+
+                      max_attachments = lib.mkOption {
+                        type = lib.types.nullOr lib.types.int;
+                        default = null;
+                        description = "Max attachments";
                       };
 
                       name = lib.mkOption {
@@ -806,16 +803,87 @@ lib.mkOption {
                         description = "Options";
                       };
 
-                      reasoning_levels = lib.mkOption {
-                        type = lib.types.nullOr (lib.types.listOf lib.types.str);
-                        default = null;
-                        description = "Reasoning levels";
+                      pricing = lib.mkOption {
+                        type = lib.types.submodule {
+                          options = {
+                            cache_create = lib.mkOption {
+                              type = lib.types.nullOr lib.types.number;
+                              default = null;
+                              description = "Cache create";
+                            };
+
+                            cache_hit = lib.mkOption {
+                              type = lib.types.nullOr lib.types.number;
+                              default = null;
+                              description = "Cache hit";
+                            };
+
+                            input = lib.mkOption {
+                              type = lib.types.nullOr lib.types.number;
+                              default = null;
+                              description = "Input";
+                            };
+
+                            output = lib.mkOption {
+                              type = lib.types.nullOr lib.types.number;
+                              default = null;
+                              description = "Output";
+                            };
+
+                          };
+                        };
+                        default = { };
+                        description = "Pricing";
                       };
 
-                      supports_attachments = lib.mkOption {
-                        type = lib.types.nullOr lib.types.bool;
+                      reasoning = lib.mkOption {
+                        type = lib.types.submodule {
+                          options = {
+                            default_effort_level = lib.mkOption {
+                              type = lib.types.nullOr lib.types.str;
+                              default = null;
+                              description = "Default effort level";
+                            };
+
+                            effort_levels = lib.mkOption {
+                              type = lib.types.listOf (
+                                lib.types.submodule {
+                                  options = {
+                                    display = lib.mkOption {
+                                      type = lib.types.nullOr lib.types.str;
+                                      default = null;
+                                      description = "Display";
+                                    };
+
+                                    value = lib.mkOption {
+                                      type = lib.types.nullOr lib.types.str;
+                                      default = null;
+                                      description = "Value";
+                                    };
+
+                                  };
+                                }
+                              );
+                              default = [ ];
+                              description = "Effort levels";
+                            };
+
+                            thinking = lib.mkOption {
+                              type = lib.types.nullOr lib.types.str;
+                              default = null;
+                              description = "Thinking";
+                            };
+
+                          };
+                        };
+                        default = { };
+                        description = "Reasoning";
+                      };
+
+                      type = lib.mkOption {
+                        type = lib.types.nullOr lib.types.str;
                         default = null;
-                        description = "Supports attachments";
+                        description = "Type";
                       };
 
                     };
@@ -930,15 +998,9 @@ lib.mkOption {
               type = lib.mkOption {
                 type = lib.types.nullOr (
                   lib.types.enum [
-                    "openai"
-                    "openai-compat"
-                    "openrouter"
-                    "vercel"
-                    "anthropic"
-                    "google"
-                    "azure"
-                    "bedrock"
-                    "google-vertex"
+                    "completions"
+                    "responses"
+                    "messages"
                     "hyper"
                     "litellm"
                     "llamacpp"
