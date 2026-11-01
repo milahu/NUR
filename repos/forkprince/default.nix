@@ -24,6 +24,7 @@
     emerald-launcher = lib.callPackage ./pkgs/emerald-launcher {};
     punktfunk-client = lib.callPackage ./pkgs/punktfunk-client {};
     quiver-launcher = lib.callPackage ./pkgs/quiver-launcher {};
+    noisetorch-next = lib.callPackage ./pkgs/noisetorch-next {};
     nintoolbox-gui = lib.callPackage ./pkgs/nintoolbox-gui {};
     beeper-nightly = lib.callPackage ./pkgs/beeper-nightly {};
     app-librescore = lib.callPackage ./pkgs/app-librescore {};
@@ -42,6 +43,7 @@
     opentubex = lib.callPackage ./pkgs/opentubex {};
     equicord = lib.callPackage ./pkgs/equicord {};
     sm64plus = lib.callPackage ./pkgs/sm64plus {};
+    horizon = lib.callPackage ./pkgs/horizon {};
     orbolay = lib.callPackage ./pkgs/orbolay {};
     wg-nord = lib.callPackage ./pkgs/wg-nord {};
     sonixd = lib.callPackage ./pkgs/sonixd {};
