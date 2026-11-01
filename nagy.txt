@@ -1,39 +1,668 @@
 error:
-… while evaluating attribute 'postInstall' of derivation 'kicad-mcp-server-2.8.2'
-  at ./pkgs/by-name/kicad-mcp-server.nix:61:3:
-    60|   # them into the package root so `dist/index.js` can find them at runtime.
-    61|   postInstall = ''
-      |   ^
-    62|     installDir=$out/lib/node_modules/kicad-mcp
+… while evaluating attribute 'paths' of derivation 'all-converters'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:615:9:
+   614|         passAsFile = defaultPassAsFile;
+   615|         paths = mapPaths (path: "${path}${stripPrefix}") paths;
+      |         ^
+   616|         buildCommand = ''
 
-… while calling the 'head' builtin
-  at ./pkgs/by-name/kicad-mcp-server.nix:22:26:
-    21|     in
-    22|     "${kicad.base}/lib/${builtins.head pyVers}/site-packages";
-      |                          ^
-    23|
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:576:13:
+   575|           map (
+   576|             path:
+      |             ^
+   577|             if path == null then
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:582:15:
+   581|             else
+   582|               f path
+      |               ^
+   583|           );
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:615:27:
+   614|         passAsFile = defaultPassAsFile;
+   615|         paths = mapPaths (path: "${path}${stripPrefix}") paths;
+      |                           ^
+   616|         buildCommand = ''
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'convert-org-to-typst'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
+
+… while evaluating attribute 'text' of derivation 'convert-org-to-typst'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:137:11:
+   136|           name
+   137|           text
+      |           ^
+   138|           executable
+
+… while calling the 'concatStringsSep' builtin
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:319:11:
+   318|         export PATH="${
+   319|           lib.concatStringsSep ":" (
+      |           ^
+   320|             (lib.optionals (runtimeInputs != [ ]) [ (lib.makeBinPath runtimeInputs) ])
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:320:54:
+   319|           lib.concatStringsSep ":" (
+   320|             (lib.optionals (runtimeInputs != [ ]) [ (lib.makeBinPath runtimeInputs) ])
+      |                                                      ^
+   321|             ++ (lib.optionals inheritPath [ "$PATH" ])
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:611:13:
+   610|     in
+   611|     subDir: pkgs:
+      |             ^
+   612|     concatStringsSep ":" (
+
+… while calling the 'concatStringsSep' builtin
+  at <nixpkgs> + /lib/strings.nix:612:5:
+   611|     subDir: pkgs:
+   612|     concatStringsSep ":" (
+      |     ^
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+
+… while calling the 'concatMap' builtin
+  at <nixpkgs> + /lib/strings.nix:613:7:
+   612|     concatStringsSep ":" (
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+      |       ^
+   614|     );
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:613:18:
+   612|     concatStringsSep ":" (
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+      |                  ^
+   614|     );
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/strings.nix:613:24:
+   612|     concatStringsSep ":" (
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+      |                        ^
+   614|     );
+
+… while evaluating the attribute 'config'
+  at <nixpkgs> + /lib/modules.nix:404:9:
+   403|         options = checked options;
+   404|         config = checked (removeAttrs config [ "_module" ]);
+      |         ^
+   405|         _module = checked (config._module);
+
+… while calling the 'seq' builtin
+  at <nixpkgs> + /lib/modules.nix:404:18:
+   403|         options = checked options;
+   404|         config = checked (removeAttrs config [ "_module" ]);
+      |                  ^
+   405|         _module = checked (config._module);
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:307:9:
+   306|       checkUnmatched =
+   307|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+      |         ^
+   308|           let
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /lib/modules.nix:307:72:
+   306|       checkUnmatched =
+   307|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+      |                                                                        ^
+   308|           let
+
+… while evaluating the attribute 'unmatchedDefns'
+  at <nixpkgs> + /lib/modules.nix:981:7:
+   980|       # Transforms unmatchedDefnsByName into a list of definitions
+   981|       unmatchedDefns =
+      |       ^
+   982|         if configs == [ ] then
+
+… while calling the 'concatLists' builtin
+  at <nixpkgs> + /lib/modules.nix:987:11:
+   986|         else
+   987|           concatLists (
+      |           ^
+   988|             mapAttrsToList (
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:989:21:
+   988|             mapAttrsToList (
+   989|               name: defs:
+      |                     ^
+   990|               map (
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/modules.nix:990:15:
+   989|               name: defs:
+   990|               map (
+      |               ^
+   991|                 def:
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:973:22:
+   972|         # Propagate all unmatched definitions from nested option sets
+   973|         mapAttrs (n: v: v.unmatchedDefns) resultsByName
+      |                      ^
+   974|         # Plus the definitions for the current prefix that don't have a matching option
+
+(10 duplicate frames omitted)
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:973:25:
+   972|         # Propagate all unmatched definitions from nested option sets
+   973|         mapAttrs (n: v: v.unmatchedDefns) resultsByName
+      |                         ^
+   974|         # Plus the definitions for the current prefix that don't have a matching option
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:891:15:
+   890|       resultsByName = mapAttrs (
+   891|         name: decls:
+      |               ^
+   892|         # We're descending into attribute ‘name’.
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:901:9:
+   900|         in
+   901|         if all isOptionDecl decls then
+      |         ^
+   902|           let
+
+… while calling the 'all' builtin
+  at <nixpkgs> + /lib/modules.nix:901:12:
+   900|         in
+   901|         if all isOptionDecl decls then
+      |            ^
+   902|           let
+
+… while calling 'isOptionDecl'
+  at <nixpkgs> + /lib/modules.nix:897:13:
+   896|           isOptionDecl =
+   897|             m:
+      |             ^
+   898|             m.options ? _type
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /lib/modules.nix:899:13:
+   898|             m.options ? _type
+   899|             && (m.options._type == "option" || throwDeclarationTypeError loc m.options._type m._file);
+      |             ^
+   900|         in
+
+… while evaluating the attribute 'options'
+  at <nixpkgs> + /lib/modules.nix:822:15:
+   821|               pos = unsafeGetAttrPos n subtree;
+   822|               options = option;
+      |               ^
+   823|             }) subtree
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:289:73:
+   288|       len = length attrPath;
+   289|       atDepth = n: if n == len then value else { ${elemAt attrPath n} = atDepth (n + 1); };
+      |                                                                         ^
+   290|     in
+
+… while calling 'atDepth'
+  at <nixpkgs> + /lib/attrsets.nix:289:17:
+   288|       len = length attrPath;
+   289|       atDepth = n: if n == len then value else { ${elemAt attrPath n} = atDepth (n + 1); };
+      |                 ^
+   290|     in
+
+… in the right operand of the update (//) operator
+  at <nixpkgs> + /lib/modules.nix:2212:12:
+  2211|         }
+  2212|         // optionalAttrs (toType != null) {
+      |            ^
+  2213|           type = toType;
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:2212:12:
+  2211|         }
+  2212|         // optionalAttrs (toType != null) {
+      |            ^
+  2213|           type = toType;
+
+… while calling 'optionalAttrs'
+  at <nixpkgs> + /lib/attrsets.nix:1479:25:
+  1478|   */
+  1479|   optionalAttrs = cond: as: if cond then as else { };
+      |                         ^
+  1480|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/attrsets.nix:1479:29:
+  1478|   */
+  1479|   optionalAttrs = cond: as: if cond then as else { };
+      |                             ^
+  1480|
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:2201:17:
+  2200|         let
+  2201|           opt = attrByPath to { } options;
+      |                 ^
+  2202|         in
+
+… while calling 'attrByPath'
+  at <nixpkgs> + /lib/attrsets.nix:89:24:
+    88|   attrByPath =
+    89|     attrPath: default: set:
+      |                        ^
+    90|     let
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:106:5:
+   105|     in
+   106|     attrByPath' 0 set;
+      |     ^
+   107|
+
+… while calling 'attrByPath''
+  at <nixpkgs> + /lib/attrsets.nix:93:12:
+    92|       attrByPath' =
+    93|         n: s:
+      |            ^
+    94|         (
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:102:35:
+   101|               in
+   102|               if s ? ${attr} then attrByPath' (n + 1) s.${attr} else default
+      |                                   ^
+   103|             )
+
+… while calling 'attrByPath''
+  at <nixpkgs> + /lib/attrsets.nix:93:12:
+    92|       attrByPath' =
+    93|         n: s:
+      |            ^
+    94|         (
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:102:35:
+   101|               in
+   102|               if s ? ${attr} then attrByPath' (n + 1) s.${attr} else default
+      |                                   ^
+   103|             )
+
+… while calling 'attrByPath''
+  at <nixpkgs> + /lib/attrsets.nix:93:12:
+    92|       attrByPath' =
+    93|         n: s:
+      |            ^
+    94|         (
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:102:35:
+   101|               in
+   102|               if s ? ${attr} then attrByPath' (n + 1) s.${attr} else default
+      |                                   ^
+   103|             )
+
+… while calling 'attrByPath''
+  at <nixpkgs> + /lib/attrsets.nix:93:12:
+    92|       attrByPath' =
+    93|         n: s:
+      |            ^
+    94|         (
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:102:55:
+   101|               in
+   102|               if s ? ${attr} then attrByPath' (n + 1) s.${attr} else default
+      |                                                       ^
+   103|             )
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:968:37:
+   967|
+   968|       matchedOptions = mapAttrs (n: v: v.matchedOptions) resultsByName;
+      |                                     ^
+   969|
+
+… while evaluating the attribute 'matchedOptions'
+  at <nixpkgs> + /lib/modules.nix:906:13:
+   905|           {
+   906|             matchedOptions = evalOptionValue loc opt defns';
+      |             ^
+   907|             unmatchedDefns = [ ];
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:906:30:
+   905|           {
+   906|             matchedOptions = evalOptionValue loc opt defns';
+      |                              ^
+   907|             unmatchedDefns = [ ];
+
+… while calling 'evalOptionValue'
+  at <nixpkgs> + /lib/modules.nix:1141:15:
+  1140|   evalOptionValue =
+  1141|     loc: opt: defs:
+      |               ^
+  1142|     let
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /lib/modules.nix:1175:7:
+  1174|     (
+  1175|       if opt.type.deprecationMessage != null then
+      |       ^
+  1176|         warn "The type `types.${opt.type.name}' of option `${showOption loc}' defined in ${showFiles opt.declarations} is deprecated. ${opt.type.deprecationMessage}" opt
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:1175:7:
+  1174|     (
+  1175|       if opt.type.deprecationMessage != null then
+      |       ^
+  1176|         warn "The type `types.${opt.type.name}' of option `${showOption loc}' defined in ${showFiles opt.declarations} is deprecated. ${opt.type.deprecationMessage}" opt
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:903:19:
+   902|           let
+   903|             opt = fixupOptionType loc (mergeOptionDecls loc decls);
+      |                   ^
+   904|           in
+
+… while calling 'fixupOptionType'
+  at <nixpkgs> + /lib/modules.nix:1509:10:
+  1508|   fixupOptionType =
+  1509|     loc: opt:
+      |          ^
+  1510|     if opt.type.getSubModules or null == null then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:1510:5:
+  1509|     loc: opt:
+  1510|     if opt.type.getSubModules or null == null then
+      |     ^
+  1511|       if opt ? type then opt else opt // { type = types.unspecified; }
+
+… while evaluating the attribute 'type.getSubModules'
+  at <nixpkgs> + /nixos/modules/services/hardware/bluetooth.nix:72:9:
+    71|       settings = mkOption {
+    72|         type = cfgFmt.type;
+      |         ^
+    73|         default = { };
+
+… from call site
+  at <nixpkgs> + /nixos/modules/services/hardware/bluetooth.nix:26:12:
+    25|
+    26|   cfgFmt = pkgs.formats.ini { };
+      |            ^
+    27|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:742:15:
+   741|       extraArgs = mapAttrs (
+   742|         name: _:
+      |               ^
+   743|         addErrorContext ''while evaluating the module argument `${name}' in "${key}":'' (
+
+… while evaluating the module argument `pkgs' in "<nixpkgs> + /nixos/modules/services/hardware/bluetooth.nix":
+
+… noting that argument `pkgs` is not externally provided, so querying `_module.args` instead, requiring `config`
+
+… from call site
+  at <nixpkgs> + /lib/modules.nix:746:13:
+   745|             "noting that argument `${name}` is not externally provided, so querying `_module.args` instead, requiring `config`"
+   746|             config._module.args.${name}
+      |             ^
+   747|           )
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/types.nix:1436:18:
+  1435|             value = mapAttrs (
+  1436|               n: v:
+      |                  ^
+  1437|               if lazy then
+
+… while evaluating the attribute 'optionalValue.value'
+  at <nixpkgs> + /lib/modules.nix:1342:5:
+  1341|
+  1342|     optionalValue = if isDefined then { value = mergedValue; } else { };
+      |     ^
+  1343|   };
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:1342:21:
+  1341|
+  1342|     optionalValue = if isDefined then { value = mergedValue; } else { };
+      |                     ^
+  1343|   };
+
+… while evaluating the attribute 'values'
+  at <nixpkgs> + /lib/modules.nix:1270:11:
+  1269|         {
+  1270|           values = defsSorted;
+      |           ^
+  1271|           inherit (defsFiltered) highestPrio;
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:1264:13:
+  1263|             # Avoid sorting if we don't have to.
+  1264|             if any (def: def.value._type or "" == "order") defsFiltered.values then
+      |             ^
+  1265|               sortProperties defsFiltered.values
+
+… while calling the 'any' builtin
+  at <nixpkgs> + /lib/modules.nix:1264:16:
+  1263|             # Avoid sorting if we don't have to.
+  1264|             if any (def: def.value._type or "" == "order") defsFiltered.values then
+      |                ^
+  1265|               sortProperties defsFiltered.values
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:1264:21:
+  1263|             # Avoid sorting if we don't have to.
+  1264|             if any (def: def.value._type or "" == "order") defsFiltered.values then
+      |                     ^
+  1265|               sortProperties defsFiltered.values
+
+… while evaluating the attribute 'value._type'
+  at <nixpkgs> + /lib/modules.nix:1458:67:
+  1457|       strip =
+  1458|         def: if def.value._type or "" == "override" then def // { value = def.value.content; } else def;
+      |                                                                   ^
+  1459|     in
+
+… while evaluating the attribute 'value.content'
+  at <nixpkgs> + /lib/modules.nix:1638:22:
+  1637|     _type = "override";
+  1638|     inherit priority content;
+      |                      ^
+  1639|   };
+
+… from call site
+  at <nixpkgs> + /nixos/modules/misc/nixpkgs.nix:98:7:
+    97|     else
+    98|       import ../../.. {
+      |       ^
+    99|         inherit (cfg)
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/top-level/impure.nix:12:1:
+    11|
+    12| {
+      | ^
+    13|   # We put legacy `system` into `localSystem`, if `localSystem` was not passed.
+
+… from call site
+  at <nixpkgs> + /pkgs/top-level/impure.nix:55:1:
+    54|
+    55| import ./. (
+      | ^
+    56|   removeAttrs args [ "system" ]
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/top-level/default.nix:21:1:
+    20|
+    21| {
+      | ^
+    22|   # The system packages will be built on. See the manual for the
+
+… from call site
+  at <nixpkgs> + /pkgs/top-level/default.nix:108:6:
+   107|   checked =
+   108|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
+      |      ^
+   109|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
+
+… while calling 'throwIfNot'
+  at <nixpkgs> + /lib/trivial.nix:982:22:
+   981|   */
+   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                      ^
+   983|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:982:27:
+   981|   */
+   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                           ^
+   983|
+
+… while calling the 'isList' builtin
+  at <nixpkgs> + /pkgs/top-level/default.nix:108:18:
+   107|   checked =
+   108|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
+      |                  ^
+   109|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
+
+… from call site
+  at <nixpkgs> + /nixos/modules/misc/nixpkgs.nix:101:11:
+   100|           config
+   101|           overlays
+      |           ^
+   102|           localSystem
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/modules.nix:283:38:
+   282|             let
+   283|               recurse = mapAttrs (n: v: if isOption v then v.value else recurse v);
+      |                                      ^
+   284|             in
+
+… while evaluating the attribute 'value'
+  at <nixpkgs> + /lib/modules.nix:1181:7:
+  1180|     // {
+  1181|       value = addErrorContext "while evaluating the option `${showOption loc}':" (
+      |       ^
+  1182|         # Apply the 'apply' function to the merged value. This allows options to
+
+… while evaluating the option `nixpkgs.overlays':
+
+… while evaluating the attribute 'mergedValue'
+  at <nixpkgs> + /lib/modules.nix:1276:5:
+  1275|     # Type-check the remaining definitions, and merge them. Or throw if no definitions.
+  1276|     mergedValue =
+      |     ^
+  1277|       if isDefined then
+
+… while evaluating the attribute 'value'
+  at <nixpkgs> + /lib/types.nix:1059:13:
+  1058|             headError = checkDefsForError check loc defs;
+  1059|             value = map (x: x.optionalValue.value or x.mergedValue) evals;
+      |             ^
+  1060|             valueMeta.list = map (v: v.checkedAndMerged.valueMeta) evals;
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/types.nix:1059:21:
+  1058|             headError = checkDefsForError check loc defs;
+  1059|             value = map (x: x.optionalValue.value or x.mergedValue) evals;
+      |                     ^
+  1060|             valueMeta.list = map (v: v.checkedAndMerged.valueMeta) evals;
 
 … while calling the 'filter' builtin
-  at ./pkgs/by-name/kicad-mcp-server.nix:20:16:
-    19|       libdirs = builtins.attrNames (builtins.readDir "${kicad.base}/lib");
-    20|       pyVers = builtins.filter (d: builtins.match "python[0-9.]+" d != null) libdirs;
-      |                ^
-    21|     in
+  at <nixpkgs> + /lib/types.nix:1040:21:
+  1039|           let
+  1040|             evals = filter (x: x.optionalValue ? value) (
+      |                     ^
+  1041|               concatLists (
 
-… while calling the 'attrNames' builtin
-  at ./pkgs/by-name/kicad-mcp-server.nix:19:17:
-    18|     let
-    19|       libdirs = builtins.attrNames (builtins.readDir "${kicad.base}/lib");
-      |                 ^
-    20|       pyVers = builtins.filter (d: builtins.match "python[0-9.]+" d != null) libdirs;
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/types.nix:1040:29:
+  1039|           let
+  1040|             evals = filter (x: x.optionalValue ? value) (
+      |                             ^
+  1041|               concatLists (
 
-… while calling the 'readDir' builtin
-  at ./pkgs/by-name/kicad-mcp-server.nix:19:37:
-    18|     let
-    19|       libdirs = builtins.attrNames (builtins.readDir "${kicad.base}/lib");
-      |                                     ^
-    20|       pyVers = builtins.filter (d: builtins.match "python[0-9.]+" d != null) libdirs;
+… while evaluating the attribute 'optionalValue'
+  at <nixpkgs> + /lib/modules.nix:1342:5:
+  1341|
+  1342|     optionalValue = if isDefined then { value = mergedValue; } else { };
+      |     ^
+  1343|   };
 
-… while realising the context of path '/nix/store/h5p54wmx4s217irx8hwgg5vbirlyvdff-kicad-base-10.0.7/lib'
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:1342:21:
+  1341|
+  1342|     optionalValue = if isDefined then { value = mergedValue; } else { };
+      |                     ^
+  1343|   };
 
-error: path '/nix/store/cx3xm840ia93pn91qgv1m3xy6cxwv15x-kicad-base-10.0.7.drv' is not valid
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/modules.nix:1231:7:
+  1230|       # original singleton straight to the type merge.
+  1231|       if
+      |       ^
+  1232|         length defs == 1
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /lib/modules.nix:1233:9:
+  1232|         length defs == 1
+  1233|         && addErrorContext "while evaluating definitions from `${(head defs).file}':" (
+      |         ^
+  1234|           !(head defs).value ? _type
+
+… while evaluating definitions from `./modules/emacs.nix':
+
+… in the argument of the not operator
+  at <nixpkgs> + /lib/modules.nix:1234:12:
+  1233|         && addErrorContext "while evaluating definitions from `${(head defs).file}':" (
+  1234|           !(head defs).value ? _type
+      |            ^
+  1235|         )
+
+… while evaluating the attribute 'value'
+  at <nixpkgs> + /lib/types.nix:1049:25:
+  1048|                         inherit (def) file;
+  1049|                         value = def';
+      |                         ^
+  1050|                       }
+
+… while calling the 'elemAt' builtin
+  at <nixpkgs> + /lib/lists.nix:346:43:
+   345|   */
+   346|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                                           ^
+   347|
+
+… while calling the 'import' builtin
+  at ./modules/emacs.nix:276:8:
+   275|     nixpkgs.overlays = lib.mkIf cfg.useEmacsOverlay [
+   276|       (import (
+      |        ^
+   277|         builtins.fetchTarball {
+
+… while realising the context of a path
+
+… while calling the 'fetchTarball' builtin
+  at ./modules/emacs.nix:277:9:
+   276|       (import (
+   277|         builtins.fetchTarball {
+      |         ^
+   278|           # updated 2026-10-31
+
+error: access to URI 'https://github.com/nix-community/emacs-overlay/archive/14c5c32cdc5804f17390919e75d05962bc7def09.tar.gz' is forbidden in restricted mode

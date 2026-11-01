@@ -1,0 +1,74 @@
+error:
+… while evaluating attribute 'buildPhase' of derivation 'sable-next-desktop-2.2.3'
+  at ./pkgs/sable-next-desktop/package.nix:106:3:
+   105|
+   106|   buildPhase = ''
+      |   ^
+   107|     runHook preBuild
+
+… from call site
+  at ./pkgs/sable-next-desktop/package.nix:20:5:
+    19|     # TODO: remove once either https://github.com/NixOS/nixpkgs/pull/578912 gets merged or electron_45-src gets initialized
+    20|     callPackage "${pkgs.path}/pkgs/development/tools/electron/binary/generic.nix" { } "45.0.0" {
+      |     ^
+    21|       aarch64-darwin = "896c3a50b148e89a158dca08a6996a022ddf39b23aac871e107f5b4087f8caa9";
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
+      |                   ^
+   313|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:326:5:
+   325|     # if nonempty, check if the function has defaults for those other args
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |     ^
+   327|       makeOverridable f allArgs
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/customisation.nix:326:28:
+   325|     # if nonempty, check if the function has defaults for those other args
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   327|       makeOverridable f allArgs
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:322:22:
+   321|       # arguments that weren't passed automatically to the function
+   322|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   323|
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:315:15:
+   314|       f = if isFunction fn then fn else import fn;
+   315|       fargs = functionArgs f;
+      |               ^
+   316|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f:
+      |     ^
+  1110|     if f ? __functor then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1110:5:
+  1109|     f:
+  1110|     if f ? __functor then
+      |     ^
+  1111|       f.__functionArgs or (
+
+… while calling the 'import' builtin
+  at <nixpkgs> + /lib/customisation.nix:314:41:
+   313|     let
+   314|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   315|       fargs = functionArgs f;
+
+… while realising the context of path '/nix/store/09ixcgjha09761jdqyrcv8957mjvghj9-42hcm4gkqyw60q7y6y4yb5b2n4l43m5x-source/pkgs/development/tools/electron/binary/generic.nix'
+
+error: path '/nix/store/09ixcgjha09761jdqyrcv8957mjvghj9-42hcm4gkqyw60q7y6y4yb5b2n4l43m5x-source' is not valid
