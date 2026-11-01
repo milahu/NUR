@@ -244,6 +244,10 @@ src.github_tag = "router-for-me/pi-cliproxyapi-provider"
 fetch.github = "router-for-me/pi-cliproxyapi-provider"
 extract = ["package-lock.json", "package.json"]
 
+[pi-context-view]
+src.github = "dimk90/pi-context-view"
+fetch.github = "dimk90/pi-context-view"
+
 [pi-lsp-client]
 src.github_tag = "code-yeongyu/pi-lsp-client"
 fetch.github = "code-yeongyu/pi-lsp-client"
@@ -327,16 +331,6 @@ cargo_lock = ['Cargo.lock']
 
 [whois42d-ng-stable]
 src.github = "moraxyc/whois42d-ng"
-fetch.url = "file:///dev/null"
-
-[yaqmc]
-src.git = "https://github.com/YAQMC/YAQMC.git"
-fetch.github = "YAQMC/YAQMC"
-extract = ["package-lock.json", "package.json"]
-cargo_lock = ['Cargo.lock']
-
-[yaqmc-stable]
-src.github = "YAQMC/YAQMC"
 fetch.url = "file:///dev/null"
 
 # keep-sorted end
