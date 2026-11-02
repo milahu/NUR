@@ -1,10 +1,10 @@
 error:
 … while evaluating attribute 'cargoDeps' of derivation 'amber-lsp-0.3.0'
-  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:105:7:
-   104|
-   105|       cargoDeps =
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:96:7:
+    95|
+    96|       cargoDeps =
       |       ^
-   106|         if cargoVendorDir != null then
+    97|         if cargoVendorDir != null then
 
 … while calling the 'derivationStrict' builtin
   at «nix-internal»/derivation-internal.nix:37:12:
@@ -31,46 +31,46 @@ error:
     89|         passAsFile = defaultPassAsFile ++ (userAttrs.passAsFile or [ ]);
 
 … while calling 'toFunction'
-  at <nixpkgs> + /lib/trivial.nix:1211:16:
-  1210|   */
-  1211|   toFunction = v: if isFunction v then v else k: v;
+  at <nixpkgs> + /lib/trivial.nix:1236:16:
+  1235|   */
+  1236|   toFunction = v: if isFunction v then v else k: v;
       |                ^
-  1212|
+  1237|
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/trivial.nix:1211:19:
-  1210|   */
-  1211|   toFunction = v: if isFunction v then v else k: v;
+  at <nixpkgs> + /lib/trivial.nix:1236:19:
+  1235|   */
+  1236|   toFunction = v: if isFunction v then v else k: v;
       |                   ^
-  1212|
+  1237|
 
 … from call site
-  at <nixpkgs> + /lib/trivial.nix:1211:22:
-  1210|   */
-  1211|   toFunction = v: if isFunction v then v else k: v;
+  at <nixpkgs> + /lib/trivial.nix:1236:22:
+  1235|   */
+  1236|   toFunction = v: if isFunction v then v else k: v;
       |                      ^
-  1212|
+  1237|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/trivial.nix:1131:5:
-  1130|     in
-  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
+  at <nixpkgs> + /lib/trivial.nix:1144:5:
+  1143|     in
+  1144|     f:
       |     ^
-  1132|
+  1145|     # Equivalent to `isLambda f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f))`
 
 … in the left operand of the OR (||) operator
-  at <nixpkgs> + /lib/trivial.nix:1131:21:
-  1130|     in
-  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
-      |                     ^
-  1132|
+  at <nixpkgs> + /lib/trivial.nix:1148:5:
+  1147|     isLambda f
+  1148|     || (
+      |     ^
+  1149|       f ? __functor
 
 … while calling the 'isFunction' builtin
-  at <nixpkgs> + /lib/trivial.nix:1131:8:
-  1130|     in
-  1131|     f: isFunction f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f));
-      |        ^
-  1132|
+  at <nixpkgs> + /lib/trivial.nix:1147:5:
+  1146|     # but faster when `f.__functor` and `f.__functor f` are both lambdas.
+  1147|     isLambda f
+      |     ^
+  1148|     || (
 
 … while calling the 'toString' builtin
   at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:340:28:
