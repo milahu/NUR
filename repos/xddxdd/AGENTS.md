@@ -30,6 +30,7 @@
 布尔型选项用 `lib.cmakeBool "OPTION" true|false`（产出 `-DOPTION:BOOL=TRUE/FALSE`），字符串/路径型选项用 `lib.cmakeFeature "OPTION" "value"`（产出 `-DOPTION:STRING=value`），不用 `-DX=ON/OFF` 字面量；生成器开关（如 `-GNinja`）与设为空字符串的特例（如 `-DCMAKE_OSX_ARCHITECTURES=""` 可用 `cmakeFeature` 传空串）除外
 - **优先使用 finalAttrs 而非 rec**：新包一律写成 `stdenv.mkDerivation (finalAttrs: { ... })`（或 `buildPythonPackage (finalAttrs: { ... })` 等 mkDerivation 风格构建器的等价形式），不用 `rec`；包内自引用统一用 `finalAttrs.<attr>`。src 的 URL/tag 中出现版本号字面量时改用 `${finalAttrs.version}` 插值——nix-update 只对 `version = "..."` 行做文本替换，插值 URL 会随 version 属性自动更新。注意：`writeShellApplication`、`appimageTools.wrapType2/extract` 等不接受 functor 参数的构建器不能这样转换；纯 `.overrideAttrs` 包装文件与 sources.json 多源包无版本字面量可引用，保持原样
 - **保持二进制文件名与源码一致**：安装二进制文件时，使用与源码中相同的文件名，不要重命名
+- **原样运行官方二进制的 FHS 包**：用独立派生安装上游文件并设置 `dontFixup = true`，避免默认 strip、ELF 修补和 shebang 改写；运行时库由 `buildFHSEnv.targetPkgs` 提供，不使用 autoPatchelf。可选硬件路径应在启动脚本中用 `test -e` 检查，不用求值期的 `builtins.pathExists`，让同一产物能跨主机使用；路径参数用 `lib.escapeShellArg` 引用（folia-major-bin 实例）。
 - **使用 versionCheckHook**：在可能的情况下，为包添加 `versionCheckHook` 以验证版本一致性。需要添加以下配置：
   - 在 `nativeInstallCheckInputs` 中添加 `versionCheckHook`
   - 设置 `doInstallCheck = true`
@@ -228,6 +229,8 @@ appimageTools.wrapType2 {
 
 ### 版本约定
 
+- **自定义更新脚本必须防止部分写入和空哈希**：Shell 脚本开启 `set -euo pipefail`，用 `jq -er .hash` 拒绝 null 或缺失的哈希；修复哈希的正则应能匹配已有的空字符串，否则一次下载失败就会让更新永久卡住（ncmm 实例）。用 sed 写入 SRI 哈希时不要用 `/` 作分隔符，base64 本身可能含 `/`。
+- **更新前先检查源码归档是否仍含可构建项目**：上游可能把完整源码仓库改成补丁系列，但继续发布同名 tag（invisible-firefox 实例）。先预取并检查归档中的权威版本文件，再改写 version/tag/hash；归档已变为补丁集时明确警告并保留最后可用的完整源码 pin，不要把 HTTP 404 正文当版本号，也不要只推进 tag。
 - **普通 GitHub release/tag**：直接 `nix-update-script { }`；v 前缀 tag（如 tag 为 `v1.2.0`、version 为 `1.2.0`）会被 nix-update 自动识别处理，无需额外参数
 - **release 全是 beta/prerelease 的仓库**（如 axonhub，tag 全为 `v1.0.0-betaN`）：nix-update 默认 STABLE 偏好会拒绝更新，需 `nix-update-script { extraArgs = [ "--version" "unstable" ]; }`
 - **GitHub releases 混入无关 tag 的仓库**（如 browseros，releases 里混着 `agent-server/v0.0.147`、`ext-*` 等扩展 tag）：加 `--version-regex` 过滤，如 `nix-update-script { extraArgs = [ "--version-regex" "^v([0-9.]+)$" ]; }`；nix-update 默认 regex 是 `(.*)`（整 tag 作为版本号）。**注意 atom feed 只列出最近约 10 个 release**：若无关 tag 频繁发布、把 feed 占满导致没有任何条目匹配 version-regex，nix-update 会直接抛 `VersionError: No version matched the regex` 使整个 CI 失败（而不是当作无更新跳过）——此时 regex 无法修复，必须改用自定义 `update.sh`：用 `git ls-remote --tags <url>` 获取完整 tag 列表，`sed -n 's#.*refs/tags/v\([0-9.]*\)$#\1#p'` 过滤（行尾锚定可自动排除 `^{}` peeled 引用），`sort -V | tail -1` 取最新，与 `$UPDATE_NIX_OLD_VERSION` 相等则 `exit 0`，否则 `nix-update "$UPDATE_NIX_ATTR_PATH" --version "$NEW_VERSION"`（参考 `pkgs/uncategorized/browseros/update.sh`）。注意验证时必须直接执行脚本（`bash -c /nix/store/...-update.sh`，与 CI 运行器一致）让 nix-shell shebang 生效，`bash script.sh` 会绕过 shebang 导致找不到 nix-update
