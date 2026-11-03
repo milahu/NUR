@@ -10,13 +10,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "neorex";
-  version = "0-unstable-2026-11-01";
+  version = "0-unstable-2026-11-02";
 
   src = fetchFromGitHub {
     owner = "alexrlocke";
     repo = "neorex";
-    rev = "13733b66a1f56aae9f90932ca90012a9a3cebeb9";
-    hash = "sha256-B5jQbmySJsLAtakt1AXGNQP4uLIjAcdjsOcmNN13/Kg=";
+    rev = "7b7c624497cac5a8193a960b47e0e965e76e3a70";
+    hash = "sha256-OCOSlPEtYzWKyW+mOwLc0x/S3L0TweEnnx1ipQ3MpQs=";
   };
 
   nativeBuildInputs = [
