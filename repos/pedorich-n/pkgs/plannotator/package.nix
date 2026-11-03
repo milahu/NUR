@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  pkgs,
+  bun,
   fetchFromGitHub,
   jj,
   git,
@@ -13,12 +13,9 @@
   versionCheckHook,
   writableTmpDirAsHomeHook,
 }:
-let
-  bun = (import ../../overlays/bun.nix pkgs pkgs).bun;
-in
 stdenv.mkDerivation (finalAttrs: {
   pname = "plannotator";
-  version = "0.28.42";
+  version = "0.28.47";
 
   __structuredAttrs = true;
   strictDeps = true;
@@ -27,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "backnotprop";
     repo = "plannotator";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-OGl7ol0VhEaM609BiJ3KvoHdP3bVP11eoOCzZy3W1rI=";
+    hash = "sha256-7rZr524w3AZvYHaLK6ProngipakMMXpcsvdlSkvs7Zs=";
   };
 
   nodeModules = stdenv.mkDerivation {
@@ -76,7 +73,7 @@ stdenv.mkDerivation (finalAttrs: {
     dontFixup = true;
 
     outputHashMode = "recursive";
-    outputHash = "sha256-hZhpsBWYdmhVVMLRwWzXAMm55bUeZqyrXM24nHpYdas=";
+    outputHash = "sha256-Q9OiXdlyvcU93iq6VE6lLAdbyrIDfg49GWAg+z7n6Wg=";
   };
 
   nativeBuildInputs = [
