@@ -13,7 +13,7 @@
 
 gcc14Stdenv.mkDerivation (finalAttrs: {
   pname = "edk2-cix-codgician";
-  version = "1.3.1-unstable-2026-10-30";
+  version = "1.3.1-unstable-2026-11-02";
 
   # codgician/edk2-cix supplies the board build glue (src/Makefile) and records
   # which revisions of the three firmware trees belong together. Its submodules
@@ -21,23 +21,23 @@ gcc14Stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "codgician";
     repo = "edk2-cix";
-    rev = "1cd1b22a114445f6ad466918a15873a0334d4fe1";
+    rev = "d6edf81e24868eef13566065cfee33436af64d00";
     hash = "sha256-X58n0y6QMs2A/+aXW76GulE+dba29sGa6n8ypudqio0=";
   };
 
   edk2 = fetchFromGitHub {
     owner = "codgician";
     repo = "edk2";
-    rev = "62733cbe7a3b0b73a0e30a9d3b7766836485dd28";
+    rev = "ea01532bb776252b0e94387d0ba41f8a314af550";
     fetchSubmodules = true;
-    hash = "sha256-LxWTu6+u3PaPO3eXfNBfwml5jvLz3bY3lmyqM70A3a0=";
+    hash = "sha256-5Upcivnyi6EbCv4RqQShlxKgBw6CcdCbHvFpTSFL8/g=";
   };
 
   edk2Platforms = fetchFromGitHub {
     owner = "codgician";
     repo = "edk2-platforms";
-    rev = "088e0a1e1c6419c003fa24f3d359e1919ed67b04";
-    hash = "sha256-cRI1gCiDxXE6voiiENwSW9OpElnQDNoD12R0dmMClFw=";
+    rev = "b94231f4888ce6ca911d36178d1b8f0875cea890";
+    hash = "sha256-zcMXAnGEw2KIDVI6BeSn53DdEj+Sr4IWR31o0eq4v8M=";
   };
 
   edk2NonOsi = fetchFromGitHub {
@@ -49,7 +49,7 @@ gcc14Stdenv.mkDerivation (finalAttrs: {
 
   # Commit time of the newest firmware-tree pin. It sets the SMBIOS release date
   # and PrePi's __DATE__/__TIME__, so the same pins always give the same volumes.
-  env.SOURCE_DATE_EPOCH = "1793366484";
+  env.SOURCE_DATE_EPOCH = "1793623751";
 
   sourceRoot = "${finalAttrs.src.name}/src";
 
