@@ -24,21 +24,21 @@
   };
   daed-next-core = {
     pname = "daed-next-core";
-    version = "d0c477e626178d75130f95ef5c6dfe2fcd4a0246";
+    version = "f80e4814a40708919c47a81dbd4c688fb783094e";
     src = fetchFromGitHub {
       owner = "ksong008";
       repo = "DaeNext";
-      rev = "d0c477e626178d75130f95ef5c6dfe2fcd4a0246";
+      rev = "f80e4814a40708919c47a81dbd4c688fb783094e";
       fetchSubmodules = false;
-      sha256 = "sha256-QgLid6JxeXxPICdOwfx3sjxAgn6cfrzdJS2DnIYmBoY=";
+      sha256 = "sha256-UlWsRO8ZXeM7QhNJV7BorSwMiUd96zM2AmwlJBOB6rM=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-QgLid6JxeXxPICdOwfx3sjxAgn6cfrzdJS2DnIYmBoY=/Cargo.lock";
+      lockFile = ./. + "/sha256-UlWsRO8ZXeM7QhNJV7BorSwMiUd96zM2AmwlJBOB6rM=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-11-02";
+    date = "2026-11-03";
   };
   daed-next-web = {
     pname = "daed-next-web";
@@ -54,16 +54,16 @@
   };
   dorion-git = {
     pname = "dorion-git";
-    version = "83d645fbddfdf2377c74ff1b4fc8f687ce36c1dd";
+    version = "fc3c0d7664c39d66391863f4c4c399f3917374ac";
     src = fetchFromGitHub {
       owner = "SpikeHD";
       repo = "Dorion";
-      rev = "83d645fbddfdf2377c74ff1b4fc8f687ce36c1dd";
+      rev = "fc3c0d7664c39d66391863f4c4c399f3917374ac";
       fetchSubmodules = false;
-      sha256 = "sha256-2KoYkoXNPZYrirYCLFhkC3EU3TJ3+rcujYhdVYT4jfM=";
+      sha256 = "sha256-1lvHMk0j66TshcJLDBroggS13XD+xOjYeZ+4oHdtjl8=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-2KoYkoXNPZYrirYCLFhkC3EU3TJ3+rcujYhdVYT4jfM=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-1lvHMk0j66TshcJLDBroggS13XD+xOjYeZ+4oHdtjl8=/src-tauri/Cargo.lock";
       outputHashes = {
         "simple-websockets-0.1.6" = "sha256-iySzwntHw5Wf5HwKMBYL8mrMl7kjGZrZonL7/zrkeCo=";
         "tauri-runtime-cef-0.1.0" = "sha256-U/ak4ipPGIAnVGuuBVTrVmTKoC75/Lo4vOL8RxUVQm0=";
@@ -73,7 +73,7 @@
         "rsrpc-0.29.0" = "sha256-7zS833bmy6JUjk4PqCENz6ikoTOtelcymXMi2pxD3V0=";
       };
     };
-    date = "2026-10-28";
+    date = "2026-11-03";
   };
   dxvk-gplall = {
     pname = "dxvk-gplall";
@@ -282,31 +282,31 @@
   };
   piliplus = {
     pname = "piliplus";
-    version = "2.2.0.1";
+    version = "2.2.0.2";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "2.2.0.1";
+      rev = "2.2.0.2";
       fetchSubmodules = false;
-      sha256 = "sha256-o2Qq3VWf+JMo1zzi7+SgwmWPrA8rIUpFZHArgAiy55c=";
+      sha256 = "sha256-UuJ3kmYqXGZ9HOii1oCvecm12SNwjrnpOzvhnETSihA=";
     };
     extract = {
-      "pubspec.lock" = ./. + "/sha256-o2Qq3VWf+JMo1zzi7+SgwmWPrA8rIUpFZHArgAiy55c=/pubspec.lock";
+      "pubspec.lock" = ./. + "/sha256-UuJ3kmYqXGZ9HOii1oCvecm12SNwjrnpOzvhnETSihA=/pubspec.lock";
     };
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "4cfc471123a0e041fcd6fec5887c40dbddd40325";
+    version = "acc0f78c148d0eb4e18475368687b87b40cdc51a";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "4cfc471123a0e041fcd6fec5887c40dbddd40325";
+      rev = "acc0f78c148d0eb4e18475368687b87b40cdc51a";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-exf+7Rlbq23dHnjYEb1j85hto6VAPjBfftfUW5NNV4c=";
+      sha256 = "sha256-3mn1OGgTQAhiS3LqgbFPySzpNt9T0hfiLVgGpueaYTA=";
     };
-    date = "2026-10-30";
+    date = "2026-11-03";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -395,16 +395,16 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "4103c6a4e5e738f4b753885af1ac67e5b13c2c18";
+    version = "e944efeeca01017e6efa2b1169375c63e98d247e";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "4103c6a4e5e738f4b753885af1ac67e5b13c2c18";
+      rev = "e944efeeca01017e6efa2b1169375c63e98d247e";
       fetchSubmodules = false;
-      sha256 = "sha256-5yrMImk/nUL+xNWtUHM7lDuCFHISlxj/yKPK1eUX9Hk=";
+      sha256 = "sha256-dU/5ROBbUoDSvt/IfvbSLv7DMSZ2ugTKhKFA7oedTLE=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-5yrMImk_nUL+xNWtUHM7lDuCFHISlxj_yKPK1eUX9Hk=/Cargo.lock";
+      lockFile = ./. + "/sha256-dU_5ROBbUoDSvt_IfvbSLv7DMSZ2ugTKhKFA7oedTLE=/Cargo.lock";
       outputHashes = {
         "ffmpeg_audio-0.4.0" = "sha256-sUDVvR61i+ZKfB3TlifQfiWYJ9F9rzCHP++p7ZkvYhc=";
       };
