@@ -105,11 +105,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-aN4exEBmhx5Bd7ocp5Pr7muiODl/E8eU5FsUlBwSYfs=",
+            "sha256": "sha256-tkjiu8HEMO+8dHDGnmRE98bT8yyYqKq1qiA/LCnT3gU=",
             "type": "url",
-            "url": "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1021.22027_arm64.deb"
+            "url": "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1027.30824_arm64.deb"
         },
-        "version": "26.1021.22027"
+        "version": "26.1027.30824"
     },
     "chatgpt-x86_64": {
         "cargoLock": null,
@@ -120,11 +120,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6wgxxzTxVPk/jrzw4X0RjaDep9wXN9xhoecURDdb8ZA=",
+            "sha256": "sha256-ThOaRPfJF6ZD8t0BStMimN0wrsbTJNMjUksZD3ZnaEw=",
             "type": "url",
-            "url": "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1021.22027_amd64.deb"
+            "url": "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1027.30824_amd64.deb"
         },
-        "version": "26.1021.22027"
+        "version": "26.1027.30824"
     },
     "classin-aarch64": {
         "cargoLock": null,
@@ -202,6 +202,59 @@
             "type": "github"
         },
         "version": "8cdef645940bf8d7ffc77fef2b3b0caf38cbabda"
+    },
+    "magpie": {
+        "cargoLock": null,
+        "date": null,
+        "extract": {
+            "internal/gui/icon-256.png": "sha256-FTXWNi2fTWC+qt7eelwxAWM3YZkUaUh0dueuQJ+B4t4=/internal/gui/icon-256.png"
+        },
+        "name": "magpie",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "yetone",
+            "repo": "magpie",
+            "rev": "v0.1.2561",
+            "sha256": "sha256-FTXWNi2fTWC+qt7eelwxAWM3YZkUaUh0dueuQJ+B4t4=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.1.2561"
+    },
+    "magpie-bin-aarch64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "magpie-bin-aarch64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-9ZsabXZM0v2hfISX1YQO3WcU/+NudhNV6Ngtk21JRn0=",
+            "type": "url",
+            "url": "https://github.com/yetone/magpie-releases/releases/download/v0.1.2561/magpie-linux-arm64"
+        },
+        "version": "0.1.2561"
+    },
+    "magpie-bin-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "magpie-bin-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-04NnOMbztmQIqNLLV+AJmgEkeMvh6UBoDFjMmVZK9ao=",
+            "type": "url",
+            "url": "https://github.com/yetone/magpie-releases/releases/download/v0.1.2561/magpie-linux-amd64"
+        },
+        "version": "0.1.2561"
     },
     "pi": {
         "cargoLock": null,

@@ -66,18 +66,18 @@
   };
   chatgpt-aarch64 = {
     pname = "chatgpt-aarch64";
-    version = "26.1021.22027";
+    version = "26.1027.30824";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1021.22027_arm64.deb";
-      sha256 = "sha256-aN4exEBmhx5Bd7ocp5Pr7muiODl/E8eU5FsUlBwSYfs=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1027.30824_arm64.deb";
+      sha256 = "sha256-tkjiu8HEMO+8dHDGnmRE98bT8yyYqKq1qiA/LCnT3gU=";
     };
   };
   chatgpt-x86_64 = {
     pname = "chatgpt-x86_64";
-    version = "26.1021.22027";
+    version = "26.1027.30824";
     src = fetchurl {
-      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1021.22027_amd64.deb";
-      sha256 = "sha256-6wgxxzTxVPk/jrzw4X0RjaDep9wXN9xhoecURDdb8ZA=";
+      url = "https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_26.1027.30824_amd64.deb";
+      sha256 = "sha256-ThOaRPfJF6ZD8t0BStMimN0wrsbTJNMjUksZD3ZnaEw=";
     };
   };
   classin-aarch64 = {
@@ -125,6 +125,36 @@
       };
     };
     date = "2026-10-01";
+  };
+  magpie = {
+    pname = "magpie";
+    version = "v0.1.2561";
+    src = fetchFromGitHub {
+      owner = "yetone";
+      repo = "magpie";
+      rev = "v0.1.2561";
+      fetchSubmodules = false;
+      sha256 = "sha256-FTXWNi2fTWC+qt7eelwxAWM3YZkUaUh0dueuQJ+B4t4=";
+    };
+    extract = {
+      "internal/gui/icon-256.png" = ./. + "/sha256-FTXWNi2fTWC+qt7eelwxAWM3YZkUaUh0dueuQJ+B4t4=/internal/gui/icon-256.png";
+    };
+  };
+  magpie-bin-aarch64 = {
+    pname = "magpie-bin-aarch64";
+    version = "0.1.2561";
+    src = fetchurl {
+      url = "https://github.com/yetone/magpie-releases/releases/download/v0.1.2561/magpie-linux-arm64";
+      sha256 = "sha256-9ZsabXZM0v2hfISX1YQO3WcU/+NudhNV6Ngtk21JRn0=";
+    };
+  };
+  magpie-bin-x86_64 = {
+    pname = "magpie-bin-x86_64";
+    version = "0.1.2561";
+    src = fetchurl {
+      url = "https://github.com/yetone/magpie-releases/releases/download/v0.1.2561/magpie-linux-amd64";
+      sha256 = "sha256-04NnOMbztmQIqNLLV+AJmgEkeMvh6UBoDFjMmVZK9ao=";
+    };
   };
   pi = {
     pname = "pi";
