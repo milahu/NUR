@@ -35,19 +35,56 @@ in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "designcraft";
-  version = "0.13.0";
+  version = "0.17.0";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "designcraft";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-QYtPzieihcoTXTLxlmJ+quXVHgbvFPteLsG06aqr1ds=";
+    hash = "sha256-7yyNVvZFO4F1SmDhpFytxM3BoPNA4uOLY0ldP5Ic2mE=";
   };
 
-  cargoHash = "sha256-R0ATPEwcXG/ufMsamau3jQ9Kytvn5ltj6Rbx1wT00oo=";
+  cargoHash = "sha256-Ur5EhZEE0VTQsXKgeWqqXMKF70cl4/jkPcFlsa28APE=";
   cargoBuildFlags = [ "--package" "designcraft" "--package" "designcraft-cli" ];
   cargoTestFlags = [ "--package" "designcraft" "--package" "designcraft-cli" ];
 
+  prePatch = ''
+    # Remove patch entries that Cargo.lock reports as unused.
+    unused_names=$(awk '/^\[\[patch\.unused\]\]/{getline; match($0,/name = "([^"]+)"/,m); if (m[1] != "") print m[1]}' Cargo.lock | sort -u)
+    for crate in $unused_names; do
+      if [ -f Cargo.toml ]; then
+        awk -v c="$crate" '$0 !~ "^" c " = " {print}' Cargo.toml > Cargo.toml.tmp
+        mv Cargo.toml.tmp Cargo.toml
+      fi
+    done
+
+    if [ -n "$unused_names" ]; then
+      awk -v names="$unused_names" '
+        BEGIN {
+          n=split(names, a, "\n")
+          for (i=1;i<=n;i++) if (a[i] != "") want[a[i]]=1
+          skip=0
+        }
+        /^\[\[patch\.unused\]\]$/ {
+          getline nameline
+          name=""
+          if (match(nameline, /name = "([^"]+)"/, m)) name=m[1]
+          if (name != "" && want[name] == 1) {
+            while ((getline line) > 0 && line != "") { }
+            next
+          } else {
+            print "[[patch.unused]]"
+            print nameline
+            next
+          }
+        }
+        { print }
+      ' Cargo.lock > Cargo.lock.tmp
+      mv Cargo.lock.tmp Cargo.lock
+    fi
+
+    cp Cargo.lock "$cargoDepsCopy/Cargo.lock"
+  '';
   nativeBuildInputs = [
     autoPatchelfHook
     makeWrapper

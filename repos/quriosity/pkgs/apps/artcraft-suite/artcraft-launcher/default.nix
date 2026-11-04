@@ -30,20 +30,78 @@ let
     libGL
     vulkan-loader
   ];
-in
 
+  # craft-libs is a git dependency of craft-launcher (craft-ui, craft-quit,
+  # craft-fonts-build, craft-i18n all come from it). Its crates/menu/Cargo.toml
+  # overrides the workspace's craft-keymap with `default-features = false`,
+  # which Cargo rejects when cargo metadata runs during vendoring. We fetch
+  # craft-libs locally in prePatch (before vendoring) and redirect the git
+  # deps to local path deps so craft-libs never needs to be fetched during the
+  # vendor step.
+  craftLibs = fetchFromGitHub {
+    owner = "storytold";
+    repo = "craft-libs";
+    rev = "92d392cff132eaf53e13afff77f38b5c11b73aa0";
+    hash = "sha256-/8I9DcqtsznoYPo4ECc/rPQIal6P9gyPksrvVHDW6Mg=";
+  };
+in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "artcraft-launcher";
-  version = "0.8.1";
+  version = "0.14.0";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "craft-launcher";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-JyjkMeKkMissufZZteY4eHr00mDKcELMARPHZdYeR2Y=";
+    hash = "sha256-703BE+GictHFkfJPxkl5FhMZk4IS/HvBnp499kOGIeM=";
   };
 
-  cargoHash = "sha256-duKfEgqdWTdVToVu0yqptJoGcBNrdLuRszXzNB1oxL0=";
+  cargoHash = "sha256-ywlE1xHrZodNIoqQAAM+p3GwgcchIzHF+Gvq4FZuDPs=";
+  cargoPatches = [ ./remove-unused-egui-patches.patch ];
+  prePatch = ''
+    # Copy craft-libs into the source tree so it's available before vendoring.
+    cp -r ${craftLibs} ./craft-libs
+    chmod -R u+w ./craft-libs
+
+    # craft-libs's crates/menu/Cargo.toml overrides workspace's craft-keymap
+    # with `default-features = false`, which Cargo forbids. Remove it.
+    sed -i 's/default-features = false, //' ./craft-libs/crates/menu/Cargo.toml
+
+    # Optional/unvendored deps of craft-libs crates (not in Cargo.lock).
+    # Remove them so the offline build doesn't look for them.
+    sed -i '/^fontique = /d' ./craft-libs/crates/ui/Cargo.toml
+    sed -i '/^unicode-script = /d' ./craft-libs/crates/ui/Cargo.toml
+    sed -i 's/system_fonts = \["dep:fontique", "dep:unicode-script"\]/system_fonts = []/' ./craft-libs/crates/ui/Cargo.toml
+    sed -i '/^wasm-bindgen-test = /d' ./craft-libs/crates/ui/Cargo.toml
+    sed -i '/^skera = /d' ./craft-libs/crates/fonts-build/Cargo.toml
+    sed -i '/^skrifa = /d' ./craft-libs/crates/fonts-build/Cargo.toml
+    sed -i 's/subset = \["dep:skera", "dep:skrifa"\]/subset = []/' ./craft-libs/crates/fonts-build/Cargo.toml
+    sed -i '/^icu_collator = /d' ./craft-libs/crates/i18n/Cargo.toml
+    sed -i '/dep:icu_collator/d' ./craft-libs/crates/i18n/Cargo.toml
+
+    # Redirect craft-ui from git to local path dep
+    sed -i 's|craft-ui = { version = "=0.1.0", git = "https://github.com/storytold/craft-libs", rev = "92d392cff132eaf53e13afff77f38b5c11b73aa0" }|craft-ui = { path = "./craft-libs/crates/ui" }|' Cargo.toml
+
+    # Redirect craft-quit from git to local path dep
+    sed -i 's|craft-quit = { version = "0.1.0", git = "https://github.com/storytold/craft-libs", rev = "92d392cff132eaf53e13afff77f38b5c11b73aa0", features = \["egui"\] }|craft-quit = { path = "../../craft-libs/crates/quit", features = ["egui"] }|' apps/artcraft-launcher/Cargo.toml
+
+    # craft-ui and craft-quit reference craft-fonts-build and craft-i18n as
+    # workspace deps; since they are now path deps inside this source tree,
+    # add them to this workspace's dependencies.
+    sed -i '/^craft-update = { version = "=0.1.0", git/a\craft-fonts-build = { path = "./craft-libs/crates/fonts-build" }\ncraft-i18n = { path = "./craft-libs/crates/i18n" }' Cargo.toml
+
+    # Update Cargo.lock: remove git source lines for crates that are now path deps
+    awk '
+      /^\[\[package\]\]/ { in_pkg = 1; name = "" }
+      in_pkg && /^name = / { name = $0; sub(/^name = "/, "", name); sub(/".*$/, "", name) }
+      in_pkg && name ~ /^(craft-ui|craft-quit|craft-fonts-build|craft-i18n)$/ && /^source = "git\+https:\/\/github\.com\/storytold\/craft-libs\?rev=92d392c/ { next }
+      { print }
+    ' Cargo.lock > Cargo.lock.tmp && mv Cargo.lock.tmp Cargo.lock
+  '';
+  postPatch = ''
+    # Keep the vendored lockfile in sync with the patched one above.
+    cp Cargo.lock "$cargoDepsCopy/Cargo.lock"
+  '';
   cargoBuildFlags = [ "--package" "artcraft-launcher" ];
   cargoTestFlags = [ "--package" "artcraft-launcher" ];
 

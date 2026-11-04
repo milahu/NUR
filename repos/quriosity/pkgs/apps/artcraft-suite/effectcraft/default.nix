@@ -37,19 +37,56 @@ in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "effectcraft";
-  version = "0.17.0";
+  version = "0.21.0";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "effectcraft";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-Pt4D6BDodgCaTKj11i+/D+RH+B/h/cq8mQgmNIwLhxU=";
+    hash = "sha256-bKKAYM4tKV3EateUKOg7PpbxfXB0xMKsXmvPQvDuK/Q=";
   };
 
-  cargoHash = "sha256-86/HTxR+qgkGp3U13fT+b6TGmH44VIvOlMQU+rlyaEc=";
+  cargoHash = "sha256-GA8Pun05kAy2vu/pjyJ/wfFZqAv6qFlicXY7/5f16VQ=";
   cargoBuildFlags = [ "--package" "effectcraft" "--package" "effectcraft-cli" ];
   cargoTestFlags = [ "--package" "effectcraft" "--package" "effectcraft-cli" ];
 
+  prePatch = ''
+    # Remove patch entries that Cargo.lock reports as unused.
+    unused_names=$(awk '/^\[\[patch\.unused\]\]/{getline; match($0,/name = "([^"]+)"/,m); if (m[1] != "") print m[1]}' Cargo.lock | sort -u)
+    for crate in $unused_names; do
+      if [ -f Cargo.toml ]; then
+        awk -v c="$crate" '$0 !~ "^" c " = " {print}' Cargo.toml > Cargo.toml.tmp
+        mv Cargo.toml.tmp Cargo.toml
+      fi
+    done
+
+    if [ -n "$unused_names" ]; then
+      awk -v names="$unused_names" '
+        BEGIN {
+          n=split(names, a, "\n")
+          for (i=1;i<=n;i++) if (a[i] != "") want[a[i]]=1
+          skip=0
+        }
+        /^\[\[patch\.unused\]\]$/ {
+          getline nameline
+          name=""
+          if (match(nameline, /name = "([^"]+)"/, m)) name=m[1]
+          if (name != "" && want[name] == 1) {
+            while ((getline line) > 0 && line != "") { }
+            next
+          } else {
+            print "[[patch.unused]]"
+            print nameline
+            next
+          }
+        }
+        { print }
+      ' Cargo.lock > Cargo.lock.tmp
+      mv Cargo.lock.tmp Cargo.lock
+    fi
+
+    cp Cargo.lock "$cargoDepsCopy/Cargo.lock"
+  '';
   nativeBuildInputs = [
     autoPatchelfHook
     makeWrapper

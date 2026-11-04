@@ -35,19 +35,56 @@ in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "vectorcraft";
-  version = "0.17.0";
+  version = "0.21.0";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "vectorcraft";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-5kfG3C6aKii2ov0j9N8K44LFiEY261saNSmJzvbyLhU=";
+    hash = "sha256-jHdKEfQK+O4WnEkyRnXuQ22248H4YVbrpWfnYz1xSgs=";
   };
 
-  cargoHash = "sha256-WtoC67BVtmNh0YFsDXVVrXV9qcdFYkSC2VBJ/zZlACo=";
+  cargoHash = "sha256-YXuVyRwq8dIT/KlBv/8Bkv1p+zJtPZC01b4pYUIpD8s=";
   cargoBuildFlags = [ "--package" "vectorcraft" "--package" "vectorcraft-cli" ];
   cargoTestFlags = [ "--package" "vectorcraft" "--package" "vectorcraft-cli" ];
 
+  prePatch = ''
+    # Remove patch entries that Cargo.lock reports as unused.
+    unused_names=$(awk '/^\[\[patch\.unused\]\]/{getline; match($0,/name = "([^"]+)"/,m); if (m[1] != "") print m[1]}' Cargo.lock | sort -u)
+    for crate in $unused_names; do
+      if [ -f Cargo.toml ]; then
+        awk -v c="$crate" '$0 !~ "^" c " = " {print}' Cargo.toml > Cargo.toml.tmp
+        mv Cargo.toml.tmp Cargo.toml
+      fi
+    done
+
+    if [ -n "$unused_names" ]; then
+      awk -v names="$unused_names" '
+        BEGIN {
+          n=split(names, a, "\n")
+          for (i=1;i<=n;i++) if (a[i] != "") want[a[i]]=1
+          skip=0
+        }
+        /^\[\[patch\.unused\]\]$/ {
+          getline nameline
+          name=""
+          if (match(nameline, /name = "([^"]+)"/, m)) name=m[1]
+          if (name != "" && want[name] == 1) {
+            while ((getline line) > 0 && line != "") { }
+            next
+          } else {
+            print "[[patch.unused]]"
+            print nameline
+            next
+          }
+        }
+        { print }
+      ' Cargo.lock > Cargo.lock.tmp
+      mv Cargo.lock.tmp Cargo.lock
+    fi
+
+    cp Cargo.lock "$cargoDepsCopy/Cargo.lock"
+  '';
   nativeBuildInputs = [
     autoPatchelfHook
     makeWrapper
