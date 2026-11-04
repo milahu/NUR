@@ -3,7 +3,7 @@
   buildNpmPackage,
   fetchFromGitHub,
   electron,
-  electron_43 ? electron,
+  electron_45 ? electron,
   makeWrapper,
   python3,
   makeDesktopItem,
@@ -11,24 +11,24 @@
   lib,
 }:
 let
-  electron = electron_43;
+  electron = electron_45;
 in
 buildNpmPackage (finalAttrs: {
   pname = "vieb";
-  version = "12.10.0";
+  version = "12.11.0";
 
   src = fetchFromGitHub {
     owner = "Jelmerro";
     repo = "vieb";
     rev = finalAttrs.version;
-    hash = "sha256-la3+mnRgrlupENKa6Gs95Qwcvqr6nsH0me7IpCFoWhA=";
+    hash = "sha256-N8q3n628E93Ut+RBxNglKFCSepeQw5iwQ8BOVZzaOnY=";
   };
 
   postPatch = ''
     sed -i '/"electron"/d' package.json
   '';
 
-  npmDepsHash = "sha256-QV5JOwQBoP604AasANACXBwrGEtUqVtM8GXQq3lo1wQ=";
+  npmDepsHash = "sha256-upZRwrqnaGxdeEpi1QGK0aQ4qiyrHWjTTHYgyqU1rmg=";
   makeCacheWritable = true;
   dontNpmBuild = true;
   env.ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
