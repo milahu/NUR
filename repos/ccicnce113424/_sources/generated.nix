@@ -263,22 +263,22 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "b0724ca3acaa8544d39528f7f985e305f1e360b1";
+    version = "9d0b45310c7550b65f5063be0fc158d93e9deb34";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "b0724ca3acaa8544d39528f7f985e305f1e360b1";
+      rev = "9d0b45310c7550b65f5063be0fc158d93e9deb34";
       fetchSubmodules = false;
-      sha256 = "sha256-GjPQJBTbilUaMkt3+CNgatENoPNBN9Y9XOQZJde3a0U=";
+      sha256 = "sha256-uA+r/sjbzjE/cB09VS59PBIDUtdFBk+nCIAMmeagK9k=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-GjPQJBTbilUaMkt3+CNgatENoPNBN9Y9XOQZJde3a0U=/Cargo.lock";
+      lockFile = ./. + "/sha256-uA+r_sjbzjE_cB09VS59PBIDUtdFBk+nCIAMmeagK9k=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-11-02";
+    date = "2026-11-05";
   };
   piliplus = {
     pname = "piliplus";
@@ -296,17 +296,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "acc0f78c148d0eb4e18475368687b87b40cdc51a";
+    version = "8fe27cc9f2935ec9d7c9f071498c3c3da1086ad8";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "acc0f78c148d0eb4e18475368687b87b40cdc51a";
+      rev = "8fe27cc9f2935ec9d7c9f071498c3c3da1086ad8";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-3mn1OGgTQAhiS3LqgbFPySzpNt9T0hfiLVgGpueaYTA=";
+      sha256 = "sha256-dKmKBIlSERvdq1Jp4A8t9Yt56aSrqYxyv4tSj76WANs=";
     };
-    date = "2026-11-03";
+    date = "2026-11-04";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -395,21 +395,21 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "e944efeeca01017e6efa2b1169375c63e98d247e";
+    version = "642b1716b3f58b12939be285b755464a260fef97";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "e944efeeca01017e6efa2b1169375c63e98d247e";
+      rev = "642b1716b3f58b12939be285b755464a260fef97";
       fetchSubmodules = false;
-      sha256 = "sha256-dU/5ROBbUoDSvt/IfvbSLv7DMSZ2ugTKhKFA7oedTLE=";
+      sha256 = "sha256-LFAecUpZDaTpsGmfna9bNcT6glIwATVbOJzGvI8191E=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-dU_5ROBbUoDSvt_IfvbSLv7DMSZ2ugTKhKFA7oedTLE=/Cargo.lock";
+      lockFile = ./. + "/sha256-LFAecUpZDaTpsGmfna9bNcT6glIwATVbOJzGvI8191E=/Cargo.lock";
       outputHashes = {
         "ffmpeg_audio-0.4.0" = "sha256-sUDVvR61i+ZKfB3TlifQfiWYJ9F9rzCHP++p7ZkvYhc=";
       };
     };
-    date = "2026-11-03";
+    date = "2026-11-04";
   };
   svt-av1-essential = {
     pname = "svt-av1-essential";
