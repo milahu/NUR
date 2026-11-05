@@ -51,6 +51,25 @@
         platforms = platforms.all;
       };
     };
+    "7tv-new" = buildMozillaXpiAddon {
+      pname = "7tv-new";
+      version = "1.10.7";
+      addonId = "seventv-next@7tv.app";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5210187/7tv_new-1.10.7.xpi";
+      sha256 = "5420b1e410b9baaa9a97e2abbacaf7b53af9b94bc8ea04b8cd8c33eabb3be291";
+      meta = with lib;
+      {
+        description = "Improve your viewing experience with 7TV on Twitch and YouTube with new features, emotes, vanity and performance.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [ "storage" "*://*.twitch.tv/*" "*://*.kick.com/*" ];
+        platforms = platforms.all;
+      };
+    };
     "a11ycss" = buildMozillaXpiAddon {
       pname = "a11ycss";
       version = "2.1.0";
@@ -167,10 +186,10 @@
     };
     "addy_io" = buildMozillaXpiAddon {
       pname = "addy_io";
-      version = "3.2.0";
+      version = "3.2.1";
       addonId = "browser-extension@anonaddy";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5173241/addy_io-3.2.0.xpi";
-      sha256 = "50073c0d0cf23ee61351b3c555369b07c9bd0e5ea14f86452e90f316f75c8f2d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5206840/addy_io-3.2.1.xpi";
+      sha256 = "226649415d2a8923594b9559ba107e640deb485ddd61d4dba7358362a6d3f75b";
       meta = with lib;
       {
         homepage = "https://addy.io";
@@ -373,10 +392,10 @@
     };
     "angular-devtools" = buildMozillaXpiAddon {
       pname = "angular-devtools";
-      version = "1.22.1";
+      version = "1.22.2";
       addonId = "{20a9bb38-ed7c-4faf-9aaf-7c5d241fd747}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5176864/angular_devtools-1.22.1.xpi";
-      sha256 = "e2107acf5ef7bf1a233d2f65d6ce9283950068c43e00232faa6a69a82482a80e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5210558/angular_devtools-1.22.2.xpi";
+      sha256 = "a1f0fa9f7eb28b1acfae176d5cb7f9c34a8301eb0bed8e2f6ba06683c6ebafdb";
       meta = with lib;
       {
         homepage = "https://angular.dev/tools/devtools/";
@@ -2521,10 +2540,10 @@
     };
     "control-panel-for-youtube" = buildMozillaXpiAddon {
       pname = "control-panel-for-youtube";
-      version = "1.38.0";
+      version = "1.38.1";
       addonId = "control-panel-for-youtube@jbscript.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5131419/control_panel_for_youtube-1.38.0.xpi";
-      sha256 = "9201de3d8ae9e362beaecc1e0765d826d783602e569c7674a873c204a00b71c9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5210415/control_panel_for_youtube-1.38.1.xpi";
+      sha256 = "6a757ab4c6773c7e602b0edcff38c12a8c215ddd4301cf25c954209b9c4dca7b";
       meta = with lib;
       {
         homepage = "https://soitis.dev/control-panel-for-youtube";
@@ -3037,10 +3056,10 @@
     };
     "danish-language-pack" = buildMozillaXpiAddon {
       pname = "danish-language-pack";
-      version = "159.0.20261102.144711";
+      version = "160.0.20261104.181552";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5199362/dansk_da_language_pack-159.0.20261102.144711.xpi";
-      sha256 = "de70a8186e2eb64002a7d3e657621599e458ddab93f4fd32d23523f32fdc6739";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5209712/dansk_da_language_pack-160.0.20261104.181552.xpi";
+      sha256 = "565153b550decd85ab295ceafda7e94b68cca1f30635e6b4d552695b816ff786";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -3253,10 +3272,10 @@
     };
     "deutsch-de-language-pack" = buildMozillaXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "159.0.20261102.144711";
+      version = "160.0.20261104.181552";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5199329/deutsch_de_language_pack-159.0.20261102.144711.xpi";
-      sha256 = "1103b9a461df9b8ae98e437140a77f3c17c1fd0aca4e7777eb6451f57b77eea6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5209708/deutsch_de_language_pack-160.0.20261104.181552.xpi";
+      sha256 = "4729fd2fd6273f460b5cbed8de8125cf5bc69e1727aa2fb2af84a770196e728d";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -4755,10 +4774,10 @@
     };
     "french-language-pack" = buildMozillaXpiAddon {
       pname = "french-language-pack";
-      version = "159.0.20261102.144711";
+      version = "160.0.20261104.181552";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5199338/francais_language_pack-159.0.20261102.144711.xpi";
-      sha256 = "4415610f379429b61bfc036503807827d8c59139f1bed4c2908a6934a540f11b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5209706/francais_language_pack-160.0.20261104.181552.xpi";
+      sha256 = "5b711026cb310bcbea68d18101198dcb362c33b6ad129a9511b5bbe608f19518";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4792,10 +4811,10 @@
     };
     "gaidhlig-language-pack" = buildMozillaXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "159.0.20261102.144711";
+      version = "160.0.20261104.181552";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5199385/gaidhlig_language_pack-159.0.20261102.144711.xpi";
-      sha256 = "3b8521dae929477b358ca501e1184f84819130c3a6e61af8ef2184181f0982ab";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5209769/gaidhlig_language_pack-160.0.20261104.181552.xpi";
+      sha256 = "6f415639167e296d12e692e6ae7ceae4bc401733ad227ccab965861690ff7f9b";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -4898,10 +4917,10 @@
     };
     "ghostery" = buildMozillaXpiAddon {
       pname = "ghostery";
-      version = "10.6.10";
+      version = "10.6.11";
       addonId = "firefox@ghostery.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5178400/ghostery-10.6.10.xpi";
-      sha256 = "8583522c6513d4793bb5e66d6df94a8a151669a297ce9959821d6db13f0b9018";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5208467/ghostery-10.6.11.xpi";
+      sha256 = "f82beb500bf5b935f09c235d094771b70d4f40e6d3750ab8ca1140c9b9abc59d";
       meta = with lib;
       {
         homepage = "http://www.ghostery.com/";
@@ -6042,10 +6061,10 @@
     };
     "instagram-video-control" = buildMozillaXpiAddon {
       pname = "instagram-video-control";
-      version = "1.9.4";
+      version = "1.9.5";
       addonId = "{a831defa-a6c9-4ca9-9593-9ccaf98462d9}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5129669/instagram_video_control-1.9.4.xpi";
-      sha256 = "a3119a623bd02e51174d3513f6c0c22a08faa42a3695fd4a6c00ee82f60bd77c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5208646/instagram_video_control-1.9.5.xpi";
+      sha256 = "ae43a1428f716b898978bdd595d2f3d98ad0e8563251a122e27d2a961a96a461";
       meta = with lib;
       {
         homepage = "https://github.com/Arcus92/instagram-video-control/";
@@ -7331,10 +7350,10 @@
     };
     "libredirect" = buildMozillaXpiAddon {
       pname = "libredirect";
-      version = "3.5.0";
+      version = "3.5.1";
       addonId = "7esoorv3@alefvanoon.anonaddy.me";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5203489/libredirect-3.5.0.xpi";
-      sha256 = "51822f2f86b321d659bbe9d76f20375850f9e72873962fb369bfa262cf4f3b30";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5207393/libredirect-3.5.1.xpi";
+      sha256 = "cd0796cbcaf9f7eb2643e9b937dc735526605e6eae925eda2a28b2e703bff234";
       meta = with lib;
       {
         homepage = "https://libredirect.manerakai.com/";
@@ -8832,10 +8851,10 @@
     };
     "metamask" = buildMozillaXpiAddon {
       pname = "metamask";
-      version = "13.53.0.0";
+      version = "13.54.0.0";
       addonId = "webextension@metamask.io";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5172304/ether_metamask-13.53.0.0.xpi";
-      sha256 = "351a1ea538064579d359974e89dcba8cd5b88e36ed08bc9ef36c6ab20a0d7d7b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5197026/ether_metamask-13.54.0.0.xpi";
+      sha256 = "3b1c65f3eb48b8fae6c3509698a26f80237b0f9fddae16afea9b9b3e9ac24e1a";
       meta = with lib;
       {
         description = "The most secure wallet for crypto, NFTs, and DeFi, trusted by millions of users";
@@ -9921,6 +9940,99 @@
         description = "This extension enables support for opening links in specific containers using custom protocol handler. It works for terminal, OS shortcuts and regular HTML pages.";
         license = licenses.mpl20;
         mozPermissions = [ "contextualIdentities" "cookies" ];
+        platforms = platforms.all;
+      };
+    };
+    "ophirofox" = buildMozillaXpiAddon {
+      pname = "ophirofox";
+      version = "2.6.11104.1003";
+      addonId = "{cfd3c5c2-31ec-4c1b-a28e-df38357d02d9}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5206961/ophirofox-2.6.11104.1003.xpi";
+      sha256 = "0396dd1a5410b8b8ba16c3983f11450e618e0b82eab4eef84be5855a8769cf10";
+      meta = with lib;
+      {
+        homepage = "https://ophirofox.ophir.dev/";
+        description = "Lire la presse en ligne grâce à votre compte Europresse, ou via une bibliothèque  universitaire disposant d'un partenariat avec Europresse.";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "contextMenus"
+          "storage"
+          "scripting"
+          "webRequest"
+          "webRequestBlocking"
+          "https://nouveau.europresse.com/*"
+          "https://eureka.cc/*"
+          "https://www.lemonde.fr/*"
+          "https://www.liberation.fr/*"
+          "https://next.liberation.fr/*"
+          "https://*.lefigaro.fr/*"
+          "https://www.monde-diplomatique.fr/*"
+          "https://www.courrierdesmaires.fr/*"
+          "https://www.la-croix.com/*"
+          "https://www.telerama.fr/*"
+          "https://www.courrierinternational.com/*"
+          "https://www.lamontagne.fr/*"
+          "https://www.humanite.fr/*"
+          "https://www.lepoint.fr/*"
+          "https://www.lesoir.be/*"
+          "https://www.lesechos.fr/*"
+          "https://www.letemps.ch/*"
+          "https://www.lalibre.be/*"
+          "https://www.lavoixdunord.fr/*"
+          "https://www.mediapart.fr/*"
+          "https://www-mediapart-fr.bnf.idm.oclc.org/*"
+          "https://www-mediapart-fr.acces-distant.bnu.fr/*"
+          "https://www.ouest-france.fr/*"
+          "https://www.sudouest.fr/*"
+          "https://www.laprovence.com/*"
+          "https://www.ladepeche.fr/*"
+          "https://www.leparisien.fr/*"
+          "https://lettreaudiovisuel.com/*"
+          "https://www.lexpress.fr/*"
+          "https://www.nouvelobs.com/*"
+          "https://www.estrepublicain.fr/*"
+          "https://www.latribune.fr/*"
+          "https://www.lopinion.fr/*"
+          "https://www.nicematin.com/*"
+          "https://www.corsematin.com/*"
+          "https://www.lorientlejour.com/*"
+          "https://www.lavenir.net/*"
+          "https://www.dhnet.be/*"
+          "https://www.sudinfo.be/*"
+          "https://www.letelegramme.fr/*"
+          "https://www.lsa-conso.fr/*"
+          "https://www.leprogres.fr/*"
+          "https://www.levif.be/*"
+          "https://trends.levif.be/*"
+          "https://www.knack.be/*"
+          "https://www.demorgen.be/*"
+          "https://www.standaard.be/*"
+          "https://www.ft.com/*"
+          "https://www.gva.be/*"
+          "https://www.nieuwsblad.be/*"
+          "https://www.hln.be/*"
+          "https://www.challenges.fr/*"
+          "https://www.arretsurimages.net/*"
+          "https://www-arretsurimages-net.bnf.idm.oclc.org/*"
+          "https://www.alternatives-economiques.fr/*"
+          "https://www-alternatives-economiques-fr.bnf.idm.oclc.org/*"
+          "https://www.pressreader.com/*"
+          "https://www.usinenouvelle.com/*"
+          "https://elpais.com/*"
+          "https://acteurspublics.fr/*"
+          "https://www.sciencesetavenir.fr/*"
+          "https://www.larecherche.fr/*"
+          "https://www.larepubliquedespyrenees.fr/*"
+          "https://www.journaldunet.com/*"
+          "https://www.science-et-vie.com/*"
+          "https://investir.lesechos.fr/*"
+          "https://www.jeuneafrique.com/*"
+          "https://www.leberry.fr/*"
+          "https://www.economist.com/*"
+          "https://www.lanouvellerepublique.fr/*"
+          "https://www.lagazettedescommunes.com/*"
+          "https://www.24heures.ch/*"
+        ];
         platforms = platforms.all;
       };
     };
@@ -11302,6 +11414,28 @@
         platforms = platforms.all;
       };
     };
+    "qui" = buildMozillaXpiAddon {
+      pname = "qui";
+      version = "0.6.0";
+      addonId = "qui@s0up4200";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5189768/qui-0.6.0.xpi";
+      sha256 = "e9f434565296592e09728f3fa9d158fcb7c47efa347e0922082050ace15680ef";
+      meta = with lib;
+      {
+        homepage = "https://getqui.com";
+        description = "Add torrents to qBittorrent instances managed by qui — right-click any magnet or torrent link to send it directly.";
+        license = licenses.mit;
+        mozPermissions = [
+          "storage"
+          "contextMenus"
+          "notifications"
+          "alarms"
+          "activeTab"
+          "scripting"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "qwant-search" = buildMozillaXpiAddon {
       pname = "qwant-search";
       version = "7.1.2";
@@ -11373,6 +11507,598 @@
         description = "All-in-one bookmark manager";
         license = licenses.mpl20;
         mozPermissions = [ "contextMenus" "activeTab" "scripting" "storage" ];
+        platforms = platforms.all;
+      };
+    };
+    "rather-s-link-shortener" = buildMozillaXpiAddon {
+      pname = "rather-s-link-shortener";
+      version = "1.14.0";
+      addonId = "link-shortener@tommytwolegs.github.io";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5142839/rather_s_link_shortener-1.14.0.xpi";
+      sha256 = "84232e2ee70cd5786f1117b41d9eb6e74d64680fe22f2a3b11b49f4332d2c64c";
+      meta = with lib;
+      {
+        homepage = "https://github.com/Tommytwolegs/link-shortener";
+        description = "A link cleaner. It strips tracking junk from URLs in place, no redirects. Auto-cleans Amazon, YouTube, Booking, Airbnb, Spotify, Facebook, Instagram, X, TikTok, Reddit, and 200+ more. Private, zero data collected.";
+        license = licenses.mit;
+        mozPermissions = [
+          "webNavigation"
+          "storage"
+          "scripting"
+          "contextMenus"
+          "activeTab"
+          "declarativeNetRequestWithHostAccess"
+          "*://*.amazon.com/*"
+          "*://*.amazon.co.uk/*"
+          "*://*.amazon.ca/*"
+          "*://*.amazon.de/*"
+          "*://*.amazon.fr/*"
+          "*://*.amazon.it/*"
+          "*://*.amazon.es/*"
+          "*://*.amazon.nl/*"
+          "*://*.amazon.se/*"
+          "*://*.amazon.pl/*"
+          "*://*.amazon.com.tr/*"
+          "*://*.amazon.com.au/*"
+          "*://*.amazon.co.jp/*"
+          "*://*.amazon.in/*"
+          "*://*.amazon.sg/*"
+          "*://*.amazon.ae/*"
+          "*://*.amazon.sa/*"
+          "*://*.amazon.eg/*"
+          "*://*.amazon.com.mx/*"
+          "*://*.amazon.com.br/*"
+          "*://*.amazon.com.be/*"
+          "*://*.agoda.com/*"
+          "*://*.booking.com/*"
+          "*://*.expedia.com/*"
+          "*://*.expedia.co.uk/*"
+          "*://*.expedia.ca/*"
+          "*://*.expedia.com.au/*"
+          "*://*.expedia.de/*"
+          "*://*.expedia.fr/*"
+          "*://*.expedia.it/*"
+          "*://*.expedia.es/*"
+          "*://*.expedia.nl/*"
+          "*://*.expedia.com.mx/*"
+          "*://*.expedia.com.br/*"
+          "*://*.expedia.co.jp/*"
+          "*://*.expedia.com.sg/*"
+          "*://*.expedia.co.in/*"
+          "*://*.airbnb.com/*"
+          "*://*.airbnb.co.uk/*"
+          "*://*.airbnb.ca/*"
+          "*://*.airbnb.com.au/*"
+          "*://*.airbnb.de/*"
+          "*://*.airbnb.fr/*"
+          "*://*.airbnb.it/*"
+          "*://*.airbnb.es/*"
+          "*://*.airbnb.nl/*"
+          "*://*.airbnb.com.mx/*"
+          "*://*.airbnb.com.br/*"
+          "*://*.airbnb.co.jp/*"
+          "*://*.airbnb.com.sg/*"
+          "*://*.airbnb.co.in/*"
+          "*://*.facebook.com/*"
+          "*://fb.watch/*"
+          "*://*.instagram.com/*"
+          "*://*.youtube.com/*"
+          "*://youtu.be/*"
+          "*://*.twitter.com/*"
+          "*://*.x.com/*"
+          "*://*.tiktok.com/*"
+          "*://*.reddit.com/*"
+          "*://redd.it/*"
+          "*://open.spotify.com/*"
+          "*://*.linkedin.com/*"
+          "*://*.ebay.com/*"
+          "*://*.ebay.co.uk/*"
+          "*://*.ebay.de/*"
+          "*://*.ebay.fr/*"
+          "*://*.ebay.it/*"
+          "*://*.ebay.es/*"
+          "*://*.ebay.nl/*"
+          "*://*.ebay.ca/*"
+          "*://*.ebay.com.au/*"
+          "*://*.ebay.ie/*"
+          "*://*.ebay.com.hk/*"
+          "*://*.ebay.com.my/*"
+          "*://*.ebay.com.sg/*"
+          "*://*.ebay.com.tw/*"
+          "*://*.ebay.at/*"
+          "*://*.ebay.be/*"
+          "*://*.ebay.ch/*"
+          "*://*.ebay.pl/*"
+          "*://*.ebay.com.tr/*"
+          "*://*.etsy.com/*"
+          "*://*.etsy.de/*"
+          "*://*.etsy.fr/*"
+          "*://*.etsy.it/*"
+          "*://*.etsy.es/*"
+          "*://*.etsy.nl/*"
+          "*://*.etsy.co.uk/*"
+          "*://*.etsy.com.au/*"
+          "*://*.etsy.ca/*"
+          "*://*.etsy.jp/*"
+          "*://*.etsy.pl/*"
+          "*://*.etsy.in/*"
+          "*://*.etsy.com.br/*"
+          "*://*.etsy.com.mx/*"
+          "*://*.etsy.ie/*"
+          "*://*.threads.net/*"
+          "*://*.threads.com/*"
+          "*://*.pinterest.com/*"
+          "*://*.pinterest.co.uk/*"
+          "*://*.pinterest.de/*"
+          "*://*.pinterest.fr/*"
+          "*://*.pinterest.it/*"
+          "*://*.pinterest.es/*"
+          "*://*.pinterest.ca/*"
+          "*://*.pinterest.com.au/*"
+          "*://*.pinterest.com.mx/*"
+          "*://*.pinterest.jp/*"
+          "*://*.pinterest.nz/*"
+          "*://*.pinterest.ie/*"
+          "*://*.pinterest.at/*"
+          "*://*.pinterest.ch/*"
+          "*://*.pinterest.dk/*"
+          "*://*.pinterest.nl/*"
+          "*://*.pinterest.se/*"
+          "*://*.pinterest.ph/*"
+          "*://*.pinterest.pt/*"
+          "*://pin.it/*"
+          "*://*.walmart.com/*"
+          "*://*.walmart.ca/*"
+          "*://*.target.com/*"
+          "*://*.substack.com/*"
+          "*://bsky.app/*"
+          "*://github.com/*"
+          "*://www.github.com/*"
+          "*://*.medium.com/*"
+          "*://*.quora.com/*"
+          "*://*.shopee.com/*"
+          "*://*.shopee.sg/*"
+          "*://*.shopee.co.id/*"
+          "*://*.shopee.co.th/*"
+          "*://*.shopee.com.my/*"
+          "*://*.shopee.ph/*"
+          "*://*.shopee.vn/*"
+          "*://*.shopee.tw/*"
+          "*://*.shopee.com.br/*"
+          "*://*.shopee.com.mx/*"
+          "*://*.shopee.cl/*"
+          "*://*.shopee.com.co/*"
+          "*://shp.ee/*"
+          "*://*.lazada.com/*"
+          "*://*.lazada.sg/*"
+          "*://*.lazada.co.id/*"
+          "*://*.lazada.com.my/*"
+          "*://*.lazada.co.th/*"
+          "*://*.lazada.com.ph/*"
+          "*://*.lazada.vn/*"
+          "*://*.aliexpress.com/*"
+          "*://*.aliexpress.us/*"
+          "*://*.temu.com/*"
+          "*://*.mercadolibre.com/*"
+          "*://*.mercadolibre.com.ar/*"
+          "*://*.mercadolibre.com.mx/*"
+          "*://*.mercadolibre.cl/*"
+          "*://*.mercadolibre.com.co/*"
+          "*://*.mercadolibre.com.pe/*"
+          "*://*.mercadolibre.com.uy/*"
+          "*://*.mercadolibre.com.ve/*"
+          "*://*.mercadolibre.com.ec/*"
+          "*://*.mercadolivre.com.br/*"
+          "*://item.rakuten.co.jp/*"
+          "*://*.trip.com/*"
+          "*://*.hotels.com/*"
+          "*://*.coupang.com/*"
+          "*://*.flipkart.com/*"
+          "*://*.tokopedia.com/*"
+          "*://*.mercari.com/*"
+          "*://*.vinted.com/*"
+          "*://*.vinted.fr/*"
+          "*://*.vinted.de/*"
+          "*://*.vinted.co.uk/*"
+          "*://*.vinted.pl/*"
+          "*://*.vinted.it/*"
+          "*://*.vinted.es/*"
+          "*://*.vinted.nl/*"
+          "*://*.vinted.be/*"
+          "*://*.vinted.at/*"
+          "*://*.vinted.cz/*"
+          "*://*.vinted.sk/*"
+          "*://*.vinted.lt/*"
+          "*://*.vinted.pt/*"
+          "*://*.vinted.se/*"
+          "*://*.vinted.dk/*"
+          "*://*.vinted.fi/*"
+          "*://*.vinted.hu/*"
+          "*://*.vinted.ro/*"
+          "*://*.allegro.pl/*"
+          "*://*.allegro.cz/*"
+          "*://*.allegro.sk/*"
+          "*://*.allegro.hu/*"
+          "*://*.vrbo.com/*"
+          "*://store.steampowered.com/*"
+          "*://*.imdb.com/*"
+          "*://*.stackoverflow.com/*"
+          "*://*.stackexchange.com/*"
+          "*://*.superuser.com/*"
+          "*://*.serverfault.com/*"
+          "*://*.askubuntu.com/*"
+          "*://*.wikipedia.org/*"
+          "*://*.goodreads.com/*"
+          "*://*.soundcloud.com/*"
+          "*://music.apple.com/*"
+          "*://podcasts.apple.com/*"
+          "*://*.twitch.tv/*"
+          "*://*.wayfair.com/*"
+          "*://*.wayfair.ca/*"
+          "*://*.wayfair.co.uk/*"
+          "*://*.wayfair.de/*"
+          "*://*.bestbuy.com/*"
+          "*://*.bestbuy.ca/*"
+          "*://*.bandcamp.com/*"
+          "*://*.letterboxd.com/*"
+          "*://*.vimeo.com/*"
+          "*://*.dailymotion.com/*"
+          "*://dai.ly/*"
+          "*://*.waze.com/*"
+          "*://*.zillow.com/*"
+          "*://*.redfin.com/*"
+          "*://*.realtor.com/*"
+          "*://*.indeed.com/*"
+          "*://*.glassdoor.com/*"
+          "*://*.poshmark.com/*"
+          "*://*.depop.com/*"
+          "*://*.stockx.com/*"
+          "*://*.goat.com/*"
+          "*://*.grailed.com/*"
+          "*://*.rottentomatoes.com/*"
+          "*://*.metacritic.com/*"
+          "*://*.genius.com/*"
+          "*://*.discogs.com/*"
+          "*://*.deezer.com/*"
+          "*://*.tidal.com/*"
+          "*://*.pandora.com/*"
+          "*://*.gitlab.com/*"
+          "*://*.bitbucket.org/*"
+          "*://*.npmjs.com/*"
+          "*://*.pypi.org/*"
+          "*://hub.docker.com/*"
+          "*://*.huggingface.co/*"
+          "*://*.kaggle.com/*"
+          "*://*.dropbox.com/*"
+          "*://*.box.com/*"
+          "*://*.wetransfer.com/*"
+          "*://*.mediafire.com/*"
+          "*://*.behance.net/*"
+          "*://*.dribbble.com/*"
+          "*://*.artstation.com/*"
+          "*://*.flickr.com/*"
+          "*://*.unsplash.com/*"
+          "*://*.pexels.com/*"
+          "*://*.deviantart.com/*"
+          "*://*.pixiv.net/*"
+          "*://*.pixabay.com/*"
+          "*://*.shutterstock.com/*"
+          "*://*.gettyimages.com/*"
+          "*://*.freepik.com/*"
+          "*://*.giphy.com/*"
+          "*://*.tenor.com/*"
+          "*://*.vsco.co/*"
+          "*://*.smugmug.com/*"
+          "*://stock.adobe.com/*"
+          "*://*.alamy.com/*"
+          "*://*.vecteezy.com/*"
+          "*://*.istockphoto.com/*"
+          "*://*.dreamstime.com/*"
+          "*://*.imgur.com/*"
+          "*://*.rumble.com/*"
+          "*://*.kick.com/*"
+          "*://*.crunchyroll.com/*"
+          "*://*.odysee.com/*"
+          "*://*.myanimelist.net/*"
+          "*://*.bitchute.com/*"
+          "*://*.newgrounds.com/*"
+          "*://*.coursera.org/*"
+          "*://*.udemy.com/*"
+          "*://*.khanacademy.org/*"
+          "*://*.edx.org/*"
+          "*://*.skillshare.com/*"
+          "*://*.brilliant.org/*"
+          "*://*.tripadvisor.com/*"
+          "*://*.tripadvisor.co.uk/*"
+          "*://*.tripadvisor.ca/*"
+          "*://*.tripadvisor.com.au/*"
+          "*://*.tripadvisor.fr/*"
+          "*://*.tripadvisor.de/*"
+          "*://*.tripadvisor.it/*"
+          "*://*.tripadvisor.es/*"
+          "*://*.tripadvisor.in/*"
+          "*://*.tripadvisor.nl/*"
+          "*://*.tripadvisor.ie/*"
+          "*://*.tripadvisor.com.sg/*"
+          "*://*.tripadvisor.com.my/*"
+          "*://*.tripadvisor.com.br/*"
+          "*://*.tripadvisor.com.mx/*"
+          "*://*.meesho.com/*"
+          "*://*.carousell.com/*"
+          "*://*.carousell.sg/*"
+          "*://*.carousell.com.hk/*"
+          "*://*.carousell.com.my/*"
+          "*://*.carousell.ph/*"
+          "*://*.carousell.tw/*"
+          "*://*.taobao.com/*"
+          "*://*.tmall.com/*"
+          "*://item.jd.com/*"
+          "*://*.leboncoin.fr/*"
+          "*://*.olx.pl/*"
+          "*://*.olx.ro/*"
+          "*://*.olx.bg/*"
+          "*://*.olx.ua/*"
+          "*://*.olx.pt/*"
+          "*://*.olx.kz/*"
+          "*://*.wallapop.com/*"
+          "*://*.marktplaats.nl/*"
+          "*://*.kleinanzeigen.de/*"
+          "*://*.zalando.de/*"
+          "*://*.zalando.fr/*"
+          "*://*.zalando.it/*"
+          "*://*.zalando.es/*"
+          "*://*.zalando.nl/*"
+          "*://*.zalando.pl/*"
+          "*://*.zalando.co.uk/*"
+          "*://*.zalando.at/*"
+          "*://*.zalando.ch/*"
+          "*://*.zalando.be/*"
+          "*://*.zalando.se/*"
+          "*://*.zalando.dk/*"
+          "*://*.zalando.fi/*"
+          "*://*.zalando.no/*"
+          "*://*.zalando.cz/*"
+          "*://*.zalando.ie/*"
+          "*://*.netflix.com/*"
+          "*://*.roblox.com/*"
+          "*://*.fandom.com/*"
+          "*://*.bilibili.com/*"
+          "*://b23.tv/*"
+          "*://*.shein.com/*"
+          "*://*.shein.co.uk/*"
+          "*://*.shein.com.mx/*"
+          "*://*.shein.com.br/*"
+          "*://*.shein.tw/*"
+          "*://*.shein.se/*"
+          "*://*.shein.pl/*"
+          "*://news.yahoo.co.jp/*"
+          "*://*.nytimes.com/*"
+          "*://*.washingtonpost.com/*"
+          "*://*.wsj.com/*"
+          "*://*.bloomberg.com/*"
+          "*://*.cnn.com/*"
+          "*://*.foxnews.com/*"
+          "*://*.npr.org/*"
+          "*://*.cbc.ca/*"
+          "*://*.theglobeandmail.com/*"
+          "*://*.globo.com/*"
+          "*://*.clarin.com/*"
+          "*://*.infobae.com/*"
+          "*://*.theguardian.com/*"
+          "*://*.bbc.com/*"
+          "*://*.bbc.co.uk/*"
+          "*://*.dailymail.co.uk/*"
+          "*://*.telegraph.co.uk/*"
+          "*://*.independent.co.uk/*"
+          "*://*.ft.com/*"
+          "*://*.economist.com/*"
+          "*://*.lemonde.fr/*"
+          "*://*.lefigaro.fr/*"
+          "*://*.france24.com/*"
+          "*://*.euronews.com/*"
+          "*://*.dw.com/*"
+          "*://*.spiegel.de/*"
+          "*://*.bild.de/*"
+          "*://*.elpais.com/*"
+          "*://*.elmundo.es/*"
+          "*://*.corriere.it/*"
+          "*://*.repubblica.it/*"
+          "*://*.indiatimes.com/*"
+          "*://*.thehindu.com/*"
+          "*://*.ndtv.com/*"
+          "*://*.indianexpress.com/*"
+          "*://*.asahi.com/*"
+          "*://*.nikkei.com/*"
+          "*://*.nhk.or.jp/*"
+          "*://*.scmp.com/*"
+          "*://*.straitstimes.com/*"
+          "*://*.channelnewsasia.com/*"
+          "*://*.abc.net.au/*"
+          "*://*.smh.com.au/*"
+          "*://*.news.com.au/*"
+          "*://*.chosun.com/*"
+          "*://*.aljazeera.com/*"
+          "*://*.timesofisrael.com/*"
+          "*://*.haaretz.com/*"
+          "*://*.arabnews.com/*"
+          "*://*.news24.com/*"
+          "*://*.reuters.com/*"
+          "*://*.apnews.com/*"
+          "*://www.google.com/*"
+          "*://google.com/*"
+          "*://www.bing.com/*"
+          "*://bing.com/*"
+          "*://cn.bing.com/*"
+          "*://duckduckgo.com/*"
+          "*://html.duckduckgo.com/*"
+          "*://lite.duckduckgo.com/*"
+          "*://*.naver.com/*"
+          "*://naver.com/*"
+          "*://*.weather.com/*"
+          "*://weather.com/*"
+          "*://*.samsung.com/*"
+          "*://samsung.com/*"
+          "*://docs.google.com/*"
+          "*://drive.google.com/*"
+          "*://*.kayak.com/*"
+          "*://*.kayak.co.uk/*"
+          "*://*.kayak.de/*"
+          "*://*.kayak.fr/*"
+          "*://*.kayak.es/*"
+          "*://*.kayak.it/*"
+          "*://*.kayak.nl/*"
+          "*://*.kayak.ca/*"
+          "*://*.kayak.com.au/*"
+          "*://*.kayak.co.in/*"
+          "*://*.kayak.com.br/*"
+          "*://*.kayak.com.mx/*"
+          "*://*.skyscanner.net/*"
+          "*://*.skyscanner.com/*"
+          "*://*.skyscanner.co.uk/*"
+          "*://*.skyscanner.de/*"
+          "*://*.skyscanner.fr/*"
+          "*://*.skyscanner.es/*"
+          "*://*.skyscanner.it/*"
+          "*://*.skyscanner.nl/*"
+          "*://*.skyscanner.co.in/*"
+          "*://*.skyscanner.com.au/*"
+          "*://*.skyscanner.jp/*"
+          "*://*.skyscanner.ca/*"
+          "*://*.skyscanner.com.mx/*"
+          "*://*.skyscanner.com.br/*"
+          "*://*.flightaware.com/*"
+          "*://*.flightradar24.com/*"
+          "*://*.fr24.com/*"
+          "*://*.delta.com/*"
+          "*://*.united.com/*"
+          "*://*.aa.com/*"
+          "*://*.southwest.com/*"
+          "*://*.jetblue.com/*"
+          "*://*.alaskaair.com/*"
+          "*://*.ryanair.com/*"
+          "*://*.easyjet.com/*"
+          "*://*.lufthansa.com/*"
+          "*://*.britishairways.com/*"
+          "*://*.emirates.com/*"
+          "*://*.qatarairways.com/*"
+          "*://*.ticketmaster.com/*"
+          "*://*.stubhub.com/*"
+          "*://*.seatgeek.com/*"
+          "*://*.axs.com/*"
+          "*://*.doordash.com/*"
+          "*://*.ubereats.com/*"
+          "*://*.grubhub.com/*"
+          "*://*.instacart.com/*"
+          "*://*.app.netsuite.com/*"
+          "*://*.atlassian.net/*"
+          "*://*.notion.so/*"
+          "*://*.notion.site/*"
+          "*://*.loom.com/*"
+          "*://*.figma.com/*"
+          "*://*.primevideo.com/*"
+          "*://*.ecosia.org/*"
+          "*://ecosia.org/*"
+          "*://*.startpage.com/*"
+          "*://startpage.com/*"
+          "*://search.brave.com/*"
+          "*://*.kagi.com/*"
+          "*://kagi.com/*"
+          "*://pubmed.ncbi.nlm.nih.gov/*"
+          "*://scholar.google.com/*"
+          "*://*.researchgate.net/*"
+          "*://researchgate.net/*"
+          "*://*.yelp.com/*"
+          "*://*.yelp.ca/*"
+          "*://*.yelp.co.uk/*"
+          "*://*.yelp.de/*"
+          "*://*.yelp.fr/*"
+          "*://*.yelp.it/*"
+          "*://*.yelp.es/*"
+          "*://*.yelp.ie/*"
+          "*://*.yelp.com.au/*"
+          "*://play.google.com/*"
+          "*://apps.apple.com/*"
+          "*://*.ups.com/*"
+          "*://*.fedex.com/*"
+          "*://*.usps.com/*"
+          "*://*.dhl.com/*"
+          "*://*.dhl.de/*"
+          "*://*.kickstarter.com/*"
+          "*://*.gofundme.com/*"
+          "*://*.patreon.com/*"
+          "*://*.meetup.com/*"
+          "*://*.allrecipes.com/*"
+          "*://*.seriouseats.com/*"
+          "*://*.foodnetwork.com/*"
+          "*://*.bbcgoodfood.com/*"
+          "*://*.costco.com/*"
+          "*://*.costco.ca/*"
+          "*://*.homedepot.com/*"
+          "*://*.homedepot.ca/*"
+          "*://*.lowes.com/*"
+          "*://*.ikea.com/*"
+          "*://*.nike.com/*"
+          "*://*.adidas.com/*"
+          "*://*.adidas.de/*"
+          "*://*.adidas.co.uk/*"
+          "*://*.epicgames.com/*"
+          "*://*.gog.com/*"
+          "*://*.humblebundle.com/*"
+          "*://*.itch.io/*"
+          "*://*.accuweather.com/*"
+          "*://*.wunderground.com/*"
+          "*://*.espn.com/*"
+          "*://*.flashscore.com/*"
+          "*://*.sofascore.com/*"
+          "*://*.zhihu.com/*"
+          "*://*.weibo.com/*"
+          "*://*.myshopify.com/*"
+          "*://*.godaddy.com/*"
+          "*://*.producthunt.com/*"
+          "*://*.change.org/*"
+          "*://*.eventbrite.com/*"
+          "*://*.eventbrite.co.uk/*"
+          "*://*.eventbrite.ca/*"
+          "*://*.eventbrite.com.au/*"
+          "*://*.eventbrite.de/*"
+          "*://*.eventbrite.fr/*"
+          "*://*.eventbrite.es/*"
+          "*://*.eventbrite.it/*"
+          "*://*.eventbrite.nl/*"
+          "*://*.eventbrite.ie/*"
+          "*://search.yahoo.co.jp/*"
+          "*://*.nicovideo.jp/*"
+          "*://*.daum.net/*"
+          "*://*.gmarket.co.kr/*"
+          "*://*.11st.co.kr/*"
+          "*://*.myntra.com/*"
+          "*://*.zomato.com/*"
+          "*://*.swiggy.com/*"
+          "*://*.bol.com/*"
+          "*://*.otto.de/*"
+          "*://*.mediamarkt.de/*"
+          "*://*.mediamarkt.at/*"
+          "*://*.mediamarkt.es/*"
+          "*://*.mediamarkt.nl/*"
+          "*://*.cdiscount.com/*"
+          "*://*.fnac.com/*"
+          "*://*.trendyol.com/*"
+          "*://*.hepsiburada.com/*"
+          "*://*.noon.com/*"
+          "*://*.jumia.com.ng/*"
+          "*://*.jumia.co.ke/*"
+          "*://*.jumia.com.eg/*"
+          "*://*.jumia.ma/*"
+          "*://*.daraz.pk/*"
+          "*://*.daraz.lk/*"
+          "*://*.daraz.com.bd/*"
+          "*://*.daraz.com.np/*"
+          "*://*.americanas.com.br/*"
+          "*://*.magazineluiza.com.br/*"
+          "*://*.wildberries.ru/*"
+          "*://*.ozon.ru/*"
+          "*://*.avito.ru/*"
+        ];
         platforms = platforms.all;
       };
     };
@@ -11640,10 +12366,10 @@
     };
     "reddit-enhancement-suite" = buildMozillaXpiAddon {
       pname = "reddit-enhancement-suite";
-      version = "5.24.14";
+      version = "5.26.3";
       addonId = "jid1-xUfzOsOFlzSOXg@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5179357/reddit_enhancement_suite-5.24.14.xpi";
-      sha256 = "5c04ff0cd51b8dd40d9fb507c3d8eaaf353611db354bcba5abc6cf2dcd0e51d0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5194564/reddit_enhancement_suite-5.26.3.xpi";
+      sha256 = "3957d651e786ec4d98d17d13917cb7bc0d57e552660b5530a3f3293d1e8401d8";
       meta = with lib;
       {
         homepage = "https://redditenhancementsuite.com/";
@@ -12279,10 +13005,10 @@
     };
     "scots-language-pack" = buildMozillaXpiAddon {
       pname = "scots-language-pack";
-      version = "159.0.20261102.144711";
+      version = "160.0.20261104.181552";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5199406/scots_language_pack-159.0.20261102.144711.xpi";
-      sha256 = "df7c1c0ccfae5eed2648396b8d087e7a572a45486b7ece50f3a61c1ebb4f5b2b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5209685/scots_language_pack-160.0.20261104.181552.xpi";
+      sha256 = "be855440cc86914d1fe9c5f73e55c859b410ca7275a6ae6015aaf1b39ed5b0a8";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -12805,10 +13531,10 @@
     };
     "single-file" = buildMozillaXpiAddon {
       pname = "single-file";
-      version = "1.34.0";
+      version = "1.35.0";
       addonId = "{531906d3-e22f-4a6c-a102-8057b88a1a63}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5199928/single_file-1.34.0.xpi";
-      sha256 = "5d354af5044f57fbfdba4660dcd5de299d0813e41fd5b3c6cd0948dd6a6de2da";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5208988/single_file-1.35.0.xpi";
+      sha256 = "a1ed8c24d886b54a192b7f6944adb1157aa129b894ae679c48da979ece37c472";
       meta = with lib;
       {
         homepage = "https://www.getsinglefile.com";
@@ -13944,10 +14670,10 @@
     };
     "time-zone-converter-savvy-time" = buildMozillaXpiAddon {
       pname = "time-zone-converter-savvy-time";
-      version = "2026.11.0";
+      version = "2026.11.1";
       addonId = "yuriy@savvytime.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5199200/time_zone_converter_savvy_time-2026.11.0.xpi";
-      sha256 = "8d7acc0cd744d1c4af3d7b387cef00e39f4873fc908d80aa46be08f952d5baa8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5210428/time_zone_converter_savvy_time-2026.11.1.xpi";
+      sha256 = "6a86f185449b212c6192ac8532b59a98f0d56b9d67be6da8f7800304e6189624";
       meta = with lib;
       {
         homepage = "https://savvytime.com/converter";
@@ -16640,10 +17366,10 @@
     };
     "youtube-enhancer-vc" = buildMozillaXpiAddon {
       pname = "youtube-enhancer-vc";
-      version = "1.35.0";
+      version = "1.36.0";
       addonId = "{c49b13b1-5dee-4345-925e-0c793377e3fa}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/5008750/youtube_enhancer_vc-1.35.0.xpi";
-      sha256 = "9431590c2615a844b9506060f25725f9d347d93bfd75636ab1afa6e8d0598a2c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/5206241/youtube_enhancer_vc-1.36.0.xpi";
+      sha256 = "23104b2c30aaf46dac2ec183115fbf715f869b6ca799be65a70935f6a7ec1b42";
       meta = with lib;
       {
         homepage = "https://github.com/YouTube-Enhancer/extension";
@@ -16651,7 +17377,6 @@
         license = licenses.mit;
         mozPermissions = [
           "activeTab"
-          "webRequest"
           "storage"
           "tabs"
           "scripting"

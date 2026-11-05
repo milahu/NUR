@@ -208,6 +208,33 @@
         platforms = platforms.all;
       };
     };
+    "mailmindr" = buildMozillaXpiAddon {
+      pname = "mailmindr";
+      version = "1.7.1";
+      addonId = "mailmindr@arndissler.net";
+      url = "https://addons.thunderbird.net/thunderbird/downloads/file/1031426/mailmindr-1.7.1-tb.xpi?src=";
+      sha256 = "d9736cde11380259529fadb41cd0d9483dab5d5985a0b8d0a6f88e768e04c698";
+      meta = with lib;
+      {
+        homepage = "https://mailmindr.net/";
+        description = "Follow up for Thunderbird E-Mails. \n\nWeb: <a rel=\"nofollow\" href=\"https://mailmindr.net/\">https://mailmindr.net/</a>\nTwitter: @mailmindr";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "activeTab"
+          "accountsRead"
+          "compose"
+          "menus"
+          "messagesModify"
+          "messagesMove"
+          "messagesRead"
+          "messagesUpdate"
+          "storage"
+          "tabs"
+          "unlimitedStorage"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "manually-sort-folders" = buildMozillaXpiAddon {
       pname = "manually-sort-folders";
       version = "2.3.0";
@@ -335,10 +362,10 @@
     };
     "tb-langpack-de" = buildMozillaXpiAddon {
       pname = "tb-langpack-de";
-      version = "160.0.20261030.210805";
+      version = "160.0.20261104.170148";
       addonId = "langpack-de@thunderbird.mozilla.org";
-      url = "https://addons.thunderbird.net/thunderbird/downloads/file/1054708/deutsch_de_language_pack-160.0.20261030.210805-tb.xpi?src=";
-      sha256 = "8f75eb4d437495bc79bdff6533e3ee6bdf945327697532bcd5c3af1bbd4efe1c";
+      url = "https://addons.thunderbird.net/thunderbird/downloads/file/1054924/deutsch_de_language_pack-160.0.20261104.170148-tb.xpi?src=";
+      sha256 = "3638dd4d131f31900e4e3794f5cdbaf11ec82d68abff6ff26413557bca7b43f3";
       meta = with lib;
       {
         description = "Deutsch (de) Language Pack";
