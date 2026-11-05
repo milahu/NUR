@@ -92,7 +92,7 @@ def parse_pkgbuild(text):
 
 
 def resolve_metadata(variant):
-    package = "linux-cachyos" if variant == "latest" else "linux-cachyos-bore"
+    package = "linux-cachyos"
     # Resolve current repository heads once; the PKGBUILD and config are pinned to
     # the same linux-cachyos commit, while patches use their independent repo HEAD.
     config_rev = git_head(KERNEL_REPO)
@@ -105,10 +105,6 @@ def resolve_metadata(variant):
     config_url = f"{KERNEL_RAW}/{config_rev}/{package}/config"
     config_data = curl_bytes(config_url)
     patch_version = ".".join(version.split(".")[:2])
-    patch_path = f"{PATCH_RAW}/{patch_rev}/{patch_version}/sched/0001-bore-cachy.patch"
-    # Ensure the filtered patch root contains the variant-specific patch before pinning it.
-    if variant == "bore":
-        curl_bytes(patch_path)
     return {"version": version, "url": release_url, "configUrl": config_url,
             "configRev": config_rev, "configData": config_data,
             "patchRev": patch_rev, "patchVersion": patch_version,
@@ -159,8 +155,8 @@ def check_schema(current, variant=None):
                        + re.escape(current["version"]) + r"-\d+)/(?P=tag)\.tar\.gz")
     if not re.fullmatch(release_pattern, current["url"]):
         raise ValueError("source archive URL does not identify this CachyOS/linux version")
-    expected_variant = {"latest": "linux-cachyos", "bore": "linux-cachyos-bore"}.get(variant)
-    config_pattern = rf"{re.escape(KERNEL_RAW)}/[0-9a-f]{{40}}/(linux-cachyos|linux-cachyos-bore)/config"
+    expected_variant = "linux-cachyos" if variant == "latest" else None
+    config_pattern = rf"{re.escape(KERNEL_RAW)}/[0-9a-f]{{40}}/linux-cachyos/config"
     if not re.fullmatch(config_pattern, current["configUrl"]):
         raise ValueError("config URL is outside pinned CachyOS/linux-cachyos config paths")
     if expected_variant and not current["configUrl"].endswith(f"/{expected_variant}/config"):
@@ -173,10 +169,10 @@ def check_schema(current, variant=None):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("package_dir", type=Path)
-    parser.add_argument("variant", choices=("latest", "bore"))
+    parser.add_argument("variant", choices=("latest",))
     parser.add_argument("--check", action="store_true", help="resolve live refs and release availability without prefetch or writes")
     args = parser.parse_args()
-    expected_package = "linux-cachyos-latest-x86_64-v3" if args.variant == "latest" else "linux-cachyos-bore-x86_64-v3"
+    expected_package = "linux-cachyos-latest-x86_64-v3"
     package_dir = args.package_dir.resolve()
     if package_dir.name != expected_package:
         raise ValueError(f"variant {args.variant!r} may update only {expected_package}, not {package_dir.name}")
@@ -186,19 +182,21 @@ def main():
     check_schema(current, args.variant)
     meta = resolve_metadata(args.variant)
     resolved = {"configRev": meta["configRev"], "patchRev": meta["patchRev"]}
-    if version_key(meta["version"]) <= version_key(current["version"]):
+    newer_kernel = version_key(meta["version"]) > version_key(current["version"])
+    if not newer_kernel:
         print(f"{args.variant}: unchanged (pinned {current['version']}, live {meta['version']}; linux-cachyos={resolved['configRev']}, kernel-patches={resolved['patchRev']})")
         return 0
     if args.check:
-        print(f"{args.variant}: update available {current['version']} -> {meta['version']}; linux-cachyos={resolved['configRev']}, kernel-patches={resolved['patchRev']}")
+        change = f"{current['version']} -> {meta['version']}"
+        print(f"{args.variant}: update available {change}; linux-cachyos={resolved['configRev']}, kernel-patches={resolved['patchRev']}")
         return 0
     temporary = None
     try:
         candidate = candidate_hashes(meta)
-        # Enforce source identities after discovery and after hashes are computed.
-        check_schema(candidate, args.variant)
         expected = {"version": meta["version"], "url": meta["url"], "configUrl": meta["configUrl"],
                     "patchRev": meta["patchRev"], "patchVersion": meta["patchVersion"]}
+        # Enforce source identities after discovery and after hashes are computed.
+        check_schema(candidate, args.variant)
         if any(candidate[key] != value for key, value in expected.items()):
             raise ValueError("candidate source identity changed during hash resolution")
         mode = source.stat().st_mode & 0o777
@@ -220,7 +218,7 @@ def main():
     finally:
         if temporary is not None:
             temporary.unlink(missing_ok=True)
-    print(f"{source.parent.name}: {current['version']} -> {candidate['version']}")
+    print(f"{source.parent.name}: {current['version']} -> {candidate['version']}; patch {current['patchRev']} -> {candidate['patchRev']}")
     return 0
 
 

@@ -38,7 +38,7 @@ class UpdaterTests(unittest.TestCase):
         self.pkg.mkdir()
         self.source = self.pkg / "source.json"
         self.source.write_text(json.dumps(CURRENT))
-        self.other = Path(self.temp.name) / "linux-cachyos-bore-x86_64-v3" / "source.json"
+        self.other = Path(self.temp.name) / "unrelated-package" / "source.json"
         self.other.parent.mkdir()
         self.other.write_text(json.dumps({**CURRENT, "version": "7.2.10"}))
 
@@ -63,16 +63,15 @@ class UpdaterTests(unittest.TestCase):
         def raw(url):
             if url.endswith("/PKGBUILD"): return REALISTIC_PKGBUILD.encode()
             if url.endswith("/config"): return b"config-data"
-            if "/sched/0001-bore-cachy.patch" in url: return b"patch-data"
             raise AssertionError(url)
         with patch.object(UPDATER, "git_head", side_effect=head) as heads, \
              patch.object(UPDATER, "curl_bytes", side_effect=raw), \
              patch.object(UPDATER, "assert_url") as available:
-            data = UPDATER.resolve_metadata("bore")
+            data = UPDATER.resolve_metadata("latest")
         self.assertEqual(heads.call_count, 2)
         self.assertEqual(data["configRev"], KERNEL_REV)
         self.assertEqual(data["patchRev"], PATCH_REV)
-        self.assertEqual(data["configUrl"], f"{UPDATER.KERNEL_RAW}/{KERNEL_REV}/linux-cachyos-bore/config")
+        self.assertEqual(data["configUrl"], f"{UPDATER.KERNEL_RAW}/{KERNEL_REV}/linux-cachyos/config")
         self.assertEqual(data["url"], "https://github.com/CachyOS/linux/releases/download/cachyos-7.3.0-2/cachyos-7.3.0-2.tar.gz")
         available.assert_called_once_with(data["url"])
 
@@ -164,7 +163,6 @@ class UpdaterTests(unittest.TestCase):
     def test_success_updates_only_target_for_both_variants(self):
         for variant, name, config_name in (
             ("latest", "linux-cachyos-latest-x86_64-v3", "linux-cachyos"),
-            ("bore", "linux-cachyos-bore-x86_64-v3", "linux-cachyos-bore"),
         ):
             with self.subTest(variant=variant), tempfile.TemporaryDirectory() as directory:
                 package = Path(directory) / name
