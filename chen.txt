@@ -1,0 +1,235 @@
+error:
+… while evaluating the attribute 'papilot'
+  at ./default.nix:13:3:
+    12| in {
+    13|   papilot = papilotPackages.default;
+      |   ^
+    14|   papilot-cli = papilotPackages.cli;
+
+… while evaluating the attribute 'default'
+  at ./pkgs/papilot/default.nix:13:3:
+    12|   inherit source cli;
+    13|   default = if stdenv.hostPlatform.isLinux then combined else cli;
+      |   ^
+    14| } // lib.optionalAttrs stdenv.hostPlatform.isLinux { inherit desktop; }
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at ./pkgs/papilot/default.nix:6:14:
+     5|   desktop = callPackage "${source}/nix/desktop.nix" { papilot = cli; };
+     6|   combined = symlinkJoin {
+      |              ^
+     7|     name = "papilot-${cli.version}";
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:869:7:
+   868|       # Adds the fixed-point style support
+   869|       __functor =
+      |       ^
+   870|         self: fpargs:
+
+… while calling '__functor'
+  at <nixpkgs> + /lib/customisation.nix:870:15:
+   869|       __functor =
+   870|         self: fpargs:
+      |               ^
+   871|         transformDrv (
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:871:9:
+   870|         self: fpargs:
+   871|         transformDrv (
+      |         ^
+   872|           constructDrv (
+
+… while calling 'id'
+  at <nixpkgs> + /lib/trivial.nix:63:8:
+    62|   */
+    63|   id = x: x;
+      |        ^
+    64|
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:872:11:
+   871|         transformDrv (
+   872|           constructDrv (
+      |           ^
+   873|             final:
+
+… while calling 'mkDerivation'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:18:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+   226|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:225:29:
+   224|   */
+   225|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+   226|
+
+… while calling 'makeDerivationExtensible'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:229:5:
+   228|   makeDerivationExtensible =
+   229|     rattrs:
+      |     ^
+   230|     let
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:308:22:
+   307|
+   308|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   309|
+
+… while calling 'mkDerivationSimple'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:925:5:
+   924|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   925|     {
+      |     ^
+   926|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1015:5:
+  1014|
+  1015|     extendDerivation validity.handled (
+      |     ^
+  1016|       {
+
+… while calling 'extendDerivation'
+  at <nixpkgs> + /lib/customisation.nix:405:26:
+   404|   extendDerivation =
+   405|     condition: passthru: drv:
+      |                          ^
+   406|     let
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /lib/customisation.nix:409:12:
+   408|         drv
+   409|         // listToAttrs (
+      |            ^
+   410|           outputsList
+
+… while calling the 'listToAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:409:12:
+   408|         drv
+   409|         // listToAttrs (
+      |            ^
+   410|           outputsList
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/customisation.nix:428:21:
+   427|
+   428|       outputsList = map (outputName: {
+      |                     ^
+   429|         name = outputName;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1071:8:
+  1070|         passthru
+  1071|     ) (derivation (derivationArg // checkedEnv));
+      |        ^
+  1072|
+
+… in the right operand of the update (//) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1071:37:
+  1070|         passthru
+  1071|     ) (derivation (derivationArg // checkedEnv));
+      |                                     ^
+  1072|
+
+… in the condition of the assert statement
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:992:9:
+   991|           || throw "`env` must be an attribute set of environment variables. Set `env.env` or pick a more specific name.";
+   992|         assert
+      |         ^
+   993|           (overlappingArgs == { })
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:994:11:
+   993|           (overlappingArgs == { })
+   994|           || throw (
+      |           ^
+   995|             let
+
+… while calling the 'intersectAttrs' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:987:29:
+   986|         let
+   987|           overlappingArgs = intersectAttrs env' derivationArg;
+      |                             ^
+   988|         in
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:964:9:
+   963|       env' =
+   964|         if attrs ? meta.mainProgram then env // { NIX_MAIN_PROGRAM = attrs.meta.mainProgram; } else env;
+      |         ^
+   965|
+
+… from call site
+  at ./pkgs/papilot/default.nix:4:9:
+     3|   source = callPackage ./source.nix { };
+     4|   cli = callPackage "${source}/nix/package.nix" { };
+      |         ^
+     5|   desktop = callPackage "${source}/nix/desktop.nix" { papilot = cli; };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
+      |                   ^
+   313|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:326:5:
+   325|     # if nonempty, check if the function has defaults for those other args
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |     ^
+   327|       makeOverridable f allArgs
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/customisation.nix:326:28:
+   325|     # if nonempty, check if the function has defaults for those other args
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   327|       makeOverridable f allArgs
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:322:22:
+   321|       # arguments that weren't passed automatically to the function
+   322|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   323|
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:315:15:
+   314|       f = if isFunction fn then fn else import fn;
+   315|       fargs = functionArgs f;
+      |               ^
+   316|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f:
+      |     ^
+  1110|     if f ? __functor then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1110:5:
+  1109|     f:
+  1110|     if f ? __functor then
+      |     ^
+  1111|       f.__functionArgs or (
+
+… while calling the 'import' builtin
+  at <nixpkgs> + /lib/customisation.nix:314:41:
+   313|     let
+   314|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   315|       fargs = functionArgs f;
+
+… while realising the context of path '/nix/store/cg7vcbfyk1vs99hgf07lpvn42qq6pca9-source/nix/package.nix'
+
+error: path '/nix/store/0n00ybprfbfbv9sia8yjgmbarvxhwylk-source.drv' is not valid

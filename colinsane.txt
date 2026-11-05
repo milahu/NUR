@@ -1,81 +1,111 @@
 error:
-… while evaluating the attribute 'pkgsBroken'
-  at <nixpkgs> + /lib/attrsets.nix:977:47:
-   976|   */
-   977|   nameValuePair = name: value: { inherit name value; };
-      |                                               ^
-   978|
+… while evaluating attribute 'buildPhase' of derivation 'addon-version-lister-0.1.0'
+  at ./pkgs/by-name/static-nix-shell/package.nix:205:7:
+   204|
+   205|       buildPhase = attrs.buildPhase or ''
+      |       ^
+   206|         runHook preBuild
 
 … from call site
-  at ./pkgs/unfixed.nix:49:21:
-    48|       if type == "directory" && builtins.pathExists default then {
-    49|         "${name}" = callPackage default { };
-      |                     ^
-    50|       } else if type == "directory" then {
+  at ./pkgs/by-name/static-nix-shell/package.nix:222:13:
+   221|           --replace-fail '#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell' '#!${interpreter}' \
+   222|           ${lib.optionalString (packagesText != null) ''
+      |             ^
+   223|             --replace-fail \
+
+… while calling 'optionalString'
+  at <nixpkgs> + /lib/strings.nix:776:26:
+   775|   */
+   776|   optionalString = cond: string: if cond then string else "";
+      |                          ^
+   777|
+
+… from call site
+  at ./pkgs/by-name/static-nix-shell/package.nix:129:7:
+   128|     checkedShellRootText =
+   129|       lib.throwIfNot (builtins.pathExists shellRoot)
+      |       ^
+   130|         "${pname}: `#!nix-shell` path '${shellRootText}' (${toString shellRoot}) does not exist"
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/customisation.nix:308:19:
-   307|     in
-   308|     autoArgs: fn: args:
-      |                   ^
-   309|     let
-
-… while calling a functor (an attribute set with a '__functor' attribute)
-  at <nixpkgs> + /lib/customisation.nix:323:7:
-   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
-   323|       makeOverridable f allArgs
-      |       ^
-   324|     else
+  at <nixpkgs> + /lib/trivial.nix:982:40:
+   981|   */
+   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                                        ^
+   983|
 
 … from call site
-  at <nixpkgs> + /lib/trivial.nix:1183:7:
-  1182|     g: {
-  1183|       __functor = self: g;
-      |       ^
-  1184|       __functionArgs = fArgs;
+  at ./pkgs/by-name/static-nix-shell/package.nix:131:8:
+   130|         "${pname}: `#!nix-shell` path '${shellRootText}' (${toString shellRoot}) does not exist"
+   131|       (lib.throwIfNot (shellRootPkgs ? static-nix-shell.${builderName})
+      |        ^
+   132|         "${pname}: `#!nix-shell` path '${shellRootText}' (${toString shellRoot}) does not provide `static-nix-shell.${builderName}`"
 
-… while calling 'f''
-  at <nixpkgs> + /lib/customisation.nix:159:9:
-   158|       f' =
-   159|         origArgs:
-      |         ^
-   160|         let
+… while calling 'throwIfNot'
+  at <nixpkgs> + /lib/trivial.nix:982:22:
+   981|   */
+   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                      ^
+   983|
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/customisation.nix:175:9:
-   174|         in
-   175|         if isAttrs result then
-      |         ^
-   176|           result
+  at <nixpkgs> + /lib/trivial.nix:982:27:
+   981|   */
+   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                           ^
+   983|
 
-… while calling the 'isAttrs' builtin
-  at <nixpkgs> + /lib/customisation.nix:175:12:
-   174|         in
-   175|         if isAttrs result then
-      |            ^
-   176|           result
+… while evaluating a branch condition
+  at ./pkgs/by-name/static-nix-shell/package.nix:127:7:
+   126|     in
+   127|       if lib.isFunction expr then expr { } else expr;
+      |       ^
+   128|     checkedShellRootText =
 
 … from call site
-  at <nixpkgs> + /lib/customisation.nix:161:20:
-   160|         let
-   161|           result = f origArgs;
-      |                    ^
-   162|
+  at ./pkgs/by-name/static-nix-shell/package.nix:127:10:
+   126|     in
+   127|       if lib.isFunction expr then expr { } else expr;
+      |          ^
+   128|     checkedShellRootText =
 
 … while calling anonymous lambda
-  at ./pkgs/by-name/pkgsBroken/package.nix:8:1:
-     7| # - or: `NIXPKGS_ALLOW_BROKEN=1 nix-build -A ATTRPATH`
-     8| {
-      | ^
-     9|   config,
+  at <nixpkgs> + /lib/trivial.nix:1144:5:
+  1143|     in
+  1144|     f:
+      |     ^
+  1145|     # Equivalent to `isLambda f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f))`
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/trivial.nix:1148:5:
+  1147|     isLambda f
+  1148|     || (
+      |     ^
+  1149|       f ? __functor
+
+… while calling the 'isFunction' builtin
+  at <nixpkgs> + /lib/trivial.nix:1147:5:
+  1146|     # but faster when `f.__functor` and `f.__functor f` are both lambdas.
+  1147|     isLambda f
+      |     ^
+  1148|     || (
 
 … while calling the 'import' builtin
-  at ./pkgs/by-name/pkgsBroken/package.nix:14:1:
-    13| }:
-    14| import "${path}/pkgs/top-level" {
-      | ^
-    15|   # XXX: passing through `config` here actually has observable effects: it's not *quite* idempotent.
+  at ./pkgs/by-name/static-nix-shell/package.nix:125:14:
+   124|     shellRootPkgs = let
+   125|       expr = import shellRoot;
+      |              ^
+   126|     in
 
-… while realising the context of path '/nix/store/gfcp0aqln2yp9qvmx0s2przqxv435dyb-z4xg2jq2qzz0cky14s0ai69n8nqqd5b5-source/pkgs/top-level'
+… while evaluating the file './default.nix':
 
-error: path '/nix/store/gfcp0aqln2yp9qvmx0s2przqxv435dyb-z4xg2jq2qzz0cky14s0ai69n8nqqd5b5-source' is not valid
+… while calling the 'import' builtin
+  at ./default.nix:19:3:
+    18| in
+    19|   import "${sane-nix-files}/impure.nix"
+      |   ^
+    20|
+
+… while realising the context of path '/nix/store/0z4hpc2arhc89jz2hxh5arbjmbncfrfp-source/impure.nix'
+
+error: path '/nix/store/0z4hpc2arhc89jz2hxh5arbjmbncfrfp-source' is not valid
