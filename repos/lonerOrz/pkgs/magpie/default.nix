@@ -1,6 +1,7 @@
 {
   lib,
   stdenv,
+  apple-sdk,
   buildGoModule,
   fetchFromGitHub,
   pkg-config,
@@ -11,6 +12,7 @@
   makeDesktopItem,
   copyDesktopItems,
   imagemagick,
+  cacert,
   ast-grep,
   gotools,
   versionCheckHook,
@@ -28,13 +30,13 @@ buildGoModule (finalAttrs: {
   __structuredAttrs = true;
 
   pname = "magpie";
-  version = "0.1.2881";
+  version = "0.1.3075";
 
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "magpie";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-UxP6dAcVk/DxbaiCND2hGD8xg6pA0Z2QYfZ6pfa9uJk=";
+    hash = "sha256-EhQjt2BGj/21DtXKKXN8ZVXzM13b0H8D1lxAgMZmIkY=";
   };
 
   vendorHash = "sha256-tYSKQMQa3cdhED4Yss/Frxd5midK6o2WND7/fRUtSuc=";
@@ -71,10 +73,16 @@ buildGoModule (finalAttrs: {
     copyDesktopItems
     imagemagick
   ];
-  buildInputs = lib.optionals linuxGui [
-    gtk3
-    webkitgtk_4_1
-  ];
+
+  buildInputs =
+    lib.optionals linuxGui [
+      cacert
+      gtk3
+      webkitgtk_4_1
+    ]
+    ++ lib.optionals darwinGui [
+      apple-sdk
+    ];
 
   preFixup =
     if linuxGui then
