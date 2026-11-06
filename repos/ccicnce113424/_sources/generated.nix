@@ -239,15 +239,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "5f2668026053ac7a7a89148dbcdf0f261fd6b4a8";
+    version = "7f0abe20dff1f8b11b77ffb679567a96d82ce7be";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "5f2668026053ac7a7a89148dbcdf0f261fd6b4a8";
+      rev = "7f0abe20dff1f8b11b77ffb679567a96d82ce7be";
       fetchSubmodules = false;
-      sha256 = "sha256-0s1AV/rYA+1bSBDIYjDVSDVU427GuZ4R9KaDPbKsb/E=";
+      sha256 = "sha256-XJ9n4vZlv6cvji8eewe3UyEWt3misU8mvnifF8/NSDU=";
     };
-    date = "2026-11-02";
+    date = "2026-11-05";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -263,16 +263,16 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "9d0b45310c7550b65f5063be0fc158d93e9deb34";
+    version = "4a63cb22a987cb6a2212af889cf24ed0a385357c";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "9d0b45310c7550b65f5063be0fc158d93e9deb34";
+      rev = "4a63cb22a987cb6a2212af889cf24ed0a385357c";
       fetchSubmodules = false;
-      sha256 = "sha256-uA+r/sjbzjE/cB09VS59PBIDUtdFBk+nCIAMmeagK9k=";
+      sha256 = "sha256-WUymalYEjAkFOpUL2I/lj9o5PL9q784Uwpp549fxD58=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-uA+r_sjbzjE_cB09VS59PBIDUtdFBk+nCIAMmeagK9k=/Cargo.lock";
+      lockFile = ./. + "/sha256-WUymalYEjAkFOpUL2I_lj9o5PL9q784Uwpp549fxD58=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
@@ -296,17 +296,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "8fe27cc9f2935ec9d7c9f071498c3c3da1086ad8";
+    version = "f1069be300bf99ff37cd3c8e450a6ac37a86ab64";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "8fe27cc9f2935ec9d7c9f071498c3c3da1086ad8";
+      rev = "f1069be300bf99ff37cd3c8e450a6ac37a86ab64";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-dKmKBIlSERvdq1Jp4A8t9Yt56aSrqYxyv4tSj76WANs=";
+      sha256 = "sha256-0Os0nc99O9nJW0w6Npl9DVLfFTx1HLisc2wGua1AeXo=";
     };
-    date = "2026-11-04";
+    date = "2026-11-05";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -364,16 +364,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.2-beta.1";
+    version = "v4.1.2-beta.2";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.2-beta.1";
+      rev = "v4.1.2-beta.2";
       fetchSubmodules = false;
-      sha256 = "sha256-+6ovN9oOR09t7PEzalzcZzFHXhN7zWIXQiLu5R2jSHQ=";
+      sha256 = "sha256-IXEbGyrDP8oUAxWZn4I0ed9cQv/kGgass0BgdaShqoU=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-+6ovN9oOR09t7PEzalzcZzFHXhN7zWIXQiLu5R2jSHQ=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-IXEbGyrDP8oUAxWZn4I0ed9cQv_kGgass0BgdaShqoU=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -466,10 +466,10 @@
   };
   waywallen-display-bin = {
     pname = "waywallen-display-bin";
-    version = "0.4.4";
+    version = "0.4.5";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.4/waywallen-kde-0.4.4-x86_64-embed.zip";
-      sha256 = "sha256-0NF/c2rufatamD9CA50l1IMCgJO1j6h4bcxAi2O4qaE=";
+      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.5/waywallen-kde-0.4.5-x86_64.zip";
+      sha256 = "sha256-38sOpJ6H5C05XyemJ4wh9VZK4vbgLbxcxeb/lWVFnUE=";
     };
   };
 }
