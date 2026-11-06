@@ -33,20 +33,30 @@ let
     vulkan-loader
     alsa-lib
   ];
+
+  # craft-libs is a git dependency of effectcraft. We fetch it locally in prePatch
+  # (before vendoring) and redirect the git deps to local path deps so
+  # craft-libs never needs to be fetched during the vendor step.
+  craftLibs = fetchFromGitHub {
+    owner = "storytold";
+    repo = "craft-libs";
+    rev = "92d392cff132eaf53e13afff77f38b5c11b73aa0";
+    hash = "sha256-eF/jYZxRgaAcl5zrvhQLWv5mtt81TZzH/p3kJf3u0qw=";
+  };
 in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "effectcraft";
-  version = "0.21.0";
+  version = "0.21.1";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "effectcraft";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-bKKAYM4tKV3EateUKOg7PpbxfXB0xMKsXmvPQvDuK/Q=";
+    hash = "sha256-xI7yvrY6POSIhqsK2OuKwfy+EqY6N2APPPHXZuuFDIA=";
   };
 
-  cargoHash = "sha256-GA8Pun05kAy2vu/pjyJ/wfFZqAv6qFlicXY7/5f16VQ=";
+  cargoHash = "sha256-8Y9IuwXSWbd/8YmtcSq3m4n5ebueSFlOGKgZokXcQT8=";
   cargoBuildFlags = [ "--package" "effectcraft" "--package" "effectcraft-cli" ];
   cargoTestFlags = [ "--package" "effectcraft" "--package" "effectcraft-cli" ];
 
@@ -85,7 +95,34 @@ rustPlatform.buildRustPackage (finalAttrs: {
       mv Cargo.lock.tmp Cargo.lock
     fi
 
+
+    # Copy craft-libs into the source tree so it's available before vendoring.
+    cp -r ${craftLibs} ./craft-libs
+    chmod -R u+w ./craft-libs
+
+    # craft-libs's crates/menu/Cargo.toml overrides workspace's craft-keymap
+    # with `default-features = false`, which Cargo forbids. Remove it.
+    sed -i 's/default-features = false, //' ./craft-libs/crates/menu/Cargo.toml
+
+    # Redirect craft-libs git dependencies to local path deps
+    for crate in $(grep -oP '^craft-[a-z-]+ = {[^}]*git = "https://github.com/storytold/craft-libs"' Cargo.toml | sed 's/ = .*//'); do
+      dir=$(echo "$crate" | sed 's/^craft-//')
+      sed -i "s|^$crate = .*git = \"https://github.com/storytold/craft-libs\".*|$crate = { path = \"./craft-libs/crates/$dir\" }|" Cargo.toml
+    done
+
     cp Cargo.lock "$cargoDepsCopy/Cargo.lock"
+
+    # Remove git source lines from Cargo.lock for crates now using local paths
+    awk '
+      /^[[package]]/ { in_pkg = 1; name = "" }
+      in_pkg && /^name = / { name = $0; sub(/^name = ""/, "", name); sub(/".*$/, "", name) }
+      in_pkg && name ~ /^craft-/ && /^source = "git+https://github.com/storytold/craft-libs/ { next }
+      { print }
+    ' Cargo.lock > Cargo.lock.tmp && mv Cargo.lock.tmp Cargo.lock
+
+
+    # Disable the automatic update check in effectcraft (it tries to fetch from the internet, which is not allowed in Nix builds).
+    sed -i 's/app.set_startup_update_check(true);/\/\/ app.set_startup_update_check(true);/' apps/effectcraft/src/main.rs
   '';
   nativeBuildInputs = [
     autoPatchelfHook

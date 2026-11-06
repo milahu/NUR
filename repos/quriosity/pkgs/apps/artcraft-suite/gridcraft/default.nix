@@ -31,20 +31,30 @@ let
     libGL
     vulkan-loader
   ];
+
+  # craft-libs is a git dependency of gridcraft. We fetch it locally in prePatch
+  # (before vendoring) and redirect the git deps to local path deps so
+  # craft-libs never needs to be fetched during the vendor step.
+  craftLibs = fetchFromGitHub {
+    owner = "storytold";
+    repo = "craft-libs";
+    rev = "c5a1cbfb5f9049f9270955caffb5bee5997aebf7";
+    hash = "sha256-aToG+mSF15NmJeAT/SMDlhXzeaF8pOVeVzYMcrrDaII=";
+  };
 in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "gridcraft";
-  version = "0.16.0";
+  version = "0.16.1";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "gridcraft";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-UdKcStMixsQd0xCF75CpUxvTSl6VfuEcnnfFRG0WpWI=";
+    hash = "sha256-ypmyyONUIU+GRC53YcbKRmleht7OZY8odRzUVfWsTTA=";
   };
 
-  cargoHash = "sha256-+er0diBIAUOSgTgxfiuRl8ZcQP2vtTQNdu1ehCrOI/E=";
+  cargoHash = "sha256-88HgkCGpwrIOl3ARzXYw7dGc7hGfI4HjbRsfwPUcCyg=";
   cargoBuildFlags = [ "--package" "gridcraft" "--package" "gridcraft-cli" ];
   cargoTestFlags = [ "--package" "gridcraft" "--package" "gridcraft-cli" ];
 
@@ -83,7 +93,34 @@ rustPlatform.buildRustPackage (finalAttrs: {
       mv Cargo.lock.tmp Cargo.lock
     fi
 
+
+    # Copy craft-libs into the source tree so it's available before vendoring.
+    cp -r ${craftLibs} ./craft-libs
+    chmod -R u+w ./craft-libs
+
+    # craft-libs's crates/menu/Cargo.toml overrides workspace's craft-keymap
+    # with `default-features = false`, which Cargo forbids. Remove it.
+    sed -i 's/default-features = false, //' ./craft-libs/crates/menu/Cargo.toml
+
+    # Redirect craft-libs git dependencies to local path deps
+    for crate in $(grep -oP '^craft-[a-z-]+ = {[^}]*git = "https://github.com/storytold/craft-libs"' Cargo.toml | sed 's/ = .*//'); do
+      dir=$(echo "$crate" | sed 's/^craft-//')
+      sed -i "s|^$crate = .*git = \"https://github.com/storytold/craft-libs\".*|$crate = { path = \"./craft-libs/crates/$dir\" }|" Cargo.toml
+    done
+
     cp Cargo.lock "$cargoDepsCopy/Cargo.lock"
+
+    # Remove git source lines from Cargo.lock for crates now using local paths
+    awk '
+      /^[[package]]/ { in_pkg = 1; name = "" }
+      in_pkg && /^name = / { name = $0; sub(/^name = ""/, "", name); sub(/".*$/, "", name) }
+      in_pkg && name ~ /^craft-/ && /^source = "git+https://github.com/storytold/craft-libs/ { next }
+      { print }
+    ' Cargo.lock > Cargo.lock.tmp && mv Cargo.lock.tmp Cargo.lock
+
+
+    # Disable the automatic update check in gridcraft (it tries to fetch from the internet, which is not allowed in Nix builds).
+    sed -i 's/updates_ui::start(self, false);/\/\/ updates_ui::start(self, false);/' crates/ui-egui/src/app/prefs.rs
   '';
   nativeBuildInputs = [
     autoPatchelfHook

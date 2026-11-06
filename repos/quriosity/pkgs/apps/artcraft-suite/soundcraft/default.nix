@@ -33,20 +33,30 @@ let
     vulkan-loader
     alsa-lib
   ];
+
+  # craft-libs is a git dependency of soundcraft. We fetch it locally in prePatch
+  # (before vendoring) and redirect the git deps to local path deps so
+  # craft-libs never needs to be fetched during the vendor step.
+  craftLibs = fetchFromGitHub {
+    owner = "storytold";
+    repo = "craft-libs";
+    rev = "c5a1cbfb5f9049f9270955caffb5bee5997aebf7";
+    hash = "sha256-aToG+mSF15NmJeAT/SMDlhXzeaF8pOVeVzYMcrrDaII=";
+  };
 in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "soundcraft";
-  version = "0.17.0";
+  version = "0.17.1";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "soundcraft";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-3EvdefFFh+nEx6ie8sNqOeRH+Jky49tj01P4Ge7W3Qo=";
+    hash = "sha256-i8gkY6eZDhoia3KMJAiZrhW0Kfmta2TI4A3VdWV7vUY=";
   };
 
-  cargoHash = "sha256-qIeIfDTC7m88TZlMsGs83poDpjZw6y72SVjX+SwnE3E=";
+  cargoHash = "sha256-fPf8auSs5fW4Nhclk97qzVSaYC22m/Xc1j0gF7p/p+0=";
   cargoBuildFlags = [ "--package" "soundcraft" "--package" "soundcraft-cli" ];
   cargoTestFlags = [ "--package" "soundcraft" "--package" "soundcraft-cli" ];
 
@@ -86,7 +96,34 @@ rustPlatform.buildRustPackage (finalAttrs: {
       mv Cargo.lock.tmp Cargo.lock
     fi
 
+
+    # Copy craft-libs into the source tree so it's available before vendoring.
+    cp -r ${craftLibs} ./craft-libs
+    chmod -R u+w ./craft-libs
+
+    # craft-libs's crates/menu/Cargo.toml overrides workspace's craft-keymap
+    # with `default-features = false`, which Cargo forbids. Remove it.
+    sed -i 's/default-features = false, //' ./craft-libs/crates/menu/Cargo.toml
+
+    # Redirect craft-libs git dependencies to local path deps
+    for crate in $(grep -oP '^craft-[a-z-]+ = {[^}]*git = "https://github.com/storytold/craft-libs"' Cargo.toml | sed 's/ = .*//'); do
+      dir=$(echo "$crate" | sed 's/^craft-//')
+      sed -i "|$crate = {[^}]*git = "https://github.com/storytold/craft-libs"[^}]*}|$crate = { path = "./craft-libs/crates/$dir" }|" Cargo.toml
+    done
+
     cp Cargo.lock "$cargoDepsCopy/Cargo.lock"
+
+    # Remove git source lines from Cargo.lock for crates now using local paths
+    awk '
+      /^[[package]]/ { in_pkg = 1; name = "" }
+      in_pkg && /^name = / { name = $0; sub(/^name = ""/, "", name); sub(/".*$/, "", name) }
+      in_pkg && name ~ /^craft-/ && /^source = "git+https://github.com/storytold/craft-libs/ { next }
+      { print }
+    ' Cargo.lock > Cargo.lock.tmp && mv Cargo.lock.tmp Cargo.lock
+
+
+    # Disable the automatic update check in soundcraft (it tries to fetch from the internet, which is not allowed in Nix builds).
+    sed -i 's/app.set_startup_update_check(true);/\/\/ app.set_startup_update_check(true);/' apps/soundcraft/src/main.rs
   '';
   nativeBuildInputs = [
     autoPatchelfHook
