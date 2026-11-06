@@ -1,16 +1,16 @@
 {
 "name":"examosa",
-"fetch_time":0.99,
-"eval_time":0.675,
+"fetch_time":1.159,
+"eval_time":0.671,
 "source":{
 "url":"https://codeberg.org/examosa/nur-packages",
-"rev":"839f5fe9f9fa88d345456ce76d8d0a48221fb512",
-"sha256":"0sxqns4h52shb51jj41vdd3zxb4m80prn04w35nxsziymsfw1aa0",
+"rev":"101d9d32bc1e6b2ec44ec44fb0e5b81e69a30432",
+"sha256":"13b76z3dvnjdiryw6q1sngf1v6xrsf53dg865wj17gd6q4jmxnb0",
 "date":null
 },
-"source_storepath":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages",
-"nixpkgs_storepath":"/nix/store/ahq9la4zy84cgwc2fichjr2pp0qygdxm-source",
-"nur_combined_rev":"309718486f34f8848b370de82db82d501cbd7025",
+"source_storepath":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages",
+"nixpkgs_storepath":"/nix/store/a1qbkr9xxv1kyib230kxlamy22dpnxxd-source",
+"nur_combined_rev":"d75abc27bd73a2d5474d15f56c9612d43e455220",
 "packages":{
 "attempt":{
 "drvPath":"/nix/store/6yciw2p7gcwngjwan4wpd0pgbmhw5aq1-attempt-1.1.1.drv",
@@ -83,7 +83,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/attempt.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/attempt/package.nix",
 "line":46
 },
 "name":"attempt-1.1.1",
@@ -139,7 +139,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/attempt.nix:42",
+"position":"./packages/attempt/package.nix:42",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -154,7 +154,7 @@
 "version":"1.1.1"
 },
 "aube":{
-"drvPath":"/nix/store/34lpygl1h51pg3y3mc7dr1gwgjg5f187-aube-2.8.3.drv",
+"drvPath":"/nix/store/r18jy3krh0si0rjcrrilfijbdzvh24vi-aube-2.9.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -169,7 +169,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/endevco/aube/blob/v2.8.3/CHANGELOG.md",
+"changelog":"https://github.com/endevco/aube/blob/v2.9.0/CHANGELOG.md",
 "description":"A fast Node.js package manager",
 "homepage":"https://github.com/endevco/aube",
 "identifiers":{
@@ -236,10 +236,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/aube.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/aube/package.nix",
 "line":115
 },
-"name":"aube-2.8.3",
+"name":"aube-2.9.0",
 "nonTeamMaintainers":[
 {
 "email":"examosa@fastmail.com",
@@ -292,19 +292,19 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/aube.nix:111",
+"position":"./packages/aube/package.nix:111",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"aube-2.8.3",
+"name":"aube-2.9.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"aube",
 "system":"x86_64-linux",
-"version":"2.8.3"
+"version":"2.9.0"
 },
 "crgx":{
 "drvPath":"/nix/store/wgvksks0yxyxx656xji1z7bh45v8w8n4-crgx-0.1.1.drv",
@@ -377,7 +377,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/crgx.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/crgx/package.nix",
 "line":37
 },
 "name":"crgx-0.1.1",
@@ -433,7 +433,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/crgx.nix:32",
+"position":"./packages/crgx/package.nix:32",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -518,7 +518,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/dra.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/dra/package.nix",
 "line":54
 },
 "name":"dra-0.10.3",
@@ -574,7 +574,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/dra.nix:49",
+"position":"./packages/dra/package.nix:49",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -657,7 +657,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/exec-as.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/exec-as/package.nix",
 "line":32
 },
 "name":"exec-as-1.2.3",
@@ -754,7 +754,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./packages/exec-as.nix:28",
+"position":"./packages/exec-as/package.nix:28",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -769,7 +769,7 @@
 "version":"1.2.3"
 },
 "fnox":{
-"drvPath":"/nix/store/4r360gyjsvax2rfy63s9cz62mw9y80l8-fnox-1.43.0.drv",
+"drvPath":"/nix/store/l8p0lj7rp6imw0vp9qz718ygrpx96n2c-fnox-1.47.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -784,7 +784,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/jdx/fnox/blob/v1.43.0/CHANGELOG.md",
+"changelog":"https://github.com/jdx/fnox/blob/v1.47.0/CHANGELOG.md",
 "description":"Encrypted/remote secret manager",
 "homepage":"https://github.com/jdx/fnox",
 "identifiers":{
@@ -839,10 +839,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/fnox.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/fnox/package.nix",
 "line":69
 },
-"name":"fnox-1.43.0",
+"name":"fnox-1.47.0",
 "nonTeamMaintainers":[
 {
 "email":"examosa@fastmail.com",
@@ -895,19 +895,19 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/fnox.nix:65",
+"position":"./packages/fnox/package.nix:65",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"fnox-1.43.0",
+"name":"fnox-1.47.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fnox",
 "system":"x86_64-linux",
-"version":"1.43.0"
+"version":"1.47.0"
 },
 "lctl":{
 "name":"lctl-2026-06-28",
@@ -920,7 +920,7 @@
 "version":"2026-06-28"
 },
 "mise-bin":{
-"drvPath":"/nix/store/szj1nk4rkwvaah2avc34nyb6yqvjcrrx-mise-bin-2026.10.17.drv",
+"drvPath":"/nix/store/zxilj770q4nz98jlsblqxy4kp3rmhjvv-mise-bin-2026.11.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -935,7 +935,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/jdx/mise/blob/v2026.10.17/CHANGELOG.md",
+"changelog":"https://github.com/jdx/mise/blob/v2026.11.2/CHANGELOG.md",
 "description":"Front-end to your dev env",
 "homepage":"https://mise.jdx.dev",
 "identifiers":{
@@ -1004,7 +1004,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ahq9la4zy84cgwc2fichjr2pp0qygdxm-source/pkgs/by-name/mi/mise/package.nix",
+"file":"/nix/store/a1qbkr9xxv1kyib230kxlamy22dpnxxd-source/pkgs/by-name/mi/mise/package.nix",
 "line":229
 },
 "name":"mise-2026.10.17",
@@ -1043,14 +1043,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"mise-bin-2026.10.17",
+"name":"mise-bin-2026.11.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mise-bin",
 "system":"x86_64-linux",
-"version":"2026.10.17"
+"version":"2026.11.2"
 },
 "mklaunchd":{
 "name":"mklaunchd-2026-05-07",
@@ -1133,7 +1133,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/restish.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/restish/package.nix",
 "line":55
 },
 "name":"restish-2.3.0",
@@ -1181,7 +1181,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/restish.nix:46",
+"position":"./packages/restish/package.nix:46",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -1380,7 +1380,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/seed7.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/seed7/package.nix",
 "line":122
 },
 "name":"seed7-5.4.10",
@@ -1477,7 +1477,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./packages/seed7.nix:97",
+"position":"./packages/seed7/package.nix:97",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -1550,7 +1550,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/stew.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/stew/package.nix",
 "line":45
 },
 "name":"stew-0.6.0",
@@ -1647,7 +1647,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./packages/stew.nix:42",
+"position":"./packages/stew/package.nix:42",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -1744,7 +1744,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k3iiil5ng21201mvdb30ka54j2q8516v-nur-packages/packages/ubi.nix",
+"file":"/nix/store/n8cv1xcjxvg751yrdn2jxnbx8bbd0875-nur-packages/packages/ubi/package.nix",
 "line":60
 },
 "name":"ubi-0.13.0",
@@ -1800,7 +1800,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/ubi.nix:56",
+"position":"./packages/ubi/package.nix:56",
 "problems":{},
 "unfree":false,
 "unsupported":false
