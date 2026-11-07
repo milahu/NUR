@@ -35,6 +35,7 @@ extension on AnilistQueries {
       if (r.id != null) 'id': r.id,
       if (r.search != null && r.search!.isNotEmpty) 'search': r.search,
       if (r.seasonYear != null) 'seasonYear': r.seasonYear,
+      if (r.startYear != null) 'startDate': '${r.startYear}%',
       if (r.season != null) 'season': r.season,
       if (r.sort != null) 'sort': r.sort,
       if (r.status != null) 'status': r.status!.replaceAll(' ', '_'),
@@ -48,23 +49,40 @@ extension on AnilistQueries {
       if (r.excludedTags?.isNotEmpty == true) 'excludedTags': r.excludedTags,
     };
 
-    final data = await client.query(
-      _querySearchMedia(r.perPage ?? 30),
-      variables: variables,
-    );
-    final page = data['Page'] as Map<String, dynamic>?;
-    if (page == null) return null;
+    try {
+      final data = await client.query(
+        _querySearchMedia(r.perPage ?? 30),
+        variables: variables,
+        showErrors: !MediaIndexClient.canServe(r),
+      );
+      final page = data['Page'] as Map<String, dynamic>?;
+      if (page == null) return null;
 
-    final media = (page['media'] as List? ?? const [])
-        .cast<Map<String, dynamic>>()
-        .map((m) => mapAnilistMedia(m))
-        .toList();
-    final info = page['pageInfo'] as Map<String, dynamic>?;
+      final media = (page['media'] as List? ?? const [])
+          .cast<Map<String, dynamic>>()
+          .map((m) => mapAnilistMedia(m))
+          .toList();
+      final info = page['pageInfo'] as Map<String, dynamic>?;
 
-    return r
-      ..results = media
-      ..page = (info?['currentPage'] as num?)?.toInt() ?? r.page
-      ..hasNextPage = info?['hasNextPage'] == true;
+      return r
+        ..results = media
+        ..page = (info?['currentPage'] as num?)?.toInt() ?? r.page
+        ..hasNextPage = info?['hasNextPage'] == true;
+    } on AnilistException catch (e) {
+      if (!MediaIndexClient.canServe(r)) rethrow;
+      final cached = await _mediaIndex.search(
+        r,
+        allowAdult: r.isAdult ?? AnilistPref.displayAdult.value,
+      );
+      if (cached == null) {
+        snackString(getString.serviceError(getString.anilist, e.message));
+        rethrow;
+      }
+      return r
+        ..results = cached.media
+        ..page = r.page ?? 1
+        ..hasNextPage = cached.hasNext;
+    }
   }
 
   Future<SearchResults?> _searchPeople(
@@ -153,7 +171,7 @@ query (
   \$page: Int = 1, \$id: Int, \$type: MediaType, \$isAdult: Boolean = false,
   \$search: String, \$format: [MediaFormat], \$status: MediaStatus,
   \$countryOfOrigin: CountryCode, \$source: MediaSource, \$season: MediaSeason,
-  \$seasonYear: Int, \$onList: Boolean, \$genres: [String],
+  \$seasonYear: Int, \$startDate: String, \$onList: Boolean, \$genres: [String],
   \$excludedGenres: [String], \$tags: [String], \$excludedTags: [String],
   \$sort: [MediaSort] = [POPULARITY_DESC, SCORE_DESC]
 ) {
@@ -163,6 +181,7 @@ query (
       id: \$id, type: \$type, season: \$season, format_in: \$format,
       status: \$status, countryOfOrigin: \$countryOfOrigin, source: \$source,
       search: \$search, onList: \$onList, seasonYear: \$seasonYear,
+      startDate_like: \$startDate,
       genre_in: \$genres, genre_not_in: \$excludedGenres, tag_in: \$tags,
       tag_not_in: \$excludedTags, sort: \$sort, isAdult: \$isAdult
     ) {
