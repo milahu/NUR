@@ -782,7 +782,10 @@ class PlayerState extends ScreenState {
     }
     if (generation != _generation) return;
     final own = <SkipStamp>[
-      for (final t in chosen.timeStamps ?? const <v.TimeStamp>[])
+      for (final t
+          in settings.disableSkips
+              ? const <v.TimeStamp>[]
+              : chosen.timeStamps ?? const <v.TimeStamp>[])
         SkipStamp(
           t.name ?? 'Skip',
           skipKindOf(t.name ?? ''),
@@ -805,7 +808,10 @@ class PlayerState extends ScreenState {
       malId = (await IdMapper.resolve(skipService, skipMedia)).mal;
       if (generation != _generation) return;
     }
-    if (own.isEmpty && malId != null && skipMedia!.isAnime) {
+    if (!settings.disableSkips &&
+        own.isEmpty &&
+        malId != null &&
+        skipMedia!.isAnime) {
       final stamp = await AniSkip.fetch(
         malId: malId,
         episode: item.number.floor(),
@@ -814,7 +820,7 @@ class PlayerState extends ScreenState {
       if (generation != _generation) return;
       if (stamp.isNotEmpty) stamps.value = stamp;
     }
-    if (own.isEmpty && stamps.value.isEmpty) {
+    if (!settings.disableSkips && own.isEmpty && stamps.value.isEmpty) {
       final media = request.media;
       final service = request.service;
       if (media != null && service != null) {
@@ -879,7 +885,10 @@ class PlayerState extends ScreenState {
         fallback.label ?? (priority.firstOrNull ?? ''),
       );
     } else if (tracks.isNotEmpty && engine.activeSubtitle.value == null) {
-      await engine.setSubtitle(tracks.first.id);
+      final first =
+          tracks.where((t) => !labelIsSigns(t.label)).firstOrNull ??
+          tracks.first;
+      await engine.setSubtitle(first.id);
     }
   }
 
@@ -935,28 +944,31 @@ class PlayerState extends ScreenState {
     return null;
   }
 
-  Future<void> _pickDefaultAudio(int generation) async {
-    final priority = languageList(settings.audioLanguage);
-    if (priority.isEmpty) return;
+  Future<List<PlayerTrack>> _settledTracks(
+    int generation,
+    Live<List<PlayerTrack>> source,
+  ) async {
     var stable = 0;
     var seen = -1;
     for (var i = 0; i < 60; i++) {
-      final tracks = engine.audioTracks.value;
-      final pick = tracks.isEmpty ? null : pickTrack(tracks, priority);
-      if (pick != null) {
-        if (engine.activeAudio.value != pick.id) await engine.setAudio(pick.id);
-        return;
-      }
+      final tracks = source.value;
       stable = tracks.length == seen ? stable + 1 : 0;
       seen = tracks.length;
-      if (tracks.isNotEmpty && stable >= 8) {
-        if (engine.activeAudio.value == null) {
-          await engine.setAudio(tracks.first.id);
-        }
-        return;
-      }
+      if (tracks.isNotEmpty && stable >= 6) return tracks;
       await Future<void>.delayed(const Duration(milliseconds: 250));
-      if (_closed || generation != _generation) return;
+      if (_closed || generation != _generation) return const [];
+    }
+    return source.value;
+  }
+
+  Future<void> _pickDefaultAudio(int generation) async {
+    final tracks = await _settledTracks(generation, engine.audioTracks);
+    if (tracks.isEmpty || _closed || generation != _generation) return;
+    final priority = languageList(settings.audioLanguage);
+    final pick = priority.isEmpty ? null : pickTrack(tracks, priority);
+    final target = pick ?? tracks.first;
+    if (engine.activeAudio.value != target.id) {
+      await engine.setAudio(target.id);
     }
   }
 
@@ -1711,9 +1723,14 @@ class PlayerState extends ScreenState {
   }
 
   bool get canSubmitSkips =>
-      request.media?.isAnime == true && request.service != null;
+      !settings.disableSkips &&
+      request.media?.isAnime == true &&
+      request.service != null;
 
-  bool get hasChapters => engine.chapters.value.isNotEmpty || stamps.isNotEmpty;
+  List<PlayerChapter> get shownChapters =>
+      settings.disableSkips ? const [] : engine.chapters.value;
+
+  bool get hasChapters => shownChapters.isNotEmpty || stamps.isNotEmpty;
 
   Future<void> setColor(ColorValues values) async {
     updateSettings((s) => s.color = values);

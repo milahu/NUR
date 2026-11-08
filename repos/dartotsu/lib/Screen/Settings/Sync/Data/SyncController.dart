@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:path/path.dart' as p;
 
 import '../../../../Utils/Functions/RefreshController.dart';
@@ -17,6 +18,7 @@ import '../../../../Core/State/State.dart';
 import '../../../../Core/ThemeManager/LanguageSwitcher.dart';
 import '../../../../Core/Offline/OfflineMutations.dart';
 import '../../../../Core/Services/Model/Media.dart';
+import '../Components/SyncPrivateDialog.dart';
 import 'SyncAdapter.dart';
 import 'SyncAhead.dart';
 import 'SyncCompute.dart';
@@ -71,6 +73,8 @@ class SyncController extends AppController {
   Timer? _saver;
   Timer? _auto;
   bool _autoBusy = false;
+  DateTime _lastAuto = DateTime.fromMillisecondsSinceEpoch(0);
+  AppLifecycleListener? _lifecycle;
 
   List<MediaService> get _services => find<MediaServiceController>().services;
 
@@ -140,6 +144,7 @@ class SyncController extends AppController {
   void onClose() {
     _saver?.cancel();
     _auto?.cancel();
+    _lifecycle?.dispose();
     super.onClose();
   }
 
@@ -201,12 +206,29 @@ class SyncController extends AppController {
     _auto?.cancel();
     _auto = Timer.periodic(const Duration(minutes: 30), (_) => _autoRun());
     Timer(const Duration(seconds: 45), _autoRun);
+    _lifecycle?.dispose();
+    _lifecycle = AppLifecycleListener(
+      onResume: () {
+        if (DateTime.now().difference(_lastAuto) >
+            const Duration(minutes: 10)) {
+          unawaited(_autoRun());
+        }
+      },
+    );
   }
 
   Future<void> _autoRun() async {
     if (!PrefName.syncAuto.value || busy || _autoBusy) return;
-    if (incognitoBlocksEdits || mainId.isEmpty) return;
+    if (incognitoBlocksEdits || mainId.isEmpty) {
+      logger(
+        'Auto sync skipped: incognito=$incognitoBlocksEdits main="$mainId"',
+        tag: 'SYNC',
+      );
+      return;
+    }
     _autoBusy = true;
+    _lastAuto = DateTime.now();
+    logger('Auto sync started (main=$mainId)', tag: 'SYNC');
     try {
       for (final isAnime in [true, false]) {
         if (targetsFor(mainId, isAnime).isEmpty) continue;
@@ -215,7 +237,13 @@ class SyncController extends AppController {
         }
         try {
           await fetch(anime: isAnime, auto: true);
-          if (plan.value?.hasPending == true) await start(auto: true);
+          if (error.value != null) {
+            logger('Auto sync fetch failed: ${error.value}', tag: 'SYNC');
+          }
+          if (plan.value?.hasPending == true) {
+            logger('Auto sync writing pending changes', tag: 'SYNC');
+            await start(auto: true);
+          }
         } catch (e, st) {
           logError('SyncController', e, st);
         }
@@ -375,9 +403,38 @@ class SyncController extends AppController {
     }
   }
 
-  Future<void> start({String? only, bool auto = false}) async {
+  bool? _includePrivate;
+
+  void choosePrivate(bool? value) {
+    if (!busy) _includePrivate = value;
+  }
+
+  bool _blocksPrivate(SyncPair p) =>
+      p.main.isPrivate &&
+      (_includePrivate == false ||
+          _includePrivate == null && PrefName.syncPrivate.value == 'skip');
+
+  int privateCount({String? only}) {
+    final current = plan.value;
+    if (current == null) return 0;
+    return [
+      for (final e in current.targets.entries)
+        if (only == null || only == e.key)
+          for (final p in e.value.pairs)
+            if (p.main.isPrivate && p.pending) p,
+    ].length;
+  }
+
+  Future<void> start({
+    String? only,
+    bool auto = false,
+    bool? includePrivate,
+  }) async {
     final current = plan.value;
     if (busy || current == null) return;
+    _includePrivate =
+        includePrivate ??
+        (auto ? PrefName.syncPrivate.value == 'sync' : _includePrivate);
     if (incognitoBlocksEdits) {
       snackString(getString.incognitoEditsBlocked);
       return;
@@ -396,6 +453,7 @@ class SyncController extends AppController {
           if (only == null || only == id) _work(id, current, auto),
       ]);
     } finally {
+      _includePrivate = null;
       for (final id in current.targets.keys) {
         await _services
             .firstWhereOrNull((s) => s.id == id)
@@ -424,6 +482,22 @@ class SyncController extends AppController {
     if (adapter == null || incognitoBlocksEdits) return;
     final isAnime = media.isAnime;
     final targets = targetsFor(service.id, isAnime);
+    if (targets.isNotEmpty && media.isListPrivate) {
+      final mode = PrefName.syncPrivate.value;
+      final context = appContext;
+      final allowed = mode == 'sync'
+          ? true
+          : mode == 'ask' && context != null && context.mounted
+          ? await askSyncPrivate(context, 1)
+          : false;
+      if (allowed != true) {
+        logger(
+          'Instant sync: ${media.id} is private and was not synced',
+          tag: 'SYNC',
+        );
+        return;
+      }
+    }
     if (targets.isEmpty) {
       logger(
         'Instant sync: ${service.name} has no other service to write to',
@@ -498,6 +572,7 @@ class SyncController extends AppController {
         _budget.stamp(target.id, used);
         await other.finish();
         done.add(target.name);
+        _markPushed(target.id, media.id);
       } on SyncRateLimited catch (e) {
         _budget.hold(target.id, e.retryAfter);
         logger(
@@ -523,6 +598,19 @@ class SyncController extends AppController {
       snackString(getString.syncPushed(done.join(', ')));
       _saveSoon();
     }
+  }
+
+  void _markPushed(String target, String mainId) {
+    final pairs = plan.value?.targets[target]?.pairs;
+    if (pairs == null) return;
+    for (final p in pairs) {
+      if (p.main.id != mainId) continue;
+      p
+        ..state = SyncStatus.synced
+        ..op = SyncOpState.done
+        ..error = null;
+    }
+    _notify();
   }
 
   void _recall(String service, SyncAdapter? adapter, SyncPair p, bool isAnime) {
@@ -599,6 +687,7 @@ class SyncController extends AppController {
 
   bool isWanted(SyncPair p) =>
       p.pending &&
+      !_blocksPrivate(p) &&
       (p.state == SyncStatus.outdated ||
           PrefName.syncAddMissing.rx.value && p.state == SyncStatus.missing);
 

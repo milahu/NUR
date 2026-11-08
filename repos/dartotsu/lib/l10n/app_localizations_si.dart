@@ -2006,6 +2006,9 @@ class AppLocalizationsSi extends AppLocalizations {
   String get addList => 'ලිස්ට් එකක් එකතු කරන්න';
 
   @override
+  String get voiceActors => 'Voice actors';
+
+  @override
   String voiceActorsIn(String name) {
     return 'හඬ ගැයූ අය · $name';
   }
@@ -2033,6 +2036,12 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get prequelSequel => 'ප්‍රීක්වල් සහ සීක්වල්';
+
+  @override
+  String get prequel => 'Prequel';
+
+  @override
+  String get sequel => 'Sequel';
 
   @override
   String get previousSeason => 'කලින් සීසන් එක';
@@ -2107,6 +2116,13 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get moviesAndSeries => 'මූවීස් සහ සීරීස්';
+
+  @override
+  String get simklMoviesOnly => 'Movies & series only';
+
+  @override
+  String get simklMoviesOnlyDesc =>
+      'Replaces the Anime tab: Movies first, then Shows with a couple of anime rows';
 
   @override
   String get trackingOnly => 'ට්‍රැකින් විතරයි';
@@ -2191,6 +2207,18 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get popular => 'ජනප්‍රිය';
+
+  @override
+  String get allCustomLists => 'All custom lists';
+
+  @override
+  String get people => 'People';
+
+  @override
+  String get mostComments => 'Most comments';
+
+  @override
+  String get alphabetical => 'Alphabetical';
 
   @override
   String get latest => 'අලුත්ම';
@@ -2405,6 +2433,23 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get refresh => 'රිෆ්‍රෙෂ්';
+
+  @override
+  String get animePlanetRank => 'Rank';
+
+  @override
+  String get animePlanetMagazine => 'Magazine';
+
+  @override
+  String get animePlanetRefreshLists => 'Refresh your lists';
+
+  @override
+  String get animePlanetRefreshListsDesc =>
+      'Read your Anime-Planet lists again';
+
+  @override
+  String get animePlanetLocalNote =>
+      'Anime-Planet lists are read-only here; changes you make stay on this device';
 
   @override
   String get share => 'ෂෙයාර්';
@@ -3931,6 +3976,54 @@ class AppLocalizationsSi extends AppLocalizations {
       'දැනටමත් ඉදිරියෙන් ඉන්න සර්විස් එකක ප්‍රගතිය අඩු කරන්න එපා';
 
   @override
+  String get animePlanetWontWatch => 'Won\'t watch';
+
+  @override
+  String get animePlanetWontRead => 'Won\'t read';
+
+  @override
+  String get animePlanetAlreadyOnList => 'Already on this list';
+
+  @override
+  String get animePlanetNewList => 'New list name';
+
+  @override
+  String get syncPrivate => 'Private entries';
+
+  @override
+  String get syncPrivateDesc =>
+      'What to do with entries you keep private. A service with a private option gets them private; others would show them publicly';
+
+  @override
+  String get syncPrivateModeAsk => 'Ask';
+
+  @override
+  String get syncPrivateModeSync => 'Sync them';
+
+  @override
+  String get syncPrivateModeSkip => 'Skip them';
+
+  @override
+  String get syncPrivateTitle => 'Private entries';
+
+  @override
+  String syncPrivateAsk(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries are private',
+      one: '1 entry is private',
+    );
+    return '$_temp0. Services with a private option (AniList, Kitsu, MangaBaka) will get them as private; the other services have no private option and would show them publicly. Sync them?';
+  }
+
+  @override
+  String get syncPrivateInclude => 'Sync them';
+
+  @override
+  String get syncPrivateSkip => 'Skip them';
+
+  @override
   String get syncFetch => 'ෆෙච්';
 
   @override
@@ -5318,6 +5411,13 @@ class AppLocalizationsSi extends AppLocalizations {
   @override
   String get playerAutoSkipDesc =>
       'AniSkip සහ ස්ට්‍රීම් ටයිම්ස්ටැම්ප්ස් පාවිච්චි කරලා, පටන් ගත්ත ගමන් පනින්න';
+
+  @override
+  String get playerDisableSkips => 'Disable skips';
+
+  @override
+  String get playerDisableSkipsDesc =>
+      'No AniSkip or stream timestamps, chapter marks or skip submissions in the player';
 
   @override
   String get playerSkipOnce => 'එක පාරක් විතරක් ස්කිප් කරන්න';

@@ -1963,6 +1963,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addList => '리스트 추가';
 
   @override
+  String get voiceActors => 'Voice actors';
+
+  @override
   String voiceActorsIn(String name) {
     return '성우 · $name';
   }
@@ -1990,6 +1993,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get prequelSequel => '프리퀄 & 시퀄';
+
+  @override
+  String get prequel => 'Prequel';
+
+  @override
+  String get sequel => 'Sequel';
 
   @override
   String get previousSeason => '이전 시즌';
@@ -2062,6 +2071,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get moviesAndSeries => '영화 & 시리즈';
+
+  @override
+  String get simklMoviesOnly => 'Movies & series only';
+
+  @override
+  String get simklMoviesOnlyDesc =>
+      'Replaces the Anime tab: Movies first, then Shows with a couple of anime rows';
 
   @override
   String get trackingOnly => '트래킹 전용';
@@ -2146,6 +2162,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get popular => '인기';
+
+  @override
+  String get allCustomLists => 'All custom lists';
+
+  @override
+  String get people => 'People';
+
+  @override
+  String get mostComments => 'Most comments';
+
+  @override
+  String get alphabetical => 'Alphabetical';
 
   @override
   String get latest => '최신';
@@ -2357,6 +2385,23 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get refresh => '새로고침';
+
+  @override
+  String get animePlanetRank => 'Rank';
+
+  @override
+  String get animePlanetMagazine => 'Magazine';
+
+  @override
+  String get animePlanetRefreshLists => 'Refresh your lists';
+
+  @override
+  String get animePlanetRefreshListsDesc =>
+      'Read your Anime-Planet lists again';
+
+  @override
+  String get animePlanetLocalNote =>
+      'Anime-Planet lists are read-only here; changes you make stay on this device';
 
   @override
   String get share => '공유';
@@ -3859,6 +3904,54 @@ class AppLocalizationsKo extends AppLocalizations {
   String get syncOnlyForwardDesc => '이미 더 앞서 있는 서비스의 진행도는 낮추지 않아요';
 
   @override
+  String get animePlanetWontWatch => 'Won\'t watch';
+
+  @override
+  String get animePlanetWontRead => 'Won\'t read';
+
+  @override
+  String get animePlanetAlreadyOnList => 'Already on this list';
+
+  @override
+  String get animePlanetNewList => 'New list name';
+
+  @override
+  String get syncPrivate => 'Private entries';
+
+  @override
+  String get syncPrivateDesc =>
+      'What to do with entries you keep private. A service with a private option gets them private; others would show them publicly';
+
+  @override
+  String get syncPrivateModeAsk => 'Ask';
+
+  @override
+  String get syncPrivateModeSync => 'Sync them';
+
+  @override
+  String get syncPrivateModeSkip => 'Skip them';
+
+  @override
+  String get syncPrivateTitle => 'Private entries';
+
+  @override
+  String syncPrivateAsk(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries are private',
+      one: '1 entry is private',
+    );
+    return '$_temp0. Services with a private option (AniList, Kitsu, MangaBaka) will get them as private; the other services have no private option and would show them publicly. Sync them?';
+  }
+
+  @override
+  String get syncPrivateInclude => 'Sync them';
+
+  @override
+  String get syncPrivateSkip => 'Skip them';
+
+  @override
   String get syncFetch => '가져오기';
 
   @override
@@ -5203,6 +5296,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get playerAutoSkipDesc => 'AniSkip과 스트림 타임스탬프를 사용해서 시작하자마자 넘어가요';
+
+  @override
+  String get playerDisableSkips => 'Disable skips';
+
+  @override
+  String get playerDisableSkipsDesc =>
+      'No AniSkip or stream timestamps, chapter marks or skip submissions in the player';
 
   @override
   String get playerSkipOnce => '한 번만 건너뛰기';

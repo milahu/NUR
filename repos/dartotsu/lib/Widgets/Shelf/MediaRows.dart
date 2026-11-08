@@ -361,7 +361,7 @@ class _ScoreChip extends StatelessWidget {
             Text(
               highlight ? score.userScoreLabel : score.toStringAsFixed(1),
               style: context.textTheme.labelSmall?.copyWith(
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 color: highlight ? scheme.onPrimaryContainer : null,
               ),
             ),
@@ -420,70 +420,72 @@ class MediaListTile extends StatelessWidget {
             ),
             const SizedBox(width: 12),
             Expanded(
-              child: SizedBox(
-                height: thumbH,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            media.mainName,
-                            maxLines: style.lines,
-                            overflow: TextOverflow.ellipsis,
-                            style: text.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w800,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: thumbH),
+                child: IntrinsicHeight(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              media.mainName,
+                              maxLines: style.lines,
+                              overflow: TextOverflow.ellipsis,
+                              style: text.titleSmall?.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
-                        ),
-                        if (style.showScore && facts.score != null) ...[
-                          const SizedBox(width: 8),
-                          _ScoreChip(
-                            facts.score!,
-                            highlight: (media.userScore ?? 0) > 0,
-                          ),
+                          if (style.showScore && facts.score != null) ...[
+                            const SizedBox(width: 8),
+                            _ScoreChip(
+                              facts.score!,
+                              highlight: (media.userScore ?? 0) > 0,
+                            ),
+                          ],
                         ],
+                      ),
+                      if (meta.isNotEmpty) ...[
+                        const SizedBox(height: 3),
+                        Text(
+                          meta.join(' · '),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: text.bodySmall?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                          ),
+                        ),
                       ],
-                    ),
-                    if (meta.isNotEmpty) ...[
-                      const SizedBox(height: 3),
-                      Text(
-                        meta.join(' · '),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: text.bodySmall?.copyWith(
-                          color: scheme.onSurfaceVariant,
+                      if (facts.airing != null) ...[
+                        const SizedBox(height: 3),
+                        Text(
+                          facts.airing!,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: text.labelMedium?.copyWith(
+                            color: scheme.primary,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
+                      ],
+                      if (!style.compact) _Genres(media),
+                      const Spacer(),
+                      if (facts.status != null)
+                        Text(
+                          facts.status!,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: text.labelMedium?.copyWith(
+                            color: scheme.primary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      if (style.showProgress) _Progress(facts),
                     ],
-                    if (facts.airing != null) ...[
-                      const SizedBox(height: 3),
-                      Text(
-                        facts.airing!,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: text.labelMedium?.copyWith(
-                          color: scheme.primary,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ],
-                    if (!style.compact) _Genres(media),
-                    const Spacer(),
-                    if (facts.status != null)
-                      Text(
-                        facts.status!,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: text.labelMedium?.copyWith(
-                          color: scheme.primary,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    if (style.showProgress) _Progress(facts),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -579,7 +581,7 @@ class MediaBannerTile extends StatelessWidget {
                           maxLines: style.lines,
                           overflow: TextOverflow.ellipsis,
                           style: text.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         const SizedBox(height: 6),
@@ -629,7 +631,7 @@ class MediaBannerTile extends StatelessWidget {
                             facts.airing!,
                             style: text.labelMedium?.copyWith(
                               color: scheme.primary,
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],

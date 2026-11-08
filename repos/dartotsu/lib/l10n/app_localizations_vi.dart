@@ -1995,6 +1995,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get addList => 'Thêm danh sách';
 
   @override
+  String get voiceActors => 'Voice actors';
+
+  @override
   String voiceActorsIn(String name) {
     return 'Seiyuu · $name';
   }
@@ -2022,6 +2025,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get prequelSequel => 'Phần trước & Phần sau';
+
+  @override
+  String get prequel => 'Prequel';
+
+  @override
+  String get sequel => 'Sequel';
 
   @override
   String get previousSeason => 'Mùa trước';
@@ -2095,6 +2104,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get moviesAndSeries => 'Phim & Series';
+
+  @override
+  String get simklMoviesOnly => 'Movies & series only';
+
+  @override
+  String get simklMoviesOnlyDesc =>
+      'Replaces the Anime tab: Movies first, then Shows with a couple of anime rows';
 
   @override
   String get trackingOnly => 'Chỉ theo dõi';
@@ -2179,6 +2195,18 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get popular => 'Phổ biến';
+
+  @override
+  String get allCustomLists => 'All custom lists';
+
+  @override
+  String get people => 'People';
+
+  @override
+  String get mostComments => 'Most comments';
+
+  @override
+  String get alphabetical => 'Alphabetical';
 
   @override
   String get latest => 'Mới nhất';
@@ -2392,6 +2420,23 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get refresh => 'Làm mới';
+
+  @override
+  String get animePlanetRank => 'Rank';
+
+  @override
+  String get animePlanetMagazine => 'Magazine';
+
+  @override
+  String get animePlanetRefreshLists => 'Refresh your lists';
+
+  @override
+  String get animePlanetRefreshListsDesc =>
+      'Read your Anime-Planet lists again';
+
+  @override
+  String get animePlanetLocalNote =>
+      'Anime-Planet lists are read-only here; changes you make stay on this device';
 
   @override
   String get share => 'Chia sẻ';
@@ -3914,6 +3959,54 @@ class AppLocalizationsVi extends AppLocalizations {
       'Không hạ tiến độ của dịch vụ đang đi trước';
 
   @override
+  String get animePlanetWontWatch => 'Won\'t watch';
+
+  @override
+  String get animePlanetWontRead => 'Won\'t read';
+
+  @override
+  String get animePlanetAlreadyOnList => 'Already on this list';
+
+  @override
+  String get animePlanetNewList => 'New list name';
+
+  @override
+  String get syncPrivate => 'Private entries';
+
+  @override
+  String get syncPrivateDesc =>
+      'What to do with entries you keep private. A service with a private option gets them private; others would show them publicly';
+
+  @override
+  String get syncPrivateModeAsk => 'Ask';
+
+  @override
+  String get syncPrivateModeSync => 'Sync them';
+
+  @override
+  String get syncPrivateModeSkip => 'Skip them';
+
+  @override
+  String get syncPrivateTitle => 'Private entries';
+
+  @override
+  String syncPrivateAsk(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries are private',
+      one: '1 entry is private',
+    );
+    return '$_temp0. Services with a private option (AniList, Kitsu, MangaBaka) will get them as private; the other services have no private option and would show them publicly. Sync them?';
+  }
+
+  @override
+  String get syncPrivateInclude => 'Sync them';
+
+  @override
+  String get syncPrivateSkip => 'Skip them';
+
+  @override
   String get syncFetch => 'Tải';
 
   @override
@@ -5292,6 +5385,13 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get playerAutoSkipDesc =>
       'Nhảy qua ngay khi nó bắt đầu, dựa trên AniSkip và mốc thời gian của luồng';
+
+  @override
+  String get playerDisableSkips => 'Disable skips';
+
+  @override
+  String get playerDisableSkipsDesc =>
+      'No AniSkip or stream timestamps, chapter marks or skip submissions in the player';
 
   @override
   String get playerSkipOnce => 'Chỉ bỏ qua một lần';
