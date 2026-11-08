@@ -4,11 +4,11 @@ evaluation warning: fontforge-20251009 was overridden with `version` but not `sr
       both the `version` and `src` attributes:
 
       hello.overrideAttrs (oldAttrs: rec {
-        version = "1.0.0";
-        src = pkgs.fetchurl {
-          url = "mirror://gnu/hello/hello-${version}.tar.gz";
-          hash = "...";
-        };
+ version = "1.0.0";
+ src = pkgs.fetchurl {
+   url = "mirror://gnu/hello/hello-${version}.tar.gz";
+   hash = "...";
+ };
       })
 
       (To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
@@ -20,11 +20,11 @@ evaluation warning: wine-11.0 was overridden with `version` but not `src` at ./p
       both the `version` and `src` attributes:
 
       hello.overrideAttrs (oldAttrs: rec {
-        version = "1.0.0";
-        src = pkgs.fetchurl {
-          url = "mirror://gnu/hello/hello-${version}.tar.gz";
-          hash = "...";
-        };
+ version = "1.0.0";
+ src = pkgs.fetchurl {
+   url = "mirror://gnu/hello/hello-${version}.tar.gz";
+   hash = "...";
+ };
       })
 
       (To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
