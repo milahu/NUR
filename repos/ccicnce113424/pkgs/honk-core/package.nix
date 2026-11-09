@@ -14,6 +14,10 @@
   symlinkJoin,
   nix-update-script,
   versionCheckHook,
+  aws-lc,
+  pkg-config,
+  sqlite,
+  rust-jemalloc-sys,
   withTool ? true,
 }:
 let
@@ -33,12 +37,12 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "honk-core";
-  version = "0.1.0-beta.5";
+  version = "0.1.0-beta.6";
   src = fetchFromGitHub {
     owner = "daeuniverse";
     repo = "honk";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-HHvfaSr69FFy3Aui10iWpkwo2FlEQr3S6CjW1XtzAYA=";
+    hash = "sha256-jWfRf9LCK8mX44NHwm4ZQFp8bFGJZydI0qHkK2P/gm4=";
   };
 
   # crates/honk-ebpf is excluded from the workspace and pins its own toolchain
@@ -108,7 +112,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     '';
   });
 
-  cargoHash = "sha256-ZE5Axfwx3Tu/cbiH87Q0reS2jRpZI8EbJF29/KsYvYA=";
+  cargoHash = "sha256-TCZdseN/IpLE0E43CS3f0a5Na4ffyuh+7kp1M+MPu2k=";
 
   __structuredAttrs = true;
   strictDeps = true;
@@ -137,14 +141,20 @@ rustPlatform.buildRustPackage (finalAttrs: {
     cmake
     gitMinimal
     ninja
+    pkg-config
     rustPlatform.bindgenHook
   ]
   ++ lib.optionals withTool [ makeWrapper ];
 
-  # aws-lc-sys and boring-sys build their vendored crypto libraries through
-  # cmake; on the vendored sources at 8 jobs the ninja generator beats the
-  # default Unix Makefiles one for boring-sys' crypto+ssl targets (42.7s ->
-  # 27.7s) and is level with it for aws-lc-sys (20.7s -> 19.5s). Only ninja
+  buildInputs = [
+    aws-lc
+    sqlite
+    rust-jemalloc-sys
+  ];
+
+  # boring-sys builds its vendored crypto library through cmake; on the
+  # vendored sources at 8 jobs the ninja generator beats the default Unix
+  # Makefiles one for its crypto+ssl targets (42.7s -> 27.7s). Only ninja
   # needs guarding: buildRustPackage sets configurePhase itself, while
   # buildPhase/checkPhase/installPhase come from the cargo hooks and ninja's
   # setup hook would otherwise claim them first.
@@ -155,7 +165,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   # honk-core's build.rs stamps HONK_VERSION from the release ref
   env.GITHUB_REF = "refs/tags/v${finalAttrs.version}";
 
-  # Both -sys crates reach cmake through cmake-rs, which forwards this to `cmake -G`.
+  # boring-sys reaches cmake through cmake-rs, which forwards this to `cmake -G`.
   env.CMAKE_GENERATOR = "Ninja";
 
   preBuild = ''

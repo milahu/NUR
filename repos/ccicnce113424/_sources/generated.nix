@@ -263,23 +263,23 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "f109bbc70c67aa5ca7338a937bee1d10199026dc";
+    version = "95bf56ca67cf516441299c5b4ea1833580bdd1ff";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "f109bbc70c67aa5ca7338a937bee1d10199026dc";
+      rev = "95bf56ca67cf516441299c5b4ea1833580bdd1ff";
       fetchSubmodules = false;
-      sha256 = "sha256-xivRFtqtwAGmzg4QeeRKsWay6LGRiWbMGWF9BeJAP0g=";
+      sha256 = "sha256-xRAId7MLtcgoe+0kHNDt4gTQNIjpoiP+Ivb3wCIpCDc=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-xivRFtqtwAGmzg4QeeRKsWay6LGRiWbMGWF9BeJAP0g=/Cargo.lock";
+      lockFile = ./. + "/sha256-xRAId7MLtcgoe+0kHNDt4gTQNIjpoiP+Ivb3wCIpCDc=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "freetype-sys-0.23.0" = "sha256-erVVW/EX4ijAR5vIXLAAO4CE+PU9t3qGPj1Mp7/EV9I=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-11-06";
+    date = "2026-11-07";
   };
   piliplus = {
     pname = "piliplus";
@@ -365,16 +365,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.2-beta.2";
+    version = "v4.1.2-beta.3";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.2-beta.2";
+      rev = "v4.1.2-beta.3";
       fetchSubmodules = false;
-      sha256 = "sha256-IXEbGyrDP8oUAxWZn4I0ed9cQv/kGgass0BgdaShqoU=";
+      sha256 = "sha256-tGWYgl1a1dEBwUuuMFJ8oLkaBeVqATcDIIDXKGe71G0=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-IXEbGyrDP8oUAxWZn4I0ed9cQv_kGgass0BgdaShqoU=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-tGWYgl1a1dEBwUuuMFJ8oLkaBeVqATcDIIDXKGe71G0=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -459,10 +459,10 @@
   };
   waywallen-bin = {
     pname = "waywallen-bin";
-    version = "0.5.0";
+    version = "0.6.0";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen/releases/download/v0.5.0/waywallen-0.5.0-x86_64.AppImage";
-      sha256 = "sha256-5iFsX//HBWEisQXldFlQye53cQ4pSmO2h8Szhx4ZAIM=";
+      url = "https://github.com/waywallen/waywallen/releases/download/v0.6.0/waywallen-0.6.0-x86_64.AppImage";
+      sha256 = "sha256-0X4ZxnGrGWJpnqrfNIM9x1UVqL3G+nQoZJjgJVqzUf0=";
     };
   };
   waywallen-display-bin = {
