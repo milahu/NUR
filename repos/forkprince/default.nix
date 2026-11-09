@@ -13,6 +13,8 @@
     twintaillauncher = lib.callPackage ./pkgs/twintaillauncher {};
     kryoto-desktop = lib.callPackage ./pkgs/kryoto-desktop {};
     hyprpanel = lib.callPackage ./pkgs/hyprpanel {};
+    nightcap = lib.callPackage ./pkgs/nightcap {};
+    mocktail = lib.callPackage ./pkgs/mocktail {};
     rhythia = lib.callPackage ./pkgs/rhythia {};
     syslock = lib.callPackage ./pkgs/syslock {};
     yapfast = lib.callPackage ./pkgs/yapfast {};
@@ -52,7 +54,6 @@
     armsx2 = lib.callPackage ./pkgs/armsx2 {};
     mcman = lib.callPackage ./pkgs/mcman {};
     nuvio = lib.callPackage ./pkgs/nuvio {};
-    nexa = lib.callPackage ./pkgs/nexa {};
     xuan = lib.callPackage ./pkgs/xuan {};
     sfw = lib.callPackage ./pkgs/sfw {};
     orb = lib.callPackage ./pkgs/orb {};

@@ -89,9 +89,10 @@ This repository contains three types of packages:
 | [`mcman`](pkgs/mcman/default.nix) | [mcman](https://github.com/deniz-blue/mcman), powerful Minecraft Server Manager CLI |
 | [`mcpelauncher-swift`](pkgs/mcpelauncher-swift/default.nix) | [mcpelauncher-swift](https://github.com/hugonote/mcpelauncher-swift), native SwiftUI launcher for Minecraft Bedrock on macOS |
 | [`micro`](pkgs/micro/default.nix) | micro |
+| [`mocktail`](pkgs/mocktail/default.nix) | [mocktail](https://github.com/komaruworld/mocktail), play Roblox on Linux |
 | [`moonplayer`](pkgs/moonplayer/default.nix) | [moonplayer](https://github.com/coslyk/moonplayer), video player that can play online videos from YouTube, Bilibili etc |
 | [`muxy`](pkgs/muxy/default.nix) | [muxy](https://muxy.app/), lightweight and Memory efficient terminal for Mac built with SwiftUI and libghostty |
-| [`nexa`](pkgs/nexa/default.nix) | [nexa](https://nexa.fish), end-to-end encrypted chat, calls and servers |
+| [`nightcap`](pkgs/nightcap/default.nix) | [nightcap](https://github.com/CoderDayton/nightcap), roblox on Linux, tuned for desktop play |
 | [`nintoolbox`](pkgs/nintoolbox/default.nix) | [nintoolbox](https://github.com/quatric/nintoolbox), toolbox for Nintendo game file formats |
 | [`nintoolbox-gui`](pkgs/nintoolbox-gui/default.nix) | [nintoolbox-gui](https://github.com/quatric/nintoolbox), graphical interface for the Nintoolbox command line tools |
 | [`noisetorch`](pkgs/noisetorch/default.nix) | [noisetorch](https://github.com/ForkPrince/NoiseTorch), virtual microphone device with noise suppression for PulseAudio (ForkPrince fork) |

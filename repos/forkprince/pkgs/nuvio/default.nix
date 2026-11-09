@@ -1,4 +1,6 @@
 {
+  webkitgtk_4_1,
+  mpv-unwrapped,
   stdenvNoCC,
   fetchurl,
   _7zz,
@@ -34,4 +36,9 @@ in
       desktopId = "Nuvio";
       categories = ["AudioVideo" "Video"];
       startupWMClass = "com-nuvio-app-MainKt";
+
+      extraPkgs = [
+        mpv-unwrapped
+        webkitgtk_4_1
+      ];
     }
