@@ -239,15 +239,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "7f0abe20dff1f8b11b77ffb679567a96d82ce7be";
+    version = "9612521ff7373f97077df87278b0ea193f2abd89";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "7f0abe20dff1f8b11b77ffb679567a96d82ce7be";
+      rev = "9612521ff7373f97077df87278b0ea193f2abd89";
       fetchSubmodules = false;
-      sha256 = "sha256-XJ9n4vZlv6cvji8eewe3UyEWt3misU8mvnifF8/NSDU=";
+      sha256 = "sha256-nKC2ipDzLHV+1wy/I0f0Cx8xjll8KTiUk3mSVGjY4hU=";
     };
-    date = "2026-11-05";
+    date = "2026-11-09";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -365,16 +365,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.2-beta.3";
+    version = "v4.1.2-beta.4";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.2-beta.3";
+      rev = "v4.1.2-beta.4";
       fetchSubmodules = false;
-      sha256 = "sha256-tGWYgl1a1dEBwUuuMFJ8oLkaBeVqATcDIIDXKGe71G0=";
+      sha256 = "sha256-cMucmmdEfF2d1lrs5tH/22sNAMinlIS7utYbKgOO/tY=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-tGWYgl1a1dEBwUuuMFJ8oLkaBeVqATcDIIDXKGe71G0=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-cMucmmdEfF2d1lrs5tH_22sNAMinlIS7utYbKgOO_tY=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -467,10 +467,10 @@
   };
   waywallen-display-bin = {
     pname = "waywallen-display-bin";
-    version = "0.4.5";
+    version = "0.4.6";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.5/waywallen-kde-0.4.5-x86_64.zip";
-      sha256 = "sha256-38sOpJ6H5C05XyemJ4wh9VZK4vbgLbxcxeb/lWVFnUE=";
+      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.6/waywallen-kde-0.4.6-x86_64.zip";
+      sha256 = "sha256-+YZHswHRbAD3Ea3H3L+MptI/I3+tGDXxORYHmtnAMs4=";
     };
   };
 }
