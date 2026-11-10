@@ -104,11 +104,11 @@ error:
     39|     let
 
 … in the left operand of the update (//) operator
-  at ./pkgs/determinate-nix/default.nix:43:8:
-    42|     dependencies final
-    43|     // packages
+  at ./pkgs/determinate-nix/default.nix:44:8:
+    43|     deps
+    44|     // packages
       |        ^
-    44|     // {
+    45|     // {
 
 … while calling the 'import' builtin
   at ./pkgs/determinate-nix/default.nix:30:24:

@@ -657,19 +657,19 @@ error:
    347|
 
 … while calling the 'import' builtin
-  at ./modules/emacs.nix:302:8:
-   301|     nixpkgs.overlays = lib.mkIf cfg.useEmacsOverlay [
-   302|       (import (
+  at ./modules/emacs.nix:301:8:
+   300|     nixpkgs.overlays = lib.mkIf cfg.useEmacsOverlay [
+   301|       (import (
       |        ^
-   303|         flakes.emacs-overlay or (builtins.fetchTarball {
+   302|         flakes.emacs-overlay or (builtins.fetchTarball {
 
 … while realising the context of a path
 
 … while calling the 'fetchTarball' builtin
-  at ./modules/emacs.nix:303:34:
-   302|       (import (
-   303|         flakes.emacs-overlay or (builtins.fetchTarball {
+  at ./modules/emacs.nix:302:34:
+   301|       (import (
+   302|         flakes.emacs-overlay or (builtins.fetchTarball {
       |                                  ^
-   304|           # updated 2026-10-31
+   303|           # updated 2026-10-31
 
 error: access to URI 'https://github.com/nix-community/emacs-overlay/archive/14c5c32cdc5804f17390919e75d05962bc7def09.tar.gz' is forbidden in restricted mode
