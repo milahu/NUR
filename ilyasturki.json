@@ -1,16 +1,16 @@
 {
 "name":"ilyasturki",
-"fetch_time":0.936,
-"eval_time":2.026,
+"fetch_time":0.79,
+"eval_time":1.888,
 "source":{
 "url":"https://github.com/ilyasturki/emulation-nix",
-"rev":"b0fcd6621d602e319652ab424b633b620225c0b1",
-"sha256":"09zffmjqfrfz72kkpd965y5hw9gyvqj7cf7pq5iydniz9i3q3m8c",
+"rev":"1b66116c87e0c7305952115fbddb195ec24a54d2",
+"sha256":"0lffd3v2d8wc08l3xmb8y83jv23ng8dydbkna37mg6nd91c84pww",
 "date":null
 },
-"source_storepath":"/nix/store/2s4kkcxvi8nw8jnkrxp0giacqajcc3li-source",
-"nixpkgs_storepath":"/nix/store/an3h5l9c5mp2x9gs6sgx0mbwwq8amriz-source",
-"nur_combined_rev":"bad04637ac50aee90492da16ad08101fc19ccbc7",
+"source_storepath":"/nix/store/hjq7vlz2xkfk9s45xr3ghs3x4s30sq9c-source",
+"nixpkgs_storepath":"/nix/store/r11n5gilgy5yslmy08hzb890y10wgm1g-source",
+"nur_combined_rev":"a320d17f16a88b36a7896076ffd4488305a34737",
 "packages":{
 "atmosphere":{
 "drvPath":"/nix/store/a2nj78kf8hcpvxn8adp1xdf8a2y8hvcn-atmosphere-1.12.1.drv",
@@ -174,11 +174,11 @@
 "version":"1.12.1"
 },
 "citron-neo":{
-"drvPath":"/nix/store/0whkzb8s0ny5p7cgf7qxf2n9f4kdimpf-citron-neo-0-unstable-2026-10-24.drv",
+"drvPath":"/nix/store/6zwfrjh14y9brqardh3a01b49vwq5q1z-citron-neo-0-unstable-2026-10-24.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/citron-neo/emulator/commits/main",
+"changelog":"https://github.com/Kabosu-Emu/Kabosu/commits/main",
 "description":"Citron NEO: Nintendo Switch emulator, continuation of the Citron fork of yuzu",
 "homepage":"https://citron-neo.org/",
 "identifiers":{
@@ -231,7 +231,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/citron-neo/package.nix:208",
+"position":"./pkgs/citron-neo/package.nix:209",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -498,7 +498,7 @@
 "version":"0.9-unstable-2026-10-04"
 },
 "pcsx2":{
-"drvPath":"/nix/store/0g1j7fsscjhmgr1v86az744063jl8hbg-pcsx2-2.8.2.drv",
+"drvPath":"/nix/store/qazy9af9dw2lgwmfc8ac2bynhmglrpsf-pcsx2-2.8.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -587,11 +587,11 @@
 "version":"2.8.2"
 },
 "ryujinx-canary":{
-"drvPath":"/nix/store/s9z8hyx1wg5vh1wza7s3l7zzdkydaf04-ryujinx-canary-1.3.351.drv",
+"drvPath":"/nix/store/kl7sybixyy2fagf52id741g488c18y4b-ryujinx-canary-1.3.352.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.ryujinx.app/Ryubing/Canary/releases/tag/1.3.351",
+"changelog":"https://git.ryujinx.app/Ryubing/Canary/releases/tag/1.3.352",
 "description":"Ryubing canary builds: Nintendo Switch emulator, community fork of Ryujinx",
 "homepage":"https://ryujinx.app",
 "identifiers":{
@@ -636,7 +636,7 @@
 },
 "mainProgram":"Ryujinx",
 "maintainers":[],
-"name":"ryujinx-canary-1.3.351",
+"name":"ryujinx-canary-1.3.352",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -654,14 +654,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryujinx-canary-1.3.351",
+"name":"ryujinx-canary-1.3.352",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryujinx-canary",
 "system":"x86_64-linux",
-"version":"1.3.351"
+"version":"1.3.352"
 }
 }
 }
