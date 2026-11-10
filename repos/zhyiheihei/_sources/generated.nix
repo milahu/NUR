@@ -6,6 +6,16 @@
   dockerTools,
 }:
 {
+  ai-usagebar = {
+    pname = "ai-usagebar";
+    version = "v1.50.0";
+    src = fetchFromGitHub {
+      owner = "akitaonrails";
+      repo = "ai-usagebar";
+      tag = "v1.50.0";
+      hash = "sha256-YkEdxOkuC7RI/qgPoAO0CyHBHkE6PYEG56obq5asWUI=";
+    };
+  };
   aioshutil = {
     pname = "aioshutil";
     version = "v1.7a1";
@@ -104,6 +114,22 @@
       repo = "navdash";
       tag = "v0.7.1";
       hash = "sha256-6TxzO+cuRHNbyKY5s6LZX6gKRLWrTHVsklXESDF9JxA=";
+    };
+  };
+  nexttodo-linux-arm64 = {
+    pname = "nexttodo-linux-arm64";
+    version = "0.1.145";
+    src = fetchurl {
+      url = "https://gh-proxy.com/https://github.com/JunieXD/NextTodo/releases/download/v0.1.145/nexttodo-linux-arm64";
+      hash = "sha256-a/CL88c/xep13Jjj+Np/WKZenE60KZRQgJKt6DSvkTs=";
+    };
+  };
+  nexttodo-linux-x64 = {
+    pname = "nexttodo-linux-x64";
+    version = "0.1.145";
+    src = fetchurl {
+      url = "https://gh-proxy.com/https://github.com/JunieXD/NextTodo/releases/download/v0.1.145/nexttodo-linux-x64";
+      hash = "sha256-o2Qz1oAmsuZsyFw20JRzSTNrYhAkw5WySW0YrhvFffk=";
     };
   };
   nexus-media = {
@@ -216,18 +242,18 @@
   };
   vaults3-linux-amd64 = {
     pname = "vaults3-linux-amd64";
-    version = "5.0.11";
+    version = "5.0.14";
     src = fetchurl {
-      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.11/vaults3-linux-amd64.tar.gz";
-      hash = "sha256-BmMls7XFKJ2LlAAPQuUWpjDdEZs38DWlQeDYpzniF9Q=";
+      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.14/vaults3-linux-amd64.tar.gz";
+      hash = "sha256-VMZT2EIlF3X1ZE9iQMGKmXhk9shlJJcfvIPvjrMGCXI=";
     };
   };
   vaults3-linux-arm64 = {
     pname = "vaults3-linux-arm64";
-    version = "5.0.11";
+    version = "5.0.14";
     src = fetchurl {
-      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.11/vaults3-linux-arm64.tar.gz";
-      hash = "sha256-xRoszk4yQtf4fEPheRm8YfC+66EuS7m6NER4tpftEGc=";
+      url = "https://github.com/Kodiqa-Solutions/VaultS3/releases/download/v5.0.14/vaults3-linux-arm64.tar.gz";
+      hash = "sha256-5EqWhI+/2UNqawt0qDYs9xmuS+r9W0/AnCFF0MSw+n4=";
     };
   };
   vertex = {

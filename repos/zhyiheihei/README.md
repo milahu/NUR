@@ -51,10 +51,11 @@ Build artifacts are cached in the Attic binary cache:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (29 packages)</summary>
+<summary>Package set: (Uncategorized) (31 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
+| - [ ] |  | `ai-usagebar` | [ai-usagebar](https://github.com/akitaonrails/ai-usagebar) | 1.50.0 | Multi-provider AI plan usage widget, CLI and TUI |
 | - [x] |  | `aioshutil` | [aioshutil](https://github.com/kumaraditya303/aioshutil) | 1.7a1 | Asynchronous shutil module |
 | - [x] |  | `cn2an` | [cn2an](https://github.com/Ailln/cn2an) | 0.5.24 | Convert Chinese numerals and Arabic numerals |
 | - [x] |  | `docker-proxy` | [docker-proxy](https://github.com/dqzboy/Docker-Proxy) | 5.1.9 | Self-hosted Docker registry proxy with host-based upstream routing |
@@ -65,6 +66,7 @@ Build artifacts are cached in the Attic binary cache:
 | - [ ] |  | `imou-bridge` | [imou-bridge](https://github.com/home-assistant-tools/imou-life) | 2026-08-16 | Imou/Lechange P2P bridge for Home Assistant and Frigate (go2rtc RTSP restream) |
 | - [x] |  | `jieba-next` | [jieba-next](https://github.com/mxcoras/jieba-next) | 1.0.0rc1 | Modern jieba fork with Rust speedups |
 | - [ ] |  | `navdash` | [navdash](https://github.com/zhyiheihei/navdash) | 0.7.1 | Personal service portal with native OIDC login and Nix-generated service cards |
+| - [ ] |  | `nexttodo` | [nexttodo](https://github.com/JunieXD/NextTodo) | 0.1.145 | Dependency-aware todo client: shows what can be done right now |
 | - [x] |  | `nexus-media` | [nexus-media](https://github.com/linyuan0213/nexus-media) | 5.9.4 | Media library manager with automated downloading, media organization and subscription workflows |
 | - [ ] |  | `nexus-media-web` | [nexus-media-web](https://github.com/linyuan0213/nexus-media-web) | 5.9.4 | Vue 3 web frontend for the Nexus Media media library manager |
 | - [x] |  | `pinyin2hanzi` | [Pinyin2Hanzi](https://github.com/someus/Pinyin2Hanzi) | 0.1.1 | Pinyin to Chinese character conversion engine |
@@ -79,7 +81,7 @@ Build artifacts are cached in the Attic binary cache:
 | - [x] |  | `telegramify-markdown` | [telegramify-markdown](https://github.com/sudoskys/telegramify-markdown) | 1.4.1 | Convert Markdown to Telegram plain text and entities |
 | - [ ] |  | `torrentool` | [torrentool](https://github.com/idlesign/torrentool) | 1.2.0 | Tool to work with torrent files |
 | - [x] |  | `tortoise-orm` | [tortoise-orm](https://github.com/tortoise/tortoise-orm) | 0.25.3 | Easy async ORM for Python with relations in mind |
-| - [x] |  | `vaults3` | [vaults3](https://github.com/Kodiqa-Solutions/VaultS3) | 5.0.11 | Lightweight S3-compatible object storage with built-in web dashboard |
+| - [x] |  | `vaults3` | [vaults3](https://github.com/Kodiqa-Solutions/VaultS3) | 5.0.14 | Lightweight S3-compatible object storage with built-in web dashboard |
 | - [x] |  | `vertex` | [vertex](https://github.com/vertex-center/vertex) | 0.17.0 | Self-hosted lab manager for one-click container service installation |
 | - [ ] |  | `ws-scrcpy` | [ws-scrcpy](https://github.com/NetrisTV/ws-scrcpy) | 0-unstable-2026-09-30 | Control Android devices from your browser via scrcpy over WebSocket |
 | - [ ] | `x86_64-linux` | `zcode` | [zcode](https://zcode.z.ai) | 3.17.2 | Z.ai's official agentic development environment desktop app for GLM models |
@@ -106,10 +108,11 @@ Build artifacts are cached in the Attic binary cache:
 </details>
 
 <details>
-<summary>Package set: uncategorized (18 packages)</summary>
+<summary>Package set: uncategorized (20 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
+| - [ ] |  | `uncategorized.ai-usagebar` | [ai-usagebar](https://github.com/akitaonrails/ai-usagebar) | 1.50.0 | Multi-provider AI plan usage widget, CLI and TUI |
 | - [ ] |  | `uncategorized.docker-proxy` | [docker-proxy](https://github.com/dqzboy/Docker-Proxy) | 5.1.9 | Self-hosted Docker registry proxy with host-based upstream routing |
 | - [ ] |  | `uncategorized.docker-proxy-hubcmdui` | [docker-proxy-hubcmdui](https://github.com/dqzboy/Docker-Proxy) | 5.1.9 | Web management panel for the Docker-Proxy registry proxy |
 | - [ ] |  | `uncategorized.epd-food-server` | [epd-food-server](https://github.com/zhyiheihei/EPD-Dashboard) | 0.1.0 | 家庭食品存储看板服务端（REST API + PostgreSQL + BLE 推送） |
@@ -117,6 +120,7 @@ Build artifacts are cached in the Attic binary cache:
 | - [ ] |  | `uncategorized.hubproxy` | [hubproxy](https://github.com/sky22333/hubproxy) | 1.2.5 | Lightweight multi-purpose proxy for Docker images, GitHub and Hugging Face acceleration |
 | - [ ] |  | `uncategorized.imou-bridge` | [imou-bridge](https://github.com/home-assistant-tools/imou-life) | 2026-08-16 | Imou/Lechange P2P bridge for Home Assistant and Frigate (go2rtc RTSP restream) |
 | - [ ] |  | `uncategorized.navdash` | [navdash](https://github.com/zhyiheihei/navdash) | 0.7.1 | Personal service portal with native OIDC login and Nix-generated service cards |
+| - [ ] |  | `uncategorized.nexttodo` | [nexttodo](https://github.com/JunieXD/NextTodo) | 0.1.145 | Dependency-aware todo client: shows what can be done right now |
 | - [ ] |  | `uncategorized.nexus-media` | [nexus-media](https://github.com/linyuan0213/nexus-media) | 5.9.4 | Media library manager with automated downloading, media organization and subscription workflows |
 | - [ ] |  | `uncategorized.nexus-media-web` | [nexus-media-web](https://github.com/linyuan0213/nexus-media-web) | 5.9.4 | Vue 3 web frontend for the Nexus Media media library manager |
 | - [ ] | `x86_64-linux` | `uncategorized.qingjian` | [qingjian](https://qingjian.app) | 0.3.3 | Pinyin input method with translation hints for language learners |
@@ -124,7 +128,7 @@ Build artifacts are cached in the Attic binary cache:
 | - [ ] |  | `uncategorized.sublinkpro` | [sublinkpro](https://github.com/ZeroDeng01/sublinkPro) | 1.3.0 | Modern proxy subscription management panel with smart tags, speed tests and relay chains |
 | - [ ] |  | `uncategorized.sun-panel` | [sun-panel](https://github.com/hslr-s/sun-panel) | 1.8.1 | Server and NAS navigation panel, homepage, browser homepage |
 | - [ ] |  | `uncategorized.tachidesk-server` | [tachidesk-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.4.2366 | Self-hosted manga reader and aggregator server |
-| - [ ] |  | `uncategorized.vaults3` | [vaults3](https://github.com/Kodiqa-Solutions/VaultS3) | 5.0.11 | Lightweight S3-compatible object storage with built-in web dashboard |
+| - [ ] |  | `uncategorized.vaults3` | [vaults3](https://github.com/Kodiqa-Solutions/VaultS3) | 5.0.14 | Lightweight S3-compatible object storage with built-in web dashboard |
 | - [ ] |  | `uncategorized.vertex` | [vertex](https://github.com/vertex-center/vertex) | 0.17.0 | Self-hosted lab manager for one-click container service installation |
 | - [ ] |  | `uncategorized.ws-scrcpy` | [ws-scrcpy](https://github.com/NetrisTV/ws-scrcpy) | 0-unstable-2026-09-30 | Control Android devices from your browser via scrcpy over WebSocket |
 | - [ ] | `x86_64-linux` | `uncategorized.zcode` | [zcode](https://zcode.z.ai) | 3.17.2 | Z.ai's official agentic development environment desktop app for GLM models |
