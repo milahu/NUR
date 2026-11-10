@@ -23,6 +23,4 @@
   xfce4-terminal-sixel = pkgs.callPackage ./pkgs/xfce4-terminal-sixel { };
 
   orb-forge-gui = pkgs.callPackage ./pkgs/orb-forge-gui { };
-
-  hytale-launcher = pkgs.callPackage ./pkgs/hytale-launcher { };
 }
