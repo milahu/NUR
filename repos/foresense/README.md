@@ -5,8 +5,6 @@
 ## Open source packages
 
 - [ConvertWithMoss](https://github.com/git-moss/ConvertWithMoss): Converts multisamples from a source format (WAV, multisample, KMP, wavestate, NKI, SFZ, SoundFont 2) to a different destination format.
-- [gearmulator](https://github.com/dsp56300/gearmulator/): Emulation of classic VA synths of the late 90s/2000s that are based on Motorola 56300 family DSPs
-- [id3edit](https://github.com/rstemmer/id3edit): A command line tool to edit and debug ID3v2 tags of mp3 files supporting Unicode.
 - [MTS-ESP library](https://github.com/ODDSound/MTS-ESP): A simple but versatile C/C++ library for adding microtuning support to audio and MIDI plugins.
 - [sektron](https://empr.cl/sektron/): A midi step sequencer that mimics hardware workflows.
 - [serialosc](https://monome.org/docs/serialosc/): Multi-device, bonjour-capable monome OSC server.
@@ -22,6 +20,44 @@
 - [Sequent](https://loomer.co.uk/sequent.html): Modular step-sequenced FX processor.
 - [Shift](https://loomer.co.uk/shift.html): Diatonic granular pitch-shifting delay
 - [String](https://loomer.co.uk/string.html): Ensemble string synthesizer
+- [Pianoteq 8](https://www.modartt.com/pianoteq): Physically modeled piano synthesizer (requires manual download, see below)
+
+-----
+
+## Manually downloaded sources
+
+Some packages build from proprietary artifacts that upstream only offers behind
+a free registration/download form, so the build cannot fetch them itself
+(`requireFile`).
+
+### Pianoteq 8
+
+Download the Linux 64-bit archive of version 8.4.3 (`pianoteq_linux_v843.7z`)
+from [modartt.com](https://www.modartt.com/pianoteq) using your registered
+license, then add it to your Nix store so the build can find it:
+
+```shell
+$ nix-store --add-fixed sha256 /path/to/pianoteq_linux_v843.7z
+/nix/store/dix30mv2dw4wlp2ryvdqa5j2ykmnv1w2-pianoteq_linux_v843.7z
+```
+
+Afterwards `nix build .#pianoteq8` works as usual. The exact download filename
+and expected hash are baked into the package definition; if the build complains
+about a hash mismatch, the download may have been updated upstream and the pin
+needs adjusting.
+
+-----
+
+## Updating packages
+
+Run `nix develop -c ./update.sh` to update all release-tracked packages
+(`convert-with-moss`, `sektron`, `signls`, `serialosc`) via
+[nix-update](https://github.com/Mic92/nix-update) (in the dev shell, no global
+install needed). Pass attrs to update specific packages instead, e.g.
+`nix develop -c ./update.sh libmts` (pinned-rev packages: use
+`--version=branch`, and check the build afterwards). The Loomer packages are
+frozen — upstream is defunct, so their hashes are never updated. Build any
+updated package locally (`nix build .#<attr>`) before pushing.
 
 -----
 
