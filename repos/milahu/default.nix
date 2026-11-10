@@ -746,6 +746,16 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       pdf-toc = callPackage ./pkgs/development/python-modules/pdf-toc { };
 
+      fpgen = callPackage ./pkgs/development/python-modules/fpgen {
+        pkgs-zstd = pkgs.zstd;
+      };
+
+      camoufox = callPackage ./pkgs/development/python-modules/camoufox {
+        # pkgs-camoufox = pkgs.camoufox-unwrapped; # FIXME scope
+        # FIXME wrap camoufox like librewolf
+        pkgs-camoufox = callPackage ./pkgs/by-name/ca/camoufox-unwrapped/package.nix { };
+      };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -1152,6 +1162,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   apt-file = perlPackages.callPackage ./pkgs/tools/package-management/apt-file/apt-file.nix { };
 
   e9patch = callPackage ./pkgs/development/tools/e9patch/e9patch.nix { };
+
+  sqlite-main-branch = callPackage ./pkgs/development/libraries/sqlite { };
 
   sqlite-reuse-schema = callPackage ./pkgs/development/libraries/sqlite {
     sqliteBranch = "reuse-schema";

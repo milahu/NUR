@@ -38,7 +38,7 @@ let
         # nixpkgs-update: no auto update
         # NB! Make sure to update ./tools.nix src (in the same directory).
         version = "3.45.1";
-        hash = "sha256-lP2afdRDHXIEwfdv4eXs0tZ+R6suSzWJFbN0u1jPNn4=";
+        hash = "sha256-EkbF/fcUthSE3breGP8fGovOKeqrMeACvpQC3CR+Vm8=";
         rev = "version-${version}";
       }
     else if sqliteBranch == "reuse-schema" then
@@ -48,7 +48,7 @@ let
         # 2024-01-30
         version = "3.45-${builtins.substring 0 16 rev}";
         rev = "f98a99fce5dc0aa5dd90e53f764e1b19b71c3a80632817b566dd241ce584beff";
-        hash = "sha256-UwytcxfVS4tHyod/VyIGyolY82j/1T9+kElrWUIw7L8=";
+        hash = "sha256-+47bkRZ7T5Lnyg4Xhdiaoh43e8Cb3PDd2xgcA+5z0Ko=";
       }
     else throw "unknown sqliteBranch ${sqliteBranch}"
   );
