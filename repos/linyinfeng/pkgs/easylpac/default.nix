@@ -18,14 +18,14 @@
 
 buildGoModule.override { go = go_1_27; } rec {
   pname = "easylpac";
-  version = "0.9.0";
+  version = "0.9.2";
 
   src = fetchFromGitHub {
     owner = "creamlike1024";
     repo = "EasyLPAC";
     rev = version;
     fetchSubmodules = true;
-    hash = "sha256-2bJzbr99qrhY8Czvl0BxrCToK27t5PDwxSlMpgEDqbE=";
+    hash = "sha256-skpnUWFQyBb0G9/2WZOS0dlTVe043UBZPY8k6Mrryrg=";
   };
 
   proxyVendor = true;
