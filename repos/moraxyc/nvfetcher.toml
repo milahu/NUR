@@ -42,6 +42,10 @@ cargo_lock = ['backend/Cargo.lock']
 src.github = "libnyanpasu/clash-nyanpasu"
 fetch.url = "file:///dev/null"
 
+[cliproxyapi]
+src.github = "router-for-me/cliproxyapi"
+fetch.github = "router-for-me/cliproxyapi"
+
 [cpa-usage-keeper]
 src.git = "https://github.com/Willxup/cpa-usage-keeper.git"
 fetch.github = "Willxup/cpa-usage-keeper"
@@ -140,6 +144,11 @@ fetch.github = "HMCL-dev/HMCL"
 [hysteria-realm-server]
 src.github = "apernet/hysteria-realm-server"
 fetch.github = "apernet/hysteria-realm-server"
+
+[jiufenxuezhang-ielts]
+src.webpage = "https://static.9fnnn.com/electron/stable/latest-mac.yml"
+src.regex = "version: (\\S+)"
+fetch.url = "file:///dev/null"
 
 [libinput-three-finger-drag]
 src.git = "https://github.com/marsqing/libinput-three-finger-drag"
@@ -347,5 +356,6 @@ cargo_lock = ['Cargo.lock']
 [whois42d-ng-stable]
 src.github = "moraxyc/whois42d-ng"
 fetch.url = "file:///dev/null"
+
 
 # keep-sorted end
