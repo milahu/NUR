@@ -281,6 +281,20 @@
     };
     date = "2026-11-07";
   };
+  pilinara = {
+    pname = "pilinara";
+    version = "2.6.2";
+    src = fetchFromGitHub {
+      owner = "Starfallan";
+      repo = "PiliNara";
+      rev = "2.6.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-eoMqNP2J4LHZu6TwXBslDJFWXiWxMqR/iVt8Qw1Yl0k=";
+    };
+    extract = {
+      "pubspec.lock" = ./. + "/sha256-eoMqNP2J4LHZu6TwXBslDJFWXiWxMqR_iVt8Qw1Yl0k=/pubspec.lock";
+    };
+  };
   piliplus = {
     pname = "piliplus";
     version = "2.2.0.2";
@@ -297,17 +311,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "46d9214a25624cb90ec1b4721f2cb53417beb788";
+    version = "814436ecf16e6b050a2ae9cd6469545bfcb885a4";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "46d9214a25624cb90ec1b4721f2cb53417beb788";
+      rev = "814436ecf16e6b050a2ae9cd6469545bfcb885a4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-3BUEeU97AsbhZtx26HBiYJSxzXPlIl8rIxngevn0rzs=";
+      sha256 = "sha256-V2jHjuK1C8I3d15CPG89ZEAVG9FL7mVNW5reTWKkyvE=";
     };
-    date = "2026-11-06";
+    date = "2026-11-10";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -365,16 +379,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.2-beta.4";
+    version = "v4.1.2";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.2-beta.4";
+      rev = "v4.1.2";
       fetchSubmodules = false;
-      sha256 = "sha256-cMucmmdEfF2d1lrs5tH/22sNAMinlIS7utYbKgOO/tY=";
+      sha256 = "sha256-bU1MQZM4oxt1iwUs/XwjeMjNNMm3VUKQyeVtMLFrZzo=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-cMucmmdEfF2d1lrs5tH_22sNAMinlIS7utYbKgOO_tY=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-bU1MQZM4oxt1iwUs_XwjeMjNNMm3VUKQyeVtMLFrZzo=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
