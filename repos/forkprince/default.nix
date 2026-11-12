@@ -18,6 +18,7 @@
     rhythia = lib.callPackage ./pkgs/rhythia {};
     syslock = lib.callPackage ./pkgs/syslock {};
     yapfast = lib.callPackage ./pkgs/yapfast {};
+    venture = lib.callPackage ./pkgs/venture {};
     sysbar = lib.callPackage ./pkgs/sysbar {};
 
     tinywiibackupmanager = lib.callPackage ./pkgs/tinywiibackupmanager {};
@@ -45,6 +46,7 @@
     opentubex = lib.callPackage ./pkgs/opentubex {};
     equicord = lib.callPackage ./pkgs/equicord {};
     sm64plus = lib.callPackage ./pkgs/sm64plus {};
+    freebuff = lib.callPackage ./pkgs/freebuff {};
     horizon = lib.callPackage ./pkgs/horizon {};
     orbolay = lib.callPackage ./pkgs/orbolay {};
     wg-nord = lib.callPackage ./pkgs/wg-nord {};
@@ -55,6 +57,7 @@
     armsx2 = lib.callPackage ./pkgs/armsx2 {};
     mcman = lib.callPackage ./pkgs/mcman {};
     nuvio = lib.callPackage ./pkgs/nuvio {};
+    brisk = lib.callPackage ./pkgs/brisk {};
     xuan = lib.callPackage ./pkgs/xuan {};
     sfw = lib.callPackage ./pkgs/sfw {};
     orb = lib.callPackage ./pkgs/orb {};

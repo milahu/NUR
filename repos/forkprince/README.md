@@ -32,6 +32,7 @@ This repository contains three types of packages:
 | [`blip`](pkgs/blip/default.nix) | [blip](https://blip.net/), send any size file between devices |
 | [`bluebubbles-server`](pkgs/bluebubbles-server/default.nix) | [bluebubbles-server](https://github.com/BlueBubblesApp/bluebubbles-server), server for forwarding iMessages to clients within the BlueBubbles App ecosystem |
 | [`boxtron-bin`](pkgs/boxtron-bin/default.nix) | [boxtron-bin](https://github.com/dreamer/boxtron), steam Play compatibility tool to run DOS games using native Linux DOSBox (This is intended for use in the `programs.steam.extraCompatPackages` option only.) |
+| [`brisk`](pkgs/brisk/default.nix) | [brisk](https://github.com/BrisklyDev/brisk), ultra-fast, modern download manager for desktop |
 | [`cadcraft`](pkgs/cadcraft/default.nix) | [cadcraft](https://getartcraft.com/apps/cadcraft), computer-aided design and drafting application |
 | [`capture-studio`](pkgs/capture-studio/default.nix) | [capture-studio](https://tenzen.studio/capture/), screen recorder and video editor |
 | [`clop`](pkgs/clop/default.nix) | [clop](https://lowtechguys.com/clop/), image, video and clipboard optimiser |
@@ -61,6 +62,7 @@ This repository contains three types of packages:
 | [`fluxer-stable-bin`](pkgs/fluxer-stable-bin/default.nix) | [fluxer-stable-bin](https://fluxer.app), fluxer desktop client |
 | [`folder-preview-pro`](pkgs/folder-preview-pro/default.nix) | [folder-preview-pro](https://anybox.ltd/folder-preview-pro), quick Look extension for folders |
 | [`folio-studio`](pkgs/folio-studio/default.nix) | [folio-studio](https://tenzen.studio/folio/), free InDesign alternative for page layout and publishing |
+| [`freebuff`](pkgs/freebuff/default.nix) | [freebuff](https://freebuff.com/), the 100% free coding agent (terminal) |
 | [`fx`](pkgs/fx/default.nix) | [fx](https://fx.sh), unix-like coding agent |
 | [`genoffice`](pkgs/genoffice/default.nix) | [genoffice](https://genoffice.ai/), free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent |
 | [`ghostty`](pkgs/ghostty/default.nix) | ghostty |
@@ -159,6 +161,7 @@ This repository contains three types of packages:
 | [`twintaillauncher`](pkgs/twintaillauncher/default.nix) | [twintaillauncher](https://github.com/TwintailTeam/TwintailLauncher), a multi-platform launcher for your anime games |
 | [`vector-studio`](pkgs/vector-studio/default.nix) | [vector-studio](https://tenzen.studio/vector/), illustrator alternative for vector illustration and design |
 | [`vectorcraft`](pkgs/vectorcraft/default.nix) | [vectorcraft](https://getartcraft.com/apps/vectorcraft), vector graphics editor |
+| [`venture`](pkgs/venture/default.nix) | [venture](https://venture-emu.org/), a Meta Quest emulator for PC VR |
 | [`vmware-fusion`](pkgs/vmware-fusion/default.nix) | [vmware-fusion](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion), create, manage, and run virtual machines |
 | [`vorssaint`](pkgs/vorssaint/default.nix) | [vorssaint](https://vorssaint.com), free and open-source macOS menu bar toolkit. |
 | [`vscode`](pkgs/vscode/default.nix) | vscode |
