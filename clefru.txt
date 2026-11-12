@@ -1,10 +1,10 @@
 error:
 … while evaluating attribute 'buildCommand' of derivation 'parsecgaming'
-  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:341:9:
-   340|       {
-   341|         buildCommand = ''
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:343:9:
+   342|       {
+   343|         buildCommand = ''
       |         ^
-   342|           mkdir -p $out/bin
+   344|           mkdir -p $out/bin
 
 … while calling the 'derivationStrict' builtin
   at «nix-internal»/derivation-internal.nix:37:12:
@@ -24,18 +24,18 @@ error:
    138|           executable
 
 … from call site
-  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:336:49:
-   335|
-   336|         bin = writeShellScript "${name}-bwrap" (bwrapCmd {
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:338:49:
+   337|
+   338|         bin = writeShellScript "${name}-bwrap" (bwrapCmd {
       |                                                 ^
-   337|           initArgs = ''"$@"'';
+   339|           initArgs = ''"$@"'';
 
 … while calling 'bwrapCmd'
-  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:170:11:
-   169|         bwrapCmd =
-   170|           {
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:172:11:
+   171|         bwrapCmd =
+   172|           {
       |           ^
-   171|             initArgs ? "",
+   173|             initArgs ? "",
 
 … while calling the 'derivationStrict' builtin
   at «nix-internal»/derivation-internal.nix:37:12:
