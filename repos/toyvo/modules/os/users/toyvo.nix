@@ -11,6 +11,21 @@ let
   cfg = config.nixcfg.users;
   homePath =
     if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${cfg.toyvo.name}" else "/home/${cfg.toyvo.name}";
+  # nixpkgs' cargo-bundle (needed to bundle Zed on macOS) fails to build:
+  # cargo-setup-hook exports AWS_LC_SYS_USE_SYSTEM=1 but openssl is not
+  # AWS-LC. Build the bundled copy with cmake instead.
+  # TODO: drop once nixpkgs' cargo-bundle builds again.
+  zed-editor-fixed = pkgs.zed-editor.override (
+    lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+      cargo-bundle = pkgs.cargo-bundle.overrideAttrs (old: {
+        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.cmake ];
+        preBuild = (old.preBuild or "") + ''
+          unset AWS_LC_SYS_USE_SYSTEM
+        '';
+        dontUseCmakeConfigure = true;
+      });
+    }
+  );
   # herdr-desktop from nixpkgs ships a macOS bundle without
   # NSLocalNetworkUsageDescription, so macOS 15+ Local Network privacy
   # silently blocks its LAN connections (ssh: No route to host) and never
@@ -22,6 +37,10 @@ let
   # TODO: drop once upstream herdrdev/herdr-app ships the key in its bundle
   # (nixpkgs picks it up automatically); then this becomes plain `herdr-desktop`.
   herdr-desktop-fixed = pkgs.herdr-desktop.overrideAttrs (old: {
+    # zstd-sys finds libzstd via pkg-config under cargo-setup-hook, and the
+    # nixpkgs package provides neither (Darwin has no pkg-config at all)
+    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
+    buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.zstd ];
     postFixup =
       (old.postFixup or "")
       + lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
@@ -44,6 +63,16 @@ let
       hash = "sha256-TIOXZswCum0g3qcDK+RDZb9Y7lUu+bx+Oyja4EtKKh4=";
     };
     cargoHash = "sha256-hMkych62liZ+Oe5huM2drN5/6ckpF8AEHH2dyskcivo=";
+    # The hc_update_* distribution tests restart the core and wait at most
+    # 5 s (hardcoded wait_for_socket timeout) for the new core. On a loaded
+    # aarch64 builder (e.g. oracle building 500+ derivations) the restart
+    # takes longer, failing with "core did not start within 5 s"
+    # (2026-11-12: 4 passed, these 2 failed in 6.5 s). Same class as the two
+    # network tests nixpkgs already skips for the sandbox.
+    checkFlags = (old.checkFlags or [ ]) ++ [
+      "--skip=hc_update_downloads_checks_and_swaps"
+      "--skip=hc_update_to_a_version_takes_at_least_that_one"
+    ];
     # vendor/ghostty is pinned to the same commit as 0.1.15
     # (1e5cdb865807abc990181efb8ebfa9122955cce2), so its Zig deps are
     # byte-identical: reuse the already-fetched output instead of
@@ -97,6 +126,7 @@ let
       dust
       fd
       flex
+      forgejo-cli
       gh
       gnugrep
       gnumake
@@ -184,7 +214,7 @@ let
       herdr-desktop-fixed
       inkscape
       podman-desktop
-      zed-editor
+      zed-editor-fixed
     ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       appcleaner
@@ -237,9 +267,10 @@ in
               home = homePath;
               shell = pkgs.fish;
               openssh.authorizedKeys.keys = [
+                homelab.publicKeys."herdr_mobile_pixel10a_ed25519.pub"
                 homelab.publicKeys."ssh_toyvo_auth_ed25519.pub"
-                homelab.publicKeys."yubikey_usbc_ed25519_sk.pub"
                 homelab.publicKeys."yubikey_usba_ed25519_sk.pub"
+                homelab.publicKeys."yubikey_usbc_ed25519_sk.pub"
               ];
             }
             (lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
