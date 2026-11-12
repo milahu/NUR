@@ -9,13 +9,13 @@
 }:
 swiftPackages.stdenv.mkDerivation (finalAttrs: {
   pname = "apple-reminders-server";
-  version = "0-unstable-2026-11-10";
+  version = "0-unstable-2026-11-11";
 
   src = fetchFromGitHub {
     owner = "josh";
     repo = "apple-reminders-server";
-    rev = "6dfc4d6ff5aaa798631a67f582c9944cb2805e54";
-    hash = "sha256-2cn+3YyiJNkrTgexr9zT6SF0+Uk1Jc5lLuuqaiUrDG4=";
+    rev = "b4e8396bbf0c8a27fe95e3f951d74f5c112f3db2";
+    hash = "sha256-UFThEZQFAuBrNIWsxJ1ha6UtiN3NL/V9/E9xCTDaGOE=";
   };
 
   nativeBuildInputs = [
