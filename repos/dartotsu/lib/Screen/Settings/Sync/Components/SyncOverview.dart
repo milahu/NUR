@@ -132,27 +132,40 @@ class SyncOverview extends StatelessWidget {
           DpadRow(
             child: ScrollConfig(
               context,
-              child: ScrollConfig(context, child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    for (final t in tiles)
-                      if (t.$1 == null || t.$3 > 0)
-                        Padding(
-                          padding: EdgeInsetsDirectional.only(
-                            end: Dimens.gapSm,
+              child: ScrollConfig(
+                context,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (final t in tiles)
+                        if (t.$1 == null || t.$3 > 0)
+                          Padding(
+                            padding: EdgeInsetsDirectional.only(
+                              end: Dimens.gapSm,
+                            ),
+                            child: _StatTile(
+                              label: t.$2,
+                              count: t.$3,
+                              color: t.$4,
+                              selected:
+                                  !state.removing.value &&
+                                  state.effectiveFilter == t.$1,
+                              onTap: () => state.showFilter(t.$1),
+                            ),
                           ),
-                          child: _StatTile(
-                            label: t.$2,
-                            count: t.$3,
-                            color: t.$4,
-                            selected: state.effectiveFilter == t.$1,
-                            onTap: () => state.filter.value = t.$1,
-                          ),
+                      if (state.removals.isNotEmpty)
+                        _StatTile(
+                          label: getString.syncToDelete,
+                          count: state.removals.length,
+                          color: scheme.error,
+                          selected: state.showingRemovals,
+                          onTap: () => state.removing.value = true,
                         ),
-                  ],
+                    ],
+                  ),
                 ),
-              )),
+              ),
             ),
           ),
           SizedBox(height: Dimens.gapSm),
@@ -160,9 +173,12 @@ class SyncOverview extends StatelessWidget {
             spacing: Dimens.gap,
             runSpacing: 2,
             children: [
-              if (target.onlyInTarget > 0)
+              if (target.onlyInTarget - state.removals.length > 0)
                 Text(
-                  getString.syncOnlyIn(target.onlyInTarget, service.name),
+                  getString.syncOnlyIn(
+                    target.onlyInTarget - state.removals.length,
+                    service.name,
+                  ),
                   style: small,
                 ),
               for (final limit in adapter.limits)
