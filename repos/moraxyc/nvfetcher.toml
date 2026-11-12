@@ -17,8 +17,8 @@ src.github = "messense/aliyundrive-webdav"
 fetch.url = "file:///dev/null"
 
 [artex]
-src.git = "https://github.com/BaaRai/ARTEX.git"
-fetch.github = "BaaRai/ARTEX"
+src.git = "https://github.com/RuoJi6/ARTEX.git"
+fetch.github = "RuoJi6/ARTEX"
 extract = ["web/package-lock.json", "web/package.json"]
 
 [bark-server]
@@ -356,6 +356,11 @@ cargo_lock = ['Cargo.lock']
 [whois42d-ng-stable]
 src.github = "moraxyc/whois42d-ng"
 fetch.url = "file:///dev/null"
+
+[ztnet]
+src.github = "sinamics/ztnet"
+fetch.github = "sinamics/ztnet"
+extract = ["package-lock.json", "package.json"]
 
 
 # keep-sorted end
