@@ -1,19 +1,19 @@
 {
 "name":"mich-adams",
-"fetch_time":1.009,
-"eval_time":1.476,
+"fetch_time":0.692,
+"eval_time":1.482,
 "source":{
 "url":"https://github.com/mich-adams/nix-packages",
-"rev":"b9006be6eae007240d5f012ff76adc7f60c343f1",
-"sha256":"1bdfs7vcapkzjnyjad5q6f2988wbwb49zf82wf150kmqpi7wrknp",
+"rev":"4679f76f488fe0adcef19aa19e684c798d09efcc",
+"sha256":"1c8z61yrphwgi761rvljpq817c8845kfp46l2w50bx8qrz3i982y",
 "date":null
 },
-"source_storepath":"/nix/store/iby24w64wy370lyfw5vwy97p0y5p2vib-source",
-"nixpkgs_storepath":"/nix/store/066bjbcpvpx5fc846zbvy70rgb7i6jvm-source",
-"nur_combined_rev":"8e05b0428016ea1e67bd5b04b4986298bcc86875",
+"source_storepath":"/nix/store/6ba4izh412y9kma6vkwrg2phradd07y0-source",
+"nixpkgs_storepath":"/nix/store/0ya4nbmac3fw13w4hmqyc41svdf7z352-source",
+"nur_combined_rev":"e10abbb9b8d702fe94dc1de38728c6f53afdad18",
 "packages":{
 "afterglow-cursors":{
-"drvPath":"/nix/store/gxlg5pp99p6gf4rmmwh20fypa4iz4dmx-afterglow-cursors.drv",
+"drvPath":"/nix/store/a542r03cpa61h7sjjmf9iqy18kvhhacv-afterglow-cursors.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -60,7 +60,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iby24w64wy370lyfw5vwy97p0y5p2vib-source/pkgs/afterglow-cursors.nix",
+"file":"/nix/store/6ba4izh412y9kma6vkwrg2phradd07y0-source/pkgs/afterglow-cursors.nix",
 "line":107
 },
 "name":"afterglow-cursors",
@@ -69,10 +69,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -81,7 +82,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -104,7 +104,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -142,8 +141,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -151,6 +150,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/afterglow-cursors.nix:103",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -164,7 +169,7 @@
 "version":""
 },
 "pyroveil":{
-"drvPath":"/nix/store/npf246x83rxxbvc3r3lacl8wrqw1jk54-pyroveil-0-unstable-2025-11-17.drv",
+"drvPath":"/nix/store/i2vwg39v43aj39k65by6h3ciypr0ip1m-pyroveil-0-unstable-2025-11-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -214,7 +219,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iby24w64wy370lyfw5vwy97p0y5p2vib-source/pkgs/pyroveil.nix",
+"file":"/nix/store/6ba4izh412y9kma6vkwrg2phradd07y0-source/pkgs/pyroveil.nix",
 "line":49
 },
 "name":"pyroveil-0-unstable-2025-11-17",
@@ -223,6 +228,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -245,10 +251,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/pyroveil.nix:46",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -262,7 +273,7 @@
 "version":"0-unstable-2025-11-17"
 },
 "stardrop":{
-"drvPath":"/nix/store/1ll8yif6j1nja5q73srv4qjdf71r1245-Stardrop-1.8.3.drv",
+"drvPath":"/nix/store/0ggazm7f4qfy74sxf2yd0zawp2bbi6ip-Stardrop-1.8.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -274,7 +285,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
-"product":"Stardrop",
+"product":"stardrop",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -288,7 +299,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
-"product":"Stardrop",
+"product":"stardrop",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -312,7 +323,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iby24w64wy370lyfw5vwy97p0y5p2vib-source/pkgs/stardrop/default.nix",
+"file":"/nix/store/6ba4izh412y9kma6vkwrg2phradd07y0-source/pkgs/stardrop/default.nix",
 "line":107
 },
 "name":"Stardrop-1.8.3",
@@ -323,10 +334,15 @@
 "platforms":[
 "x86_64-linux",
 "aarch64-linux",
-"x86_64-darwin",
 "aarch64-darwin"
 ],
 "position":"./pkgs/stardrop/default.nix:103",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -340,7 +356,7 @@
 "version":"1.8.3"
 },
 "vvmd":{
-"drvPath":"/nix/store/is0b7l74v9407mnik63rhd292sw2vsjl-vvmd-1.1.drv",
+"drvPath":"/nix/store/m5z5ldxaq43qhl4gcpr4fwfxhmzg7wk2-vvmd-1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -391,7 +407,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iby24w64wy370lyfw5vwy97p0y5p2vib-source/pkgs/vvmd.nix",
+"file":"/nix/store/6ba4izh412y9kma6vkwrg2phradd07y0-source/pkgs/vvmd.nix",
 "line":57
 },
 "name":"vvmd-1.1",
@@ -400,6 +416,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -422,10 +439,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/vvmd.nix:53",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
