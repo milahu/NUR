@@ -6,11 +6,11 @@
 }:
 tailscale-gui.overrideAttrs (
   finalAttrs: previousAttrs: {
-    version = "1.104.6";
+    version = "1.104.7";
 
     src = fetchurl {
       url = "https://pkgs.tailscale.com/stable/Tailscale-${finalAttrs.version}-macos.pkg";
-      hash = "sha256-aTPigwLlaSpL542houF4RF626dVTkZdkfmTxh9VoLFM=";
+      hash = "sha256-Dsq2DgmNMfnL0zSGdHQpPcCJeBVGZdp1w/P+H4IV1uc=";
     };
 
     installPhase = ''
@@ -40,6 +40,7 @@ tailscale-gui.overrideAttrs (
           "--version-regex"
           "v(\\d+\\.\\d+\\.\\d+)$"
           "--version=stable"
+          "--use-github-releases"
           "--override-filename"
           "pkgs/tailscale/tailscale-gui.nix"
         ];
