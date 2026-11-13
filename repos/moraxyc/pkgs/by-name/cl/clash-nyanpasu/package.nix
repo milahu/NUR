@@ -48,7 +48,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   strictDeps = true;
 
   patches = [
-    ./fix-local-inlang-plugins.patch
+    source.artifacts."fix-local-inlang-plugins.patch"
   ];
 
   cargoRoot = "backend";
@@ -56,7 +56,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoDeps =
     let
-      originalCargoDeps = rustPlatform.importCargoLock source.cargoLock."backend/Cargo.lock";
+      originalCargoDeps = rustPlatform.importCargoLock source.cargoLock;
       patchedCargoDeps = originalCargoDeps.overrideAttrs (old: {
         buildCommand = lib.replaceString ''ln -s "$crate" $out/$(basename "$crate" | cut -c 34-)'' ''
           dest="$out/$(basename "$crate" | cut -c 34-)"
@@ -77,7 +77,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     in
     patchedCargoDeps;
 
-  # nix-update auto
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs)
       pname
@@ -87,7 +86,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       ;
     inherit pnpm;
     fetcherVersion = 4;
-    hash = "sha256-ONPOK/yhHE6uW7zX/3FrbRNzxLCMs2Qm5s6b2a/1I5w=";
+    hash = source.pnpmDepsHash;
   };
 
   nativeBuildInputs = [
@@ -209,8 +208,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "--skip=enhance::script::js::test::test_process_honey_with_fetch"
   ];
 
-  # nix-update auto -u
-  passthru.updateScript = ./update.sh;
+  # fetchrix has already applied the changes when it computes this hash.
+  passthru.fetchrix.pnpmDeps = finalAttrs.pnpmDeps.overrideAttrs { patches = [ ]; };
 
   meta = {
     description = "Clash GUI based on Tauri";

@@ -6,6 +6,7 @@
   installShellFiles,
 
   zstd,
+  sqlite,
 
   versionCheckHook,
 
@@ -16,14 +17,17 @@
 rustPlatform.buildRustPackage (finalAttrs: {
   inherit (source) pname version src;
 
-  cargoDeps = rustPlatform.importCargoLock source.cargoLock."Cargo.lock";
+  cargoDeps = rustPlatform.importCargoLock source.cargoLock;
 
   nativeBuildInputs = [
     pkg-config
     installShellFiles
   ];
 
-  buildInputs = [ zstd ];
+  buildInputs = [
+    zstd
+    sqlite
+  ];
 
   postInstall = ''
     install -Dm644 packaging/linux/elio.desktop -t $out/share/applications
