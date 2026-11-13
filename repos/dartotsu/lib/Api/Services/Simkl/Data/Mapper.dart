@@ -75,8 +75,16 @@ String? simklStatusIn(String? status) => switch (status) {
 
 String? _airStatus(String? s) => switch (s?.toLowerCase()) {
   'ended' || 'released' || 'finished' => 'FINISHED',
-  'ongoing' || 'airing' || 'returning' || 'premiere' => 'RELEASING',
-  'upcoming' || 'planned' || 'in production' => 'NOT_YET_RELEASED',
+  'ongoing' ||
+  'airing' ||
+  'returning' ||
+  'returning series' ||
+  'premiere' => 'RELEASING',
+  'upcoming' ||
+  'planned' ||
+  'in production' ||
+  'post production' ||
+  'rumored' => 'NOT_YET_RELEASED',
   'canceled' || 'cancelled' => 'CANCELLED',
   _ => null,
 };
@@ -331,9 +339,9 @@ Media? mapSimklListEntry(Map<String, dynamic> e, SimklKind kind) {
   final watched = _int(e['watched_episodes_count']);
   final total = _int(e['total_episodes_count']);
   final rating = _int(e['user_rating']);
-  final touched = DateTime.tryParse(
-    '${e['last_watched_at'] ?? e['added_to_watchlist_at'] ?? ''}',
-  );
+  final added = DateTime.tryParse('${e['added_to_watchlist_at'] ?? ''}');
+  final watchedAt = DateTime.tryParse('${e['last_watched_at'] ?? ''}');
+  final touched = watchedAt ?? added;
   media
     ..userStatus = simklStatusIn(e['status'] as String?)
     ..userProgress = watched ?? (e['status'] == 'completed' ? 1 : 0)
@@ -341,8 +349,33 @@ Media? mapSimklListEntry(Map<String, dynamic> e, SimklKind kind) {
     ..userUpdatedAt = touched == null
         ? null
         : touched.millisecondsSinceEpoch ~/ 1000
+    ..userAddedAt = added == null ? null : added.millisecondsSinceEpoch ~/ 1000
+    ..userWatchedAt = watchedAt == null
+        ? null
+        : watchedAt.millisecondsSinceEpoch ~/ 1000
     ..userListId = 1;
-  if (total != null && total > 0) media.anime?.totalEpisodes = total;
+  final known = media.anime?.totalEpisodes ?? 0;
+  if (known <= 0 && total != null && total > 0) {
+    media.anime?.totalEpisodes = total;
+  }
   media.malId = _int((node['ids'] as Map?)?['mal']);
   return media;
+}
+
+bool applySimklFacts(Map<String, Media> library, Object? body) {
+  if (body is! List) return false;
+  for (final raw in body) {
+    if (raw is! Map) continue;
+    final id = _int(raw['id']);
+    final kind = SimklKind.fromName(raw['type']?.toString());
+    if (id == null || kind == null) continue;
+    final media = library[simklMediaId(kind, id)];
+    if (media == null) continue;
+    final simkl = raw['simkl'];
+    final rating = simkl is Map ? simkl['rating'] : null;
+    if (rating is num && rating > 0) media.meanScore = (rating * 10).round();
+    final status = _airStatus(raw['release_status']?.toString());
+    if (status != null) media.status = status;
+  }
+  return true;
 }
