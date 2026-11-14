@@ -1,9 +1,9 @@
+import 'package:dartotsu_extension_bridge/player.dart';
+
 import 'dart:async';
 import 'dart:typed_data';
 import 'dart:io';
 
-import 'package:media_kit/media_kit.dart';
-import 'package:media_kit_video/media_kit_video.dart';
 import 'package:path/path.dart' as p;
 
 import '../../../Logger.dart';
@@ -807,6 +807,40 @@ class PlayerEngine {
       player.setSubtitleTrack(SubtitleTrack.uri(uri, title: title));
 
   Future<void> noSubtitle() => player.setSubtitleTrack(SubtitleTrack.no());
+
+  Future<bool> untilLoaded(
+    bool Function() cancelled, {
+    Duration timeout = const Duration(seconds: 30),
+  }) async {
+    var waited = Duration.zero;
+    const step = Duration(milliseconds: 100);
+    while (duration.value <= Duration.zero && waited < timeout) {
+      await Future<void>.delayed(step);
+      waited += step;
+      if (cancelled()) return false;
+    }
+    return duration.value > Duration.zero;
+  }
+
+  Future<void> chooseSubtitle(String? id) async {
+    activeSubtitle.value = id;
+    if (id == null) {
+      await noSubtitle();
+    } else {
+      await setSubtitle(id);
+    }
+  }
+
+  Future<void> chooseAudio(String id) async {
+    activeAudio.value = id;
+    await setAudio(id);
+  }
+
+  Future<void> frameStep(String command) async {
+    await this.command([command]);
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    buffering.value = false;
+  }
 
   Future<void> setVariant(String id) async {
     final track = player.state.tracks.video

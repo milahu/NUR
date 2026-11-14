@@ -950,14 +950,56 @@ abstract class AppLocalizations {
   /// No description provided for @dcDesktopHint.
   ///
   /// In en, this message translates to:
-  /// **'Without signing in, Discord shows “Watching Dartotsu” through the desktop app. Sign in to name the activity after your title, set your status and use every option below.'**
+  /// **'Without connecting, Discord shows “Watching Dartotsu” through the desktop app. Connect Discord to name the activity after your title, including on mobile.'**
   String get dcDesktopHint;
 
   /// No description provided for @dcMobileHint.
   ///
   /// In en, this message translates to:
-  /// **'Rich Presence on mobile runs through your Discord account. Sign in to start.'**
+  /// **'Connect Discord to show what you are watching or reading. It uses Discord’s authorize page, not your account token.'**
   String get dcMobileHint;
+
+  /// No description provided for @dcConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect Discord'**
+  String get dcConnect;
+
+  /// No description provided for @dcConnectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Opens Discord’s authorize page and adds Dartotsu under Authorized Apps. Discord asks to update your presence. Only a refresh token is saved, not your account token.'**
+  String get dcConnectDesc;
+
+  /// No description provided for @dcConnectFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not connect Discord'**
+  String get dcConnectFailed;
+
+  /// No description provided for @dcConnectedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Discord connected'**
+  String get dcConnectedSnack;
+
+  /// No description provided for @dcDisconnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Disconnect'**
+  String get dcDisconnect;
+
+  /// No description provided for @dcDisconnectedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Discord disconnected'**
+  String get dcDisconnectedSnack;
+
+  /// No description provided for @dcUseToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Use a token instead'**
+  String get dcUseToken;
 
   /// No description provided for @dcRouteDesktop.
   ///
@@ -977,11 +1019,23 @@ abstract class AppLocalizations {
   /// **'Through your account, live'**
   String get dcRouteGateway;
 
+  /// No description provided for @dcRouteLinked.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected app'**
+  String get dcRouteLinked;
+
   /// No description provided for @dcRouteNone.
   ///
   /// In en, this message translates to:
   /// **'Not connected'**
   String get dcRouteNone;
+
+  /// No description provided for @dcStatusNeedsToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs a Discord token. Connecting the app does not set your online status.'**
+  String get dcStatusNeedsToken;
 
   /// No description provided for @dcAccountOnly.
   ///
@@ -1301,6 +1355,42 @@ abstract class AppLocalizations {
   /// **'Connected'**
   String get dcConnected;
 
+  /// No description provided for @dcConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection'**
+  String get dcConnection;
+
+  /// No description provided for @dcMethodDesktop.
+  ///
+  /// In en, this message translates to:
+  /// **'Discord desktop app'**
+  String get dcMethodDesktop;
+
+  /// No description provided for @dcMethodDesktopDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Used automatically when nothing else is connected. Discord has to be open on this computer.'**
+  String get dcMethodDesktopDesc;
+
+  /// No description provided for @dcMethodToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Account token'**
+  String get dcMethodToken;
+
+  /// No description provided for @dcInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'In use'**
+  String get dcInUse;
+
+  /// No description provided for @dcRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended'**
+  String get dcRecommended;
+
   /// No description provided for @dcConnecting.
   ///
   /// In en, this message translates to:
@@ -1424,7 +1514,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsSyncTitlesNote.
   ///
   /// In en, this message translates to:
-  /// **'Watch and read positions, the resume shelf, bookmarks, highlights and per-title options. Source matches and streams stay on each device because they depend on your extensions. Titles upload at most every 45 seconds.'**
+  /// **'Watch and read positions, the resume shelf, your local lists, bookmarks, highlights and per-title options. Source matches and streams stay on each device because they depend on your extensions. Titles upload at most every 45 seconds.'**
   String get settingsSyncTitlesNote;
 
   /// No description provided for @settingsSyncConnect.
@@ -3694,6 +3784,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Following'**
   String get following;
+
+  /// No description provided for @followsMutual.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual'**
+  String get followsMutual;
 
   /// No description provided for @homeSections.
   ///
@@ -5998,6 +6094,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Season'**
   String get season;
+
+  /// No description provided for @year.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get year;
+
+  /// No description provided for @filterAny.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get filterAny;
 
   /// No description provided for @broadcast.
   ///
@@ -11369,6 +11477,12 @@ abstract class AppLocalizations {
   /// **'Back to the defaults'**
   String get readerResetDesc;
 
+  /// No description provided for @readerResetConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset every reader setting to its default?'**
+  String get readerResetConfirm;
+
   /// No description provided for @novelSize.
   ///
   /// In en, this message translates to:
@@ -11753,6 +11867,12 @@ abstract class AppLocalizations {
   /// **'Theme'**
   String get dantotsuTheme;
 
+  /// No description provided for @themePickerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get themePickerTitle;
+
   /// No description provided for @dantotsuReposAnime.
   ///
   /// In en, this message translates to:
@@ -11860,6 +11980,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Paste the room link your friend sent you. You join straight away and the player opens when they start watching.'**
   String get togetherIntro;
+
+  /// No description provided for @togetherLinkConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Join the room {room}? The host chooses what plays and the player opens by itself when they start watching.'**
+  String togetherLinkConfirm(String room);
+
+  /// No description provided for @togetherJoin.
+  ///
+  /// In en, this message translates to:
+  /// **'Join'**
+  String get togetherJoin;
 
   /// No description provided for @togetherName.
   ///
@@ -12533,18 +12665,6 @@ abstract class AppLocalizations {
   /// **'Pause'**
   String get playerPipPause;
 
-  /// No description provided for @playerPipPrevious.
-  ///
-  /// In en, this message translates to:
-  /// **'Previous episode'**
-  String get playerPipPrevious;
-
-  /// No description provided for @playerPipNext.
-  ///
-  /// In en, this message translates to:
-  /// **'Next episode'**
-  String get playerPipNext;
-
   /// No description provided for @playerPipBack.
   ///
   /// In en, this message translates to:
@@ -12556,6 +12676,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forward'**
   String get playerPipForward;
+
+  /// No description provided for @playerPipRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the player'**
+  String get playerPipRestore;
+
+  /// No description provided for @playerPipActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Playing in a small window'**
+  String get playerPipActive;
 
   /// No description provided for @listDateAdded.
   ///
@@ -12940,6 +13072,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The source for this episode is not installed'**
   String get downloadSourceMissing;
+
+  /// No description provided for @downloadDashDrm.
+  ///
+  /// In en, this message translates to:
+  /// **'This stream is DRM protected'**
+  String get downloadDashDrm;
+
+  /// No description provided for @downloadDashNoVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'The DASH manifest has no video'**
+  String get downloadDashNoVideo;
 
   /// No description provided for @downloadWaitingConnection.
   ///
@@ -15334,6 +15478,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dropped manga'**
   String get droppedManga;
+
+  /// No description provided for @generalSectionDesktop.
+  ///
+  /// In en, this message translates to:
+  /// **'Desktop'**
+  String get generalSectionDesktop;
+
+  /// No description provided for @closeAction.
+  ///
+  /// In en, this message translates to:
+  /// **'When the window is closed'**
+  String get closeAction;
+
+  /// No description provided for @closeActionQuit.
+  ///
+  /// In en, this message translates to:
+  /// **'Quit the app'**
+  String get closeActionQuit;
+
+  /// No description provided for @closeActionWhenBusy.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep running in the tray while something is running'**
+  String get closeActionWhenBusy;
+
+  /// No description provided for @closeActionAlways.
+  ///
+  /// In en, this message translates to:
+  /// **'Always keep running in the tray'**
+  String get closeActionAlways;
+
+  /// No description provided for @closeActionNoTray.
+  ///
+  /// In en, this message translates to:
+  /// **'The system tray is not available here, so the app quits when closed'**
+  String get closeActionNoTray;
+
+  /// No description provided for @gamepadNav.
+  ///
+  /// In en, this message translates to:
+  /// **'Gamepad navigation'**
+  String get gamepadNav;
+
+  /// No description provided for @gamepadNavDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Move around the app and control the player with a game controller'**
+  String get gamepadNavDesc;
+
+  /// No description provided for @trayShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Dartotsu'**
+  String get trayShow;
+
+  /// No description provided for @trayQuit.
+  ///
+  /// In en, this message translates to:
+  /// **'Quit'**
+  String get trayQuit;
+
+  /// No description provided for @trayIdle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing running'**
+  String get trayIdle;
+
+  /// No description provided for @trayDownloading.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{Downloading {count} item} other{Downloading {count} items}}'**
+  String trayDownloading(int count);
+
+  /// No description provided for @traySyncing.
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing your lists'**
+  String get traySyncing;
+
+  /// No description provided for @trayUpdating.
+  ///
+  /// In en, this message translates to:
+  /// **'Updating the app'**
+  String get trayUpdating;
+
+  /// No description provided for @trayPlaying.
+  ///
+  /// In en, this message translates to:
+  /// **'Playing in a small window'**
+  String get trayPlaying;
+
+  /// No description provided for @traySearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get traySearch;
+
+  /// No description provided for @trayPauseDownloads.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause downloads'**
+  String get trayPauseDownloads;
+
+  /// No description provided for @trayResumeDownloads.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume downloads'**
+  String get trayResumeDownloads;
+
+  /// No description provided for @playerDownloadTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading the player'**
+  String get playerDownloadTitle;
+
+  /// No description provided for @playerDownloadBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Dartotsu fetches its video engine once. Playback starts as soon as it is ready.'**
+  String get playerDownloadBody;
+
+  /// No description provided for @playerDownloadStarting.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting the download…'**
+  String get playerDownloadStarting;
+
+  /// No description provided for @playerDownloadFailedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t get the player'**
+  String get playerDownloadFailedTitle;
+
+  /// No description provided for @playerDownloadFailedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your connection and try again. The download picks up where it stopped.'**
+  String get playerDownloadFailedBody;
+
+  /// No description provided for @playerDownloadRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get playerDownloadRetry;
+
+  /// No description provided for @playerDownloadCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy details'**
+  String get playerDownloadCopy;
+
+  /// No description provided for @removePlayerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the player?'**
+  String get removePlayerTitle;
+
+  /// No description provided for @removePlayerMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Videos can\'t play until the player is downloaded again.'**
+  String get removePlayerMessage;
 
   /// No description provided for @trailerLoading.
   ///

@@ -450,11 +450,33 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get dcDesktopHint =>
-      'Without signing in, Discord shows “Watching Dartotsu” through the desktop app. Sign in to name the activity after your title, set your status and use every option below.';
+      'Without connecting, Discord shows “Watching Dartotsu” through the desktop app. Connect Discord to name the activity after your title, including on mobile.';
 
   @override
   String get dcMobileHint =>
-      'Rich Presence on mobile runs through your Discord account. Sign in to start.';
+      'Connect Discord to show what you are watching or reading. It uses Discord’s authorize page, not your account token.';
+
+  @override
+  String get dcConnect => 'Connect Discord';
+
+  @override
+  String get dcConnectDesc =>
+      'Opens Discord’s authorize page and adds Dartotsu under Authorized Apps. Discord asks to update your presence. Only a refresh token is saved, not your account token.';
+
+  @override
+  String get dcConnectFailed => 'Could not connect Discord';
+
+  @override
+  String get dcConnectedSnack => 'Discord connected';
+
+  @override
+  String get dcDisconnect => 'Disconnect';
+
+  @override
+  String get dcDisconnectedSnack => 'Discord disconnected';
+
+  @override
+  String get dcUseToken => 'Use a token instead';
 
   @override
   String get dcRouteDesktop => 'Through the Discord desktop app';
@@ -466,7 +488,14 @@ class AppLocalizationsTe extends AppLocalizations {
   String get dcRouteGateway => 'Through your account, live';
 
   @override
+  String get dcRouteLinked => 'Connected app';
+
+  @override
   String get dcRouteNone => 'Not connected';
+
+  @override
+  String get dcStatusNeedsToken =>
+      'Needs a Discord token. Connecting the app does not set your online status.';
 
   @override
   String get dcAccountOnly => 'Needs a signed-in account';
@@ -630,6 +659,25 @@ class AppLocalizationsTe extends AppLocalizations {
   String get dcConnected => 'Connected';
 
   @override
+  String get dcConnection => 'Connection';
+
+  @override
+  String get dcMethodDesktop => 'Discord desktop app';
+
+  @override
+  String get dcMethodDesktopDesc =>
+      'Used automatically when nothing else is connected. Discord has to be open on this computer.';
+
+  @override
+  String get dcMethodToken => 'Account token';
+
+  @override
+  String get dcInUse => 'In use';
+
+  @override
+  String get dcRecommended => 'Recommended';
+
+  @override
   String get dcConnecting => 'Connecting…';
 
   @override
@@ -702,7 +750,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get settingsSyncTitlesNote =>
-      'Watch and read positions, the resume shelf, bookmarks, highlights and per-title options. Source matches and streams stay on each device because they depend on your extensions. Titles upload at most every 45 seconds.';
+      'Watch and read positions, the resume shelf, your local lists, bookmarks, highlights and per-title options. Source matches and streams stay on each device because they depend on your extensions. Titles upload at most every 45 seconds.';
 
   @override
   String get settingsSyncConnect => 'Not connected';
@@ -1989,6 +2037,9 @@ class AppLocalizationsTe extends AppLocalizations {
   String get following => 'ఫాలో అవుతున్నవి';
 
   @override
+  String get followsMutual => 'Mutual';
+
+  @override
   String get homeSections => 'హోమ్ సెక్షన్లు';
 
   @override
@@ -3250,6 +3301,12 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get season => 'సీజన్';
+
+  @override
+  String get year => 'Year';
+
+  @override
+  String get filterAny => 'Any';
 
   @override
   String get broadcast => 'బ్రాడ్‌కాస్ట్';
@@ -6324,6 +6381,9 @@ class AppLocalizationsTe extends AppLocalizations {
   String get readerResetDesc => 'డిఫాల్ట్స్‌కి తిరిగి వెళ్ళు';
 
   @override
+  String get readerResetConfirm => 'Reset every reader setting to its default?';
+
+  @override
   String get novelSize => 'టెక్స్ట్ సైజ్';
 
   @override
@@ -6541,6 +6601,9 @@ class AppLocalizationsTe extends AppLocalizations {
   String get dantotsuTheme => 'థీమ్';
 
   @override
+  String get themePickerTitle => 'Theme';
+
+  @override
   String get dantotsuReposAnime => 'అనిమే ఎక్స్టెన్షన్ రిపోజిటరీలు';
 
   @override
@@ -6597,6 +6660,14 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get togetherIntro =>
       'నీ ఫ్రెండ్ పంపిన రూమ్ లింక్ పేస్ట్ చెయ్యి. వెంటనే జాయిన్ అవుతావు, వాళ్ళు చూడటం మొదలుపెట్టగానే ప్లేయర్ ఓపెన్ అవుతుంది.';
+
+  @override
+  String togetherLinkConfirm(String room) {
+    return 'Join the room $room? The host chooses what plays and the player opens by itself when they start watching.';
+  }
+
+  @override
+  String get togetherJoin => 'Join';
 
   @override
   String get togetherName => 'నీ పేరు';
@@ -6998,16 +7069,16 @@ class AppLocalizationsTe extends AppLocalizations {
   String get playerPipPause => 'Pause';
 
   @override
-  String get playerPipPrevious => 'Previous episode';
-
-  @override
-  String get playerPipNext => 'Next episode';
-
-  @override
   String get playerPipBack => 'Rewind';
 
   @override
   String get playerPipForward => 'Forward';
+
+  @override
+  String get playerPipRestore => 'Back to the player';
+
+  @override
+  String get playerPipActive => 'Playing in a small window';
 
   @override
   String get listDateAdded => 'Added to list';
@@ -7243,6 +7314,12 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get downloadSourceMissing => 'ఈ ఎపిసోడ్ సోర్స్ ఇన్‌స్టాల్ చేయలేదు';
+
+  @override
+  String get downloadDashDrm => 'This stream is DRM protected';
+
+  @override
+  String get downloadDashNoVideo => 'The DASH manifest has no video';
 
   @override
   String get downloadWaitingConnection => 'కనెక్షన్ కోసం వెయిట్ చేస్తున్నాం';
@@ -8659,6 +8736,101 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get droppedManga => 'Dropped manga';
+
+  @override
+  String get generalSectionDesktop => 'Desktop';
+
+  @override
+  String get closeAction => 'When the window is closed';
+
+  @override
+  String get closeActionQuit => 'Quit the app';
+
+  @override
+  String get closeActionWhenBusy =>
+      'Keep running in the tray while something is running';
+
+  @override
+  String get closeActionAlways => 'Always keep running in the tray';
+
+  @override
+  String get closeActionNoTray =>
+      'The system tray is not available here, so the app quits when closed';
+
+  @override
+  String get gamepadNav => 'Gamepad navigation';
+
+  @override
+  String get gamepadNavDesc =>
+      'Move around the app and control the player with a game controller';
+
+  @override
+  String get trayShow => 'Show Dartotsu';
+
+  @override
+  String get trayQuit => 'Quit';
+
+  @override
+  String get trayIdle => 'Nothing running';
+
+  @override
+  String trayDownloading(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Downloading $count items',
+      one: 'Downloading $count item',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get traySyncing => 'Syncing your lists';
+
+  @override
+  String get trayUpdating => 'Updating the app';
+
+  @override
+  String get trayPlaying => 'Playing in a small window';
+
+  @override
+  String get traySearch => 'Search';
+
+  @override
+  String get trayPauseDownloads => 'Pause downloads';
+
+  @override
+  String get trayResumeDownloads => 'Resume downloads';
+
+  @override
+  String get playerDownloadTitle => 'Downloading the player';
+
+  @override
+  String get playerDownloadBody =>
+      'Dartotsu fetches its video engine once. Playback starts as soon as it is ready.';
+
+  @override
+  String get playerDownloadStarting => 'Starting the download…';
+
+  @override
+  String get playerDownloadFailedTitle => 'Couldn\'t get the player';
+
+  @override
+  String get playerDownloadFailedBody =>
+      'Check your connection and try again. The download picks up where it stopped.';
+
+  @override
+  String get playerDownloadRetry => 'Try again';
+
+  @override
+  String get playerDownloadCopy => 'Copy details';
+
+  @override
+  String get removePlayerTitle => 'Remove the player?';
+
+  @override
+  String get removePlayerMessage =>
+      'Videos can\'t play until the player is downloaded again.';
 
   @override
   String get trailerLoading => 'Loading the trailer…';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../Api/Discord/DiscordAccount.dart';
-import '../../../Api/Discord/DiscordRpcRouter.dart';
 import '../../../Core/Preferences/PrefManager.dart';
 import '../../../Core/State/State.dart';
 import '../../../Core/ThemeManager/LanguageSwitcher.dart';
@@ -12,6 +11,7 @@ import '../../../Widgets/Components/AppControls.dart';
 import '../../../Widgets/Components/BaseScreen.dart';
 import '../../../Widgets/Components/ScreenState.dart';
 import '../../../Widgets/Components/ScrollConfig.dart';
+import 'Components/DiscordConnection.dart';
 import 'Components/DiscordPanels.dart';
 import 'Components/DiscordPreview.dart';
 import 'DiscordSettingsState.dart';
@@ -106,7 +106,7 @@ class _DiscordSettingsScreenState extends BaseScreen<DiscordSettingsScreen>
     state.track();
     final at = state.now.value;
     final profile = state.account.profile.value;
-    final status = state.signedIn
+    final status = state.account.tokenSaved.value
         ? DiscordStatus.of(PrefName.discordStatus.rx.value)
         : DiscordStatus.online;
     final samples = [
@@ -130,7 +130,8 @@ class _DiscordSettingsScreenState extends BaseScreen<DiscordSettingsScreen>
         DiscordPreview(
           profile: profile,
           status: status,
-          customStatus: state.signedIn && PrefName.discordLive.rx.value
+          customStatus:
+              state.account.tokenSaved.value && PrefName.discordLive.rx.value
               ? PrefName.discordCustomStatus.rx.value
               : '',
           presence: PrefName.discordRpc.rx.value || state.sample.value != 3
@@ -144,7 +145,7 @@ class _DiscordSettingsScreenState extends BaseScreen<DiscordSettingsScreen>
   });
 
   List<Widget> _panels(BuildContext context) => [
-    Watch(() => _account(context)),
+    DiscordConnection(state: state),
     Watch(() => _status(context)),
     Watch(() => _activity(context)),
     Watch(() => _text(context)),
@@ -153,125 +154,8 @@ class _DiscordSettingsScreenState extends BaseScreen<DiscordSettingsScreen>
     Watch(() => _privacy(context)),
   ];
 
-  String _routeLabel(DiscordRoute r) => switch (r) {
-    DiscordRoute.desktop => getString.dcRouteDesktop,
-    DiscordRoute.headless => getString.dcRouteHeadless,
-    DiscordRoute.gateway => getString.dcRouteGateway,
-    DiscordRoute.none => getString.dcRouteNone,
-  };
-
-  Widget _account(BuildContext context) {
-    final scheme = context.colorScheme;
-    final signed = state.signedIn;
-    final profile = state.account.profile.value;
-    final route = state.route;
-    final desktop = DiscordRpcRouter.isDesktop;
-    return DPanel(
-      title: getString.dcAccount,
-      icon: Icons.person_rounded,
-      divided: false,
-      children: [
-        if (signed)
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: profile == null
-                  ? null
-                  : NetworkImage(profile.avatarUrl(96)),
-              child: profile == null ? const Icon(Icons.person_rounded) : null,
-            ),
-            title: Text(
-              profile == null
-                  ? getString.discordTokenSaved
-                  : getString.dcSignedInAs(profile.displayName),
-            ),
-            subtitle: Text(_routeLabel(route)),
-            trailing: state.account.loading.value
-                ? const SizedBox.square(
-                    dimension: 20,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : IconButton(
-                    icon: const Icon(Icons.refresh_rounded),
-                    onPressed: state.account.refresh,
-                  ),
-          )
-        else
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 10, 16, 6),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  desktop ? getString.dcDesktopHint : getString.dcMobileHint,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: scheme.onSurfaceVariant,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: scheme.primaryContainer.withValues(alpha: 0.5),
-                    borderRadius: BorderRadius.circular(99),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.bolt_rounded,
-                        size: 14,
-                        color: scheme.onPrimaryContainer,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        _routeLabel(route),
-                        style: context.textTheme.labelMedium?.copyWith(
-                          color: scheme.onPrimaryContainer,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 6, 16, 8),
-          child: Row(
-            children: [
-              if (signed)
-                OutlinedButton.icon(
-                  onPressed: state.signOut,
-                  icon: const Icon(Icons.logout_rounded),
-                  label: Text(getString.dcSignOut),
-                )
-              else
-                FilledButton.icon(
-                  onPressed: () => state.login(context),
-                  icon: const Icon(Icons.login_rounded),
-                  label: Text(getString.dcSignIn),
-                ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
-          child: Text(
-            getString.dcTokenWarning,
-            style: context.textTheme.bodySmall?.copyWith(
-              color: scheme.onSurfaceVariant,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _status(BuildContext context) {
-    final signed = state.signedIn;
+    final token = state.account.tokenSaved.value;
     final live = PrefName.discordLive.rx.value;
     final current = DiscordStatus.of(PrefName.discordStatus.rx.value);
     final labels = {
@@ -283,8 +167,8 @@ class _DiscordSettingsScreenState extends BaseScreen<DiscordSettingsScreen>
     return DPanel(
       title: getString.dcStatusSection,
       icon: Icons.circle_rounded,
-      locked: !signed,
-      lockedNote: getString.dcAccountOnly,
+      locked: !token,
+      lockedNote: getString.dcStatusNeedsToken,
       children: [
         DToggle(
           title: getString.dcControlStatus,

@@ -1,3 +1,5 @@
+import 'package:dartotsu_extension_bridge/player.dart';
+
 import '../../../Widgets/Components/ScrollConfig.dart';
 
 import 'dart:async';
@@ -6,8 +8,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as img;
-import 'package:media_kit/media_kit.dart';
-import 'package:media_kit_video/media_kit_video.dart';
 import 'package:path/path.dart' as p;
 
 import '../Engine/MpvFiles.dart';
@@ -604,7 +604,7 @@ class _ShaderPreviewState extends State<ShaderPreview> {
             const SizedBox(height: 8),
             ScrollConfig(
               context,
-              child: ScrollConfig(context, child: SingleChildScrollView(
+              child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
@@ -628,7 +628,7 @@ class _ShaderPreviewState extends State<ShaderPreview> {
                     ),
                   ],
                 ),
-              )),
+              ),
             ),
             if (_adjust.value) ...[
               const SizedBox(height: 4),
