@@ -239,15 +239,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "2962512138347f28417ac85f9385798b39ef6dd3";
+    version = "20e32eae0a7b85c0f26e85f5d70b08dd2142a386";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "2962512138347f28417ac85f9385798b39ef6dd3";
+      rev = "20e32eae0a7b85c0f26e85f5d70b08dd2142a386";
       fetchSubmodules = false;
-      sha256 = "sha256-m25aTwMppy4+YedtvEGs9OSBKO61qobB6e9KnuTCe1c=";
+      sha256 = "sha256-NnKo8WPufOKj4MUIPVea6fKnvNCUqOju4HjoWwz//5Q=";
     };
-    date = "2026-11-12";
+    date = "2026-11-13";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -311,17 +311,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "885ab32e5057dbc34522988de81b23a413c19b28";
+    version = "a9dbcf677472de082dfa0e2aa2c3dc82f4633391";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "885ab32e5057dbc34522988de81b23a413c19b28";
+      rev = "a9dbcf677472de082dfa0e2aa2c3dc82f4633391";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-lGY1B+tS+mGvtRkNCDZ6cZqtsiYS3eDCR84ca8kKl6A=";
+      sha256 = "sha256-enJEZ9COWPkpNrZzdFN5vG5GZKvOidTDfRz7f1OMzbs=";
     };
-    date = "2026-11-12";
+    date = "2026-11-13";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
