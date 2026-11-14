@@ -73,11 +73,11 @@ error:
   1148|     || (
 
 … while calling the 'toString' builtin
-  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:340:28:
-   339|
-   340|             for crate in ${toString depCrates}; do
+  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:351:28:
+   350|
+   351|             for crate in ${toString depCrates}; do
       |                            ^
-   341|               # Link the crate directory, removing the output path hash from the destination.
+   352|               # Link the crate directory, removing the output path hash from the destination.
 
 … while calling the 'deepSeq' builtin
   at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:125:15:
@@ -118,4 +118,4 @@ error:
 
 … while realising the context of path '/nix/store/w21vjc9wrjv0lzffbxkxld6qwkmkrflh-source/Cargo.lock'
 
-error: path '/nix/store/vxgb120d38hkrfwcfm7kmvhi0vqlxpnj-source.drv' is not valid
+error: path '/nix/store/lgn4vvbs045jxaf9mq89mqd3zz71w9qf-source.drv' is not valid
