@@ -53,7 +53,7 @@ in
     disable = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       # servicelb (klipper-lb) stays off: no LoadBalancer services, no :80/:443
-      # binds on nodes — Caddy on the router owns the edge. NOTE: packaged
+      # binds on nodes — the Traefik DaemonSet pinned to the router owns the edge. NOTE: packaged
       # disable flags must be identical on ALL servers; a single server with
       # a component enabled deletes the shared Addon cluster-wide (observed
       # with traefik). Keep this default uniform; override per-host only to
@@ -62,13 +62,27 @@ in
         "traefik"
         "servicelb"
       ];
-      description = "Disable default k3s components (traefik stays off unless traefik.enable; router Caddy owns the edge).";
+      description = "Disable default k3s components (traefik stays off unless traefik.enable).";
     };
 
     disableAgent = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Only run the server (etcd/control-plane, no kubelet workloads). For quorum-only members like the router.";
+    };
+
+    nodeTaints = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      example = [ "dedicated=edge:NoSchedule" ];
+      description = "Extra --node-taint= flags for k3s servers.";
+    };
+
+    nodeIP = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      example = "10.1.0.1";
+      description = "Pin --node-ip/--advertise-address (multi-homed hosts only; the router's WAN IP churns and wedges etcd membership).";
     };
 
     firewallInterfaces = lib.mkOption {
@@ -81,10 +95,19 @@ in
     traefik = {
       enable = lib.mkEnableOption "k3s Traefik ingress (NodePort service with pinned nodePorts)";
 
+      tcpEntrypoints = lib.mkOption {
+        type = lib.types.attrsOf lib.types.port;
+        default = { };
+        example = {
+          netbird = 9443;
+        };
+        description = "Extra TCP entrypoints (e.g. NetBird); empty until its port map is known.";
+      };
+
       httpNodePort = lib.mkOption {
         type = lib.types.port;
         default = 30080;
-        description = "Pinned NodePort for Traefik web (what Caddy forwards to).";
+        description = "Pinned NodePort for Traefik web (legacy now that the edge binds :80 directly via hostNetwork).";
       };
 
       httpsNodePort = lib.mkOption {
@@ -158,9 +181,14 @@ in
         if cfg.traefik.enable then builtins.filter (x: x != "traefik") cfg.disable else cfg.disable
       );
       serverAddr = lib.mkIf (cfg.serverAddr != null) cfg.serverAddr;
-      extraFlags = map (san: "--tls-san=${san}") cfg.extraSANs ++ [
-        "--resolv-conf=/etc/rancher/k3s/resolv.conf"
-      ];
+      extraFlags =
+        map (san: "--tls-san=${san}") cfg.extraSANs
+        ++ [
+          "--resolv-conf=/etc/rancher/k3s/resolv.conf"
+        ]
+        ++ map (t: "--node-taint=${t}") cfg.nodeTaints
+        ++ lib.optional (cfg.nodeIP != null) "--node-ip=${cfg.nodeIP}"
+        ++ lib.optional (cfg.nodeIP != null) "--advertise-address=${cfg.nodeIP}";
       manifests = lib.mkIf cfg.traefik.enable {
         "traefik-config.yaml".content = {
           apiVersion = "helm.cattle.io/v1";
@@ -170,13 +198,67 @@ in
             namespace = "kube-system";
           };
           spec.valuesContent = ''
+            # Service (NodePort) is recreated by helm when missing; host ports are the edge.
+            deployment:
+              kind: DaemonSet
+            updateStrategy:
+              type: RollingUpdate
+              rollingUpdate:
+                maxUnavailable: 1
+                maxSurge: 0
+            hostNetwork: true
+            nodeSelector:
+              kubernetes.io/hostname: router
+            tolerations:
+              - key: dedicated
+                operator: Equal
+                value: edge
+                effect: NoSchedule
+            accesslog: true
+            # Non-root + NET_BIND_SERVICE does not work on this k3s/containerd:
+            # granted caps stay in the bounding set only (CapEff 0 for uid != 0),
+            # so the listener bind fails with EACCES. Run as root instead, with
+            # the container capability set still restricted to NET_BIND_SERVICE.
+            podSecurityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              runAsNonRoot: false
+              seccompProfile:
+                type: RuntimeDefault
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+                add:
+                  - NET_BIND_SERVICE
+              readOnlyRootFilesystem: true
+            metrics:
+              prometheus:
+                entryPoint: metrics
+            additionalArguments:
+              - --entrypoints.metrics.address=127.0.0.1:8082
             service:
-              type: NodePort
+              # Chart 40.x renders service.spec verbatim and ignores service.type;
+              # k3s packaged defaults set spec.type=LoadBalancer, so override it here.
+              spec:
+                type: NodePort
             ports:
               web:
+                port: 80
                 nodePort: ${toString cfg.traefik.httpNodePort}
+                redirectTo: websecure
               websecure:
+                port: 443
                 nodePort: ${toString cfg.traefik.httpsNodePort}
+              metrics:
+                port: 8082
+            ${lib.concatStringsSep "\n" (
+              lib.mapAttrsToList (name: port: ''
+                ${name}:
+                  port: ${toString port}
+                  expose: false'') cfg.traefik.tcpEntrypoints
+            )}
           '';
         };
       };

@@ -77,7 +77,7 @@ let
       # fall through the forwarder zone to the real public record (Cloudflare),
       # which advertises an ECH config for the Cloudflare edge. A client then
       # encrypts its ClientHello for Cloudflare's ECH key but sends it to the
-      # local A-record target (this router's Caddy), which can't decrypt it,
+      # local A-record target (this router's edge proxy), which can't decrypt it,
       # causing SSL_ERROR_INTERNAL_ERROR_ALERT. Override HTTPS locally too,
       # without an ech param, so it matches the local origin.
       {
@@ -137,7 +137,6 @@ in
     inputs.nixcfg.modules.nixos.monitoring
     inputs.nixcfg.modules.nixos.internet
     ./kea.nix
-    ./virtual-hosts.nix
     inputs.catppuccin.nixosModules.catppuccin
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.default
@@ -341,8 +340,13 @@ in
       clusterInit = false;
       serverAddr = "https://10.1.0.3:6443";
       tokenFile = config.sops.secrets."k3s-token".path;
-      # Quorum vote only: no kubelet, no workloads on the edge box.
-      disableAgent = true;
+      # Edge workloads allowed: kubelet on, but the node taint keeps
+      # everything except the Traefik DaemonSet off this box.
+      disableAgent = false;
+      nodeTaints = [ "dedicated=edge:NoSchedule" ];
+      # Pin k3s to the LAN IP: the WAN IP churns (ISP DHCP) and a changed
+      # advertise address wedges etcd cluster membership on restart.
+      nodeIP = "10.1.0.1";
       # Traefik must be enabled on EVERY server: k3s shares one Addon
       # object per packaged chart, and a server with --disable=traefik
       # deletes it cluster-wide (observed: router join uninstalled Traefik
@@ -363,6 +367,14 @@ in
     boot.enable = true;
   };
   nixcfg.users.toyvo.enable = true;
+  security.sudo.extraConfig = ''
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/nixos-container *
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/journalctl *
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/systemctl status *
+    # TEMPORARY DEBUG: passwordless k3s for faster agent-driven diagnostics.
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/k3s *
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/kubectl *
+  '';
   systemd = {
     network = {
       enable = true;
@@ -524,16 +536,14 @@ in
           forward_to = [prometheus.relabel.instance.receiver]
           scrape_interval = "30s"
         }
-      '';
-      textfileDirectory = "/var/lib/alloy/textfiles";
-    };
-    caddy = {
-      enable = true;
-      globalConfig = ''
-        servers {
-          metrics
+        // Traefik edge metrics (DaemonSet hostNetwork, metrics on loopback)
+        prometheus.scrape "traefik" {
+          targets = [{"__address__" = "127.0.0.1:8082"}]
+          forward_to = [prometheus.relabel.instance.receiver]
+          scrape_interval = "30s"
         }
       '';
+      textfileDirectory = "/var/lib/alloy/textfiles";
     };
     cloudflare-dyndns = {
       enable = true;
@@ -627,10 +637,12 @@ in
       Type = "oneshot";
       User = "root";
       Group = "root";
+      StateDirectory = "kea-technitium-ddns";
       Environment = [
-        "KEA_LEASES=/var/lib/kea/dhcp4.leases"
+        "KEA_SOCKET=/run/kea/kea-dhcp4.socket"
         "DNS_ZONE=home.arpa"
         "ALLOWED_SUBNETS=1"
+        "GRACE_PERIOD_SEC=3600"
         "STATIC_NAMES_FILE=${pkgs.writeText "kea-ddns-static-names.json" (builtins.toJSON (builtins.attrNames homelab))}"
         "TECHNITIUM_URL=http://127.0.0.1:${toString homelab.${hostName}.services.technitium.port}"
         "TECHNITIUM_TOKEN_FILE=${config.sops.secrets.technitium_api_key.path}"
@@ -643,8 +655,37 @@ in
     description = "Periodic Kea to Technitium DNS sync";
     wantedBy = [ "timers.target" ];
     timerConfig = {
-      OnBootSec = "2min";
-      OnUnitActiveSec = "2min";
+      OnBootSec = "1min";
+      OnUnitActiveSec = "1min";
+      Persistent = true;
+    };
+  };
+  # Sync NixOS ACME wildcard certs into cluster TLS secrets for edge Traefik.
+  systemd.services.traefik-cert-sync = {
+    description = "Sync ACME wildcard certs into cluster TLS secrets";
+    after = [
+      "network.target"
+      "k3s.service"
+    ];
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      Group = "root";
+      Environment = [
+        "KUBECONFIG=/etc/rancher/k3s/k3s.yaml"
+        # Literal quotes: systemd splits unquoted Environment values on spaces
+        # and silently drops the extra words ("Invalid environment assignment").
+        ''"NAMESPACES=edge default"''
+      ];
+      ExecStart = lib.getExe inputs.nixcfg.packages.${system}.traefik-cert-sync;
+    };
+  };
+  systemd.timers.traefik-cert-sync = {
+    description = "Periodic ACME to cluster TLS secret sync";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "5min";
+      OnUnitActiveSec = "1h";
       Persistent = true;
     };
   };

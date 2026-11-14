@@ -1,6 +1,17 @@
-{ config, lib, ... }:
+{
+  config,
+  homelab,
+  lib,
+  ...
+}:
 let
   cfg = config.nixcfg.k3sStarr;
+  middlewaresLib = import ./k3s-traefik-middlewares.nix { inherit lib; };
+  # Router middleware annotation for an app's Ingress, driven by its
+  # homelab flags (same selection as the edge IngressRoutes).
+  ingressAnnotations = svc: {
+    "traefik.ingress.kubernetes.io/router.middlewares" = middlewaresLib.ingressMiddlewareAnnotation svc;
+  };
   # linuxserver.io images honor PUID/PGID; pinned to match the existing
   # state dir ownership (ids.uids/gids.prowlarr = 351).
   prowlarrImage = "lscr.io/linuxserver/prowlarr:2.6.5.5623-ls165";
@@ -158,9 +169,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "prowlarr";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.prowlarr;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "prowlarr.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "prowlarr.diekvoss.net";
@@ -308,9 +327,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "sonarr";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.sonarr;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "sonarr.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "sonarr.diekvoss.net";
@@ -458,9 +485,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "lidarr";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.lidarr;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "lidarr.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "lidarr.diekvoss.net";
@@ -608,9 +643,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "radarr";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.radarr;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "radarr.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "radarr.diekvoss.net";
@@ -758,9 +801,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "readarr";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.readarr;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "readarr.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "readarr.diekvoss.net";
@@ -908,9 +959,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "bazarr";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.bazarr;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "bazarr.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "bazarr.diekvoss.net";
@@ -1013,9 +1072,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "flaresolverr";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.flaresolverr;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "flaresolverr.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "flaresolverr.diekvoss.net";
@@ -1274,9 +1341,17 @@ in
           kind = "Ingress";
           metadata = {
             name = "qbittorrent";
+            # Same chains as the edge IngressRoutes (see k3s-traefik-middlewares.nix).
+            annotations = ingressAnnotations homelab.starr.services.qbittorrent;
           };
           spec = {
             ingressClassName = "traefik";
+            tls = [
+              {
+                hosts = [ "qbittorrent.diekvoss.net" ];
+                secretName = "wildcard-tls-diekvoss-net";
+              }
+            ];
             rules = [
               {
                 host = "qbittorrent.diekvoss.net";

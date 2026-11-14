@@ -195,8 +195,35 @@ in
     system.enable = true;
     boot.enable = true;
   };
+  sops.useSystemdActivation = true;
   sops.secrets."k3s-token" = { };
+  # DynamicUser tries to migrate the pre-existing (bind-mounted)
+  # /var/lib/kea to /var/lib/private and fails with EBUSY (status 238).
+  # Run as the kea system user against the persisted dir instead.
+  systemd.services.kea-dhcp4-server.serviceConfig.DynamicUser = lib.mkForce false;
+  systemd.services.kea-dhcp6-server.serviceConfig.DynamicUser = lib.mkForce false;
+  # With DynamicUser off nothing creates /run/kea owned by kea anymore
+  # (pid + logger lockfiles, control socket); declare it explicitly.
+  systemd.services.kea-dhcp4-server.serviceConfig.RuntimeDirectory = "kea";
+  systemd.services.kea-dhcp6-server.serviceConfig.RuntimeDirectory = "kea";
+  # The exporter shares kea's /run/kea runtime dir; a second DynamicUser
+  # identity fights over it (233/RUNTIME_DIRECTORY). Run it as the kea
+  # user too (stateless, only connects to kea's control socket).
+  systemd.services.prometheus-kea-exporter.serviceConfig.DynamicUser = lib.mkForce false;
+  systemd.services.prometheus-kea-exporter.serviceConfig.User = lib.mkForce "kea";
+  systemd.services.prometheus-kea-exporter.serviceConfig.Group = lib.mkForce "kea";
+  # Activation scripts don't run at boot, so on tmpfs root nothing would
+  # reinstall /run/secrets after a reboot (k3s then waits on the token
+  # forever). The systemd unit installs them at every boot instead.
   nixcfg.users.toyvo.enable = true;
+  security.sudo.extraConfig = ''
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/nixos-container *
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/journalctl *
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/systemctl status *
+    # TEMPORARY DEBUG: passwordless k3s for faster agent-driven diagnostics.
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/k3s *
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/kubectl *
+  '';
   systemd = {
     network = {
       enable = true;
@@ -210,10 +237,14 @@ in
       };
       networks.lan0 = {
         matchConfig.Name = "enp2s0 enp3s0 enp4s0";
+        # Bridge ports only; never gate boot on their carrier (often unplugged).
+        linkConfig.RequiredForOnline = "no";
         networkConfig.Bridge = "br0";
       };
       networks.br0 = {
         matchConfig.Name = "br0";
+        # No slaves with carrier when LAN ports are empty; don't gate boot.
+        linkConfig.RequiredForOnline = "no";
         address = [
           "${ipv4NetworkPrefix}.0.1/24"
           "${ipv6NetworkPrefix}::1/64"
@@ -238,6 +269,7 @@ in
       };
       networks."br0.${homeVlanId}" = {
         matchConfig.Name = "br0.${homeVlanId}";
+        linkConfig.RequiredForOnline = "no";
         address = [
           "${ipv4NetworkPrefix}.${homeVlanId}.1/24"
           "${ipv6NetworkPrefix}:${homeVlanId}::1/64"
@@ -256,6 +288,7 @@ in
       };
       networks."br0.${guestVlanId}" = {
         matchConfig.Name = "br0.${guestVlanId}";
+        linkConfig.RequiredForOnline = "no";
         address = [
           "${ipv4NetworkPrefix}.${guestVlanId}.1/24"
           "${ipv6NetworkPrefix}:${guestVlanId}::1/64"
@@ -274,6 +307,7 @@ in
       };
       networks."br0.${iotVlanId}" = {
         matchConfig.Name = "br0.${iotVlanId}";
+        linkConfig.RequiredForOnline = "no";
         address = [
           "${ipv4NetworkPrefix}.${iotVlanId}.1/24"
           "${ipv6NetworkPrefix}:${iotVlanId}::1/64"
@@ -585,6 +619,12 @@ in
       ];
     };
   };
+  # Static machine-id: tmpfs root + flaky inInitrd preservation minted a
+  # fresh id almost every boot, and herdr-core derives its identity from it
+  # (new machine-id -> regenerated core id -> "different core" mismatch).
+  # A fixed per-host id is exactly what machine-id is for; value adopted
+  # from the live system so the current herdr core stays valid.
+  environment.etc."machine-id".text = "7647ab6a7ede4c0db3d6fb1d3d3fbf9f";
   preservation.enable = true;
   preservation.preserveAt."/persistent" = {
     directories = [
@@ -595,13 +635,20 @@ in
 
       # DHCP leases (kea)
       "/var/lib/kea"
+
+      # k3s agent state (node password, kubelet certs, containerd cache) —
+      # without this the node gets a new identity every boot and cannot rejoin.
+      "/var/lib/rancher"
     ];
 
     files = [
-      # Machine ID (for systemd, DHCP, etc.)
+      # k3s agent node identity: the agent mints it in tmpfs /etc on every
+      # boot and the server rejects mismatches, so the node can never
+      # rejoin. Persist the file; the password stabilizes after one last
+      # server-side clear + re-registration.
       {
-        file = "/etc/machine-id";
-        inInitrd = true;
+        file = "/etc/rancher/node/password";
+        mode = "0600";
       }
       # sops-nix age key (private key, must not be world-readable)
       {
@@ -632,6 +679,14 @@ in
       directories = [
         ".ssh"
         "nixcfg"
+        # herdr + herdr-core mutable settings, auth, and session state
+        # (XDG config + data + state; caches rebuild and are intentionally skipped).
+        ".config/herdr"
+        ".config/herdr-core"
+        ".local/share/herdr"
+        ".local/share/herdr-core"
+        ".local/state/herdr"
+        ".local/state/herdr-core"
       ];
       files = [
         # sops-nix age key (private key, must not be world-readable)
