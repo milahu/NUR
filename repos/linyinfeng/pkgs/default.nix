@@ -45,6 +45,7 @@ lib.makeScope newScope (
     matrix-media-repo = callPackage ./matrix-media-repo { };
     matrix-qq = callPackage ./matrix-qq { };
     matrix-wechat = callPackage ./matrix-wechat { };
+    mautrix-telegram = callPackage ./mautrix-telegram { };
     moe-koe-music = callPackage ./moe-koe-music { };
     mstickereditor = callPackage ./mstickereditor { };
     niri-taskbar = callPackage ./niri-taskbar { };
@@ -57,6 +58,7 @@ lib.makeScope newScope (
     rimePackagesFor = librime: callPackage ./rime-packages { inherit librime; };
     rlt = callPackage ./rlt { };
     ssl-handshake = callPackage ./ssl-handshake { };
+    stable-web = callPackage ./stable-web { };
     telegram-send = callPackage ./telegram-send { };
     tg-send = callPackage ./tg-send { };
     v86 = callPackage ./v86 { };
