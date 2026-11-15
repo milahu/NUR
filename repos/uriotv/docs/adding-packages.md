@@ -106,8 +106,12 @@ full package build must pass; `main` is protected for administrators too.
 .NET packages (`buildDotnetModule`) must use binary toolchains
 (`dotnetCorePackages.sdk_*-bin` / `runtime_*-bin`) and be listed in
 `scripts/refresh-dotnet-deps.sh`. The lock-update PR regenerates their
-`deps.json` for the new SDK automatically. CI rejects in seconds any build plan
-that would compile a compiler or SDK from source (`scripts/check-build-plan.py`);
+`deps.json` for the new SDK automatically. A package must survive any nixpkgs
+.NET state: it drops upstream's exact SDK pin (nixpkgs may pin a release
+candidate of the required band) and, when `deps.json` already pins the RID
+packs, it drops the duplicate target packs the binary SDK would add. CI rejects
+in seconds any build plan that would compile a compiler or SDK from source
+(`scripts/check-build-plan.py`);
 only a manual dispatch with `allow_heavy_builds` overrides it.
 The independently defined CachyOS packages keep source/config/patch metadata in
 `pkgs/<kernel>/source.json`; their version-only updater reads CachyOS directly.
@@ -139,11 +143,36 @@ closures, so dependencies also must be redistributable. Never mislabel a package
 or dependency merely to make it upload. NMSSaveEditor currently stays unfree and
 is built for validation but never explicitly sent to the public cache.
 
-Publication is automatic, but only from a successful `main` run, after offline
-tests and all package builds pass. The helper cross-checks built outputs against
-the manifest and verifies public narinfo `StorePath` values. PRs/updaters have no
-Cachix write token. Public cache misses can still lead consumers to build locally;
-Cachix retention/availability and differing consumer nixpkgs are not guaranteed.
+Publication is automatic, but only from a trusted `main` run, after the offline
+tests pass. The helper cross-checks built outputs against the manifest and verifies
+public narinfo `StorePath` values. PRs/updaters have no Cachix write token.
+
+Publication granularity follows the shape of the revision (`build.yml` compares
+the commit with its parent; `scripts/build-ci.sh` applies the decision):
+
+- `flake.lock`/`flake.nix` are shared by every package, so a commit that moves
+them is published **all-or-nothing**: one failing package means nothing is pushed.
+  An unknown revision shape (no parent commit) counts as a shared change.
+- A **package-only** commit publishes exactly the packages that built, so one
+  broken package does not hold back the rest of the cache. The run still fails and
+  the `cache` branch only advances for a commit whose whole build succeeded.
+
+Package updates are per package in the same way — one pull request per package:
+
+- `scripts/update-packages.sh` restores only the failing updater's directory and
+  keeps the remaining updates.
+- `scripts/revert-broken-updates.sh` then builds every changed package and rolls
+  back the ones that do not build (including a plan that would compile a toolchain
+  from source). The rolled-back package keeps the version `main` already has, is
+  listed in the run summary, and the next update run retries it.
+- `scripts/open-update-prs.sh` opens one `auto-update/<package>` PR per surviving
+  update, containing only that package and its README row, with squash auto-merge.
+  `build.yml` builds it and `test-gate` gates its merge, so a failing update stays
+  behind instead of blocking the others; the merged commit publishes exactly what
+  built. An existing open PR for the same package is updated, not duplicated.
+
+Public cache misses can still lead consumers to build locally; Cachix
+retention/availability and differing consumer nixpkgs are not guaranteed.
 
 ## Validate before submitting
 
