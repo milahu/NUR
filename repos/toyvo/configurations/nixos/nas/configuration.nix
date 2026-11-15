@@ -33,6 +33,9 @@ in
     inputs.nixcfg.modules.nixos.k3s-edge
     inputs.nixcfg.modules.nixos.k3s-homepage
     inputs.nixcfg.modules.nixos.k3s-homeassistant
+    inputs.nixcfg.modules.nixos.k3s-immich
+    inputs.nixcfg.modules.nixos.k3s-jellyfin
+    inputs.nixcfg.modules.nixos.k3s-nextcloud
     inputs.nixcfg.modules.nixos.k3s-storage
     inputs.nixcfg.modules.nixos.k3s-starr
     inputs.nixcfg.modules.nixos.monitoring
@@ -101,6 +104,7 @@ in
         4001 # lockd (fixed port, deterministic firewall)
         4002 # mountd (fixed port, deterministic firewall)
         4003 # statd (fixed port, deterministic firewall)
+        1025 # protonmail-bridge SMTP relay (LAN-bound for k3s nextcloud; bridge enforces SMTP AUTH)
       ];
       allowedUDPPorts = [
         53
@@ -148,6 +152,15 @@ in
     k3sEdge.enable = true;
     # Home Assistant (not starr); same cluster-wide pattern.
     k3sHomeassistant.enable = true;
+    # Immich (server + ML + Postgres + Valkey, live since 2026-11-14 cutover).
+    k3sImmich.enable = true;
+    # Jellyfin (official image, UID 359, DRI passthrough); replicas 1 from
+    # the start (cold sqlite seed + RO media = no shared-state hazard).
+    k3sJellyfin.enable = true;
+    # Nextcloud core (official image, UID 360, bundled Postgres + cron
+    # sidecar, Collabora dropped); replicas 1 from the start (fresh empty
+    # DB + state pre-flip, edge still routes to the container).
+    k3sNextcloud.enable = true;
     # Shared NFS storage (csi-driver-nfs + static pool PVs).
     # Single writer: enable ONLY here, never on another server.
     k3sStorage.enable = true;
@@ -291,6 +304,11 @@ in
         # Pod-level read-only is still enforced separately via the
         # pool-public-ro PV (mountOptions ro + csi.readOnly).
         /mnt/POOL/Public 10.1.0.0/24(rw,sync,no_subtree_check,root_squash)
+        # RW: k8s immich-server mounts the photo library here at /data.
+        /mnt/POOL/immich/library 10.1.0.0/24(rw,sync,no_subtree_check,root_squash)
+        # RW: k8s nextcloud external-storage mounts (verified local mounts).
+        /mnt/POOL/Collin 10.1.0.0/24(rw,sync,no_subtree_check,root_squash)
+        /mnt/POOL/Chloe 10.1.0.0/24(rw,sync,no_subtree_check,root_squash)
       '';
     };
     spice-vdagentd.enable = true;
@@ -342,19 +360,29 @@ in
   };
   nixcfg.containers = {
     immich = {
-      enable = true;
+      # Retired to k3s 2026-11-14 (DB restored + counts verified, server
+      # serving). Disabled (not deleted) so rollback is one flag flip;
+      # POOL state dirs remain on disk either way.
+      enable = false;
       natInterface = "eno1";
       stateDir = "/mnt/POOL/immich";
     };
     jellyfin = {
-      enable = true;
+      # Retired to k3s 2026-11-14 (state seeded + verified, DRI passed
+      # through). Disabled (not deleted) so rollback is one flag flip;
+      # POOL state dir remains on disk either way.
+      enable = false;
       natInterface = "eno1";
       stateDir = "/mnt/POOL/jellyfin";
       mediaDir = "/mnt/POOL/Public";
       plugins = [ inputs.nixcfg.packages.${system}.jellyfin-plugin-ldap-authentication ];
     };
     nextcloud = {
-      enable = true;
+      # Retired to k3s 2026-11-14 (DB restored + counts verified, apps
+      # installed, repair clean). Disabled (not deleted) so rollback is one
+      # flag flip; POOL state dirs remain on disk either way. Collabora goes
+      # with it (dropped in favor of a future OnlyOffice integration).
+      enable = false;
       natInterface = "eno1";
       stateDir = "/mnt/POOL/nextcloud";
       mediaDir = "/mnt/POOL";
@@ -435,10 +463,12 @@ in
       ldap.tokenFile = config.sops.secrets."authentik-ldap-token".path;
     };
   };
-  # Relay the bridge's localhost-only SMTP port to the nextcloud container's veth address.
-  # The bridge listens on 127.0.0.1:1025; socat forwards connections from the container.
-  systemd.services.protonmail-bridge-relay = {
-    description = "Relay protonmail-bridge SMTP to nextcloud container";
+  # Relay the bridge's localhost-only SMTP port to the LAN for the k8s
+  # Nextcloud pod (pods can't reach a container veth). The veth relay was
+  # removed with the retired container; the bridge itself enforces SMTP
+  # AUTH, so a LAN-bound relay is not an open relay.
+  systemd.services.protonmail-bridge-relay-lan = {
+    description = "Relay protonmail-bridge SMTP to LAN for k3s nextcloud";
     after = [
       "network.target"
       "protonmail-bridge.service"
@@ -446,15 +476,12 @@ in
     wants = [ "protonmail-bridge.service" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.socat}/bin/socat TCP-LISTEN:1025,bind=${config.nixcfg.containers.nextcloud.hostAddress},fork,reuseaddr TCP:127.0.0.1:1025";
+      ExecStart = "${pkgs.socat}/bin/socat TCP-LISTEN:1025,bind=10.1.0.3,fork,reuseaddr TCP:127.0.0.1:1025";
       Restart = "on-failure";
       RestartSec = "5s";
       DynamicUser = true;
     };
   };
-
-  networking.firewall.interfaces."ve-nextcloud".allowedTCPPorts = [ 1025 ];
-
   users.users.toyvo.extraGroups = [ "libvirtd" ];
   home-manager.users.toyvo.programs.beets.settings.directory = "/mnt/POOL/Public/Music";
   programs.dconf.enable = true;
@@ -666,6 +693,17 @@ in
       transmission
     ];
 
+  };
+  # The repo checkout: keep file ACLs VCS-clean between boots (new files
+  # are born without default ACLs; the 5-minute timer re-asserts entries).
+  # Scoped to the checkout only — never list media trees here (see option).
+  systemd.tmpfiles.generateRulesContinuous = {
+    "/home/toyvo/nixcfg" = with config.ids.uids; [
+      agent
+      toyvo
+    ];
+  };
+  systemd.tmpfiles.generateRules = {
     # Service-specific directories.
     "/mnt/POOL/home-assistant" = with config.ids.uids; [
       hass
