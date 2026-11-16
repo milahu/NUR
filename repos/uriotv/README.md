@@ -37,7 +37,7 @@ redistribution.
 | `photocraft` | `0.23.1` | Image editor (official binary release) | No: redistribution review pending |
 | `filmcraft` | `0.20.1` | Video editor (official binary release) | No: redistribution review pending |
 | `soundcraft` | `0.20.1` | Digital audio workstation (official binary release) | No: redistribution review pending |
-| `meitou-launcher` | `1.10.0` | Source-built launcher that downloads Meitou versions (requires Kenshi) | Yes |
+| `meitou-launcher` | `1.12.0` | Upstream launcher AppImage that downloads Meitou versions (requires Kenshi) | Yes |
 | `cybergrub2077` | `2.0.1-unstable-2026-02-28` | Cyberpunk 2077 inspired GRUB theme | Yes |
 | `nmssaveeditor` | `1.21.0` | Save editor for No Man's Sky | No: unfree |
 | `pig` | `0.7.0` | Pi coding agent rebuilt in Go as a native binary | Yes |
@@ -96,14 +96,13 @@ users; only the repository's `main` workflows can write to it.
 
 ### Meitou Launcher
 
-`meitou-launcher` builds the launcher from C# sources, not an AppImage. Run
+`meitou-launcher` wraps upstream's prebuilt launcher (the release AppImage, a
+NativeAOT executable) in an FHS environment; no .NET SDK is involved. Run
 `nix run github:urioTV/urio-nur#meitou-launcher` to manage settings and download
-official game versions. Downloads are upstream binaries managed by the launcher,
-not built or updated by Nix; an FHS environment provides Linux compatibility on
-NixOS. A legal Kenshi installation and a Vulkan-capable GPU are required.
-
-The launcher's NuGet dependencies include prebuilt native libraries. The
-launcher manages downloaded game binaries and their updates independently of Nix.
+official game versions. The AppImage is only unpacked, never run as an AppImage,
+so the launcher's own updater stays inactive and Nix owns its version. Game
+downloads are upstream binaries managed by the launcher, not built or updated by
+Nix. A legal Kenshi installation and a Vulkan-capable GPU are required.
 
 By default the launcher excludes Mesa's llvmpipe Vulkan driver: some Meitou
 versions can rank this CPU renderer above an integrated GPU. Explicit Vulkan or
@@ -138,7 +137,8 @@ Five workflows: one daily clock, one weekly lock update, and one branch that mar
 
 | Workflow | When | What it does |
 |---|---|---|
-| `update.yml` "Update packages" | every day at **02:00 `Europe/Warsaw`** (IANA timezone, follows DST), or manually | Checks every registered package for a newer upstream version and builds it. Updates that do not build are rolled back to the version on `main`; each remaining update gets its own `auto-update/<package>` PR with squash auto-merge, so no package waits for another. |
+| `update.yml` "Update packages" | every day at **02:00 `Europe/Warsaw`** (IANA timezone, follows DST), or manually | Checks every registered package for a newer upstream version and builds it. A failed updater or an update that does not build leaves that package on the version `main` already has; each remaining update gets its own `auto-update/<package>` PR with squash auto-merge, so no package waits for another. A failed updater still ends the run red (after the PRs are opened) so it gets noticed. |
+| `refresh-update-prs.yml` "Refresh update pull requests" | every push to `main` | If update PRs are still open they are now behind `main`, so the updater (or the lock update) is dispatched again and rebuilds them on the new base. Does nothing otherwise. |
 | `build.yml` "Build and populate cache" | on PRs, on pushes to `main`, after a successful update run on `main`, or manually | Runs offline tests and Nix evaluation checks, then builds every eligible package on the self-hosted runner. On `main` it publishes eligible outputs to `uriotv` and verifies each `StorePath`; a package-only commit publishes what built, a `flake.lock` commit is all-or-nothing. |
 | `kernel.yml` "Build CachyOS kernel (self-hosted)" | on every push to `main`, after a successful update run, or manually | Builds the kernel from source on our self-hosted builder (or realises it when already published), then publishes it after a licence check. |
 | `flake-update.yml` "Update flake.lock" | every **Sunday 03:00 `Europe/Warsaw`**, or manually | Updates every flake input in one PR with squash auto-merge. Kernels and packages then rebuild against the new lock. |

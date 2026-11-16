@@ -60,10 +60,19 @@ UPDATE_TIMEOUT_SECONDS=${UPDATE_TIMEOUT_SECONDS:-900}
 : "${GITHUB_STEP_SUMMARY:?GITHUB_STEP_SUMMARY must be set}"
 : "${BUILD_LOG_URL:?BUILD_LOG_URL must be set}"
 
+repo_root=$(pwd)
+
 # Each updater owns its package directory. Preserve the complete directory,
 # including untracked files and modes, before an updater can partially edit it.
 backup_root=$(mktemp -d)
-trap 'rm -rf "$backup_root"' EXIT
+# Updaters run in a git-less copy of the tree: nix-update copies the flake into the
+# store and re-evaluates it there, and with nix 2.35.6 a *git* flake reports a store
+# path that is never materialized, so `nix-update --flake` dies right after the
+# version bump with "opening file /nix/store/...-source: No such file or directory".
+# Without `.git` the copy is a plain path flake, which nix does materialize.
+work_copy=$(mktemp -d)
+mkdir "$work_copy/tree"
+trap 'rm -rf "$backup_root" "$work_copy"' EXIT
 
 run_update() {
   local script=$1
@@ -121,7 +130,7 @@ if [ -n "$UPDATE_PACKAGE" ]; then
     exit 1
   fi
 
-  run_update "$script"
+  scripts=("$script")
 else
   # Same convention as pkgs/default.nix: immediate directories with default.nix.
   # Preflight the entire registry: never silently ignore a new package whose
@@ -133,11 +142,47 @@ else
     [[ -x "$script" ]] || { echo "::error::Missing executable updater: $script"; exit 1; }
     scripts+=("$script")
   done
-  [[ ${#scripts[@]} -gt 0 ]] || { echo '::error::No packages discovered'; exit 1; }
-  for script in "${scripts[@]}"; do
-    run_update "$script"
-  done
 fi
+[[ ${#scripts[@]} -gt 0 ]] || { echo '::error::No packages discovered'; exit 1; }
+
+tar -C "$repo_root" --exclude=.git -cf - . | tar -C "$work_copy/tree" -xf -
+
+# nix-update still asks git for the pending diff of the file it edits ("git diff --
+# <file>", to recover the old version of an already bumped package) and crashes
+# outside a repository. Answer exactly that question from the checkout's history,
+# with the copy as the work tree; every other git call (ls-remote, clone,
+# nix-prefetch-git) reaches the real git untouched. Read-only: no index refresh.
+if real_git=$(command -v git) &&
+   git_dir=$(git -C "$repo_root" rev-parse --absolute-git-dir 2> /dev/null); then
+  mkdir "$work_copy/bin"
+  {
+    echo '#!/usr/bin/env bash'
+    printf 'real_git=%q\ngit_dir=%q\nwork_tree=%q\n' "$real_git" "$git_dir" "$work_copy/tree"
+    # shellcheck disable=SC2016 # expanded by the shim, not here
+    echo 'if [[ "${1:-}" == diff && "$PWD/" == "$work_tree"/* ]]; then
+  exec env GIT_OPTIONAL_LOCKS=0 "$real_git" --git-dir="$git_dir" --work-tree="$work_tree" "$@"
+fi
+exec "$real_git" "$@"'
+  } > "$work_copy/bin/git"
+  chmod +x "$work_copy/bin/git"
+  PATH="$work_copy/bin:$PATH"
+fi
+
+cd "$work_copy/tree"
+for script in "${scripts[@]}"; do
+  run_update "$script"
+done
+
+# Publish the updaters' results back into the checkout; the git-based steps
+# (revert, PR creation) work on that tree.
+cd "$repo_root"
+for directory in "$work_copy"/tree/pkgs/*/; do
+  name=$(basename "${directory%/}")
+  if ! diff -rq "$directory" "pkgs/$name" > /dev/null 2>&1; then
+    rm -rf -- "pkgs/$name"
+    cp -a "$directory" "pkgs/$name"
+  fi
+done
 
 # The summary goes to the job step summary (the update run opens one pull request
 # per package, so there is no aggregate PR body to fill).

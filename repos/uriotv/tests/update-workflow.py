@@ -209,6 +209,44 @@ class UpdateWorkflowTests(unittest.TestCase):
         self.assertIn(r"download failed \| \<error\> \`EOF\`", summary)
         self.assertIn("https://example.org/build/123", summary)
 
+    def test_updaters_run_in_a_git_less_copy_and_results_come_back(self):
+        # nix-update copies the flake into the store and re-evaluates it; nix 2.35.6
+        # never materializes that copy for a *git* flake, so updaters must see a
+        # plain path flake (no .git) and their changes are copied back afterwards.
+        (self.root / ".git").mkdir()
+        self.package("a-good",
+                     'if [ -e .git ]; then echo "git visible to the updater" >&2; exit 1; fi\n'
+                     'echo "updater cwd: $PWD"\n'
+                     'echo updated > pkgs/a-good/default.nix')
+        result = self.run_updates()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("updater cwd: /", result.stdout)
+        self.assertNotIn(f"updater cwd: {self.root}", result.stdout)
+        self.assertEqual((self.root / "pkgs/a-good/default.nix").read_text(), "updated\n")
+        self.assertIn("| a-good | ✅ Success |", self.summary.read_text())
+
+    def test_git_diff_of_an_edited_file_still_works_in_the_git_less_copy(self):
+        # nix-update runs `git diff -- <file>` on the file it edits and crashes
+        # outside a repository; the copy answers it from the checkout's history.
+        git = ["git", "-c", "user.name=t", "-c", "user.email=t@example.org", "-C", str(self.root)]
+        self.package("a-good",
+                     'if [ -e .git ]; then echo "git visible to the updater" >&2; exit 1; fi\n'
+                     'git diff --color=never --word-diff=porcelain -- "$PWD/pkgs/a-good/default.nix" > /dev/null\n'
+                     'echo updated > pkgs/a-good/default.nix\n'
+                     'git diff --color=never --word-diff=porcelain -- "$PWD/pkgs/a-good/default.nix"\n'
+                     'git --version > /dev/null')
+        subprocess.run([*git, "init", "-q"], check=True)
+        subprocess.run([*git, "add", "-A"], check=True)
+        subprocess.run([*git, "commit", "-qm", "base"], check=True)
+        result = self.run_updates()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("-original", result.stdout)
+        self.assertIn("+updated", result.stdout)
+        self.assertEqual((self.root / "pkgs/a-good/default.nix").read_text(), "updated\n")
+        status = subprocess.run([*git, "status", "--porcelain", "--", "pkgs"], text=True,
+                                capture_output=True, check=True).stdout
+        self.assertEqual(status.strip(), "M pkgs/a-good/default.nix")
+
     def test_all_failures_are_warnings_and_leave_no_partial_updates(self):
         for name in ("a", "b"):
             self.package(name, f"echo partial > pkgs/{name}/default.nix\nexit 1")
