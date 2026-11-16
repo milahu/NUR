@@ -1,16 +1,16 @@
 {
 "name":"uriotv",
-"fetch_time":0.383,
-"eval_time":1.699,
+"fetch_time":0.512,
+"eval_time":1.929,
 "source":{
 "url":"https://github.com/urioTV/urio-nur",
-"rev":"8c41303894807db697d99b17c17f72188c66baa7",
-"sha256":"18z7f12i1rpd637z33lbrwm94c52734530sx0zhr7k2ysl44crbj",
+"rev":"7985636580b7ae5194fd40f62faf101b7f884660",
+"sha256":"0p5mz2mc3xjzzhymp5s4f8jr6qxl44jakv8l3p864ivzb625vfqh",
 "date":null
 },
-"source_storepath":"/nix/store/w5j2qln3c4kqy0zgxls49hhmykl6v37s-source",
-"nixpkgs_storepath":"/nix/store/0ya4nbmac3fw13w4hmqyc41svdf7z352-source",
-"nur_combined_rev":"429f418ae0fbb95b0a0c69f2c8d4695a63331f9b",
+"source_storepath":"/nix/store/f3gvfllicw2gipggpn15zfigyb14d8sw-source",
+"nixpkgs_storepath":"/nix/store/w3vb3iq9xf9g3gpq3295m1ypbqv8a7q6-source",
+"nur_combined_rev":"9f466417ed15a4aca441534e7f1677b629a855ab",
 "packages":{
 "cybergrub2077":{
 "drvPath":"/nix/store/7c4p71ydsp93wmll9bybyb2idmdiizay-cyber-grub-2077-2.0.1-unstable-2026-02-28.drv",
@@ -390,7 +390,7 @@
 "version":"0.19.1"
 },
 "lantern-engine":{
-"drvPath":"/nix/store/1627pril6srgisp6h1pn2q1mib96nnbp-lantern-engine-0.9.42.drv",
+"drvPath":"/nix/store/a5d70ygg4hwwi5lpwk1i1wrgaa514ijw-lantern-engine-0.9.42.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -621,7 +621,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/0ya4nbmac3fw13w4hmqyc41svdf7z352-source/pkgs/os-specific/linux/kernel/build.nix",
+"file":"/nix/store/w3vb3iq9xf9g3gpq3295m1ypbqv8a7q6-source/pkgs/os-specific/linux/kernel/build.nix",
 "line":614
 },
 "name":"linux-cachyos-latest-x86_64-v3-7.3.4",
@@ -738,7 +738,7 @@
 ],
 "teamsPosition":{
 "column":7,
-"file":"/nix/store/0ya4nbmac3fw13w4hmqyc41svdf7z352-source/pkgs/os-specific/linux/kernel/build.nix",
+"file":"/nix/store/w3vb3iq9xf9g3gpq3295m1ypbqv8a7q6-source/pkgs/os-specific/linux/kernel/build.nix",
 "line":615
 },
 "timeout":14400,
@@ -757,11 +757,11 @@
 "version":"7.3.4"
 },
 "meitou-launcher":{
-"drvPath":"/nix/store/gl0fi3j94j15g9bkpk623ww6h7p831qv-meitou-launcher-1.10.0.drv",
+"drvPath":"/nix/store/g2igpsf5h1bj874n3g6dva3kg1ar0p0f-meitou-launcher-1.12.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Meitou game launcher; downloads game versions and requires Kenshi",
+"description":"Meitou game launcher (upstream binary); downloads game versions and requires Kenshi",
 "homepage":"https://github.com/VlcekM/MeitouClient",
 "identifiers":{
 "cpeParts":{
@@ -805,7 +805,7 @@
 },
 "mainProgram":"meitou-launcher",
 "maintainers":[],
-"name":"meitou-launcher-1.10.0",
+"name":"meitou-launcher-1.12.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -813,24 +813,30 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/meitou-launcher/default.nix:84",
+"position":"./pkgs/meitou-launcher/default.nix:46",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
 "message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
 }
 },
+"sourceProvenance":[
+{
+"isSource":false,
+"shortName":"binaryNativeCode"
+}
+],
 "unfree":false,
 "unsupported":false
 },
-"name":"meitou-launcher-1.10.0",
+"name":"meitou-launcher-1.12.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"meitou-launcher",
 "system":"x86_64-linux",
-"version":"1.10.0"
+"version":"1.12.0"
 },
 "nmssaveeditor":{
 "name":"nmssaveeditor-1.21.0",
@@ -1080,7 +1086,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w5j2qln3c4kqy0zgxls49hhmykl6v37s-source/pkgs/pig/default.nix",
+"file":"/nix/store/f3gvfllicw2gipggpn15zfigyb14d8sw-source/pkgs/pig/default.nix",
 "line":37
 },
 "name":"pig-0.7.0",
@@ -1237,7 +1243,7 @@
 "version":"1.17.4"
 },
 "scopebuddy":{
-"drvPath":"/nix/store/p14r3234zr28126kqv8bvf8i71kxxq70-scopebuddy-1.5.0.drv",
+"drvPath":"/nix/store/gbys50ypqh89102rz9j2ijqcdw1iahhs-scopebuddy-1.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1316,7 +1322,7 @@
 "s390-linux",
 "s390x-linux"
 ],
-"position":"./pkgs/scopebuddy/default.nix:56",
+"position":"./pkgs/scopebuddy/default.nix:93",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
