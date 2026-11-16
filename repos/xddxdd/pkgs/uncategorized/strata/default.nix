@@ -2,7 +2,6 @@
   lib,
   autoAddDriverRunpath,
   cmake,
-  cudaArchitectures ? "75;80;86;89;120",
   cudaPackages,
   fetchFromGitHub,
   makeWrapper,
@@ -12,7 +11,15 @@
 }:
 
 let
-  version = "0.2.13.1";
+  version = "0.2.14.1";
+  cudaCapabilities = cudaPackages.backendStdenv.cudaCapabilities;
+  cudaArchitectures = lib.concatMapStringsSep ";" (lib.replaceStrings
+    [ "." ]
+    [ "" ]
+  ) cudaCapabilities;
+  experimentalSm60 = lib.any (capability: lib.versionOlder capability "7.5") cudaCapabilities;
+  # setup.py keeps the experimental CUDA 12 engine in its own folder (engine_dir(12))
+  engineSubdir = if experimentalSm60 then "engine-cuda12" else "engine";
   llamaRev = "3cf03257f219afbe7334045ff7c6a06ac68c627d";
   llamaSrc = fetchFromGitHub {
     owner = "ggml-org";
@@ -47,7 +54,7 @@ let
       owner = "Niko1221";
       repo = "Strata";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-nQ3Jdui9y6r5FqsEoJraKsqBLeCTRRERU0zS8CQTqSY=";
+      hash = "sha256-ArbEf8k8qCBZEsFTuhPu1l8W+FU2auZiTVAOHj0ZvaY=";
     };
 
     __structuredAttrs = true;
@@ -73,6 +80,7 @@ let
     cmakeFlags = [
       (lib.cmakeBool "STRATA_ENABLE_CUDA" true)
       (lib.cmakeBool "STRATA_BUILD_TESTS" false)
+      (lib.cmakeBool "STRATA_EXPERIMENTAL_SM60" experimentalSm60)
       (lib.cmakeBool "STRATA_PORTABLE" false)
       (lib.cmakeFeature "STRATA_GGML_DIR" "${llamaSrc}")
       (lib.cmakeFeature "CMAKE_CUDA_ARCHITECTURES" cudaArchitectures)
@@ -94,8 +102,8 @@ let
 
       cd "$cmakeDir"
 
-      install -Dm755 build/strata "$out/share/strata/engine/strata"
-      install -Dm755 build-vision/bin/strata-vision "$out/share/strata/engine/strata-vision"
+      install -Dm755 build/strata "$out/share/strata/${engineSubdir}/strata"
+      install -Dm755 build-vision/bin/strata-vision "$out/share/strata/${engineSubdir}/strata-vision"
       install -Dm644 ${./hydrate.py} "$out/libexec/strata/hydrate.py"
 
       cp -a . "$out/share/strata/"
@@ -116,15 +124,14 @@ let
 
       meta = {
           "source": "local",
-          "version": "${finalAttrs.version}",
-          "archs": [int(a) for a in "${cudaArchitectures}".split(";")],
+          "version": setup.source_version(),
+          "archs": setup.arch_numbers("${cudaArchitectures}"),
           "vision": "gpu",
-          "vision_archs": [int(a) for a in "${cudaArchitectures}".split(";")],
           "vision_src": setup.source_hash(setup.VISION_SOURCES),
-          "cuda": ${lib.versions.major cudaPackages.cuda_nvcc.version},
           "src": setup.source_hash(setup.ENGINE_SOURCES),
+          ${lib.optionalString experimentalSm60 "\"toolkit\": 12,"}
       }
-      with open("engine/BUILD.json", "w", encoding="utf-8") as f:
+      with open("${engineSubdir}/BUILD.json", "w", encoding="utf-8") as f:
           json.dump(meta, f, indent=1)
       PYEOF
       rm -rf "$out/share/strata/__pycache__"
