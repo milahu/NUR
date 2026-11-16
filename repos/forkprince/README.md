@@ -94,6 +94,7 @@ This repository contains three types of packages:
 | [`micro`](pkgs/micro/default.nix) | micro |
 | [`mocktail`](pkgs/mocktail/default.nix) | [mocktail](https://github.com/komaruworld/mocktail), play Roblox on Linux |
 | [`moonplayer`](pkgs/moonplayer/default.nix) | [moonplayer](https://github.com/coslyk/moonplayer), video player that can play online videos from YouTube, Bilibili etc |
+| [`motrix`](pkgs/motrix/default.nix) | [motrix](https://motrix.app/), a full-featured download manager |
 | [`muxy`](pkgs/muxy/default.nix) | [muxy](https://muxy.app/), lightweight and Memory efficient terminal for Mac built with SwiftUI and libghostty |
 | [`nightcap`](pkgs/nightcap/default.nix) | [nightcap](https://github.com/CoderDayton/nightcap), roblox on Linux, tuned for desktop play |
 | [`nintoolbox`](pkgs/nintoolbox/default.nix) | [nintoolbox](https://github.com/quatric/nintoolbox), toolbox for Nintendo game file formats |
@@ -152,6 +153,7 @@ This repository contains three types of packages:
 | [`sonixd`](pkgs/sonixd/default.nix) | [sonixd](https://github.com/jeffvli/sonixd), full-featured Subsonic/Jellyfin compatible desktop music player |
 | [`sonora`](pkgs/sonora/default.nix) | [sonora](https://sonorahq.org/), a native, familiar music streaming client |
 | [`soundcraft`](pkgs/soundcraft/default.nix) | [soundcraft](https://getartcraft.com/apps/soundcraft), digital audio workstation for audio recording, editing and mixing |
+| [`spotifast`](pkgs/spotifast/default.nix) | [spotifast](https://spotifast.rocks/), fast, native Spotify client |
 | [`steam`](pkgs/steam/default.nix) | [steam](https://store.steampowered.com/), digital distribution platform |
 | [`steamac`](pkgs/steamac/default.nix) | [steamac](https://github.com/fxgl/steamac), valve's official ARM64 SteamOS in a lightweight VM on Apple Silicon |
 | [`streamnook`](pkgs/streamnook/default.nix) | [streamnook](https://streamnook.app), a native desktop client for Twitch, Kick and YouTube multi-streaming |
@@ -183,6 +185,7 @@ This repository contains three types of packages:
 | [`yaagl-zzz`](pkgs/yaagl/default.nix) | [yaagl-zzz-cn](https://github.com/yaagl/yet-another-anime-game-launcher), yet another anime game launcher for ZZZ (cn) |
 | [`yaagl-zzz-os`](pkgs/yaagl/default.nix) | [yaagl-zzz-os](https://github.com/yaagl/yet-another-anime-game-launcher), yet another anime game launcher for ZZZ (os) |
 | [`yapfast`](pkgs/yapfast/default.nix) | [yapfast](https://github.com/yapfast/yapfast), native Discord client that stays light on memory |
+| [`zapfast`](pkgs/zapfast/default.nix) | [zapfast](https://zapfast.rocks/), fast, native WhatsApp client |
 | [`zed-editor`](pkgs/zed-editor/default.nix) | zed-editor |
 | [`zeiger`](pkgs/zeiger/default.nix) | [zeiger](https://zeigerviewer.com/), fast, free, no-nonsense image viewer |
 <!-- PACKAGES:END -->
