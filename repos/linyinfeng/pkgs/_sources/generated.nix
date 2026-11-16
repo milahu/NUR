@@ -19,16 +19,16 @@
   };
   baibot = {
     pname = "baibot";
-    version = "v2026.11.14.2";
+    version = "v2026.11.15.0";
     src = fetchFromGitHub {
       owner = "etkecc";
       repo = "baibot";
-      rev = "v2026.11.14.2";
+      rev = "v2026.11.15.0";
       fetchSubmodules = false;
-      sha256 = "sha256-9Nl+EcBxfN2WqRI0rgFBswSCxHxtixYhDnMQcvmlsMs=";
+      sha256 = "sha256-h0v2YnTG2rj/+XCZhj5v4LclkqFB9A7UnkFQDZqQ1s0=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-9Nl+EcBxfN2WqRI0rgFBswSCxHxtixYhDnMQcvmlsMs=/Cargo.lock";
+      lockFile = ./. + "/sha256-h0v2YnTG2rj_+XCZhj5v4LclkqFB9A7UnkFQDZqQ1s0=/Cargo.lock";
       outputHashes = {
 
       };
@@ -50,13 +50,13 @@
   };
   cowrie = {
     pname = "cowrie";
-    version = "v3.1.6";
+    version = "v3.1.7";
     src = fetchFromGitHub {
       owner = "cowrie";
       repo = "cowrie";
-      rev = "v3.1.6";
+      rev = "v3.1.7";
       fetchSubmodules = false;
-      sha256 = "sha256-1/m3kuJhI0eyigl5wOso9/pWxAopoaWy1RDKlnDhqrw=";
+      sha256 = "sha256-DHgrtTM/9ATzMpm9vwR+Hdf4WhGS1Vmkwtcji3pQ54U=";
     };
   };
   dot-tar = {
