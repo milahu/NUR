@@ -1,0 +1,130 @@
+error:
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/customisation.nix:421:13:
+   420|           drvPath =
+   421|             assert condition;
+      |             ^
+   422|             drv.drvPath;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
+   982|       };
+   983|       validity = assertValidity { inherit meta attrs; };
+      |                  ^
+   984|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:664:5:
+   663|     in
+   664|     { meta, attrs }:
+      |     ^
+   665|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:669:5:
+   668|     in
+   669|     if invalid == null then
+      |     ^
+   670|       if problems == null then
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:666:17:
+   665|     let
+   666|       invalid = checkValidity' attrs;
+      |                 ^
+   667|       problems = checkProblems attrs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:351:5:
+   350|     in
+   351|     attrs:
+      |     ^
+   352|     if !attrs ? meta then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:393:10:
+   392|       }
+   393|     else if hasUnsupportedPlatform' attrs then
+      |          ^
+   394|       let
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:393:13:
+   392|       }
+   393|     else if hasUnsupportedPlatform' attrs then
+      |             ^
+   394|       let
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:150:7:
+   149|       in
+   150|       pkg:
+      |       ^
+   151|       # in almost all cases, platforms are a simple list of strings, and we
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:158:7:
+   157|       )
+   158|       || (
+      |       ^
+   159|         pkg ? meta.badPlatforms
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:156:9:
+   155|         pkg ? meta.platforms
+   156|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |         ^
+   157|       )
+
+… in the argument of the not operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:156:52:
+   155|         pkg ? meta.platforms
+   156|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |                                                    ^
+   157|       )
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:156:52:
+   155|         pkg ? meta.platforms
+   156|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |                                                    ^
+   157|       )
+
+… while calling the 'elem' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:156:14:
+   155|         pkg ? meta.platforms
+   156|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |              ^
+   157|       )
+
+… while evaluating the attribute 'meta.platforms'
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:176:9:
+   175|         # default to Rust's platforms
+   176|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |         ^
+   177|       };
+
+… while calling the 'filter' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:176:21:
+   175|         # default to Rust's platforms
+   176|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |                     ^
+   177|       };
+
+… while calling the 'import' builtin
+  at ./default.nix:29:17:
+    28|         };
+    29|         fenix = import fenixSrc { inherit pkgs system; };
+      |                 ^
+    30|         rustToolchain = fenix.stable.minimalToolchain;
+
+… while realising the context of a path
+
+… while calling the 'fetchTarball' builtin
+  at ./default.nix:25:20:
+    24|         fenixLock = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.fenix.locked;
+    25|         fenixSrc = fetchTarball {
+      |                    ^
+    26|           url = "https://github.com/${fenixLock.owner}/${fenixLock.repo}/archive/${fenixLock.rev}.tar.gz";
+
+error: access to URI 'https://github.com/nix-community/fenix/archive/eb67cb2bdfa80d99e732754e23ad5262d72fe334.tar.gz' is forbidden in restricted mode

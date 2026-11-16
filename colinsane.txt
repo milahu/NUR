@@ -1,111 +1,136 @@
 error:
-… while evaluating attribute 'buildPhase' of derivation 'addon-version-lister-0.1.0'
-  at ./pkgs/by-name/static-nix-shell/package.nix:205:7:
-   204|
-   205|       buildPhase = attrs.buildPhase or ''
-      |       ^
-   206|         runHook preBuild
+… while evaluating the attribute 'xdg-desktop-portal-gtk4'
+  at <nixpkgs> + /lib/attrsets.nix:977:47:
+   976|   */
+   977|   nameValuePair = name: value: { inherit name value; };
+      |                                               ^
+   978|
 
 … from call site
-  at ./pkgs/by-name/static-nix-shell/package.nix:222:13:
-   221|           --replace-fail '#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell' '#!${interpreter}' \
-   222|           ${lib.optionalString (packagesText != null) ''
-      |             ^
-   223|             --replace-fail \
-
-… while calling 'optionalString'
-  at <nixpkgs> + /lib/strings.nix:776:26:
-   775|   */
-   776|   optionalString = cond: string: if cond then string else "";
-      |                          ^
-   777|
-
-… from call site
-  at ./pkgs/by-name/static-nix-shell/package.nix:129:7:
-   128|     checkedShellRootText =
-   129|       lib.throwIfNot (builtins.pathExists shellRoot)
-      |       ^
-   130|         "${pname}: `#!nix-shell` path '${shellRootText}' (${toString shellRoot}) does not exist"
+  at ./pkgs/unfixed.nix:49:21:
+    48|       if type == "directory" && builtins.pathExists default then {
+    49|         "${name}" = callPackage default { };
+      |                     ^
+    50|       } else if type == "directory" then {
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/trivial.nix:982:40:
-   981|   */
-   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
-      |                                        ^
-   983|
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
+      |                   ^
+   313|     let
 
-… from call site
-  at ./pkgs/by-name/static-nix-shell/package.nix:131:8:
-   130|         "${pname}: `#!nix-shell` path '${shellRootText}' (${toString shellRoot}) does not exist"
-   131|       (lib.throwIfNot (shellRootPkgs ? static-nix-shell.${builderName})
-      |        ^
-   132|         "${pname}: `#!nix-shell` path '${shellRootText}' (${toString shellRoot}) does not provide `static-nix-shell.${builderName}`"
-
-… while calling 'throwIfNot'
-  at <nixpkgs> + /lib/trivial.nix:982:22:
-   981|   */
-   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
-      |                      ^
-   983|
-
-… while evaluating a branch condition
-  at <nixpkgs> + /lib/trivial.nix:982:27:
-   981|   */
-   982|   throwIfNot = cond: msg: if cond then x: x else throw msg;
-      |                           ^
-   983|
-
-… while evaluating a branch condition
-  at ./pkgs/by-name/static-nix-shell/package.nix:127:7:
-   126|     in
-   127|       if lib.isFunction expr then expr { } else expr;
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:327:7:
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   327|       makeOverridable f allArgs
       |       ^
-   128|     checkedShellRootText =
+   328|     else
 
 … from call site
-  at ./pkgs/by-name/static-nix-shell/package.nix:127:10:
-   126|     in
-   127|       if lib.isFunction expr then expr { } else expr;
-      |          ^
-   128|     checkedShellRootText =
+  at <nixpkgs> + /lib/customisation.nix:157:9:
+   156|       mirrorArgs = g: {
+   157|         __functor = self: g;
+      |         ^
+   158|         __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:162:9:
+   161|       f' =
+   162|         origArgs:
+      |         ^
+   163|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:178:9:
+   177|         in
+   178|         if isAttrs result then
+      |         ^
+   179|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:178:12:
+   177|         in
+   178|         if isAttrs result then
+      |            ^
+   179|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:164:20:
+   163|         let
+   164|           result = f origArgs;
+      |                    ^
+   165|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/trivial.nix:1144:5:
-  1143|     in
-  1144|     f:
+  at ./pkgs/by-name/xdg-desktop-portal-gtk4/package.nix:1:1:
+     1| {
+      | ^
+     2|   callPackage,
+
+… from call site
+  at ./pkgs/by-name/xdg-desktop-portal-gtk4/package.nix:15:9:
+    14|   };
+    15|   pkg = callPackage "${src}/packaging/nix/package.nix" { };
+      |         ^
+    16| in
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
+      |                   ^
+   313|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:326:5:
+   325|     # if nonempty, check if the function has defaults for those other args
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
       |     ^
-  1145|     # Equivalent to `isLambda f || (f ? __functor && isFunction f.__functor && isFunction (f.__functor f))`
+   327|       makeOverridable f allArgs
 
 … in the left operand of the OR (||) operator
-  at <nixpkgs> + /lib/trivial.nix:1148:5:
-  1147|     isLambda f
-  1148|     || (
-      |     ^
-  1149|       f ? __functor
+  at <nixpkgs> + /lib/customisation.nix:326:28:
+   325|     # if nonempty, check if the function has defaults for those other args
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   327|       makeOverridable f allArgs
 
-… while calling the 'isFunction' builtin
-  at <nixpkgs> + /lib/trivial.nix:1147:5:
-  1146|     # but faster when `f.__functor` and `f.__functor f` are both lambdas.
-  1147|     isLambda f
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:322:22:
+   321|       # arguments that weren't passed automatically to the function
+   322|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   323|
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:315:15:
+   314|       f = if isFunction fn then fn else import fn;
+   315|       fargs = functionArgs f;
+      |               ^
+   316|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f:
       |     ^
-  1148|     || (
+  1110|     if f ? __functor then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1110:5:
+  1109|     f:
+  1110|     if f ? __functor then
+      |     ^
+  1111|       f.__functionArgs or (
 
 … while calling the 'import' builtin
-  at ./pkgs/by-name/static-nix-shell/package.nix:125:14:
-   124|     shellRootPkgs = let
-   125|       expr = import shellRoot;
-      |              ^
-   126|     in
+  at <nixpkgs> + /lib/customisation.nix:314:41:
+   313|     let
+   314|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   315|       fargs = functionArgs f;
 
-… while evaluating the file './default.nix':
+… while realising the context of path '/nix/store/998s4fsmnkvqdd8gxlgiw9anhz4rkd6b-source/packaging/nix/package.nix'
 
-… while calling the 'import' builtin
-  at ./default.nix:19:3:
-    18| in
-    19|   import "${sane-nix-files}/impure.nix"
-      |   ^
-    20|
-
-… while realising the context of path '/nix/store/df9kwp2hxialkg5k6s005xrgy88cw0yy-source/impure.nix'
-
-error: path '/nix/store/df9kwp2hxialkg5k6s005xrgy88cw0yy-source' is not valid
+error: path '/nix/store/3hl5cwjxndjhcssnng55msdvh0cnijbp-source.drv' is not valid
