@@ -33,6 +33,31 @@
       },
       "fingerprint": "sha256-cVQ7h55JChvA30nwu2Nmkypiz9ytWuPQd2UqxAacviU="
     },
+    "aliasmode": {
+      "version": "0.1.0-beta.74",
+      "rawVersion": "0.1.0-beta.74",
+      "date": "2026-11-07",
+      "src": {
+        "fetcher": "github",
+        "owner": "aliasmode",
+        "repo": "aliasmode",
+        "rev": "v0.1.0-beta.74",
+        "hash": "sha256-HCpxcY4CUqYvCBQ36Tb1lDx2I+yb1gAr65Nuo2p4KmM="
+      },
+      "derived": {
+        "cargoHash": {
+          "hash": "sha256-a01FVlPESTkF7yzY0vdOC9yhvcXRFKthDw1xjgTZygw="
+        },
+        "nodeModulesHash": {
+          "hash": "sha256-jHQQkz9HM8lGhDPPEY9Geps9nhs8G65In575zKciyQk="
+        }
+      },
+      "artifacts": {
+        "browser-runtime.json": "aliasmode/browser-runtime.json",
+        "fix-playwright-patch.patch": "aliasmode/fix-playwright-patch.patch"
+      },
+      "fingerprint": "sha256-BI8aXQTAHQ3gJqmQ3FLcDvw92RsLGHfhwhGj6mmjo7c="
+    },
     "aliyundrive-webdav": {
       "version": "2.3.3-unstable-2026-02-20",
       "rawVersion": "00caff62b55ae53327f1c8824b19b1c9532cc174",
@@ -52,20 +77,20 @@
     },
     "artex": {
       "version": "0-unstable-2026-11-14",
-      "rawVersion": "c9b1e240ecb897cebd471b4d63f98d99288c0930",
+      "rawVersion": "6997a4661921395072290becc50380db8dacb04e",
       "date": "2026-11-14",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/RuoJi6/ARTEX.git",
-        "rev": "c9b1e240ecb897cebd471b4d63f98d99288c0930",
-        "hash": "sha256-gvTqnP93IxhYpwuTgb4gZquVvak6y9+xO8guHy+YDBc="
+        "rev": "6997a4661921395072290becc50380db8dacb04e",
+        "hash": "sha256-6nNdjvqiuaIXIvVoVpP6ABGMD6Tf4TilQ8pNyuEGUyU="
       },
       "derived": {
         "npmDeps": {
           "lockfile": "artex/src/web/package-lock.json"
         },
         "vendorHash": {
-          "hash": "sha256-bLpP+BEKc6GqLWbhpGYQ/BJy6m146WLUVHhUO8ev948="
+          "hash": "sha256-qZLrwy/ql2YqrKAO72ZwydyvFoRnZQyhLNvpr6YfoYo="
         }
       },
       "fingerprint": "sha256-PfKZVsH4boxC6dGxRRpGYtQF+iHnlVuQhplgidbywUM="
@@ -89,14 +114,14 @@
       "fingerprint": "sha256-19K58xslpcJZbIs8eH4o5Pkm1Jcde0YS6I8gTAdmEnE="
     },
     "clash-nyanpasu": {
-      "version": "2.0.1-unstable-2026-11-14",
-      "rawVersion": "0e272562e6d34edc7393efc368962b00c8396c63",
-      "date": "2026-11-14",
+      "version": "2.0.1-unstable-2026-11-16",
+      "rawVersion": "372030bba54d7e271e8d4da2a942ca56e1200dca",
+      "date": "2026-11-16",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/libnyanpasu/clash-nyanpasu",
-        "rev": "0e272562e6d34edc7393efc368962b00c8396c63",
-        "hash": "sha256-3YMRTHJSBRUTdbgwoK+EuoGFIbPVvk/awy69pPtG/t4="
+        "rev": "372030bba54d7e271e8d4da2a942ca56e1200dca",
+        "hash": "sha256-1A+fxTTsYE+ybRuLqKVDqCncB8kl5n4XHI1fMT7OizQ="
       },
       "derived": {
         "cargoLock": {
@@ -118,40 +143,41 @@
           }
         },
         "pnpmDepsHash": {
-          "hash": "sha256-8I9Oz5K+a1swP+tpvzYS4nWRYez9gHqUTQZwzNlIRvU="
+          "hash": "sha256-8reFXxfRA3tASOpUVOCP+c2Sed3+6uNSn9v4fkrxMJY="
         }
       },
       "artifacts": {
         "fix-local-inlang-plugins.patch": "clash-nyanpasu/fix-local-inlang-plugins.patch"
       },
-      "fingerprint": "sha256-lRVSyyEgjB7+DTkWkJjnh25GVEAgFctbwDVE8UlBRzg="
+      "fingerprint": "sha256-K5Nl/4GSel7c9aczwmNlX4Feo1YsgSJbvSsGdY/yIXA="
     },
     "cliproxyapi": {
-      "version": "8.0.69",
-      "rawVersion": "v8.0.69",
+      "version": "8.0.74",
+      "rawVersion": "v8.0.74",
+      "date": "2026-11-16",
       "src": {
         "fetcher": "github",
         "owner": "router-for-me",
         "repo": "cliproxyapi",
-        "rev": "v8.0.69",
-        "hash": "sha256-SF3aSlhWMPEBu9q5vuKeSbdB4ew8CwyjyhcOQ5U/GUI="
+        "rev": "v8.0.74",
+        "hash": "sha256-/gcFFPKZg2uJyNMOfpVPz1P8Ccc4ca38bd273zcOXIo="
       },
       "derived": {
         "vendorHash": {
-          "hash": "sha256-02Qqrs9lQ0kE+Tnk/SWvlkLXGSh8RQPxRawFZogRYNc="
+          "hash": "sha256-GlQG6N6m2AwWn0wtM97LLKAxr2kxQTloCB8NgjUwBh4="
         }
       },
       "fingerprint": "sha256-0ZOszgPQKtup+CvOCK4zA28HzJnx0SDYVVtsN6lPoR8="
     },
     "cpa-usage-keeper": {
-      "version": "2.1.0-unstable-2026-11-13",
-      "rawVersion": "7d288484f9a474b4ec48861f6bce204836f5dc11",
-      "date": "2026-11-13",
+      "version": "2.1.1-unstable-2026-11-15",
+      "rawVersion": "5c97bee91678e3cd9e75201a8025bfcaadf77681",
+      "date": "2026-11-15",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/Willxup/cpa-usage-keeper.git",
-        "rev": "7d288484f9a474b4ec48861f6bce204836f5dc11",
-        "hash": "sha256-siR0dkTuIVL8ZM9ZPNBugBIx+/EQaQ45HIkqoxB5Ha0="
+        "rev": "5c97bee91678e3cd9e75201a8025bfcaadf77681",
+        "hash": "sha256-Oc09b3EM3EZhddcdGAMAgHroFOuSjvCUgqclxN/91AA="
       },
       "derived": {
         "npmDeps": {
@@ -264,14 +290,14 @@
       "fingerprint": "sha256-30OsBkMRA0jMQKYo3jIET9P4D5xWLMEblIxAU7j2p2k="
     },
     "gaze": {
-      "version": "0.5.1-unstable-2026-11-13",
-      "rawVersion": "bb56b3c1c55c37cf00684cb651a45f2511dcc3b3",
-      "date": "2026-11-13",
+      "version": "0.5.1-unstable-2026-11-15",
+      "rawVersion": "b856f5439d0f1a9edbc5c5870813eb392854dc62",
+      "date": "2026-11-15",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/GunduLabs/gaze.git",
-        "rev": "bb56b3c1c55c37cf00684cb651a45f2511dcc3b3",
-        "hash": "sha256-thS4/qO9A/D57x5Pkszq0zlAuraIs+QpFmpDO2kWmrc="
+        "rev": "b856f5439d0f1a9edbc5c5870813eb392854dc62",
+        "hash": "sha256-6VG+9/BpD1DVidcUeN/qfoKpitdczTNXANQgbStjfFI="
       },
       "derived": {
         "cargoLock": {
@@ -360,36 +386,55 @@
       "fingerprint": "sha256-VDgHTON3muqQMwensyByNopQtkpYIRQQcKdCjIQhwJI="
     },
     "hmcl-dev-bin": {
-      "version": "3.17.0.365",
-      "rawVersion": "3.17.0.365",
+      "version": "3.18.0.366",
+      "rawVersion": "3.18.0.366",
       "src": {
         "fetcher": "url",
-        "url": "https://github.com/HMCL-dev/HMCL/releases/download/v3.17.0.365/HMCL-3.17.0.365.jar",
-        "hash": "sha256-Mq2ax7SUnUQdx/D/zE4zE+CeShItdpLI/w8VFtrFaAo="
+        "url": "https://github.com/HMCL-dev/HMCL/releases/download/v3.18.0.366/HMCL-3.18.0.366.jar",
+        "hash": "sha256-uIl8d0FdTKNlWWBjXaabk9NotHjob8tYd155CZeUVqo="
       },
       "fingerprint": "sha256-FCpeK4prWYIRrizU4R/xf25Lx71ILojidsolvF5tgIU="
     },
     "hmcl-dev-exe": {
-      "version": "3.17.0.365",
-      "rawVersion": "3.17.0.365",
+      "version": "3.18.0.366",
+      "rawVersion": "3.18.0.366",
       "src": {
         "fetcher": "url",
-        "url": "https://github.com/HMCL-dev/HMCL/releases/download/v3.17.0.365/HMCL-3.17.0.365.exe",
-        "hash": "sha256-OsZY/UhyxCsDGBF4ycaY+eTYNvwXXrR/M1EIjtziEnQ="
+        "url": "https://github.com/HMCL-dev/HMCL/releases/download/v3.18.0.366/HMCL-3.18.0.366.exe",
+        "hash": "sha256-XCY7YUEoUCmg0bGta9/8h/A214Y5ku+IdY0aZ5lEonQ="
       },
       "fingerprint": "sha256-7dSsriLulyHBfpIDnwakGLyV7hcHnbygShSMURMjIz0="
     },
     "hmcl-dev-src": {
-      "version": "3.17.0.365",
-      "rawVersion": "3.17.0.365",
+      "version": "3.18.0.366",
+      "rawVersion": "3.18.0.366",
+      "date": "2026-11-15",
       "src": {
         "fetcher": "github",
         "owner": "HMCL-dev",
         "repo": "HMCL",
-        "rev": "v3.17.0.365",
-        "hash": "sha256-h473j1FajiZeO5NVnckgItWv9fhJuqEgTYdLRs7eCxc="
+        "rev": "v3.18.0.366",
+        "hash": "sha256-vWTkFpYILGGGmBBPN3yILN8oE+CI4UeL37xirNRckfc="
       },
       "fingerprint": "sha256-4jCQslnqwTJoijYP2CKfwBZjAzj2BCR/xHV7lz2D//4="
+    },
+    "horizon": {
+      "version": "0-unstable-2026-11-16",
+      "rawVersion": "85b5bcca7c79bb470b90bdb5914b413aa66fe7ae",
+      "date": "2026-11-16",
+      "src": {
+        "fetcher": "github",
+        "owner": "horizon-rust",
+        "repo": "horizon",
+        "rev": "85b5bcca7c79bb470b90bdb5914b413aa66fe7ae",
+        "hash": "sha256-26fJ/iTeBApcSpwjRpcWkCuArJS2M7mLv2NGYakGR8o="
+      },
+      "derived": {
+        "cargoLock": {
+          "lockfile": "horizon/src/Cargo.lock"
+        }
+      },
+      "fingerprint": "sha256-dYHv5Zymlnd0tNrosXuyeSs8oGkhZXGnmNxg5VPYOWo="
     },
     "hysteria-realm-server": {
       "version": "1.1.0",
@@ -409,12 +454,12 @@
       "fingerprint": "sha256-OQm+NVjyhdgeM8gNfLr3Vq7mdt4gBlpJ+PyQBjCfaPg="
     },
     "jiufenxuezhang-ielts": {
-      "version": "0.9.20-rc.1",
-      "rawVersion": "0.9.20-rc.1",
+      "version": "0.9.21-rc.1",
+      "rawVersion": "0.9.21-rc.1",
       "src": {
         "fetcher": "url",
-        "url": "https://static.9fnnn.com/electron/stable/jiufenxuezhang-ielts-0.9.20-rc.1-universal.dmg",
-        "hash": "sha256-XrD5h6VCGOvDh1zsudhmmEx2vK6Oc1DToICPgtwNyxE="
+        "url": "https://static.9fnnn.com/electron/stable/jiufenxuezhang-ielts-0.9.21-rc.1-universal.dmg",
+        "hash": "sha256-WE46XaHAZz8Z/DclyrbDFA99IH0s9jmAs+3kj4u/vUM="
       },
       "fingerprint": "sha256-mdqb1M4vkcpF3pYjpSYHRZ/stovbzouCMceT/0NbiWQ="
     },
@@ -491,14 +536,14 @@
       "fingerprint": "sha256-vR7sJIoluiLgop9ZZHZKD6Or/5XOXg5rf4u3QaTDtco="
     },
     "meta-rules-dat": {
-      "version": "0-unstable-2026-11-14",
-      "rawVersion": "8a9908e7cc4813a022e8f09abcbcbd9a68c63490",
-      "date": "2026-11-14",
+      "version": "0-unstable-2026-11-16",
+      "rawVersion": "99b271e327e31a937178016035016d1ab0ebadbe",
+      "date": "2026-11-16",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/MetaCubeX/meta-rules-dat.git",
-        "rev": "8a9908e7cc4813a022e8f09abcbcbd9a68c63490",
-        "hash": "sha256-42FmlcAhiHxhIB9epMiORFnX5mvYWWR/G8jZ1sb90b8="
+        "rev": "99b271e327e31a937178016035016d1ab0ebadbe",
+        "hash": "sha256-zmPHA3Zgeq86JURcK0/nUZ5kZWC7J24V3PFHxh5l58Y="
       },
       "fingerprint": "sha256-wX3xYgeMbiaHcGTwYkJLKkmGHaWP1yW5YbKKukaREX0="
     },
@@ -654,14 +699,14 @@
       "fingerprint": "sha256-9uEqj0SD5VQ2MS+9WTPJ6Ak8K1ljl4wOHXvMEHZhhv8="
     },
     "nyanpasu-service": {
-      "version": "2.0.3-unstable-2026-11-13",
-      "rawVersion": "8b833b27d62d72fbdfaaa3b4decae36ba162db78",
-      "date": "2026-11-13",
+      "version": "2.0.3-unstable-2026-11-15",
+      "rawVersion": "33dcece7e0ef4c0d8eb0bb1b4e58eb32a2dfcda1",
+      "date": "2026-11-15",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/libnyanpasu/nyanpasu-service.git",
-        "rev": "8b833b27d62d72fbdfaaa3b4decae36ba162db78",
-        "hash": "sha256-5a2I4Hd+amEtTWeaWpCqPYtgjel39jMXPY82h6dMNvI="
+        "rev": "33dcece7e0ef4c0d8eb0bb1b4e58eb32a2dfcda1",
+        "hash": "sha256-df7ilBSsJY2ZOQK1OIQbf8i9dHW2pkyaxwTj/jWuET4="
       },
       "derived": {
         "cargoLock": {
@@ -692,14 +737,15 @@
       "fingerprint": "sha256-WGmfJFbGw9W5lvzrKu4NQ6W6PZD4mJsd7TFKiLbc9/Q="
     },
     "opencode-telegram-bot": {
-      "version": "0.27.1",
-      "rawVersion": "v0.27.1",
+      "version": "0.28.0",
+      "rawVersion": "v0.28.0",
+      "date": "2026-11-15",
       "src": {
         "fetcher": "github",
         "owner": "grinev",
         "repo": "opencode-telegram-bot",
-        "rev": "v0.27.1",
-        "hash": "sha256-0qTkXE+it+idaxWQXTyy6zhptYuCpsYzViBYVMQ5ldo="
+        "rev": "v0.28.0",
+        "hash": "sha256-gnOpH/Knd4ERsPcuRBKNKhZmlNl1C1Mjfe/DsGcLF4E="
       },
       "derived": {
         "npmDeps": {
@@ -867,26 +913,28 @@
       "fingerprint": "sha256-qXwJf9JOdMjDzf10EZA3R4IgwtfyqsWe2z/+PWLhTBI="
     },
     "pi-token-speed": {
-      "version": "0.12.0",
-      "rawVersion": "0.12.0",
+      "version": "0.13.0",
+      "rawVersion": "0.13.0",
+      "date": "2026-11-15",
       "src": {
         "fetcher": "github",
         "owner": "gsanhueza",
         "repo": "pi-token-speed",
-        "rev": "0.12.0",
-        "hash": "sha256-P6u5Og9SkEY6UQdx8IsV4xl4gBECUXHeofi6FxGDm/Q="
+        "rev": "0.13.0",
+        "hash": "sha256-+jQ8QKsa2HCqUyMP7z3tjnBAKN08EgFyGw6qoI94up0="
       },
       "fingerprint": "sha256-K58gY57C7hwd+vKM6ADWcuseEQ8ifHJ5cV8t/Wer+T4="
     },
     "pi-web-access": {
-      "version": "0.47.0",
-      "rawVersion": "v0.47.0",
+      "version": "0.48.0",
+      "rawVersion": "v0.48.0",
+      "date": "2026-11-13",
       "src": {
         "fetcher": "github",
         "owner": "nicobailon",
         "repo": "pi-web-access",
-        "rev": "v0.47.0",
-        "hash": "sha256-QfwEKSqOTc/VhPonFySNsgDAOkx9ROf+PnEF9v/iCow="
+        "rev": "v0.48.0",
+        "hash": "sha256-kvxwqQzvUEvBU8URxTCe4hGbWiUa41TbsdtdiM6+GqE="
       },
       "derived": {
         "npmDeps": {
@@ -1013,26 +1061,26 @@
       "fingerprint": "sha256-bkfLJkEtLMz1h+WpImLqmsX1w0C+bC6LFQVif/RSb0s="
     },
     "v2ray-rules-dat": {
-      "version": "0-unstable-2026-11-13",
-      "rawVersion": "89b31db8c47941a0611f3da6f20ce28643b9a475",
-      "date": "2026-11-13",
+      "version": "0-unstable-2026-11-15",
+      "rawVersion": "e0d89c018129e5bea4ef2f4db945976307da8172",
+      "date": "2026-11-15",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/Loyalsoldier/v2ray-rules-dat.git",
-        "rev": "89b31db8c47941a0611f3da6f20ce28643b9a475",
-        "hash": "sha256-viuy0Yd9YFwh+EUKguFPBfzhqFNhdhB6TCVRt+jXUdA="
+        "rev": "e0d89c018129e5bea4ef2f4db945976307da8172",
+        "hash": "sha256-cvFUSWR1rjQclu+g8FLWam4rk7PsznDeIEEbMV0/ILY="
       },
       "fingerprint": "sha256-VCqt6bExRQnJkTY51zmxmoGSt/p7RbF3g/HsGQUjUqs="
     },
     "whois42d-ng": {
-      "version": "2.2.0-unstable-2026-11-13",
-      "rawVersion": "e172356146c640d882e26642f06a219bb03a0bca",
-      "date": "2026-11-13",
+      "version": "2.2.1-unstable-2026-11-16",
+      "rawVersion": "06d20530e7348409002c672a9eb07ba048450ece",
+      "date": "2026-11-16",
       "src": {
         "fetcher": "git",
         "url": "https://github.com/moraxyc/whois42d-ng.git",
-        "rev": "e172356146c640d882e26642f06a219bb03a0bca",
-        "hash": "sha256-4d6SENacaUxxJs6HXnhJ7Byf6syJSU429vIo3IPAAaE="
+        "rev": "06d20530e7348409002c672a9eb07ba048450ece",
+        "hash": "sha256-bbEsr1nvcuWQkaJCePTMASiGZbY2v/YD6X9Z0g2dbMw="
       },
       "derived": {
         "cargoLock": {
