@@ -37,13 +37,13 @@ redistribution.
 | `photocraft` | `0.23.1` | Image editor (official binary release) | No: redistribution review pending |
 | `filmcraft` | `0.20.1` | Video editor (official binary release) | No: redistribution review pending |
 | `soundcraft` | `0.20.1` | Digital audio workstation (official binary release) | No: redistribution review pending |
-| `meitou-launcher` | `1.12.0` | Upstream launcher AppImage that downloads Meitou versions (requires Kenshi) | Yes |
+| `meitou-launcher` | `1.12.1` | Upstream launcher AppImage that downloads Meitou versions (requires Kenshi) | Yes |
 | `cybergrub2077` | `2.0.1-unstable-2026-02-28` | Cyberpunk 2077 inspired GRUB theme | Yes |
 | `nmssaveeditor` | `1.21.0` | Save editor for No Man's Sky | No: unfree |
 | `pig` | `0.7.0` | Pi coding agent rebuilt in Go as a native binary | Yes |
 | `rimsort-appimage` | `1.17.4` | RimWorld mod manager | Yes |
 | `scopebuddy` | `1.5.0` | Gamescope manager | Yes |
-| `storyforge` | `2.0.11` | Story Forge desktop application, built independently of the upstream flake | Yes |
+| `storyforge` | `2.0.12` | Story Forge desktop application, built independently of the upstream flake | Yes |
 | `wowup-cf` | `2.25.5` | World of Warcraft addon manager with CurseForge support | Yes |
 | `linux-cachyos-latest-x86_64-v3` | `7.3.4` | CachyOS kernel, x86-64-v3, non-LTO | Yes |
 
