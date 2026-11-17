@@ -7,11 +7,11 @@ error:
    978|
 
 … from call site
-  at ./pkgs/unfixed.nix:49:21:
-    48|       if type == "directory" && builtins.pathExists default then {
-    49|         "${name}" = callPackage default { };
-      |                     ^
-    50|       } else if type == "directory" then {
+  at ./pkgs/unfixed.nix:53:23:
+    52|         {
+    53|           "${name}" = callPackage default { };
+      |                       ^
+    54|         }
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/customisation.nix:312:19:
