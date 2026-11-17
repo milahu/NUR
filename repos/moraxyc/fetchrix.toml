@@ -415,6 +415,15 @@ version = { source = "github-release", repo = "dimk90/pi-context-view" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "dimk90/pi-context-view", rev = "{version}" }
 
+[packages.pi-live-terminal]
+version = { source = "git", url = "https://github.com/tanishqkancharla/pi-live-terminal.git", unstable = { stable = { source = "github-tag", repo = "tanishqkancharla/pi-live-terminal", strip_prefix = "v" } } }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "tanishqkancharla/pi-live-terminal", rev = "{version}" }
+
+[packages.pi-live-terminal.derive.npmDeps]
+kind = "npm-deps"
+strategy = "lockfile"
+
 [packages.pi-lsp-client]
 version = { source = "github-tag", repo = "code-yeongyu/pi-lsp-client", strip_prefix = "v" }
 transform = ["strip-v"]
@@ -475,6 +484,15 @@ fetch = { type = "github", repo = "nicobailon/pi-web-access", rev = "{version}" 
 kind = "npm-deps"
 strategy = "lockfile"
 
+[packages.pi-worktree-extension]
+version = { source = "github-release", repo = "AjayPoshak/pi-worktree-extension" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "AjayPoshak/pi-worktree-extension", rev = "{version}" }
+
+[packages.pi-worktree-extension.derive.npmDeps]
+kind = "npm-deps"
+strategy = "lockfile"
+
 [packages.picoclaw]
 version = { source = "github-tag", repo = "sipeed/picoclaw", strip_prefix = "v" }
 transform = ["strip-v"]
@@ -484,6 +502,19 @@ fetch = { type = "github", repo = "sipeed/picoclaw", rev = "v{version}" }
 version = { source = "git", url = "https://github.com/charmedlabs/pixy2", unstable = { } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/charmedlabs/pixy2", rev = "{version}" }
+
+[packages.sable-next]
+version = { source = "git-tag", url = "https://git.sable.moe/SableClient/sable-next.git", strip_prefix = "v", filter = "^v[0-9]+\\.[0-9]+\\.[0-9]+$" }
+transform = ["strip-v"]
+fetch = { type = "git", url = "https://git.sable.moe/SableClient/sable-next.git", tag = "v{version}" }
+
+[packages.sable-next.derive.cargoLock]
+kind = "cargo-vendor"
+strategy = "lockfile"
+
+[packages.sable-next.derive.pnpmDepsHash]
+strategy = "fod"
+attr = ".#sable-next-unwrapped.pnpmDeps"
 
 [packages.shard]
 version = { source = "git", url = "https://github.com/Th0rgal/shard.git", unstable = { stable = { source = "github-release", repo = "Th0rgal/shard" } } }
