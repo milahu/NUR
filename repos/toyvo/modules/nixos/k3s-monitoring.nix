@@ -49,7 +49,11 @@ let
   lokiYaml = ''
     auth_enabled: false
     server:
-      http_listen_address: 127.0.0.1
+      # Must listen on all interfaces: kubelet probes + Service traffic
+      # arrive from the pod network, not pod-localhost. (The NixOS
+      # container bound 127.0.0.1 behind its nginx gateway; the gateway
+      # is gone by design in k3s.)
+      http_listen_address: 0.0.0.0
       http_listen_port: ${toString lokiPort}
     common:
       ring:
@@ -83,36 +87,37 @@ let
   '';
 
   tempoYaml = ''
-    server:
-      http_listen_address: 0.0.0.0
-      http_listen_port: ${toString tempoHttpPort}
-      grpc_listen_port: 9096
-    distributor:
-      receivers:
-        otlp:
-          protocols:
-            grpc:
-              endpoint: 0.0.0.0:${toString tempoGrpcPort}
-            http:
-              endpoint: 0.0.0.0:${toString tempoOtlpHttpPort}
-    storage:
-      trace:
-        backend: local
-        local:
-          path: /var/lib/tempo/traces
-        wal:
-          path: /var/lib/tempo/wal
-    compactor:
-      compaction:
-        block_retention: 336h
+        server:
+          http_listen_address: 0.0.0.0
+          http_listen_port: ${toString tempoHttpPort}
+          grpc_listen_port: 9096
+        distributor:
+          receivers:
+            otlp:
+              protocols:
+                grpc:
+                  endpoint: 0.0.0.0:${toString tempoGrpcPort}
+                http:
+                  endpoint: 0.0.0.0:${toString tempoOtlpHttpPort}
+        storage:
+          trace:
+            backend: local
+            local:
+              path: /var/lib/tempo/traces
+            wal:
+              path: /var/lib/tempo/wal
+    # NOTE: the NixOS `services.tempo.settings.compactor.compaction`
+    # block does NOT parse on tempo 3.1.1 (`field compactor not found`) —
+    # dropped by design. Its only value was block_retention 336h, which
+    # is already the upstream default, so behavior is unchanged.
     metrics_generator:
-      registry:
-        external_labels:
-          source: tempo
-      storage:
-        path: /var/lib/tempo/generator/wal
-        remote_write:
-          - url: http://prometheus:${toString prometheusPort}/api/v1/write
+          registry:
+            external_labels:
+              source: tempo
+          storage:
+            path: /var/lib/tempo/generator/wal
+            remote_write:
+              - url: http://prometheus:${toString prometheusPort}/api/v1/write
   '';
 
   grafanaIni = ''
@@ -123,8 +128,8 @@ let
     root_url = https://grafana.diekvoss.net/
     [security]
     admin_user = admin
-    admin_password = $__file{/run/secrets/admin-password}
-    secret_key = $__file{/run/secrets/secret-key}
+    admin_password = $__file{/etc/grafana/secrets/admin-password}
+    secret_key = $__file{/etc/grafana/secrets/secret-key}
     [paths]
     provisioning = /etc/grafana/provisioning
   '';
@@ -190,10 +195,13 @@ in
         metadata = {
           name = "monitoring-grafana-config";
         };
+        # NOTE: ConfigMap data keys must be flat ([-._a-zA-Z0-9]+) — no
+        # slashes. The nested provisioning paths are reconstructed via
+        # subPath mounts below.
         data = {
           "grafana.ini" = grafanaIni;
-          "provisioning/datasources/datasources.yaml" = datasourcesYaml;
-          "provisioning/dashboards/dashboards.yaml" = dashboardsYaml;
+          "datasources.yaml" = datasourcesYaml;
+          "dashboards.yaml" = dashboardsYaml;
         };
       };
       # 28K of dashboards ride a ConfigMap (same files the container
@@ -274,21 +282,25 @@ in
                     {
                       name = "config";
                       mountPath = "/etc/grafana/provisioning/datasources/datasources.yaml";
-                      subPath = "provisioning/datasources/datasources.yaml";
+                      subPath = "datasources.yaml";
                     }
                     {
                       name = "config";
                       mountPath = "/etc/grafana/provisioning/dashboards/dashboards.yaml";
-                      subPath = "provisioning/dashboards/dashboards.yaml";
+                      subPath = "dashboards.yaml";
                     }
                     {
                       name = "dashboards";
                       mountPath = "/etc/grafana/dashboards";
                       readOnly = true;
                     }
+                    # NOTE: never mount at /run/secrets — it shadows the
+                    # directory where kubelet places the serviceaccount token
+                    # (/run/secrets/kubernetes.io/serviceaccount) and the
+                    # container fails to start (read-only filesystem).
                     {
                       name = "secrets";
-                      mountPath = "/run/secrets";
+                      mountPath = "/etc/grafana/secrets";
                       readOnly = true;
                     }
                   ];
@@ -519,11 +531,14 @@ in
                     initialDelaySeconds = 60;
                     periodSeconds = 30;
                   };
+                  # Liveness is a TCP aliveness check, NOT /ready: the
+                  # single-binary ring needs ~10m to stabilize
+                  # (table-manager waits for ring stability) and /ready
+                  # correctly reports unready during that window — killing
+                  # on it resets the window forever (restart loop).
+                  # Readiness (below) already gates traffic on /ready.
                   livenessProbe = {
-                    httpGet = {
-                      path = "/ready";
-                      port = lokiPort;
-                    };
+                    tcpSocket.port = lokiPort;
                     initialDelaySeconds = 120;
                     periodSeconds = 60;
                   };

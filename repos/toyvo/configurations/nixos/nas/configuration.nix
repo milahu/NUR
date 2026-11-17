@@ -37,6 +37,7 @@ in
     inputs.nixcfg.modules.nixos.k3s-jellyfin
     inputs.nixcfg.modules.nixos.k3s-nextcloud
     inputs.nixcfg.modules.nixos.k3s-office
+    inputs.nixcfg.modules.nixos.k3s-authentik
     inputs.nixcfg.modules.nixos.k3s-monitoring
     inputs.nixcfg.modules.nixos.k3s-storage
     inputs.nixcfg.modules.nixos.k3s-starr
@@ -169,6 +170,12 @@ in
     # Monitoring stack (Grafana + Prometheus + Loki + Tempo); backends seed
     # from the container's private state at Task 4 (POOL copies are stale).
     k3sMonitoring.enable = true;
+    # Authentik SSO in k3s (server + worker/beat + LDAP outpost + redis);
+    # file state is empty (everything real lives in host Postgres), so
+    # the stack starts fresh-empty. THE FLIP (forwardAuth address) is a
+    # separate attended switch — see plan Task 6.
+    k3sAuthentik.enable = true;
+
     # Shared NFS storage (csi-driver-nfs + static pool PVs).
     # Single writer: enable ONLY here, never on another server.
     k3sStorage.enable = true;
@@ -418,7 +425,13 @@ in
     # home-assistant retired to k3s 2026-10-28 (module deleted); POOL state
     # dirs remain on disk as backups. Rollback = revert this + the module.
     monitoring = {
-      enable = true;
+      # Retired to k3s 2026-11-16 (Grafana + Prometheus + Loki + Tempo
+      # all live from cluster, agents repointed, UI flipped). Disabled
+      # (not deleted) so rollback is one flag flip. NOTE: the pre-cutover
+      # bind mounts never landed — live state was container-private, so
+      # the POOL copies are stale Apr snapshots, not a usable rollback.
+      # Rollback = re-enable + reseed from k3s (or start fresh).
+      enable = false;
       natInterface = "eno1";
       stateDir = "/mnt/POOL/monitoring";
       grafanaAdminPasswordFile = config.sops.secrets."grafana-admin-password".path;
