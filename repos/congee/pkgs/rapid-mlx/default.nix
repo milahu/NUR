@@ -38,14 +38,14 @@ let
 in
 python3Packages.buildPythonApplication rec {
   pname = "rapid-mlx";
-  version = "1.0.3";
+  version = "1.0.4";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "raullenchai";
     repo = "Rapid-MLX";
     rev = "v${version}";
-    hash = "sha256-1q5yv0mhadOXbQcssRFF0iDrUSC+REQEF+dEMdzbp4Y=";
+    hash = "sha256-n2C091HryHJZSP411ubqv1pBAiaWyMobSMMk11Luio4=";
   };
 
   build-system = with python3Packages; [
@@ -110,10 +110,14 @@ python3Packages.buildPythonApplication rec {
   # dereferenced key.__module__, which mlx-lm's string-name tokenizer
   # registration tripped over) and caps <5.16 only as a precaution against
   # unvalidated minors; nixpkgs' 5.16+ imports fine.
+  # pypdf <7 and pillow <13 are precautionary caps too: pypdf only extracts
+  # text for local search (imported lazily) and pillow only encodes PNGs.
   pythonRelaxDeps = [
     "huggingface-hub"
     "mcp"
+    "pillow"
     "pydantic-ai-slim"
+    "pypdf"
     "tokenizers"
     "transformers"
   ];
