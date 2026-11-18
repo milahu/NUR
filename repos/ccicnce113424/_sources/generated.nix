@@ -22,48 +22,18 @@
       sha256 = "sha256-nYMDNSpyyCHRKIBhP++sA7FmodSHBUwRSPEM8yLFaF0=";
     };
   };
-  daed-next-core = {
-    pname = "daed-next-core";
-    version = "f80e4814a40708919c47a81dbd4c688fb783094e";
-    src = fetchFromGitHub {
-      owner = "ksong008";
-      repo = "DaeNext";
-      rev = "f80e4814a40708919c47a81dbd4c688fb783094e";
-      fetchSubmodules = false;
-      sha256 = "sha256-UlWsRO8ZXeM7QhNJV7BorSwMiUd96zM2AmwlJBOB6rM=";
-    };
-    cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-UlWsRO8ZXeM7QhNJV7BorSwMiUd96zM2AmwlJBOB6rM=/Cargo.lock";
-      outputHashes = {
-        
-      };
-    };
-    date = "2026-11-03";
-  };
-  daed-next-web = {
-    pname = "daed-next-web";
-    version = "76ad4577501ba327da304c0f520f6fa707594ef8";
-    src = fetchFromGitHub {
-      owner = "ksong008";
-      repo = "DaedNext";
-      rev = "76ad4577501ba327da304c0f520f6fa707594ef8";
-      fetchSubmodules = false;
-      sha256 = "sha256-mtYNPv8oz6wtmP3N/zlUQ6SeFq9Vr+4halN/mU4JPB4=";
-    };
-    date = "2026-10-26";
-  };
   dorion-git = {
     pname = "dorion-git";
-    version = "fc3c0d7664c39d66391863f4c4c399f3917374ac";
+    version = "62211bb776c2e31ca8b210d6712a2b061cd65be6";
     src = fetchFromGitHub {
       owner = "SpikeHD";
       repo = "Dorion";
-      rev = "fc3c0d7664c39d66391863f4c4c399f3917374ac";
+      rev = "62211bb776c2e31ca8b210d6712a2b061cd65be6";
       fetchSubmodules = false;
-      sha256 = "sha256-1lvHMk0j66TshcJLDBroggS13XD+xOjYeZ+4oHdtjl8=";
+      sha256 = "sha256-gR/a4lRf0U86Bh7sxXwtVreLrCNMOeJbZBEvbUJveeQ=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-1lvHMk0j66TshcJLDBroggS13XD+xOjYeZ+4oHdtjl8=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-gR_a4lRf0U86Bh7sxXwtVreLrCNMOeJbZBEvbUJveeQ=/src-tauri/Cargo.lock";
       outputHashes = {
         "simple-websockets-0.1.6" = "sha256-iySzwntHw5Wf5HwKMBYL8mrMl7kjGZrZonL7/zrkeCo=";
         "tauri-runtime-cef-0.1.0" = "sha256-U/ak4ipPGIAnVGuuBVTrVmTKoC75/Lo4vOL8RxUVQm0=";
@@ -73,7 +43,7 @@
         "rsrpc-0.29.0" = "sha256-7zS833bmy6JUjk4PqCENz6ikoTOtelcymXMi2pxD3V0=";
       };
     };
-    date = "2026-11-03";
+    date = "2026-11-17";
   };
   dxvk-gplall = {
     pname = "dxvk-gplall";
@@ -263,23 +233,23 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "af01ec4b43c039102f914403672da3d7c5a2a0f8";
+    version = "051491b7830caf100d98113b2c1b33f34155e888";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "af01ec4b43c039102f914403672da3d7c5a2a0f8";
+      rev = "051491b7830caf100d98113b2c1b33f34155e888";
       fetchSubmodules = false;
-      sha256 = "sha256-bYwpy7ANQv/C1Rd6MIPxcZIExEIID811rozLdRaduxM=";
+      sha256 = "sha256-pl0ToNg1bKZxUe3DlUvKdzWGsyJFNRU+oZI81M7rWNU=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-bYwpy7ANQv_C1Rd6MIPxcZIExEIID811rozLdRaduxM=/Cargo.lock";
+      lockFile = ./. + "/sha256-pl0ToNg1bKZxUe3DlUvKdzWGsyJFNRU+oZI81M7rWNU=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "freetype-sys-0.23.0" = "sha256-erVVW/EX4ijAR5vIXLAAO4CE+PU9t3qGPj1Mp7/EV9I=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-11-14";
+    date = "2026-11-17";
   };
   pilinara = {
     pname = "pilinara";
@@ -311,17 +281,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "8d9fda86576f837bb2ffb001dfa81910ea39d583";
+    version = "b4dedb1d597ced122d48a86a74bb5522ddcf2319";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "8d9fda86576f837bb2ffb001dfa81910ea39d583";
+      rev = "b4dedb1d597ced122d48a86a74bb5522ddcf2319";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-LtqflynIXUrSIg4Fl6C0RgskZ+pCqAbf0HAjCpoxW8Y=";
+      sha256 = "sha256-hy/WM3uXR0Yb27SUL7VLJehBc5sWRGTALRONSvtLon8=";
     };
-    date = "2026-11-16";
+    date = "2026-11-17";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
