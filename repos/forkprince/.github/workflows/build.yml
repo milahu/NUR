@@ -18,6 +18,11 @@ on:
           - both
           - nix-update
           - bun
+      allow:
+        description: "Which packages to allow"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: read
@@ -41,6 +46,12 @@ jobs:
         uses: nixbuild/nix-quick-install-action@9f63be77f412a248c9d9a65a4c82cf066cdf8f0c  # v35
         with:
           nix_conf: experimental-features = nix-command flakes
+
+      - name: Setup ClamAV
+        uses: toblux/start-clamd-github-action@c38b64f74d2e919f45cea5df4df541ef9beee0f3  # v0.3
+        with:
+          db_main: true
+          db_daily: true
 
       - name: Update Packages (nix-update)
         id: nix_update
@@ -67,7 +78,7 @@ jobs:
           failed_apps=""
           while IFS= read -r version_file; do
             app_name=$(basename "$(dirname "$version_file")")
-            if ! bun ./scripts/index.js "$version_file"; then
+            if ! bun ./scripts/updater/index.js "$version_file"; then
               echo "::warning::Failed to update $app_name ($version_file)"
               failed_apps="${failed_apps}${app_name}\n"
             fi
@@ -88,9 +99,8 @@ jobs:
           still_failed_apps=""
           while IFS= read -r version_file; do
             app_name=$(basename "$(dirname "$version_file")")
-            # Only retry apps that failed in the first pass
             if printf '%b' "${{ steps.update.outputs.failed_apps }}" | grep -qx "$app_name"; then
-              if ! bun ./scripts/index.js "$version_file"; then
+              if ! bun ./scripts/updater/index.js "$version_file"; then
                 echo "::warning::Retry also failed for $app_name ($version_file)"
                 still_failed_apps="${still_failed_apps}${app_name}\n"
               fi
@@ -154,11 +164,52 @@ jobs:
             -d "$payload" \
             "$DISCORD"
 
+      - name: Scan Packages
+        id: scan
+        env:
+          ALLOW: ${{ inputs.allow }}
+          NIX_PATH: nixpkgs=flake:nixpkgs
+        run: |
+          pkill -x clamd 2>/dev/null || true
+          sleep 1
+          clamd --config-file=clamd.conf
+          clamdscan --config-file=clamd.conf --ping 30:1 >/dev/null || { echo "::error::clamd is not responding"; exit 1; }
+          bun scripts/scan/index.js
+          rm -f freshclam.conf clamd.conf
+
+      - name: Block Packages
+        if: steps.scan.outputs.blocked != ''
+        run: |
+          while IFS= read -r pkg; do
+            [ -n "$pkg" ] || continue
+            echo "::error::$pkg: malware detected; reverting"
+            git restore "pkgs/$pkg" 2>/dev/null || true
+            git clean -fd "pkgs/$pkg" 2>/dev/null || true
+          done < <(printf '%b' "${{ steps.scan.outputs.blocked }}")
+
+      - name: Notify Malware
+        if: steps.scan.outputs.blocked != ''
+        env:
+          BLOCKED: ${{ steps.scan.outputs.blocked }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DISCORD: ${{ secrets.DISCORD }}
+        run: |
+          desc=$(printf '**ClamAV blocked:**\n```\n%b\n```' "$BLOCKED")
+          jq -n \
+            --arg title "🦠 Malware Detected" \
+            --arg desc "$desc" \
+            --arg url "$RUN_URL" \
+            '{username: "NUR", content: "@everyone", embeds: [{title: $title, description: $desc, color: 15158332, url: $url}]}' \
+          | curl -s -o /dev/null -w "%{http_code}" \
+              -H "Content-Type: application/json" \
+              -d @- \
+              "$DISCORD"
+
       - name: Update flake
         run: nix flake update
 
       - name: Update README
-        run: bun scripts/readme.js
+        run: bun scripts/list/index.js
 
       - name: Commit and push
         run: |
