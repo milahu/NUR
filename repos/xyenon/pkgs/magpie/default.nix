@@ -22,26 +22,26 @@
 
 let
   linuxGui = guiSupport && stdenv.hostPlatform.isLinux;
-  darwinGui = guiSupport && stdenv.hostPlatform.isDarwin;
+  linuxNoGui = !guiSupport && stdenv.hostPlatform.isLinux;
 in
 buildGoModule (finalAttrs: {
   __structuredAttrs = true;
 
   pname = "magpie";
-  version = "0.1.4346";
+  version = "0.1.4379";
 
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "magpie";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-KLUhCZWbPxQhhYMuIabrFScWlgbgEVJqFBmcOM56SOk=";
+    hash = "sha256-o9LNuPtJh1jXkOlduSAFXzFD5roU5QbAGHB1V3f/zpc=";
   };
 
   vendorHash = "sha256-TgMwl324YTy8l9zlkjK/aAqJafP/m3ZbiLLDl1OrffY=";
 
   # Apply runtime policies before compiling the installed application.
   postPatch = ''
-    bash ${./patch.sh} ${stdenv.hostPlatform.parsed.kernel.name} ${lib.boolToString guiSupport} \
+    bash ${./patch.sh} ${stdenv.hostPlatform.parsed.kernel.name} \
       "$out/bin/magpie" ${lib.getExe bun}
   '';
 
@@ -85,7 +85,9 @@ buildGoModule (finalAttrs: {
         )
       ''
     else
-      lib.optionalString (!darwinGui) ''
+      # macOS puts MAGPIE_BUN in main.go (patch.sh): no wrapper, so
+      # os.Executable is the bundle's own binary and Launch Services tracks it.
+      lib.optionalString linuxNoGui ''
         wrapProgram "$out/bin/magpie" --set MAGPIE_BUN ${lib.getExe bun}
       '';
 

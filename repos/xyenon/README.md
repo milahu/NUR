@@ -141,7 +141,7 @@ Uncomment this if you use travis:
 <details>
 <summary><strong><code>magpie</code></strong> — Manage models, providers, and accounts for AI coding agents in one place</summary>
 
-- **Version:** `0.1.4346`
+- **Version:** `0.1.4379`
 - **License:** MIT
 - **Homepage:** [https://github.com/yetone/magpie](https://github.com/yetone/magpie)
 - **Build:** `nix build github:XYenon/nur-packages#magpie`
@@ -169,12 +169,12 @@ Uncomment this if you use travis:
 </details>
 
 <details>
-<summary><strong><code>nh-unwrapped</code></strong> — Yet another nix cli helper</summary>
+<summary><strong><code>nh</code></strong> — Yet another nix cli helper</summary>
 
 - **Version:** `4.4.2-unstable-2026-11-12`
 - **License:** EUPL-1.2
 - **Homepage:** [https://github.com/XYenon/nh](https://github.com/XYenon/nh)
-- **Build:** `nix build github:XYenon/nur-packages#nh-unwrapped`
+- **Build:** `nix build github:XYenon/nur-packages#nh`
 
 </details>
 
