@@ -1,16 +1,16 @@
 {
 "name":"josh",
-"fetch_time":0.41,
-"eval_time":1.491,
+"fetch_time":1.175,
+"eval_time":1.678,
 "source":{
 "url":"https://github.com/josh/nurpkgs",
-"rev":"9338e828dd50471d322832a7562363b0a9d60447",
-"sha256":"1r4ngp03a8x66l5gwssprz9xzd95bzig3kn0xsh5ryijmyyva3fi",
+"rev":"499a6e25907f5515d449af6c8a0459912afb6310",
+"sha256":"14xlqaphbcb6fn9z53xc3n6in7pnbmri896jjz8av4abhhhqb58d",
 "date":null
 },
-"source_storepath":"/nix/store/303cjhhs2fkznvmpdkmlfpwnzsvx1sid-source",
-"nixpkgs_storepath":"/nix/store/w3vb3iq9xf9g3gpq3295m1ypbqv8a7q6-source",
-"nur_combined_rev":"4d7b78751275bb149a295903814ad25a4224e7f3",
+"source_storepath":"/nix/store/c1qg14v3gclwn8hlfp70sdkwgmhyg6yi-source",
+"nixpkgs_storepath":"/nix/store/2avd62zmf8jfcvqyn70llr0dlgridgjc-source",
+"nur_combined_rev":"232a331d2939611b8a22819895afd96349de5afa",
 "packages":{
 "age-plugin-se":{
 "drvPath":"/nix/store/k6pihhcpw3g606gbv8igcr6wbqkz9r0w-age-plugin-se-0.2.1.drv",
@@ -453,7 +453,7 @@
 "version":"20.2.4"
 },
 "ceph-mgr-endpoint-controller":{
-"drvPath":"/nix/store/7ja9bxi1pjf5w61pmd46znjkfjajpssw-ceph-mgr-endpoint-controller-0.7.6.drv",
+"drvPath":"/nix/store/wi0wysz1j3qa14xf9fsf1vvkjdk9sq5a-ceph-mgr-endpoint-controller-0.7.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -730,7 +730,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/boldsoftware/execonnect.nix:48",
+"position":"./pkgs/boldsoftware/execonnect.nix:52",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1486,7 +1486,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w3vb3iq9xf9g3gpq3295m1ypbqv8a7q6-source/pkgs/by-name/go/golink/package.nix",
+"file":"/nix/store/2avd62zmf8jfcvqyn70llr0dlgridgjc-source/pkgs/by-name/go/golink/package.nix",
 "line":39
 },
 "name":"golink-1.0.0-unstable-2026-09-23",
@@ -3082,7 +3082,7 @@
 "version":"0.1.0-unstable-2026-11-16"
 },
 "nix-rados-cache":{
-"drvPath":"/nix/store/n6kvd7470wkmxj7ahrhjjd5996cml7al-nix-rados-cache-0-unstable-2026-11-16.drv",
+"drvPath":"/nix/store/55dgc525q78mf7wyfdsbxv342cj6d0ry-nix-rados-cache-0-unstable-2026-11-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3130,7 +3130,7 @@
 },
 "mainProgram":"nix-rados-cache",
 "maintainers":[],
-"name":"nix-rados-cache-0-unstable-2026-11-16",
+"name":"nix-rados-cache-0-unstable-2026-11-17",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3149,14 +3149,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nix-rados-cache-0-unstable-2026-11-16",
+"name":"nix-rados-cache-0-unstable-2026-11-17",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nix-rados-cache",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-11-16"
+"version":"0-unstable-2026-11-17"
 },
 "overcast-data":{
 "drvPath":"/nix/store/bn5170s6gab5rcj7gcp4f7rp7axxi8gi-overcast-data-0.2.1.drv",
@@ -3565,8 +3565,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w3vb3iq9xf9g3gpq3295m1ypbqv8a7q6-source/pkgs/development/python-modules/polars/default.nix",
-"line":296
+"file":"/nix/store/2avd62zmf8jfcvqyn70llr0dlgridgjc-source/pkgs/development/python-modules/polars/default.nix",
+"line":295
 },
 "name":"python3.14-polars-1.42.1",
 "nonTeamMaintainers":[
@@ -3669,7 +3669,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"<nixpkgs> + /pkgs/development/python-modules/polars/default.nix:292",
+"position":"<nixpkgs> + /pkgs/development/python-modules/polars/default.nix:291",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -4532,7 +4532,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/tox-dev/python3-pyproject-fmt.nix:84",
+"position":"./pkgs/tox-dev/python3-pyproject-fmt.nix:91",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -4845,7 +4845,7 @@
 "version":"1.2.2"
 },
 "restic-rados-server":{
-"drvPath":"/nix/store/hxwdivwfkcvg4fh7lix70j9pnaf2syga-restic-rados-server-1.1.0.drv",
+"drvPath":"/nix/store/flm638n14z21imqbdhn8byjqv6b22n2s-restic-rados-server-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5381,7 +5381,7 @@
 "version":"0-unstable-2026-06-22"
 },
 "sops-install-secrets":{
-"drvPath":"/nix/store/75gdd5xk653s1m20gn9rm777iysikhp4-sops-install-secrets-assets-unstable-2026-11-14.drv",
+"drvPath":"/nix/store/js176yhmid0i3467vw0ls09f3adq0q1d-sops-install-secrets-assets-unstable-2026-11-16.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5429,7 +5429,7 @@
 },
 "mainProgram":"sops-install-secrets",
 "maintainers":[],
-"name":"sops-install-secrets-assets-unstable-2026-11-14",
+"name":"sops-install-secrets-assets-unstable-2026-11-16",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5471,14 +5471,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sops-install-secrets-assets-unstable-2026-11-14",
+"name":"sops-install-secrets-assets-unstable-2026-11-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sops-install-secrets-assets-unstable",
 "system":"x86_64-linux",
-"version":"2026-11-14"
+"version":"2026-11-16"
 },
 "tailscale-acl-combiner":{
 "drvPath":"/nix/store/q9pj94lbbcrg5q89sdp8ylkvv4fbrgi4-tailscale-acl-combiner-0-unstable-2025-10-30.drv",
