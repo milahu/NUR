@@ -9,24 +9,24 @@ lib
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "0rb8vcmib9qv4s21czja76f4b937kf3w9llqrvambaf3d6jkqany";
-    armv7l-linux = "1dhz9gqz3bgvh30dalkjaa1qv7h2vhdf95lqnq0bhdiyq25grzw8";
-    aarch64-linux = "0n1ksyyg80cck3jdrlxahxgn0sliq85kdpfncb43jkrdaaj07w0y";
-    x86_64-darwin = "17f2kd8cy0l81k9n8sgfxckwlsprvi00xsdph8l1mmqbbik3vdhl";
-    aarch64-darwin = "06hp0kpfv83linans2kcc01j9y47xvlalda01p8ks29rxif7zzay";
+    x86_64-linux = "18b1ri3qlkw8b5130scd10zdg4qmz8bhkazv7kiigi83bzlzgndb";
+    armv7l-linux = "0vdm5gsp9mni837l1idqdkdp2h3697sa6mmzl880iq84sgfinzwp";
+    aarch64-linux = "1jzsdfmxbivdchv9vwzf15c0hczvxhnr1klb14wcy940yvsx36p6";
+    x86_64-darwin = "1vaja8pp38589qrafirfqq66nrss8p19vak4gxvbgdd186brvypj";
+    aarch64-darwin = "16936nxpac7yggbxisiynxbwsn50y0y8ycf6znymydrr6hlvqb61";
   };
 
   urlMap = {
-    x86_64-linux = "https://dl.dagger.io/dagger/releases/1.0.0-beta.27/dagger_v1.0.0-beta.27_linux_amd64.tar.gz";
-    armv7l-linux = "https://dl.dagger.io/dagger/releases/1.0.0-beta.27/dagger_v1.0.0-beta.27_linux_armv7.tar.gz";
-    aarch64-linux = "https://dl.dagger.io/dagger/releases/1.0.0-beta.27/dagger_v1.0.0-beta.27_linux_arm64.tar.gz";
-    x86_64-darwin = "https://dl.dagger.io/dagger/releases/1.0.0-beta.27/dagger_v1.0.0-beta.27_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://dl.dagger.io/dagger/releases/1.0.0-beta.27/dagger_v1.0.0-beta.27_darwin_arm64.tar.gz";
+    x86_64-linux = "https://dl.dagger.io/dagger/releases/1.0.0-beta.28/dagger_v1.0.0-beta.28_linux_amd64.tar.gz";
+    armv7l-linux = "https://dl.dagger.io/dagger/releases/1.0.0-beta.28/dagger_v1.0.0-beta.28_linux_armv7.tar.gz";
+    aarch64-linux = "https://dl.dagger.io/dagger/releases/1.0.0-beta.28/dagger_v1.0.0-beta.28_linux_arm64.tar.gz";
+    x86_64-darwin = "https://dl.dagger.io/dagger/releases/1.0.0-beta.28/dagger_v1.0.0-beta.28_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://dl.dagger.io/dagger/releases/1.0.0-beta.28/dagger_v1.0.0-beta.28_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "dagger";
-  version = "1.0.0-beta.27";
+  version = "1.0.0-beta.28";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
