@@ -1,0 +1,145 @@
+error:
+… while evaluating the attribute 'open-webui'
+  at <nixpkgs> + /lib/attrsets.nix:977:47:
+   976|   */
+   977|   nameValuePair = name: value: { inherit name value; };
+      |                                               ^
+   978|
+
+… from call site
+  at <nixpkgs> + /lib/filesystem.nix:395:27:
+   394|               # recurse into directories
+   395|               "${name}" = packagesFromDirectoryRecursive (
+      |                           ^
+   396|                 args
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/filesystem.nix:417:5:
+   416|     in
+   417|     {
+      |     ^
+   418|       callPackage,
+
+… from call site
+  at <nixpkgs> + /lib/filesystem.nix:427:7:
+   426|       # if `${directory}/package.nix` exists, call it directly
+   427|       callPackage defaultPath { }
+      |       ^
+   428|     else if args ? newScope then
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
+      |                   ^
+   313|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:327:7:
+   326|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   327|       makeOverridable f allArgs
+      |       ^
+   328|     else
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:157:9:
+   156|       mirrorArgs = g: {
+   157|         __functor = self: g;
+      |         ^
+   158|         __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:162:9:
+   161|       f' =
+   162|         origArgs:
+      |         ^
+   163|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:178:9:
+   177|         in
+   178|         if isAttrs result then
+      |         ^
+   179|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:178:12:
+   177|         in
+   178|         if isAttrs result then
+      |            ^
+   179|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:164:20:
+   163|         let
+   164|           result = f origArgs;
+      |                    ^
+   165|
+
+… while calling anonymous lambda
+  at ./pkgs/open-webui/package.nix:1:1:
+     1| {
+      | ^
+     2|   lib,
+
+… in the condition of the assert statement
+  at ./pkgs/open-webui/package.nix:173:1:
+   172| in
+   173| assert lib.assertMsg (lockedPyodide == pyodideVersion)
+      | ^
+   174|   "open-webui: package-lock.json pins pyodide ${lockedPyodide} but pyodideVersion is ${pyodideVersion}; update it";
+
+… from call site
+  at ./pkgs/open-webui/package.nix:173:8:
+   172| in
+   173| assert lib.assertMsg (lockedPyodide == pyodideVersion)
+      |        ^
+   174|   "open-webui: package-lock.json pins pyodide ${lockedPyodide} but pyodideVersion is ${pyodideVersion}; update it";
+
+… while calling 'assertMsg'
+  at <nixpkgs> + /lib/asserts.nix:53:21:
+    52|   # TODO(Profpatsch): add tests that check stderr
+    53|   assertMsg = pred: msg: pred || throw msg;
+      |                     ^
+    54|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/asserts.nix:53:31:
+    52|   # TODO(Profpatsch): add tests that check stderr
+    53|   assertMsg = pred: msg: pred || throw msg;
+      |                               ^
+    54|
+
+… from call site
+  at ./pkgs/open-webui/package.nix:29:20:
+    28|   };
+    29|   lockedPyodide = (lib.importJSON "${src}/package-lock.json").packages."node_modules/pyodide".version;
+      |                    ^
+    30|
+
+… while calling 'importJSON'
+  at <nixpkgs> + /lib/trivial.nix:794:16:
+   793|   */
+   794|   importJSON = path: fromJSON (readFile path);
+      |                ^
+   795|
+
+… while calling the 'fromJSON' builtin
+  at <nixpkgs> + /lib/trivial.nix:794:22:
+   793|   */
+   794|   importJSON = path: fromJSON (readFile path);
+      |                      ^
+   795|
+
+… while evaluating the first argument passed to builtins.fromJSON
+
+… while calling the 'readFile' builtin
+  at <nixpkgs> + /lib/trivial.nix:794:32:
+   793|   */
+   794|   importJSON = path: fromJSON (readFile path);
+      |                                ^
+   795|
+
+… while realising the context of path '/nix/store/jd217aci721g0kmlcx8kp6khwc8k7h0r-source/package-lock.json'
+
+error: path '/nix/store/8wrpb9ds2jqwbh7i1hrpl96l5qxvldf0-source.drv' is not valid
