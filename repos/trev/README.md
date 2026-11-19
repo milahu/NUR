@@ -399,6 +399,7 @@ Utility function to simplify creating flakes.
 - Imports nixpkgs and adds all the [overlays](#overlays), including [static-pie](#static-pie)
 - Inserts system attributes where necessary (like [flake-utils.lib.eachDefaultSystem](https://github.com/numtide/flake-utils))
 - Creates cross-compiled sub-derivations for `packages`, `images` and `appimages`
+- Adds every package to `checks` as `package_<name>`, so `nix flake check` builds them
 
 ```nix
 outputs = { trev, ... }:
@@ -448,6 +449,28 @@ View all possible cross-compilation targets with:
 nix flake show
 ```
 
+Packages are added to `checks` with a `package_` prefix. A check with the same name in `checks` takes precedence. Building a package only runs its tests when `doCheck` is enabled.
+
+To skip one package, set `passthru.packageCheck = false`. It stays in `checks` as a stub that `nix flake check` doesn't build:
+
+```nix
+packages.default = pkgs.hello.overrideAttrs (old: {
+  passthru = (old.passthru or { }) // {
+    packageCheck = false;
+  };
+});
+```
+
+To skip all packages, override `packageChecks`:
+
+```nix
+trev.libs.mkFlake.override { packageChecks = false; } (
+  system: pkgs: {
+    # ...
+  }
+);
+```
+
 ### mkImage
 
 Creates a `docker save`-formatted image for a given `src`. Other attributes will be passed to [`dockerTools.buildLayeredImage`](https://ryantm.github.io/nixpkgs/builders/images/dockertools/#ssec-pkgs-dockerTools-buildLayeredImage)
@@ -478,7 +501,7 @@ appimages.default = pkgs.mkAppImage {
 nix build .#appimages.x86_64-linux.default
 ```
 
-### mkChecks
+### mkChecks & mkCheck
 
 Utility function to simplify creating flake [checks](https://nix.dev/manual/nix/latest/command-ref/new-cli/nix3-flake-check.html). Can take an `src` pointing to a derivation, a `root` pointing to a directory, or neither for checks that do not need a source.
 
@@ -514,6 +537,45 @@ checks = pkgs.mkChecks {
     '';
   };
 };
+```
+
+Checks can be grouped into their own files. A path to a `.nix` file (or a directory containing `checks.nix`) adds each check in that file, prefixed with the group's name. Check files are called like [`callPackage`](https://nix.dev/tutorials/callpackage.html), so they can ask for anything in `pkgs` (including `pkgs` itself), and can contain more groups. Use `callChecks` to pass arguments that aren't in `pkgs`:
+
+```nix
+checks = pkgs.mkChecks {
+  # node-eslint, node-prettier
+  node = ./web/checks.nix;
+
+  # rust-test, ... from ./rust/checks.nix
+  rust = pkgs.callChecks ./rust { inherit self; };
+};
+```
+
+```nix
+# ./rust/checks.nix
+{
+  pkgs,
+  self,
+}:
+{
+  test = {
+    src = self.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    script = "cargo test --offline";
+  };
+}
+```
+
+`mkCheck` builds a single check, taking the same attributes as an entry in `mkChecks`:
+
+```nix
+pkgs.mkCheck "shellcheck" {
+  root = ./.;
+  filter = file: file.hasExt "sh";
+  packages = [ pkgs.shellcheck ];
+  script = ''
+    shellcheck "$file"
+  '';
+}
 ```
 
 ### mkApps
