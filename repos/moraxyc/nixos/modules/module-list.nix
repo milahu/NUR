@@ -3,6 +3,7 @@
   ./programs/clash-nyanpasu.nix
   ./programs/deepseek-harness.nix
   ./security/ensure-pcr.nix
+  ./services/hardware/dell-idrac-fan-controller.nix
   ./services/misc/hentai-at-home.nix
   ./services/misc/mautrix-telegram.nix
   ./services/networking/ddns-go.nix
@@ -20,6 +21,7 @@
   ./services/web-apps/mcsmanager.nix
   # ./services/web-apps/nezha.nix # upstreamed
   ./services/web-apps/shlink.nix
+  ./services/web-apps/tokenrouter.nix
   ./services/web-apps/ztnet.nix
   ./services/web-servers/bark-server.nix
   # keep-sorted end

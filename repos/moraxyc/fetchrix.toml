@@ -415,6 +415,15 @@ version = { source = "github-release", repo = "dimk90/pi-context-view" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "dimk90/pi-context-view", rev = "{version}" }
 
+[packages.pi-emphasis]
+version = { source = "git", url = "https://github.com/johnlindquist/pi-emphasis.git", unstable = { } }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "johnlindquist/pi-emphasis", rev = "{version}" }
+
+[packages.pi-emphasis.prepare]
+steps = [{ type = "npm-lock", args = ["--legacy-peer-deps"] }]
+artifacts."package-lock.json" = { type = "file", path = "package-lock.json" }
+
 [packages.pi-live-terminal]
 version = { source = "git", url = "https://github.com/tanishqkancharla/pi-live-terminal.git", unstable = { stable = { source = "github-tag", repo = "tanishqkancharla/pi-live-terminal", strip_prefix = "v" } } }
 transform = ["strip-v"]
@@ -441,6 +450,11 @@ fetch = { type = "github", repo = "nicobailon/pi-mcp-adapter", rev = "{version}"
 [packages.pi-mcp-adapter.derive.npmDeps]
 kind = "npm-deps"
 strategy = "lockfile"
+
+[packages.pi-nvim]
+version = { source = "git", url = "https://github.com/alex35mil/pi.nvim.git", unstable = { } }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "alex35mil/pi.nvim", rev = "{version}" }
 
 [packages.pi-plan-mode]
 version = { source = "github-tag", repo = "qmx/pi-plan-mode", strip_prefix = "v" }
@@ -552,6 +566,19 @@ fetch = { type = "git", url = "https://github.com/tindy2013/subconverter", rev =
 version = { source = "git", url = "https://github.com/obra/superpowers.git", unstable = { } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/obra/superpowers.git", rev = "{version}" }
+
+[packages.tokenrouter]
+version = { source = "git-tag", url = "https://github.com/TokenFlux/TokenRouter.git", strip_prefix = "v", filter = "^v[0-9]+\\.[0-9]+\\.[0-9]+$" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "TokenFlux/TokenRouter", rev = "v{version}" }
+
+[packages.tokenrouter.derive.pnpmDepsHash]
+strategy = "fod"
+attr = ".#tokenrouter.frontend.pnpmDeps"
+
+[packages.tokenrouter.derive.vendorHash]
+strategy = "fod"
+attr = ".#tokenrouter.goModules"
 
 [packages.udpxy]
 version = { source = "github-tag", repo = "pcherenkov/udpxy" }
