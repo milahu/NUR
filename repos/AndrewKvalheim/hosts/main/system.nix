@@ -18,6 +18,7 @@ in
   host = {
     name = "main";
     dir = ./.;
+    mainDisplay = { name = "eDP-1"; model = "0x4146"; };
     metrics = rec{
       cpuCores = 16;
       cpuMarkMulti = 24435;

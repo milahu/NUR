@@ -40,13 +40,13 @@ rec {
   });
   caddy-with-cache-route53 = pkgs.caddy.withPlugins {
     plugins = [
-      "github.com/caddy-dns/route53@v1.6.2"
+      "github.com/caddy-dns/route53@v1.6.3"
       "github.com/caddyserver/cache-handler@v0.16.0"
       "github.com/darkweak/storages/badger/caddy@v0.0.19"
     ];
     hash = {
-      "2.11.7@1.26.10" = "sha256-UNzLCpkhO67lV6pOqVGNn+rqGht1ySLyblIQDdNlc8Y=";
-      "2.11.9@1.27.3" = "sha256-OOh/aV6l1+i5fukbB7qQw5Lut+QMjUqrqjIQtPMlPCs=";
+      "2.11.7@1.26.10" = "sha256-W5VY90PfMZTtl4rd51mGheYY4BZHigkrV8H4U2WrvOw=";
+      "2.11.9@1.27.3" = "sha256-nZXETR4b86asSOEW4naofE6pWwnXDN0+WyAEDJTr6f0=";
     }."${pkgs.caddy.version}@${pkgs.caddy.go.version}";
   };
   cc-icons-unicode = callPackage ./library/cc-icons-unicode.pkg.nix { };
@@ -101,12 +101,12 @@ rec {
   }).overrideAttrs (o: recursiveUpdate o {
     meta.broken = pkgs.python3Packages.requests-ratelimiter.meta.broken; # NixOS/nixpkgs#497999
   });
+  on-mains-power = callPackage ./library/on-mains-power.pkg.nix { };
   onlyBinMan = callPackage ./library/onlyBinMan.fn.nix { };
   pngquant-interactive = callPackage ./library/pngquant-interactive.pkg.nix { };
   sort-domains = callPackage ./library/sort-domains.pkg.nix { };
   spf-check = callPackage ./library/spf-check.pkg.nix { };
   spf-tree = callPackage ./library/spf-tree.pkg.nix { };
-  stretch-break = callPackage ./library/stretch-break.pkg.nix { };
   tile-stitch = callPackage ./library/tile-stitch.pkg.nix { };
   udon = callPackage ./library/udon.pkg.nix { };
   wireguard-vanity-address = callPackage ./library/wireguard-vanity-address.pkg.nix { };
