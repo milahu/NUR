@@ -1,0 +1,134 @@
+{
+  lib,
+  buildNpmPackage,
+  importNpmLock,
+  esbuild,
+  makeWrapper,
+  nodejs_24,
+  nodejs-slim_24,
+
+  sources,
+  source ? sources.lm-detector,
+}:
+
+buildNpmPackage (finalAttrs: {
+  inherit (source) pname version src;
+  __structuredAttrs = true;
+  strictDeps = true;
+
+  # Full Node is needed for npm at build time. Stop fixup from pointing script shebangs
+  # at its store path, which would pull npm and corepack into the runtime closure.
+  dontPatchShebangs = true;
+
+  nodejs = nodejs_24;
+
+  # Drops the monorepo workspaces, so the lock below is self-contained.
+  patches = [ source.artifacts."fix-workspace.patch" ];
+
+  npmDeps =
+    let
+      lock = lib.importJSON source.artifacts."package-lock.json";
+    in
+    importNpmLock {
+      package = lock.packages."";
+      packageLock = lock;
+    };
+  npmConfigHook = importNpmLock.npmConfigHook;
+
+  postPatch = ''
+    cp ${source.artifacts."package-lock.json"} package-lock.json
+  '';
+
+  npmFlags = [
+    "--omit=dev"
+    "--ignore-scripts"
+  ];
+  dontNpmBuild = true;
+
+  nativeBuildInputs = [
+    esbuild
+    makeWrapper
+  ];
+
+  buildPhase = ''
+    runHook preBuild
+
+    # `shared/` is a workspace package in upstream; link it where its imports expect it.
+    mkdir -p node_modules/@fingerpoint
+    ln -s ../../shared node_modules/@fingerpoint/shared
+
+    # Same data checks and public metadata as upstream `web/scripts/sync-data.ts`, run under Node.
+    esbuild web/scripts/sync-data.ts \
+      --bundle --format=esm --platform=node --target=node24 \
+      --external:ml-matrix --external:opentype.js \
+      --outfile=sync-data.mjs
+    node sync-data.mjs
+
+    # Same layout as upstream `cli/build.ts`, with Node as the shebang target.
+    mkdir -p dist/fpd/{bin,data}
+    esbuild cli/fpd.ts cli/bank-worker.ts cli/retrain-worker.ts \
+      --bundle --format=esm --platform=node --target=node24 --splitting \
+      --jsx=automatic \
+      --outdir=dist/fpd/bin --entry-names='[name]' \
+      --define:FPD_BUILD_VERSION='"${finalAttrs.version}"' \
+      --external:ink --external:react --external:terminal-link
+
+    sed -i '1s|^#!/usr/bin/env bun$|#!/usr/bin/env node|' dist/fpd/bin/fpd.js
+    chmod 755 dist/fpd/bin/fpd.js
+
+    cp web/.generated/unified_bank.json dist/fpd/data/unified_bank.json
+    cp data/shared_detector.bin dist/fpd/data/shared_detector.bin
+    cp data/tokenizer_bank.json dist/fpd/data/tokenizer_bank.json
+    cp shared/prompt-font.otf dist/fpd/bin/prompt-font.otf
+    cp cli/README.md dist/fpd/README.md
+    cp LICENSE dist/fpd/LICENSE
+
+    node -e '
+      const fs = require("node:fs");
+      const manifest = JSON.parse(fs.readFileSync("cli/npm-package.json", "utf8"));
+      const dependencies = {};
+      for (const name of ["ink", "react", "terminal-link"]) {
+        dependencies[name] = JSON.parse(fs.readFileSync("node_modules/" + name + "/package.json", "utf8")).version;
+      }
+      fs.writeFileSync(
+        "dist/fpd/package.json",
+        JSON.stringify({ ...manifest, version: process.argv[1], dependencies }, null, 2) + "\n",
+      );
+    ' "${finalAttrs.version}"
+
+    runHook postBuild
+  '';
+
+  installPhase = ''
+    runHook preInstall
+
+    # Only ink, react, and terminal-link are kept external by esbuild; prune bundled packages such as opentype.js and ml-matrix.
+    cp dist/fpd/package.json package.json
+    npm prune --omit=dev --no-save --ignore-scripts --no-audit --no-fund
+
+    appDir=$out/lib/node_modules/lmfpd
+    mkdir -p "$appDir" "$out/bin"
+    cp -r dist/fpd/. "$appDir/"
+    cp -r node_modules "$appDir/"
+    # npmConfigHook still points node_modules shebangs at full Node; these scripts are not run
+    # (the wrapper calls the slim Node), so use the portable form to keep npm and corepack out.
+    grep -rlI '^#!/nix/store/' "$appDir" | xargs -r sed -i '1s|^#!/nix/store/[^/]*/bin/node$|#!/usr/bin/env node|'
+    # npm's hidden lockfile records each dependency tarball as a store path, which would keep .tgz files in the runtime closure.
+    rm -f "$appDir/node_modules/.package-lock.json"
+
+    makeWrapper ${lib.getExe nodejs-slim_24} $out/bin/fpd \
+      --add-flags "$appDir/bin/fpd.js"
+
+    runHook postInstall
+  '';
+
+  disallowedReferences = [ finalAttrs.nodejs ];
+
+  meta = {
+    description = "Identify the large language model behind an API from a few hundred first-instinct integers";
+    homepage = "https://github.com/Ikaleio/lm-detector";
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ moraxyc ];
+    mainProgram = "fpd";
+  };
+})

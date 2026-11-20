@@ -43,6 +43,15 @@ fetch = { type = "git", url = "https://github.com/messense/aliyundrive-webdav.gi
 kind = "cargo-vendor"
 strategy = "lockfile"
 
+[packages.antigravity-claude-proxy]
+version = { source = "github-tag", repo = "badrisnarayanan/antigravity-claude-proxy", strip_prefix = "v" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "badrisnarayanan/antigravity-claude-proxy", rev = "v{version}" }
+
+[packages.antigravity-claude-proxy.derive.npmDeps]
+kind = "npm-deps"
+strategy = "lockfile"
+
 [packages.artex]
 version = { source = "git", url = "https://github.com/RuoJi6/ARTEX.git", unstable = { } }
 transform = ["strip-v"]
@@ -248,6 +257,16 @@ version = { source = "git", url = "https://github.com/marsqing/libinput-three-fi
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/marsqing/libinput-three-finger-drag", rev = "{version}" }
 
+[packages.lm-detector]
+version = { source = "git", url = "https://github.com/Ikaleio/lm-detector.git", unstable = { } }
+transform = ["strip-v"]
+fetch = { type = "git", url = "https://github.com/Ikaleio/lm-detector.git", rev = "{version}" }
+
+[packages.lm-detector.prepare]
+steps = [{ type = "hook", run = ["./pkgs/by-name/lm/lm-detector/prepare.sh"] }]
+artifacts."package-lock.json" = { type = "file", path = "package-lock.json" }
+artifacts."fix-workspace.patch" = { type = "patch", paths = ["package.json"] }
+
 [packages.loyalsoldier-geoip]
 version = { source = "git", url = "https://github.com/Loyalsoldier/geoip.git", branch = "release", unstable = { } }
 transform = ["strip-v"]
@@ -399,6 +418,15 @@ fetch = { type = "github", repo = "AdityaVG13/ast-sgrep", rev = "{version}" }
 
 [packages.pi-ast-sgrep.derive.cargoLock]
 kind = "cargo-vendor"
+strategy = "lockfile"
+
+[packages.pi-cc-tools]
+version = { source = "git", url = "https://github.com/FammasMaz/pi-cc-tools.git", unstable = { stable = { source = "github-tag", repo = "FammasMaz/pi-cc-tools", strip_prefix = "v" } } }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "FammasMaz/pi-cc-tools", rev = "{version}" }
+
+[packages.pi-cc-tools.derive.npmDeps]
+kind = "npm-deps"
 strategy = "lockfile"
 
 [packages.pi-cliproxyapi-provider]
