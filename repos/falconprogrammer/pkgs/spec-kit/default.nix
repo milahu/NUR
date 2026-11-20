@@ -1,6 +1,6 @@
 { lib
 , buildPythonApplication
-, fetchFromGitHub
+, callPackage
 , hatchling
 , typer
 , click
@@ -11,20 +11,21 @@
 , packaging
 , pathspec
 , json5
+, mcp
+, pydantic
+, lark
 , ...
 }:
 
-buildPythonApplication rec {
+let
+  sources = (callPackage ../../_sources/generated.nix { }).spec-kit;
+in
+buildPythonApplication {
   pname = "spec-kit";
-  version = "1.1.0";
+  version = lib.removePrefix "v" sources.version;
   pyproject = true;
 
-  src = fetchFromGitHub {
-    owner = "github";
-    repo = "spec-kit";
-    rev = "v${version}";
-    hash = "sha256-NbHdMup6YmVI/rfnTo7AJeoXN9TTnrQrS8L8U1Hw5uM=";
-  };
+  inherit (sources) src;
 
   nativeBuildInputs = [
     hatchling
@@ -40,6 +41,9 @@ buildPythonApplication rec {
     packaging
     pathspec
     json5
+    mcp
+    pydantic
+    lark
   ];
 
   pythonImportsCheck = [ "specify_cli" ];
@@ -50,6 +54,9 @@ buildPythonApplication rec {
     license = licenses.mit;
     maintainers = with maintainers; [ ];
     mainProgram = "specify";
-    broken = lib.versionOlder typer.version "0.24.0";
+    broken =
+      lib.versionOlder typer.version "0.24.0"
+      || lib.versionOlder mcp.version "2.2.0"
+      || lib.versionOlder pydantic.version "2.13.0";
   };
 }

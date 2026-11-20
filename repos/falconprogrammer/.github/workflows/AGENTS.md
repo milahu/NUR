@@ -2,7 +2,7 @@
 
 # workflows
 
-Two-workflow CI/CD suite for a NUR (Nix User Repository): one builds and caches packages across nixpkgs channels, the other tracks upstream releases and commits, auto-updating `pkgs/*/default.nix` and opening squash-merged PRs daily.
+Two-workflow CI/CD suite for a NUR (Nix User Repository): one builds and caches packages across nixpkgs channels, the other tracks upstream releases and commits, regenerating `_sources/` with nvfetcher daily and committing to the default branch when the build passes, with a draft PR only when it fails.
 
 ## Contents
 
@@ -12,7 +12,7 @@ Two-workflow CI/CD suite for a NUR (Nix User Repository): one builds and caches 
 
 ### Automation
 
-- [auto-update-packages.yml](./auto-update-packages.yml) — Daily matrix job per tracked package (`opencode`, `spec-kit`, `cco`); fetches latest release or commit SHA from GitHub API, recalculates `nix-prefetch-url` hash, patches `pkgs/<name>/default.nix`, builds, opens PR, auto-squash-merges on build success. Triggers `build.yml` on completion via `trigger-nur-sync` job.
+- [auto-update-packages.yml](./auto-update-packages.yml) — Daily matrix job per tracked package (see Tracked Package Matrix); runs `nvfetcher` for that package, which rewrites `_sources/generated.{nix,json}`, builds, commits to the default branch on build success or opens a draft PR on build failure. Jobs run one at a time (`max-parallel: 1`). Triggers `build.yml` on completion via `trigger-nur-sync` job.
 
 ## Architecture / Data Flow
 
@@ -20,13 +20,12 @@ Two-workflow CI/CD suite for a NUR (Nix User Repository): one builds and caches 
 cron / workflow_dispatch
         │
         ▼
-auto-update-packages (matrix: opencode, spec-kit, cco)
-  ├─ GitHub API → latest version/rev
-  ├─ SRI hash: nix-prefetch-url (source) / curl+unpack+nix hash path (binary asset)
-  ├─ sed-patch pkgs/<name>/default.nix (version, rev, hash / per-arch hash_key)
-  ├─ nix build .#<name> → build_success
-  ├─ peter-evans/create-pull-request → PR (draft if build fails)
-  ├─ gh pr merge --auto --squash (on build_success only)
+auto-update-packages (matrix: name + attr per package)
+  ├─ nvfetcher --filter ^<name>(-.+)?$ (nvfetcher.toml) → rewrites _sources/generated.{nix,json}
+  ├─ git diff on _sources → update_available
+  ├─ nix build .#<attr> → build_success
+  ├─ build_success → git commit + push to default branch (no PR)
+  ├─ build failed → peter-evans/create-pull-request → draft PR
   └─ trigger-nur-sync → gh workflow run build.yml
         │
         ▼
@@ -43,16 +42,14 @@ build.yml (matrix: 4 nixpkgs channels)
 |---|---|
 | Auto-update schedule | `cron: '30 3 * * *'` |
 | Build schedule | `cron: '51 2 * * *'` |
-| Package file path | `pkgs/<matrix.package.name>/default.nix` |
-| PR title format | `chore: update <name> v<current> → v<latest>` |
+| Source definitions | `nvfetcher.toml` (one table per package) |
+| Generated sources | `_sources/generated.nix`, `_sources/generated.json` |
+| nvfetcher invocation | `nix develop --command nvfetcher --keyfile <file> --filter "^<name>(-.+)?$"` |
+| nvchecker keyfile | `[keys]` `github` = `GITHUB_TOKEN`, written to `$RUNNER_TEMP` |
+| Commit message / draft PR title | `chore: update <name> v<current> → v<latest>` |
 | Branch name format | `update-<name>-<latest_version>` |
-| Commit-type version format | `0-unstable-<YYYY-MM-DD>` |
-| Release version strip | `sed 's/^v//'` |
-| Archive URL (release) | `v$LATEST_VERSION.tar.gz` |
-| Archive URL (commit) | `$LATEST_REV.tar.gz` |
-| Asset URL (binary) | `releases/download/v$LATEST_VERSION/<asset>` |
-| Binary hash patch | `sed` on `"<hash_key>" = "..."` (per-arch key in `hashes`) |
-| Duplicate detection window | `git log --oneline --grep="update <name>.*<version>" --since="30 days ago"` |
+| Commit-tracked version format | `0-unstable-<date from generated.json>` |
+| Release-tracked version format | `version` from `generated.json` without the leading `v` |
 | Cachix sentinel (skips push) | `cachixName == '<YOUR_CACHIX_NAME>'` |
 | NUR notify sentinel (skips curl) | `nurRepo == '<YOUR_REPO_NAME>'` |
 | NUR notify endpoint | `https://nur-update.nix-community.org/update?repo=<nurRepo>` |
@@ -63,13 +60,17 @@ build.yml (matrix: 4 nixpkgs channels)
 
 ## Tracked Package Matrix (`auto-update-packages.yml`)
 
-| `name` | `owner/repo` | `type` | `branch` |
+| `name` | `attr` (built) | Version source | Fetcher |
 |---|---|---|---|
-| `opencode` | `anomalyco/opencode` | `binary` | — |
-| `spec-kit` | `github/spec-kit` | `release` | — |
-| `cco` | `nikvdp/cco` | `commit` | `master` |
+| `alvr` | `alvr` | `src.github` `alvr-org/ALVR` | `fetch.url` `alvr_streamer_linux.tar.gz`; second table `alvr-source` uses `fetch.github` |
+| `cco` | `cco` | `src.git` `nikvdp/cco`, branch `master` | `fetch.github` |
+| `opencode` | `opencode` | `src.github` `anomalyco/opencode` | `fetch.url` `opencode-linux-x64.tar.gz` |
+| `python-jwt` | `python-jwt_313` | `src.pypi` `python_jwt` | `fetch.pypi` |
+| `spec-kit` | `spec-kit` | `src.github` `github/spec-kit` | `fetch.github` |
+| `timew-sync-client` | `timew-sync-client` | `src.git` `timewarrior-synchronize/timew-sync-client`, branch `main` | `fetch.github` |
+| `xgen` | `xgen` | `src.git` `xuri/xgen`, branch `master` | `fetch.github` |
 
-`binary` packages add `asset` (release-asset filename) and `hash_key` (the platform key patched in `hashes = { ... }`). `opencode`: `asset: opencode-linux-x64.tar.gz`, `hash_key: x86_64-linux`.
+Each matrix `name` needs a table of the same name in `nvfetcher.toml`. The `--filter` regex `^<name>(-.+)?$` also updates tables named `<name>-<suffix>`, so `alvr` updates `alvr-source` in the same run.
 
 ## Configuration Requirements
 
