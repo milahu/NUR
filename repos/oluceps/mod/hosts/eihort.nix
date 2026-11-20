@@ -53,6 +53,13 @@
         service = "pocket-id-metrics";
       };
       realm.observability.endpoints.pocket-id.socket = "/run/realm/observability/egress/pocket-id.sock";
+      # The key of the pool0/enc encryption root sits on the LUKS root.
+      systemd.services.zfs-import-pool0.unitConfig.RequiresMountsFor = [ "/persist/keys" ];
+      systemd.services.postgresql = {
+        # Tablespace pii_ts (database `pii`) on pool0/enc/pg-pii.
+        unitConfig.RequiresMountsFor = [ "/pool0/pg-pii" ];
+        serviceConfig.ReadWritePaths = [ "/pool0/pg-pii" ];
+      };
       systemd.services.pocket-id = {
         requires = [ "postgresql.target" ];
         after = [ "postgresql.target" ];
@@ -83,9 +90,10 @@
             dev
             plugIn
             vxlan-mesh
+            unlock-client
             yggdrasil
             scrutiny
-            secureboot
+            # secureboot
             earlyoom
             # dae
             chrony
@@ -152,6 +160,10 @@
         };
 
         loader = {
+          systemd-boot = {
+            enable = true;
+            configurationLimit = 8;
+          };
           efi = {
             canTouchEfiVariables = true;
             efiSysMountPoint = "/efi";
@@ -162,11 +174,9 @@
           "intel_oc_wdt"
           "iTCO_wdt"
           "iTCO_vendor_support"
+          # Temporarily disabled until encrypted-boot recovery is validated.
+          "ipmi_watchdog"
         ];
-        kernelModules = [ "ipmi_watchdog" ];
-        extraModprobeConfig = ''
-          options ipmi_watchdog action=reset
-        '';
 
         kernelParams = [
           # "audit=0"
@@ -205,8 +215,9 @@
       systemd = {
         enableEmergencyMode = false;
         settings.Manager = {
-          RebootWatchdogSec = "20s";
-          RuntimeWatchdogSec = "30s";
+          # Temporarily disabled until encrypted-boot recovery is validated.
+          RebootWatchdogSec = "0";
+          RuntimeWatchdogSec = "0";
         };
       };
       systemd.sockets.sept-proxy = {
