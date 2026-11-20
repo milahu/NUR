@@ -177,11 +177,26 @@
       maxPlayers = 8;
     };
   };
+  # NetBird (replaces manual WireGuard; Task 5+6). Declarative client
+  # via the nixpkgs module — NOT `netbird service install` (imperative,
+  # invisible to the config). Setup key value lives in sops.
+  services.netbird.clients.wt0 = {
+    port = 51821;
+    autoStart = true;
+    environment.NB_MANAGEMENT_URL = "https://netbird-mgmt.toyvo.dev";
+    login.enable = true;
+    login.setupKeyFile = config.sops.secrets."netbird-setup-key".path;
+    # NOTE: no login.systemdDependencies — sops-install-secrets runs as
+    # an activation script here, not a unit (depending on the unit name
+    # breaks startup: "Unit sops-install-secrets.service not found").
+    # Secrets are in place before services start anyway.
+  };
   sops.secrets = {
     cloudflare_w_dns_r_zone_token = { };
     "discord_bot.env" = { };
     "rclone.conf" = { };
     "wireguard-oracle-private-key" = { };
+    "netbird-setup-key" = { };
   };
   users.users.caddy.extraGroups = [ "acme" ];
   nixcfg.users.toyvo.enable = true;

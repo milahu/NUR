@@ -551,6 +551,12 @@ in
         "toyvo.dev"
         "cache.toyvo.dev"
         "git.toyvo.dev"
+        "netbird-mgmt.toyvo.dev"
+        "netbird-signal.toyvo.dev"
+        # NOTE: relay.toyvo.dev is deliberately NOT here — dyndns sets
+        # proxied=true globally; NetBird agents need grey-cloud (DNS-only)
+        # records. The relay record stays manual. If the home IP changes,
+        # update it by hand.
       ];
       proxied = true;
       apiTokenFile = config.sops.secrets.cloudflare_w_dns_r_zone_token.path;

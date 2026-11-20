@@ -9,20 +9,18 @@ let
 
   # Pinned at upstream stable (verified 2026-11-18, Task 1).
   # Dashboard versions independently (v2.x line) — see Task 1 brief.
-  managementImage = "netbirdio/management:0.83.1";
-  signalImage = "netbirdio/signal:0.83.1";
-  relayImage = "netbirdio/relay:0.83.1";
+  managementImage = "netbirdio/management:0.82.0";
+  signalImage = "netbirdio/signal:0.82.0";
+  relayImage = "netbirdio/relay:0.82.0";
   dashboardImage = "netbirdio/dashboard:v2.97.0";
 
   managementPort = 33073;
   signalPort = 80;
   relayPort = 33080;
   dashboardPort = 80;
-  relayNodePort = 33080;
 
   # Public vhosts (toyvo.dev is internet-facing; diekvoss.net is LAN-only).
-  # DNS (Cloudflare, manual) + home-router UDP forward for the relay are
-  # user steps at Task 4 — the manifests assume they exist.
+  # DNS (Cloudflare) is a user step — the manifests assume it exists.
   dashboardHost = "netbird.diekvoss.net";
   managementHost = "netbird-mgmt.toyvo.dev";
   signalHost = "netbird-signal.toyvo.dev";
@@ -57,12 +55,12 @@ let
             "TimeBasedCredentials": false
         },
         "Relay": {
-            "Addresses": ["rel://${relayHost}:${toString relayPort}"],
+            "Addresses": ["rels://${relayHost}:443"],
             "CredentialsTTL": "24h",
             "Secret": "$NETBIRD_RELAY_AUTH_SECRET"
         },
         "Signal": {
-            "Proto": "http",
+            "Proto": "https",
             "URI": "${signalHost}:443",
             "Username": "",
             "Password": null
@@ -316,6 +314,10 @@ in
         kind = "Service";
         metadata = {
           name = "netbird-management";
+          # gRPC (agents) + REST share one port: Traefik must speak h2c
+          # upstream. service.* annotations are read from the Service —
+          # on the Ingress they are silently ignored (HTTP/1.1 → 404).
+          annotations."traefik.ingress.kubernetes.io/service.serversscheme" = "h2c";
         };
         spec = {
           selector.app = "netbird-management";
@@ -421,6 +423,8 @@ in
         kind = "Service";
         metadata = {
           name = "netbird-signal";
+          # Agents speak gRPC to signal (same h2c requirement as management).
+          annotations."traefik.ingress.kubernetes.io/service.serversscheme" = "h2c";
         };
         spec = {
           selector.app = "netbird-signal";
@@ -501,7 +505,7 @@ in
                     }
                     {
                       name = "NB_EXPOSED_ADDRESS";
-                      value = "rel://${relayHost}:${toString relayPort}";
+                      value = "rels://${relayHost}:443";
                     }
                     {
                       name = "NB_AUTH_SECRET";
@@ -511,12 +515,7 @@ in
                       };
                     }
                   ];
-                  ports = [
-                    {
-                      containerPort = relayPort;
-                      protocol = "UDP";
-                    }
-                  ];
+                  ports = [ { containerPort = relayPort; } ];
                   readinessProbe = {
                     tcpSocket.port = relayPort;
                     initialDelaySeconds = 30;
@@ -528,24 +527,61 @@ in
           };
         };
       };
-      # Raw UDP for NAT traversal (rel://). Traefik can't do it without
-      # TCP/UDP route config — NodePort + home-router forward (user step),
-      # same split as game servers and Loki ingest before it.
-      "netbird-relay-nodeport.yaml".content = {
+      # Without a TLS cert the relay skips its QUIC (UDP) listener and only
+      # serves WebSocket on TCP at /relay — so it goes through Traefik on
+      # :443 like upstream's reverse-proxy setups (rels://, no extra ports).
+      "netbird-relay-service.yaml".content = {
         apiVersion = "v1";
         kind = "Service";
         metadata = {
           name = "netbird-relay";
         };
         spec = {
-          type = "NodePort";
           selector.app = "netbird-relay";
           ports = [
             {
               port = relayPort;
               targetPort = relayPort;
-              nodePort = relayNodePort;
-              protocol = "UDP";
+            }
+          ];
+        };
+      };
+      # Public, no forward-auth: agents authenticate to the relay with
+      # HMAC tokens minted by management (relay-auth-secret).
+      "netbird-relay-ingress.yaml".content = {
+        apiVersion = "networking.k8s.io/v1";
+        kind = "Ingress";
+        metadata = {
+          name = "netbird-relay";
+          annotations = {
+            "traefik.ingress.kubernetes.io/router.middlewares" = middlewaresLib.ingressMiddlewareAnnotation {
+              domain = "toyvo.dev";
+              public = true;
+              forwardAuthGate = false;
+            };
+          };
+        };
+        spec = {
+          ingressClassName = "traefik";
+          tls = [
+            {
+              hosts = [ relayHost ];
+              secretName = "wildcard-tls-toyvo-dev";
+            }
+          ];
+          rules = [
+            {
+              host = relayHost;
+              http.paths = [
+                {
+                  path = "/relay";
+                  pathType = "Prefix";
+                  backend.service = {
+                    name = "netbird-relay";
+                    port.number = relayPort;
+                  };
+                }
+              ];
             }
           ];
         };
@@ -571,12 +607,16 @@ in
                   imagePullPolicy = "IfNotPresent";
                   env = [
                     {
+                      # Public URL, no explicit port: Traefik terminates :443
+                      # and routes to the ClusterIP internally. Including the
+                      # backend port here (e.g. :33073) makes browsers try it
+                      # directly against Traefik/CF, where nothing listens.
                       name = "NETBIRD_MGMT_API_ENDPOINT";
-                      value = "https://${managementHost}:${toString managementPort}";
+                      value = "https://${managementHost}";
                     }
                     {
                       name = "NETBIRD_MGMT_GRPC_API_ENDPOINT";
-                      value = "https://${managementHost}:${toString managementPort}";
+                      value = "https://${managementHost}";
                     }
                     {
                       name = "AUTH_AUDIENCE";
@@ -612,12 +652,15 @@ in
                       value = "openid profile email offline_access";
                     }
                     {
+                      # Paths, not full URLs: the dashboard prepends the
+                      # browser origin itself (absolute URLs double up:
+                      # https://hosthttps://host/ — seen live 2026-11-19).
                       name = "AUTH_REDIRECT_URI";
-                      value = "https://${dashboardHost}/";
+                      value = "/";
                     }
                     {
                       name = "AUTH_SILENT_REDIRECT_URI";
-                      value = "https://${dashboardHost}/silent-callback";
+                      value = "/silent-callback";
                     }
                     {
                       name = "NETBIRD_TOKEN_SOURCE";
