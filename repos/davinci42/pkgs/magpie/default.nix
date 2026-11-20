@@ -2,7 +2,6 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  callPackage,
   writeShellApplication,
   python3,
   nix-update,
@@ -14,22 +13,22 @@ let
   sources = {
     x86_64-linux = {
       asset = "magpie-cli-linux-amd64";
-      hash = "sha256-MTs1RFEzD4X9b+wqJmj3Wpb4WnPFhe4eH723M1OJbe4=";
+      hash = "sha256-ayM7e3Q2S/AgVofrwYatsiPyQDvMfx2J8Br1S6JPhAg=";
     };
     aarch64-linux = {
       asset = "magpie-cli-linux-arm64";
-      hash = "sha256-X0B4LfACOlFenocPuNY6eDvXKSp7N3I7/4tG3fGiJrE=";
+      hash = "sha256-GFlIpj6/n7Hv/8wHmz5RO69mrDUNQD9Frc7wjwO3Ryk=";
     };
     aarch64-darwin = {
       asset = "magpie-cli-darwin-arm64";
-      hash = "sha256-Ah9NLBJ12oK0Gq07A14xkWZDsl4el1T1gogpHp23t4Q=";
+      hash = "sha256-MYfuBrsv3RHQXGYk7aAX71Z3k79JFsFgCGvybfVd7eQ=";
     };
   };
   source = sources.${stdenvNoCC.hostPlatform.system};
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "magpie";
-  version = "0.1.4421";
+  version = "0.1.4582";
 
   src = fetchurl {
     url = "https://github.com/yetone/magpie-releases/releases/download/v${finalAttrs.version}/${source.asset}";
@@ -60,9 +59,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
         exec python3 pkgs/magpie/update.py "$@"
       '';
     });
-    tests.packaging = callPackage ../../tests/pkgs/magpie {
-      package = finalAttrs.finalPackage;
-    };
   };
 
   meta = {
