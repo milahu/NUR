@@ -76,9 +76,9 @@ strategy = "fod"
 attr = ".#bark-server.goModules"
 
 [packages.clash-nyanpasu]
-version = { source = "git", url = "https://github.com/libnyanpasu/clash-nyanpasu", unstable = { stable = { source = "github-release", repo = "libnyanpasu/clash-nyanpasu" } } }
+version = { source = "github-release", repo = "libnyanpasu/clash-nyanpasu" }
 transform = ["strip-v"]
-fetch = { type = "git", url = "https://github.com/libnyanpasu/clash-nyanpasu", rev = "{version}" }
+fetch = { type = "github", repo = "libnyanpasu/clash-nyanpasu", rev = "{version}", submodules = true }
 
 [packages.clash-nyanpasu.prepare]
 steps = [{ type = "hook", run = ["./pkgs/by-name/cl/clash-nyanpasu/prepare.sh"] }]
@@ -376,9 +376,9 @@ transform = ["strip-v"]
 fetch = { type = "url", url = "https://github.com/AimesSoft/NipaPlay-Reload/releases/download/v{version}/NipaPlay-{version}-Linux-amd64.tar.gz" }
 
 [packages.nyanpasu-service]
-version = { source = "git", url = "https://github.com/libnyanpasu/nyanpasu-service.git", unstable = { stable = { source = "github-release", repo = "libnyanpasu/nyanpasu-service" } } }
+version = { source = "github-release", repo = "libnyanpasu/nyanpasu-service" }
 transform = ["strip-v"]
-fetch = { type = "git", url = "https://github.com/libnyanpasu/nyanpasu-service.git", rev = "{version}" }
+fetch = { type = "github", repo = "libnyanpasu/nyanpasu-service", rev = "{version}", submodules = true }
 
 [packages.nyanpasu-service.derive.cargoLock]
 kind = "cargo-vendor"
@@ -418,6 +418,15 @@ fetch = { type = "github", repo = "AdityaVG13/ast-sgrep", rev = "{version}" }
 
 [packages.pi-ast-sgrep.derive.cargoLock]
 kind = "cargo-vendor"
+strategy = "lockfile"
+
+[packages.pi-cc-extensions]
+version = { source = "github-release", repo = "minuque/pi-cc-extensions" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "minuque/pi-cc-extensions", rev = "{version}" }
+
+[packages.pi-cc-extensions.derive.npmDeps]
+kind = "npm-deps"
 strategy = "lockfile"
 
 [packages.pi-cc-tools]
@@ -612,15 +621,6 @@ attr = ".#tokenrouter.goModules"
 version = { source = "github-tag", repo = "pcherenkov/udpxy" }
 transform = ["strip-v"]
 fetch = { type = "github", repo = "pcherenkov/udpxy", rev = "{version}" }
-
-[packages.uu-remote-linux]
-version = { source = "github-release", repo = "VallierDev/uu-remote-linux" }
-transform = ["strip-v"]
-fetch = { type = "github", repo = "VallierDev/uu-remote-linux", rev = "{version}" }
-
-[packages.uu-remote-linux.derive.cargoLock]
-kind = "cargo-vendor"
-strategy = "lockfile"
 
 [packages.v2ray-rules-dat]
 version = { source = "git", url = "https://github.com/Loyalsoldier/v2ray-rules-dat.git", branch = "release", unstable = { } }
