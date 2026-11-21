@@ -1,5 +1,5 @@
 error:
-… while evaluating the attribute 'xdg-desktop-portal-gtk4'
+… while evaluating the attribute 'pi-coding-agent-latest'
   at <nixpkgs> + /lib/attrsets.nix:977:47:
    976|   */
    977|   nameValuePair = name: value: { inherit name value; };
@@ -63,17 +63,17 @@ error:
    165|
 
 … while calling anonymous lambda
-  at ./pkgs/by-name/xdg-desktop-portal-gtk4/package.nix:1:1:
+  at ./pkgs/by-name/pi-coding-agent-latest/package.nix:1:1:
      1| {
       | ^
      2|   callPackage,
 
 … from call site
-  at ./pkgs/by-name/xdg-desktop-portal-gtk4/package.nix:15:9:
-    14|   };
-    15|   pkg = callPackage "${src}/packaging/nix/package.nix" { };
+  at ./pkgs/by-name/pi-coding-agent-latest/package.nix:33:9:
+    32|   };
+    33|   pkg = callPackage "${src}/nix/package.nix" {
       |         ^
-    16| in
+    34|     source = src;
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/customisation.nix:312:19:
@@ -131,6 +131,6 @@ error:
       |                                         ^
    315|       fargs = functionArgs f;
 
-… while realising the context of path '/nix/store/998s4fsmnkvqdd8gxlgiw9anhz4rkd6b-source/packaging/nix/package.nix'
+… while realising the context of path '/nix/store/99hihra6d7snpyng41mb4kw9saj4i5vv-source/nix/package.nix'
 
-error: path '/nix/store/3hl5cwjxndjhcssnng55msdvh0cnijbp-source.drv' is not valid
+error: path '/nix/store/j4lrjwbv09mmqggz51bn7q9pwbrm58q0-source.drv' is not valid
