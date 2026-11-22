@@ -8,10 +8,10 @@
 {
   alvr = {
     pname = "alvr";
-    version = "v20.14.1";
+    version = "v21.0.0-dev14+nightly.2026.11.08";
     src = fetchurl {
-      url = "https://github.com/alvr-org/ALVR/releases/download/v20.14.1/alvr_streamer_linux.tar.gz";
-      sha256 = "sha256-voK0p6PLNgfdXDB88rChtSTR7LulhtZXpFgReopjvAk=";
+      url = "https://github.com/alvr-org/ALVR-nightly/releases/download/v21.0.0-dev14+nightly.2026.11.08/alvr_streamer_linux.tar.gz";
+      sha256 = "sha256-jk/lxLrYdkdOqLw1rOgd6EqPcxTqkENJiDlFYLn+O8U=";
     };
   };
   alvr-source = {

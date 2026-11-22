@@ -38,6 +38,9 @@ stdenv.mkDerivation (finalAttrs: {
     autoPatchelfHook
   ];
 
+  # NOTE (CC) Provided at runtime by SteamVR's bin/linux64 on vrserver's LD_LIBRARY_PATH
+  autoPatchelfIgnoreMissingDeps = [ "libopenvr_api.so" ];
+
   buildInputs = [
     alsa-lib
     libunwind
@@ -59,6 +62,7 @@ stdenv.mkDerivation (finalAttrs: {
     openssl
     pipewire
     pulseaudio
+    vulkan-loader
     wayland
     x264
     xorg.libX11
@@ -74,6 +78,8 @@ stdenv.mkDerivation (finalAttrs: {
     cp -r ./* $out
     install -Dm444 $alvrSrc/alvr/xtask/resources/alvr.desktop -t $out/share/applications
     install -Dm444 $alvrSrc/alvr/xtask/flatpak/alvr_icon.png $out/share/icons/hicolor/256x256/apps/alvr.png
+    install -Dm444 $alvrSrc/alvr/xtask/firewall/ufw-alvr $out/share/alvr/ufw-alvr
+    install -Dm755 ${./alvr-firewall-install.sh} $out/bin/alvr-firewall-install
 
     runHook postInstall
   '';
@@ -83,7 +89,7 @@ stdenv.mkDerivation (finalAttrs: {
   meta = with lib; {
     description = "Stream VR games from your PC to your headset via Wi-Fi";
     homepage = "https://github.com/alvr-org/ALVR/";
-    changelog = "https://github.com/alvr-org/ALVR/releases/tag/v${finalAttrs.version}";
+    changelog = "https://github.com/alvr-org/ALVR-nightly/releases/tag/v${finalAttrs.version}";
     license = licenses.mit;
     maintainers = with maintainers; [ passivelemon ];
     platforms = platforms.linux;
