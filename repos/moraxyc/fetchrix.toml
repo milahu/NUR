@@ -102,6 +102,18 @@ fetch = { type = "github", repo = "router-for-me/cliproxyapi", rev = "{version}"
 strategy = "fod"
 attr = ".#cliproxyapi.goModules"
 
+[packages.cpa-reductant]
+version = { source = "github-release", repo = "Moraxyc/cpa-reductant" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "Moraxyc/cpa-reductant", rev = "{version}" }
+
+[packages.cpa-reductant.prepare]
+artifacts."magpie.json" = { type = "json", path = "flake.lock", fields = ["/nodes/magpie/locked"] }
+
+[packages.cpa-reductant.derive.vendorHash]
+strategy = "fod"
+attr = ".#cpa-reductant.goModules"
+
 [packages.cpa-usage-keeper]
 version = { source = "git", url = "https://github.com/Willxup/cpa-usage-keeper.git", unstable = { stable = { source = "github-release", repo = "Willxup/cpa-usage-keeper" } } }
 transform = ["strip-v"]
@@ -309,15 +321,6 @@ fetch = { type = "github", repo = "metacubex/geo", rev = "{version}" }
 strategy = "fod"
 attr = ".#metacubex-geo.goModules"
 
-[packages.microfetch]
-version = { source = "git", url = "https://github.com/NotAShelf/microfetch", unstable = { } }
-transform = ["strip-v"]
-fetch = { type = "git", url = "https://github.com/NotAShelf/microfetch", rev = "{version}" }
-
-[packages.microfetch.derive.cargoLock]
-kind = "cargo-vendor"
-strategy = "lockfile"
-
 [packages.mm-geofeed-verifier]
 version = { source = "github-release", repo = "maxmind/mm-geofeed-verifier" }
 transform = ["strip-v"]
@@ -401,6 +404,20 @@ fetch = { type = "github", repo = "grinev/opencode-telegram-bot", rev = "{versio
 [packages.opencode-telegram-bot.derive.npmDeps]
 kind = "npm-deps"
 strategy = "lockfile"
+
+[packages.peerbanhelper]
+version = { source = "github-release", repo = "PBH-BTN/PeerBanHelper", strip_prefix = "v" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "PBH-BTN/PeerBanHelper", tag = "v{version}" }
+
+[packages.peerbanhelper.derive.gradleDeps]
+strategy = "gradle-deps"
+attr = ".#peerbanhelper"
+use_bwrap = false
+
+[packages.peerbanhelper.derive.pnpmDepsHash]
+strategy = "fod"
+attr = ".#peerbanhelper.webui.pnpmDeps"
 
 [packages.pi-acp]
 version = { source = "github-release", repo = "svkozak/pi-acp" }
@@ -513,9 +530,9 @@ transform = ["strip-v"]
 fetch = { type = "github", repo = "MattDevy/pi-extensions", rev = "pi-simplify-v{version}" }
 
 [packages.pi-subagents]
-version = { source = "github-release", repo = "nicobailon/pi-subagents" }
+version = { source = "github-release", repo = "tintinweb/pi-subagents" }
 transform = ["strip-v"]
-fetch = { type = "github", repo = "nicobailon/pi-subagents", rev = "{version}" }
+fetch = { type = "github", repo = "tintinweb/pi-subagents", rev = "{version}" }
 
 [packages.pi-subagents.derive.npmDeps]
 kind = "npm-deps"
@@ -553,6 +570,11 @@ fetch = { type = "github", repo = "sipeed/picoclaw", rev = "v{version}" }
 version = { source = "git", url = "https://github.com/charmedlabs/pixy2", unstable = { } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/charmedlabs/pixy2", rev = "{version}" }
+
+[packages.revdiff]
+version = { source = "github-release", repo = "umputun/revdiff" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "umputun/revdiff", rev = "{version}" }
 
 [packages.sable-next]
 version = { source = "git-tag", url = "https://git.sable.moe/SableClient/sable-next.git", strip_prefix = "v", filter = "^v[0-9]+\\.[0-9]+\\.[0-9]+$" }
