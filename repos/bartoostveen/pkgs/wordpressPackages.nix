@@ -139,9 +139,9 @@ makeScope newScope (
       };
       generic-oidc = {
         pname = "wp-generic-oidc";
-        version = "3.11.4";
+        version = "3.11.5";
         id = "daggerhart-openid-connect-generic";
-        hash = "sha256-2B+NCUGNk/rgbR9D/WP0AdZmqUw9r/njgCA/bd8W/jA=";
+        hash = "sha256-4zYEtPKy+O/FKSi7az7uiywFSIeQkXUSa817rJ6kEAo=";
       };
       gutenberg-carousel = {
         pname = "wp-gutenberg-carousel";
@@ -181,8 +181,8 @@ makeScope newScope (
         fetchzip,
         language,
         languageShort ? substring 0 2 language,
-        # wordpress,
-        version ? "7.1.5", # TODO: replace with wordpress.version,
+        wordpress,
+        version ? wordpress.version,
         hash,
       }:
 
@@ -203,7 +203,7 @@ makeScope newScope (
     languages = mapAttrs (_: self.callPackage self.mkLanguage) {
       nl = {
         language = "nl_NL";
-        hash = "sha256-X63Zur4qJ7AKlVOLcCuqILpF2CTbRsaSsqBxJej5qxs=";
+        hash = "sha256-86zjTUlzXL0+RSagd04kMsXCalG8DDqUEKJm9pkbSDs=";
       };
     };
   }
