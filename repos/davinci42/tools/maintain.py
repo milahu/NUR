@@ -42,7 +42,7 @@ def run(
 
 
 def packages(root: Path) -> list[str]:
-    expr = 'let packages = import ./. {}; in builtins.attrNames (builtins.removeAttrs packages ["nixosModules" "darwinModules"])'
+    expr = 'let pkgs = (builtins.getFlake (toString ./.)).inputs.nixpkgs.legacyPackages.${builtins.currentSystem}; packages = builtins.removeAttrs (import ./. { inherit pkgs; }) ["nixosModules" "darwinModules"]; in builtins.attrNames (pkgs.lib.filterAttrs (_: pkgs.lib.meta.availableOn { inherit (pkgs.stdenv.hostPlatform) system; }) packages)'
     return json.loads(
         run(root, ["nix", "eval", "--impure", "--json", "--expr", expr], capture=True)
     )
@@ -118,14 +118,20 @@ def execute_update(
             command.extend(["--src-only", "--no-src"])
         else:
             env["NUR_DETECT_VERSION"] = "1"
-    if command[0].startswith("/nix/store/"):
+    if any(arg.startswith("/nix/store/") for arg in command):
         run(
             root,
             [
                 "nix-build",
-                "-E",
-                f'with import ./. {{}}; builtins.seq {package}.updateScript (builtins.derivation {{ name = "script"; system = builtins.currentSystem; builder = "/bin/sh"; args = ["-c" "echo > $out"]; }})',
                 "--no-out-link",
+                "--expr",
+                '{ root, name }: let pkgs = (builtins.getFlake (toString root)).inputs.nixpkgs.legacyPackages.${builtins.currentSystem}; info = import ./tools/update-info.nix { inherit root name pkgs; }; in pkgs.writeText "update-script" (builtins.toJSON info.command)',
+                "--argstr",
+                "root",
+                str(root.resolve()),
+                "--argstr",
+                "name",
+                package,
             ],
             capture=True,
         )
