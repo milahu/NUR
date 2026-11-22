@@ -27,8 +27,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "josh";
     repo = "wikidatabots";
-    rev = "4851662af08a9a2524a1dfb969b60248b98fda72";
-    hash = "sha256-aHsmILqU2csU8I6DacY4+NrL6S5uaS+d95mLBdlnTac=";
+    rev = "460c85fe44ef100c5739bd8ef1a8995dcb275667";
+    hash = "sha256-LyGDweDgdpk+nfpO4jWb4lfeZS4mwkW8ImPz7xTLoGQ=";
   };
 
   nativeBuildInputs = [ makeWrapper ];
