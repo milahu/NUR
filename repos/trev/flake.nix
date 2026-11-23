@@ -253,6 +253,8 @@
           mkGoModule = callChecks ./libs/mkGoModule { inherit self; };
           mkImage = ./libs/mkImage;
           mkRustPackage = ./libs/mkRustPackage;
+          mkUvEnv = ./libs/mkUvEnv;
+          mkUvPackage = ./libs/mkUvPackage;
           duckdb = ./packages/duckdb;
         }
         // pkgs.lib.mapAttrs' (

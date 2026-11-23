@@ -134,6 +134,16 @@ Bundles your Gleam-on-Erlang project into an escript
 nix run github:spotdemo4/trevpkgs#gleescript
 ```
 
+### [go-latest](https://go.dev)
+
+Go programming language; latest patch release, ahead of nixpkgs. `go_1_27-latest` and `go_1_26-latest` track the latest patch release of each supported minor version, `go-latest` is the one for nixpkgs' `go_latest`. Each falls back to nixpkgs' go once it catches up, and `go-latest` falls back to nixpkgs' `go_latest` when it moves to a newer minor version
+
+```nix
+packages = with pkgs.trev; [
+  go-latest
+];
+```
+
 ### [go-over](https://github.com/bwireman/go-over)
 
 A tool to audit Erlang & Elixir dependencies
@@ -632,6 +642,8 @@ Either `vendorHash` or `modules` is required. `modules` points to a `gomod2nix.t
 
 Dependencies of tests are cached for the build directory used on Linux, on Darwin they're rebuilt in the check phase.
 
+It's built with [`go-latest`](#go-latest), `go` replaces it, e.g. with `pkgs.trev.go_1_26-latest` or `pkgs.go_1_26`. It can't depend on `finalAttrs`, and like nixpkgs' builders it runs on the build platform, so use `pkgs.buildPackages` when cross compiling.
+
 Go names binaries after their package's directory, so when `meta.mainProgram` is set and a single binary is installed, it's renamed to `meta.mainProgram`.
 
 On Linux, binaries are built as position-independent executables (`-buildmode=pie`) for ASLR when cgo is enabled. On static platforms (`pkgsStatic`) they're linked as static PIE binaries by the external linker. With `CGO_ENABLED = 0` Go's own linker is used, which can't build static PIE binaries, so they're left static. Static 32-bit ARM binaries are also left static, as gcc can't link static PIE binaries for it. Set `pie = false` to disable it.
@@ -650,7 +662,46 @@ pkgs.mkGoModule (finalAttrs: {
   version = "1.0.0";
   src = ./.;
   modules = ./gomod2nix.toml;
+  go = pkgs.trev.go_1_26-latest;
 });
+```
+
+### mkUvPackage
+
+Builds a Python project that locks its dependencies with [uv](https://docs.astral.sh/uv/), installing the exact wheels in `uv.lock` into a virtual environment at `$out`, so a hash isn't needed. The lock is read from `src` during evaluation, `lock` can point to it elsewhere, e.g. to avoid import from derivation. One wheel is picked per package for the interpreter (`python`, `python3` by default) and platform from the tags in its filename, fetched with the hash in the lock, and uv installs them offline, evaluating the lock's markers and checking every hash again. `pname` and `version` default to the project's in the lock.
+
+Packages that only have sdists, or no wheel for the platform (e.g. musllinux only), aren't supported unless the lock's markers exclude them. `overrides.<name>` replaces one with a nixpkgs Python package (the wheel in its `dist` output is installed), a wheel or a directory of wheels. Git, URL and path dependencies aren't supported.
+
+The project is built with its build backend from nixpkgs, as `uv.lock` doesn't lock build systems. The packages are picked from the requirements in `[build-system]` of `pyproject.toml` (`uv_build` is `uv-build-latest`), without checking their versions, or set with `build-system`. Virtual projects (without a build system) aren't built, only their dependencies are installed.
+
+Checks are enabled by default (`doCheck`), running `pytest` when it's installed. They run in a separate environment with the dependency `groups` and `extras`, activated at the end of the build phase, so `$out` only has the runtime dependencies (and `extras`). On Linux, native extensions are patched with `autoPatchelfHook`, for libraries that manylinux wheels don't bundle (libstdc++ is added to `buildInputs`).
+
+```nix
+pkgs.mkUvPackage (finalAttrs: {
+  pname = "python-pkg";
+  version = "1.0.0";
+  src = ./.;
+  python = pkgs.python314;
+  groups = [ "dev" ];
+  meta.mainProgram = "python-pkg";
+});
+```
+
+### mkUvEnv
+
+Builds a virtual environment from `uv.lock` the same way as `mkUvPackage`, for development shells and checks that need the dependencies, e.g. type checkers in the sandbox. Only the dependencies, the dependency `groups` and the `extras` are installed, the project isn't built. `python`, `overrides` and the supported packages are the same as `mkUvPackage`'s. Its main program is `python`.
+
+With `editableRoot`, the project is also installed editable with `python.pkgs.mkPythonEditablePackage`: a `.pth` file adds the root to `sys.path`, expanding environment variables when Python starts, and the entry points in `pyproject.toml` are installed.
+
+Only `uv.lock` and `pyproject.toml` are inputs, so with a path as `src` the environment doesn't change with the other files. They can be passed as `lock` and `pyproject` instead of `src`.
+
+```nix
+pkgs.mkUvEnv {
+  src = ./.;
+  python = pkgs.python314;
+  groups = [ "dev" ];
+  editableRoot = "$REPO_ROOT/src";
+};
 ```
 
 ### bufFetchDeps & bufHook
