@@ -50,6 +50,9 @@ stdenv.mkDerivation (finalAttrs: {
     # qmake reports qtbase's own directories, but lrelease lives in qttools.
     substituteInPlace configure \
       --replace-fail '"$qt_bindir/lrelease"' '"$(command -v lrelease)"'
+    # Plugin discovery is hardcoded to /usr/lib*, which Nix cannot satisfy.
+    substituteInPlace lib/qpxscan/include/qpx_scan.h \
+      --replace-fail "/usr/lib/qpxtool" "$out/lib/qpxtool"
     # The store cannot hold setuid binaries; upstream installs three tools as 4755.
     for mf in console/{cdvdcontrol,f1tattoo,qscan}/Makefile; do
       substituteInPlace "$mf" --replace-fail 'install -m 4755' 'install -m 755'
@@ -68,9 +71,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   # Only the GUI uses Qt; leave the CLI tools unwrapped.
   dontWrapQtApps = true;
-  # The GUI spawns qscan/cdvdcontrol by name via QProcess, so it needs its peers on PATH.
+  # Suffix rather than prefix: a system-level security wrapper (e.g. NixOS
+  # security.wrappers with CAP_SYS_RAWIO) must win over the unwrapped store copy.
   postFixup = ''
-    wrapQtApp $out/bin/qpxtool --prefix PATH : $out/bin
+    wrapQtApp $out/bin/qpxtool --suffix PATH : $out/bin
   '';
 
   passthru.updateScript = nix-update-script { };
