@@ -93,6 +93,11 @@ kind = "cargo-vendor"
 strategy = "lockfile"
 sub_dir = "backend"
 
+[packages.cliproxy-antigravity]
+version = { source = "github-release", repo = "adeebahmad01/cliproxy-antigravity" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "adeebahmad01/cliproxy-antigravity", rev = "{version}" }
+
 [packages.cliproxyapi]
 version = { source = "github-release", repo = "router-for-me/cliproxyapi" }
 transform = ["strip-v"]
@@ -571,11 +576,6 @@ version = { source = "git", url = "https://github.com/charmedlabs/pixy2", unstab
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/charmedlabs/pixy2", rev = "{version}" }
 
-[packages.revdiff]
-version = { source = "github-release", repo = "umputun/revdiff" }
-transform = ["strip-v"]
-fetch = { type = "github", repo = "umputun/revdiff", rev = "{version}" }
-
 [packages.sable-next]
 version = { source = "git-tag", url = "https://git.sable.moe/SableClient/sable-next.git", strip_prefix = "v", filter = "^v[0-9]+\\.[0-9]+\\.[0-9]+$" }
 transform = ["strip-v"]
@@ -614,7 +614,8 @@ artifacts."composer.lock" = { type = "file", path = "composer.lock" }
 
 [packages.shlink.derive.vendorHash]
 strategy = "fod"
-attr = ".#shlink.fetchrix.composerVendor"
+attr = ".#shlink.fetchrix"
+select = "composerVendor"
 
 [packages.subconverter]
 version = { source = "git", url = "https://github.com/tindy2013/subconverter", unstable = { } }
