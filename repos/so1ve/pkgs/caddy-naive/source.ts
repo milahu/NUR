@@ -11,7 +11,7 @@ export default defineSource(async (context) => {
   if (!response.ok) {
     throw new Error(`Go module version lookup failed: ${response.status}`);
   }
-  const { Version: version } = await response.json();
+  const { Version: version } = (await response.json()) as { Version: string };
   const plugin =
     `github.com/caddyserver/forwardproxy=github.com/klzgrad/forwardproxy@${version}`;
   const root = await nix.findFlakeRoot(context.packageDirectory);
@@ -44,20 +44,12 @@ in (pkgs.caddy.withPlugins {
     hash = match[1];
   }
 
-  const patchUrl =
-    `https://raw.githubusercontent.com/klzgrad/forwardproxy/${rev}/caddy-read-idle-timeout.patch`;
-  const patch = await nix.prefetch(patchUrl);
-
   return {
-    "source.nix": `${nix.HEADER}{ fetchurl }:
+    "source.nix": `${nix.HEADER}{ }:
 
 {
   plugins = [ ${nix.string(plugin)} ];
   hash = ${nix.string(hash)};
-  patch = fetchurl {
-    url = ${nix.string(patchUrl)};
-    hash = ${nix.string(patch.hash)};
-  };
 }
 `,
   };

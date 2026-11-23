@@ -3,7 +3,6 @@
   buildNpmPackage,
   callPackage,
   lib,
-  makeWrapper,
   nodejs_24,
   source ? callPackage ./source.nix { },
   stdenv,
@@ -21,15 +20,12 @@ buildNpmPackage {
   npmFlags = [ "--ignore-scripts" ];
   dontNpmBuild = true;
 
-  nativeBuildInputs = [
-    autoPatchelfHook
-    makeWrapper
-  ];
+  nativeBuildInputs = [ autoPatchelfHook ];
   buildInputs = [ stdenv.cc.cc.lib ];
 
   postConfigure = ''
     # Install Frida's pinned addon without its network-based install script.
-    tar -xzf ${frida.src} -C node_modules/frida
+    tar -xzf ${frida.src} -C node_modules/rea-agents/node_modules/frida
   '';
 
   installPhase = ''

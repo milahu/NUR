@@ -2,9 +2,9 @@
   description = "Ray's personal NUR repository";
 
   nixConfig = {
-    extra-substituters = [ "https://so1ve.cachix.org" ];
+    extra-substituters = [ "https://cache.so1ve.dev" ];
     extra-trusted-public-keys = [
-      "so1ve.cachix.org-1:51jcW4FkJhiLcqPsiUx3nglRP469les8F9zjFxio1nw="
+      "cache.so1ve.dev-1:SijyzF9iE/VZwMXgMpd/HrNX9iItDZ1tdiNdeGakQGY="
     ];
   };
 
@@ -13,7 +13,9 @@
       url = "github:so1ve/nix-repin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +49,17 @@
             "pkgs/rea/frida.nix"
           ];
         };
+      cachedFor =
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+        lib.filterAttrs (
+          _: package: lib.isDerivation package && lib.meta.availableOn pkgs.stdenv.hostPlatform package
+        ) (import ./cached.nix { inherit lib pkgs; });
       repositoryFor =
         system:
         import ./default.nix {
@@ -54,10 +67,22 @@
         };
     in
     {
+      overlays.default = final: _: {
+        so1ve = (import ./default.nix { pkgs = final; }) // {
+          cached = cachedFor final.stdenv.hostPlatform.system;
+        };
+      };
+
       homeModules = import ./home-modules;
       nixosModules = import ./nixos-modules;
 
-      legacyPackages = forAllSystems repositoryFor;
+      legacyPackages = forAllSystems (
+        system:
+        (repositoryFor system)
+        // {
+          cached = cachedFor system;
+        }
+      );
 
       packages = forAllSystems (
         system:
