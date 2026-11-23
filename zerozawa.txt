@@ -1,10 +1,10 @@
 error:
-… while evaluating attribute 'installCheckPhase' of derivation 'rea-agents-6.9.0'
-  at ./pkgs/rea-agents/default.nix:269:3:
-   268|   doInstallCheck = true;
-   269|   installCheckPhase = ''
+… while evaluating attribute 'installCheckPhase' of derivation 'rea-agents-6.10.1'
+  at ./pkgs/rea-agents/default.nix:271:3:
+   270|   doInstallCheck = true;
+   271|   installCheckPhase = ''
       |   ^
-   270|     runHook preInstallCheck
+   272|     runHook preInstallCheck
 
 … while calling the 'import' builtin
   at ./pkgs/rea-agents/default.nix:68:6:
