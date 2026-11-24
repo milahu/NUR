@@ -281,17 +281,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "20128216d5afc8307acdbafceb068fa52570cfa6";
+    version = "6e464cb480bba9d174f834c7b5c88120695133ef";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "20128216d5afc8307acdbafceb068fa52570cfa6";
+      rev = "6e464cb480bba9d174f834c7b5c88120695133ef";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-I0IVZGAOlkJtxFPM+LsToxVy1kuRDtB7bsRkV1iRjCA=";
+      sha256 = "sha256-tdPZUGcaK7GcDEKWkwRKDEPjD082tOiHGm/6E3VoWfg=";
     };
-    date = "2026-11-22";
+    date = "2026-11-23";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -349,16 +349,16 @@
   };
   rayburst-beta = {
     pname = "rayburst-beta";
-    version = "v4.1.3-beta.1";
+    version = "v4.1.3-beta.2";
     src = fetchFromGitHub {
       owner = "AnInsomniacy";
       repo = "rayburst";
-      rev = "v4.1.3-beta.1";
+      rev = "v4.1.3-beta.2";
       fetchSubmodules = false;
-      sha256 = "sha256-oKBB8UFYnhmOLzcvDwb3QRyUCH2BAlotVBVurCEP2Eo=";
+      sha256 = "sha256-+qfEA/WSERvfgpHAmhjy8Dhth8whwp/MdaCXtMHpbEM=";
     };
     cargoLock."src-tauri/Cargo.lock" = {
-      lockFile = ./. + "/sha256-oKBB8UFYnhmOLzcvDwb3QRyUCH2BAlotVBVurCEP2Eo=/src-tauri/Cargo.lock";
+      lockFile = ./. + "/sha256-+qfEA_WSERvfgpHAmhjy8Dhth8whwp_MdaCXtMHpbEM=/src-tauri/Cargo.lock";
       outputHashes = {
         
       };
@@ -409,13 +409,13 @@
   };
   svt-av1-hdr = {
     pname = "svt-av1-hdr";
-    version = "v4.3.0";
+    version = "v4.3.1";
     src = fetchFromGitHub {
       owner = "juliobbv-p";
       repo = "svt-av1-hdr";
-      rev = "v4.3.0";
+      rev = "v4.3.1";
       fetchSubmodules = false;
-      sha256 = "sha256-bZprryQLjX36y03xVxxjRKJuQnEC+/v4slxP6U0DZWA=";
+      sha256 = "sha256-GmTXVO6otyhUtpvlwwWn4eWWwcvS7ba86vn+AN0qovk=";
     };
   };
   uosc-danmaku = {
