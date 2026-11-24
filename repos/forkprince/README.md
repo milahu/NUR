@@ -68,6 +68,7 @@ This repository contains three types of packages:
 | [`genoffice`](pkgs/genoffice/default.nix) | [genoffice](https://genoffice.ai/), free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent |
 | [`ghostty`](pkgs/ghostty/default.nix) | ghostty |
 | [`gimp`](pkgs/gimp/default.nix) | [gimp](https://www.gimp.org/), gNU Image Manipulation Program |
+| [`gitcraft`](pkgs/gitcraft/default.nix) | [gitcraft](https://github.com/MystifiedSky/GitCraft), desktop Git client for exploring repository history and managing everyday changes |
 | [`github-desktop`](pkgs/github-desktop/default.nix) | [github-desktop](https://desktop.github.com/), gUI for managing Git and GitHub |
 | [`gridcraft`](pkgs/gridcraft/default.nix) | [gridcraft](https://getartcraft.com/apps/gridcraft), spreadsheet editor |
 | [`helium-nightly`](pkgs/helium-nightly/default.nix) | [helium](https://github.com/imputnet/helium), private, fast, and honest web browser (nightly builds) |
@@ -83,6 +84,7 @@ This repository contains three types of packages:
 | [`keka-external-helper`](pkgs/keka-external-helper/default.nix) | [keka-external-helper](https://github.com/aonez/Keka/wiki/Default-application), helper application for the Keka file archiver |
 | [`kryoto-desktop`](pkgs/kryoto-desktop/default.nix) | [kryoto-desktop](https://github.com/kyrotooooo/kryoto-desktop), find a game, download it and play it |
 | [`kryoto-minecraft-launcher`](pkgs/kryoto-minecraft-launcher/default.nix) | [kryoto-minecraft-launcher](https://github.com/Kryoto-Dev/kryoto-minecraft-launcher), minecraft: Java Edition launcher with Fabric, Quilt, Forge, NeoForge and Modrinth/CurseForge mods |
+| [`ladybird`](pkgs/ladybird/default.nix) | [ladybird](https://ladybird.org), independent web browser using a novel engine based on web standards |
 | [`light-studio`](pkgs/light-studio/default.nix) | [light-studio](https://tenzen.studio/light/), lightroom alternative for photo library and RAW development |
 | [`lightcraft`](pkgs/lightcraft/default.nix) | [lightcraft](https://getartcraft.com/apps/lightcraft), photo editor with color grading and RAW developing |
 | [`linearmouse`](pkgs/linearmouse/default.nix) | [linearmouse](https://linearmouse.org/), customise mouse behavior |
@@ -108,6 +110,7 @@ This repository contains three types of packages:
 | [`nuvio`](pkgs/nuvio/default.nix) | [nuvio](https://nuvio.tv/), watch your library, anywhere |
 | [`oak-editor`](pkgs/oak-editor/default.nix) | [oak-editor](https://github.com/OakVideoEditorCommunity/oak), a free non-linear video editor for Linux, macOS, and Windows |
 | [`obs-studio`](pkgs/obs-studio/default.nix) | [obs-studio](https://obsproject.com), free and open source software for video recording and live streaming |
+| [`openchamber`](pkgs/openchamber/default.nix) | [openchamber](https://github.com/openchamber/openchamber), agentic development environment based on the OpenCode AI agent |
 | [`opendisk`](pkgs/opendisk/default.nix) | [opendisk](https://github.com/137137137/OpenDisk), fast macOS disk-usage analyzer. |
 | [`openemu`](pkgs/openemu/default.nix) | [openemu](https://openemu.org/), retro video game emulation |
 | [`openemu-meta`](pkgs/openemu-meta/default.nix) | openemu-meta |
