@@ -33,11 +33,11 @@ redistribution.
 | `wordcraft` | `0.18.1` | Word processor (official binary release) | No: redistribution review pending |
 | `gridcraft` | `0.19.1` | Spreadsheet editor (official binary release) | No: redistribution review pending |
 | `deckcraft` | `0.18.1` | Presentation editor (official binary release) | No: redistribution review pending |
-| `pdfcraft` | `0.21.1` | PDF viewer and editor (official binary release) | No: redistribution review pending |
+| `pdfcraft` | `0.22.0` | PDF viewer and editor (official binary release) | No: redistribution review pending |
 | `photocraft` | `0.23.1` | Image editor (official binary release) | No: redistribution review pending |
 | `filmcraft` | `0.20.1` | Video editor (official binary release) | No: redistribution review pending |
 | `soundcraft` | `0.20.1` | Digital audio workstation (official binary release) | No: redistribution review pending |
-| `meitou-launcher` | `1.17.0` | Upstream launcher AppImage that downloads Meitou versions (requires Kenshi) | Yes |
+| `meitou-launcher` | `1.18.0` | Upstream launcher AppImage that downloads Meitou versions (requires Kenshi) | Yes |
 | `cybergrub2077` | `2.0.1-unstable-2026-02-28` | Cyberpunk 2077 inspired GRUB theme | Yes |
 | `nmssaveeditor` | `1.21.0` | Save editor for No Man's Sky | No: unfree |
 | `pig` | `0.7.0` | Pi coding agent rebuilt in Go as a native binary | Yes |
