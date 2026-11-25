@@ -2054,6 +2054,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comickClientIdDesc => 'Custom client ID registered on comick.dev';
 
   @override
+  String get traktClientId => 'Trakt Client ID';
+
+  @override
+  String get traktClientIdDesc =>
+      'Sign in with your own Trakt app instead of the built-in one';
+
+  @override
+  String get traktCreateApp => 'Create a Trakt app';
+
+  @override
+  String get traktCreateAppDesc => 'Opens your apps on trakt.tv';
+
+  @override
+  String traktRedirectHelp(String uris) {
+    return 'On trakt.tv/oauth/applications create an app and add these Redirect URIs, one per line:\n\n$uris\n\nThen paste its Client ID here, save and sign in again.';
+  }
+
+  @override
   String get couldNotUpdateKitsuSettings =>
       'Could not update your Kitsu settings';
 
@@ -3753,6 +3771,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continueWatching => 'Continue Watching';
 
   @override
+  String splitSection(String section, String kind) {
+    return '$section · $kind';
+  }
+
+  @override
   String get continueReading => 'Continue Reading';
 
   @override
@@ -5416,6 +5439,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get watchOptions => 'Options';
+
+  @override
+  String get watchSelect => 'Select';
+
+  @override
+  String get watchSelectAll => 'Select all';
+
+  @override
+  String watchSelectedCount(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String get watchNoneDownloaded => 'None of the selected items are downloaded';
 
   @override
   String get watchReverse => 'Reverse order';
@@ -7554,6 +7591,14 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get downloadCustom => 'Custom amount…';
+
+  @override
+  String downloadCustomPrompt(int max) {
+    return 'How many from here? (1–$max)';
+  }
+
+  @override
   String downloadUnwatched(int count) {
     return 'All unwatched ($count)';
   }
@@ -8526,7 +8571,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get searchTags => 'Search tags';
 
   @override
-  String get spoilerTapToView => ' Spoiler, tap to view ';
+  String get spoilerTapToView => 'Spoiler, tap to view';
 
   @override
   String get mediaVideo => 'Video';

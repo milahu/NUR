@@ -3863,6 +3863,36 @@ abstract class AppLocalizations {
   /// **'Custom client ID registered on comick.dev'**
   String get comickClientIdDesc;
 
+  /// No description provided for @traktClientId.
+  ///
+  /// In en, this message translates to:
+  /// **'Trakt Client ID'**
+  String get traktClientId;
+
+  /// No description provided for @traktClientIdDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with your own Trakt app instead of the built-in one'**
+  String get traktClientIdDesc;
+
+  /// No description provided for @traktCreateApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a Trakt app'**
+  String get traktCreateApp;
+
+  /// No description provided for @traktCreateAppDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Opens your apps on trakt.tv'**
+  String get traktCreateAppDesc;
+
+  /// No description provided for @traktRedirectHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'On trakt.tv/oauth/applications create an app and add these Redirect URIs, one per line:\n\n{uris}\n\nThen paste its Client ID here, save and sign in again.'**
+  String traktRedirectHelp(String uris);
+
   /// No description provided for @couldNotUpdateKitsuSettings.
   ///
   /// In en, this message translates to:
@@ -6953,6 +6983,12 @@ abstract class AppLocalizations {
   /// **'Continue Watching'**
   String get continueWatching;
 
+  /// No description provided for @splitSection.
+  ///
+  /// In en, this message translates to:
+  /// **'{section} · {kind}'**
+  String splitSection(String section, String kind);
+
   /// No description provided for @continueReading.
   ///
   /// In en, this message translates to:
@@ -9760,6 +9796,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Options'**
   String get watchOptions;
+
+  /// No description provided for @watchSelect.
+  ///
+  /// In en, this message translates to:
+  /// **'Select'**
+  String get watchSelect;
+
+  /// No description provided for @watchSelectAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Select all'**
+  String get watchSelectAll;
+
+  /// No description provided for @watchSelectedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} selected'**
+  String watchSelectedCount(int count);
+
+  /// No description provided for @watchNoneDownloaded.
+  ///
+  /// In en, this message translates to:
+  /// **'None of the selected items are downloaded'**
+  String get watchNoneDownloaded;
 
   /// No description provided for @watchReverse.
   ///
@@ -13601,6 +13661,18 @@ abstract class AppLocalizations {
   /// **'Next {count} episodes'**
   String downloadNextN(int count);
 
+  /// No description provided for @downloadCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom amount…'**
+  String get downloadCustom;
+
+  /// No description provided for @downloadCustomPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'How many from here? (1–{max})'**
+  String downloadCustomPrompt(int max);
+
   /// No description provided for @downloadUnwatched.
   ///
   /// In en, this message translates to:
@@ -15182,7 +15254,7 @@ abstract class AppLocalizations {
   /// No description provided for @spoilerTapToView.
   ///
   /// In en, this message translates to:
-  /// **' Spoiler, tap to view '**
+  /// **'Spoiler, tap to view'**
   String get spoilerTapToView;
 
   /// No description provided for @mediaVideo.
