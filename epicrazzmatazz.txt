@@ -1,16 +1,30 @@
 error:
-… while evaluating the attribute 'lib'
-  at ./default.nix:2:3:
-     1| {pkgs ? import <nixpkgs> {}}: {
-     2|   lib = import ./lib {inherit pkgs;};
+… while evaluating the attribute 'wge-apic'
+  at ./default.nix:8:3:
+     7|   # C API to WGE, needed for nginx module
+     8|   wge-apic = pkgs.callPackage ./pkgs/wge-apic {};
       |   ^
-     3|
+     9|
 
-… while calling the 'import' builtin
-  at ./default.nix:2:9:
-     1| {pkgs ? import <nixpkgs> {}}: {
-     2|   lib = import ./lib {inherit pkgs;};
-      |         ^
-     3|
+… from call site
+  at ./default.nix:8:14:
+     7|   # C API to WGE, needed for nginx module
+     8|   wge-apic = pkgs.callPackage ./pkgs/wge-apic {};
+      |              ^
+     9|
 
-error: path './lib' does not exist
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:312:19:
+   311|     in
+   312|     autoArgs: fn: args:
+      |                   ^
+   313|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:334:7:
+   333|       # which is especially relevant with allowAliases = false
+   334|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   335|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "wge" at ./pkgs/wge-apic/default.nix:8, did you mean "age", "wget" or "wgo"?'
