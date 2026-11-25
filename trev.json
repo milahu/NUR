@@ -1,23 +1,23 @@
 {
 "name":"trev",
-"fetch_time":1.015,
-"eval_time":2.082,
+"fetch_time":1.409,
+"eval_time":2.64,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"835add1a72dd65048876a7cbd5205712f223162c",
-"sha256":"0vhqrk1v5p9n9apm9fiaxlm14qr7rnyka5aw94xad7snc1calsc9",
+"rev":"c7ffa84d2d39e6f1c277b212fd7ee9cca163b646",
+"sha256":"11vilidl9rxg7b3vxy3n7kxnc5sam4ph0x15z2zbd7vz0rjfc4mf",
 "date":null
 },
-"source_storepath":"/nix/store/d0svwp2jlb0fybrdf0401xmr66yaa7pc-source",
+"source_storepath":"/nix/store/b125xfs938wvly2rvhjjqx80laxkschq-source",
 "nixpkgs_storepath":"/nix/store/pnaxjrf9985fmjbb70w7b3x5m4xx6rls-source",
-"nur_combined_rev":"11cfeccdf85c162e5fbb159c31aded7bbf6b40c0",
+"nur_combined_rev":"e458da4ef2bf9984d61578514b348e6e1e0178e3",
 "packages":{
 "aioquic-latest":{
-"drvPath":"/nix/store/jrr4al8kxgrn5k563knng1xs72jybyvy-python3.14-aioquic-1.9.1.drv",
+"drvPath":"/nix/store/myb9bp1q6s3zi8wfc5zvcnqyqahsf5k6-python3.14-aioquic-1.9.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/aiortc/aioquic/blob/1.9.1/docs/changelog.rst",
+"changelog":"https://github.com/aiortc/aioquic/blob/1.9.2/docs/changelog.rst",
 "description":"Implementation of QUIC and HTTP/3",
 "downloadPage":"https://pypi.org/project/aioquic/#files",
 "homepage":"https://github.com/aiortc/aioquic",
@@ -95,7 +95,7 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "maintainers":[],
-"name":"python3.14-aioquic-1.9.1",
+"name":"python3.14-aioquic-1.9.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -191,7 +191,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-aioquic-1.9.1",
+"name":"python3.14-aioquic-1.9.2",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -199,7 +199,7 @@
 },
 "pname":"python3.14-aioquic",
 "system":"x86_64-linux",
-"version":"1.9.1"
+"version":"1.9.2"
 },
 "benchstat":{
 "drvPath":"/nix/store/bf7zarxnm2xb3hh21vn4mjya5wv0adb5-benchstat-0-unstable-2026-11-17.drv",
@@ -1260,7 +1260,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/d0svwp2jlb0fybrdf0401xmr66yaa7pc-source/packages/duckdb/default.nix",
+"file":"/nix/store/b125xfs938wvly2rvhjjqx80laxkschq-source/packages/duckdb/default.nix",
 "line":630
 },
 "name":"duckdb-2.0.0",
@@ -2773,11 +2773,11 @@
 "version":"1.27.4"
 },
 "helium":{
-"drvPath":"/nix/store/ckxavhgw1kki3d67a4am7jfg8mxxpbsx-helium-0.22.3.1.drv",
+"drvPath":"/nix/store/xn2k2p3dj52rbpcpdlgb8m9myamy375n-helium-0.22.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.22.3.1",
+"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.22.4.1",
 "description":"Helium Browser for Linux",
 "homepage":"https://github.com/imputnet/helium-linux",
 "identifiers":{
@@ -2822,7 +2822,7 @@
 },
 "mainProgram":"helium",
 "maintainers":[],
-"name":"helium-0.22.3.1",
+"name":"helium-0.22.4.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2846,14 +2846,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-0.22.3.1",
+"name":"helium-0.22.4.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium",
 "system":"x86_64-linux",
-"version":"0.22.3.1"
+"version":"0.22.4.1"
 },
 "hpax":{
 "drvPath":"/nix/store/krqlf6hm2bjkni9p2sqyvilfc850r0qk-erlang28.5.0.8-hpax-1.1.0.drv",
@@ -3446,11 +3446,11 @@
 "version":"0-unstable-2025-04-18"
 },
 "kagimcp":{
-"drvPath":"/nix/store/5w384fwkz6dkgv9lp8yp318d7b2jv2vi-python3.14-kagimcp-0.1.5-unstable-2026-10-28.drv",
+"drvPath":"/nix/store/mi80dcv0mcsbamjg9gcw3hv3cpyg65ny-python3.14-kagimcp-0.1.5-unstable-2026-11-23.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/kagisearch/kagimcp/releases/tag/v0.1.5-unstable-2026-10-28",
+"changelog":"https://github.com/kagisearch/kagimcp/releases/tag/v0.1.5-unstable-2026-11-23",
 "description":"Model Context Protocol (MCP) server for Kagi Search",
 "homepage":"https://github.com/kagisearch/kagimcp",
 "identifiers":{
@@ -3528,7 +3528,7 @@
 },
 "mainProgram":"kagimcp",
 "maintainers":[],
-"name":"python3.14-kagimcp-0.1.5-unstable-2026-10-28",
+"name":"python3.14-kagimcp-0.1.5-unstable-2026-11-23",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3624,7 +3624,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-kagimcp-0.1.5-unstable-2026-10-28",
+"name":"python3.14-kagimcp-0.1.5-unstable-2026-11-23",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3632,7 +3632,7 @@
 },
 "pname":"python3.14-kagimcp",
 "system":"x86_64-linux",
-"version":"0.1.5-unstable-2026-10-28"
+"version":"0.1.5-unstable-2026-11-23"
 },
 "kotlin-lsp":{
 "drvPath":"/nix/store/f52n3s4b4zf8vij1g5i41rmnijvpssv9-kotlin-lsp-271.2085.0.drv",
@@ -5240,7 +5240,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d0svwp2jlb0fybrdf0401xmr66yaa7pc-source/packages/paper-mono/default.nix",
+"file":"/nix/store/b125xfs938wvly2rvhjjqx80laxkschq-source/packages/paper-mono/default.nix",
 "line":243
 },
 "name":"paper-mono-1.000-unstable-2026-08-26",
@@ -5508,11 +5508,11 @@
 "version":"0.30.0"
 },
 "pylsqpack-latest":{
-"drvPath":"/nix/store/vgyyiw3pzb8g2yfmkfq2k96acqgd1l67-python3.14-pylsqpack-1.1.2.drv",
+"drvPath":"/nix/store/ass1p4s4a92kcdk4hwkj7ynvf31qx9c3-python3.14-pylsqpack-1.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/aiortc/pylsqpack/releases/tag/1.1.2",
+"changelog":"https://github.com/aiortc/pylsqpack/releases/tag/1.1.3",
 "description":"Python wrapper for the ls-qpack QPACK library",
 "downloadPage":"https://pypi.org/project/pylsqpack/#files",
 "homepage":"https://github.com/aiortc/pylsqpack",
@@ -5590,7 +5590,7 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "maintainers":[],
-"name":"python3.14-pylsqpack-1.1.2",
+"name":"python3.14-pylsqpack-1.1.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5686,7 +5686,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-pylsqpack-1.1.2",
+"name":"python3.14-pylsqpack-1.1.3",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -5694,7 +5694,7 @@
 },
 "pname":"python3.14-pylsqpack",
 "system":"x86_64-linux",
-"version":"1.1.2"
+"version":"1.1.3"
 },
 "pysentry":{
 "drvPath":"/nix/store/iryc2x6l0klpkcpyvxvy0bqc5gczm167-pysentry-0.5.0.drv",
@@ -5899,11 +5899,11 @@
 "version":"8.38"
 },
 "renovate":{
-"drvPath":"/nix/store/hlwj1fzrifnyhzbklj96vzh2nz1q1yaf-renovate-44.258.2.drv",
+"drvPath":"/nix/store/h0rryksa5z37b3nyms1nk24anr6zxxzs-renovate-44.261.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.258.2",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.261.1",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -5948,7 +5948,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-44.258.2",
+"name":"renovate-44.261.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5986,14 +5986,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-44.258.2",
+"name":"renovate-44.261.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"44.258.2"
+"version":"44.261.1"
 },
 "req":{
 "drvPath":"/nix/store/nwsrszmwgb8164cxxqcfab7pvhxcb8z5-erlang28.5.0.8-req-0.7.5.drv",
@@ -7236,11 +7236,11 @@
 "version":"0.1.22"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/fzcn49mynjagl5dmfrwqv86f6104k655-yt-dlp-2026.10.26-unstable-2026-11-22.drv",
+"drvPath":"/nix/store/7hai7dkip0m8zzj061r8aj5gxfpjvw8a-yt-dlp-2026.11.23-unstable-2026-11-24.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/1507b26936b46d8613b3df197184a1fa1530afac",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/da452a569fb3d04091468d920f9b9e68512e0373",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -7318,7 +7318,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.10.26-unstable-2026-11-22",
+"name":"yt-dlp-2026.11.23-unstable-2026-11-24",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7336,7 +7336,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.10.26-unstable-2026-11-22",
+"name":"yt-dlp-2026.11.23-unstable-2026-11-24",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -7344,14 +7344,14 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.10.26-unstable-2026-11-22"
+"version":"2026.11.23-unstable-2026-11-24"
 },
 "yt-dlp-ejs":{
-"drvPath":"/nix/store/lldn5nzm9xa8xf4j7r4i5yvld6wnryxr-python3.14-yt-dlp-ejs-0.8.0-unstable-2026-10-26.drv",
+"drvPath":"/nix/store/xqlvxzmzx19xmh6xk7nfjgb7lwhx75bg-python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-24.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/ejs/commits/d48c6303a5a6455a42ef9e0b445149cadea51279",
+"changelog":"https://github.com/yt-dlp/ejs/commits/181a67bbdf94c095a77359c01b4c372ac6355796",
 "description":"External JavaScript for yt-dlp supporting many runtimes",
 "homepage":"https://github.com/yt-dlp/ejs/",
 "identifiers":{
@@ -7450,7 +7450,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-10-26",
+"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-24",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7498,7 +7498,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-10-26",
+"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-24",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -7506,7 +7506,7 @@
 },
 "pname":"python3.14-yt-dlp-ejs",
 "system":"x86_64-linux",
-"version":"0.8.0-unstable-2026-10-26"
+"version":"0.8.0-unstable-2026-11-24"
 },
 "zig-protobuf":{
 "drvPath":"/nix/store/v0ip8a8ixd5b9i0jb802n4i6k51izirc-zig-protobuf-7.0.0.drv",

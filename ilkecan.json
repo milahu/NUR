@@ -1,16 +1,16 @@
 {
 "name":"ilkecan",
-"fetch_time":0.593,
-"eval_time":1.039,
+"fetch_time":1.033,
+"eval_time":1.703,
 "source":{
 "url":"https://github.com/ilkecan/nur-packages",
-"rev":"8ca6f74d821e90edb2be35063a4b853f3a7907ff",
-"sha256":"1gw7ca4l5mnwcvgnx3r02cbwrnsiw2ggn3fch4iyg2szx56f5wsx",
+"rev":"a0e639e1e42a0514d5ad8fb03e349d8a07abed3d",
+"sha256":"0ls4fxsnqnrgr0pdpm4i1h2vbr52wlmxfprdigczswsj43aimwcz",
 "date":null
 },
-"source_storepath":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source",
-"nixpkgs_storepath":"/nix/store/n08bxfqdwf3mi3sv4qrwssyilr8n4ry6-source",
-"nur_combined_rev":"69c9cd09509ab424e084ec75ea413eaa1af1f92c",
+"source_storepath":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source",
+"nixpkgs_storepath":"/nix/store/pnaxjrf9985fmjbb70w7b3x5m4xx6rls-source",
+"nur_combined_rev":"a46fcf904b38cc4d9eea71a1eab02464d1b7d3b0",
 "packages":{
 "bitburner":{
 "name":"bitburner-3.0.1",
@@ -23,7 +23,7 @@
 "version":"3.0.1"
 },
 "eez-studio":{
-"drvPath":"/nix/store/r13fw4w0wpybwla6h5pn01dbrrl31xmd-eez-studio-0.29.0-unstable-2026-08-29.drv",
+"drvPath":"/nix/store/qzhzjzdcgb1i6adfiq5yvmgirafwx7gc-eez-studio-0.29.0-unstable-2026-08-29.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -82,7 +82,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source/packages/eez-studio/package.nix",
+"file":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source/packages/eez-studio/package.nix",
 "line":138
 },
 "name":"eez-studio-0.29.0-unstable-2026-08-29",
@@ -149,11 +149,11 @@
 "version":"2.03.14"
 },
 "gtsam":{
-"drvPath":"/nix/store/f5f1irxbf42xsn3hnc2pmzcgldk2qhjf-gtsam-4.2.2.drv",
+"drvPath":"/nix/store/15xygvj7jhw08fzhkq6q98xb6w1h9a5m-gtsam-4.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/borglab/gtsam/releases/tag/4.2.2",
+"changelog":"https://github.com/borglab/gtsam/releases/tag/4.3.0",
 "description":"Library for smoothing and mapping using factor graphs and Bayes networks",
 "homepage":"https://gtsam.org/",
 "identifiers":{
@@ -186,7 +186,8 @@
 }
 },
 "insecure":false,
-"license":{
+"license":[
+{
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
@@ -196,6 +197,17 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+}
+],
 "longDescription":"GTSAM is a C++ library that implements smoothing and mapping (SAM) in robotics and vision, using Factor Graphs and Bayes Networks as the underlying computing paradigm rather than sparse matrices.\n",
 "maintainers":[
 {
@@ -208,10 +220,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source/packages/gtsam/package.nix",
-"line":84
+"file":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source/packages/gtsam/package.nix",
+"line":113
 },
-"name":"gtsam-4.2.2",
+"name":"gtsam-4.3.0",
 "nonTeamMaintainers":[
 {
 "email":"ilkecan@protonmail.com",
@@ -271,19 +283,19 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./packages/gtsam/package.nix:77",
+"position":"./packages/gtsam/package.nix:103",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"gtsam-4.2.2",
+"name":"gtsam-4.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gtsam",
 "system":"x86_64-linux",
-"version":"4.2.2"
+"version":"4.3.0"
 },
 "icu56":{
 "drvPath":"/nix/store/22m5z3zpkv8idcmzbsps6q9pxn4qvnz3-icu4c-56.1.drv",
@@ -342,7 +354,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/n08bxfqdwf3mi3sv4qrwssyilr8n4ry6-source/pkgs/development/libraries/icu/make-icu.nix",
+"file":"/nix/store/pnaxjrf9985fmjbb70w7b3x5m4xx6rls-source/pkgs/development/libraries/icu/make-icu.nix",
 "line":90
 },
 "name":"icu4c-56.1",
@@ -469,7 +481,7 @@
 "version":"0.10.26"
 },
 "pokeclicker-desktop":{
-"drvPath":"/nix/store/vx2psapbv2rcx22iidfg5xnyvfmixs8h-pokeclicker-desktop-1.2.0-unstable-2022-12-31.drv",
+"drvPath":"/nix/store/s3jmcylggql4dgsg290sgcnaasg9d905-pokeclicker-desktop-1.2.0-unstable-2022-12-31.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -528,7 +540,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source/packages/pokeclicker-desktop/package.nix",
+"file":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source/packages/pokeclicker-desktop/package.nix",
 "line":99
 },
 "name":"pokeclicker-desktop-1.2.0-unstable-2022-12-31",
@@ -585,7 +597,7 @@
 "version":"1.2.0-unstable-2022-12-31"
 },
 "scopebuddy":{
-"drvPath":"/nix/store/va91n9a6l62y7xc3x3679mkw9ayq0mk2-scopebuddy-1.5.0.drv",
+"drvPath":"/nix/store/lqxxbj9qy3i400hibdxycvz5iqd8h4bj-scopebuddy-1.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -644,7 +656,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source/packages/scopebuddy/package.nix",
+"file":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source/packages/scopebuddy/package.nix",
 "line":89
 },
 "name":"scopebuddy-1.5.0",
@@ -759,7 +771,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source/packages/wl-find-cursor/package.nix",
+"file":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source/packages/wl-find-cursor/package.nix",
 "line":49
 },
 "name":"wl-find-cursor-0-unstable-2026-02-03",
@@ -874,7 +886,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source/packages/zellij-autolock/package.nix",
+"file":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source/packages/zellij-autolock/package.nix",
 "line":40
 },
 "name":"zellij-autolock-0.2.2",
@@ -995,7 +1007,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9g43sxciv88zb8h4cl3hqcyhbfxsivm5-source/packages/zellij-workspace/package.nix",
+"file":"/nix/store/pjvbikl27w46zf17gk53zn81ysyv6hzn-source/packages/zellij-workspace/package.nix",
 "line":40
 },
 "name":"zellij-workspace-0.3.2",
