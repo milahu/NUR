@@ -59,158 +59,158 @@ error:
    321|             ++ (lib.optionals inheritPath [ "$PATH" ])
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:611:13:
-   610|     in
-   611|     subDir: pkgs:
-      |             ^
-   612|     concatStringsSep ":" (
+  at <nixpkgs> + /lib/strings.nix:649:5:
+   648|     in
+   649|     paths: concatColons (concatPaths paths);
+      |     ^
+   650|
 
 … while calling the 'concatStringsSep' builtin
-  at <nixpkgs> + /lib/strings.nix:612:5:
-   611|     subDir: pkgs:
-   612|     concatStringsSep ":" (
-      |     ^
-   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+  at <nixpkgs> + /lib/strings.nix:649:12:
+   648|     in
+   649|     paths: concatColons (concatPaths paths);
+      |            ^
+   650|
 
 … while calling the 'concatMap' builtin
-  at <nixpkgs> + /lib/strings.nix:613:7:
-   612|     concatStringsSep ":" (
-   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
-      |       ^
-   614|     );
+  at <nixpkgs> + /lib/strings.nix:649:26:
+   648|     in
+   649|     paths: concatColons (concatPaths paths);
+      |                          ^
+   650|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:613:18:
-   612|     concatStringsSep ":" (
-   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
-      |                  ^
-   614|     );
+  at <nixpkgs> + /lib/strings.nix:647:32:
+   646|     let
+   647|       concatPaths = concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]);
+      |                                ^
+   648|     in
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/strings.nix:613:24:
-   612|     concatStringsSep ":" (
-   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
-      |                        ^
-   614|     );
+  at <nixpkgs> + /lib/strings.nix:647:38:
+   646|     let
+   647|       concatPaths = concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]);
+      |                                      ^
+   648|     in
 
 … while evaluating the attribute 'config'
-  at <nixpkgs> + /lib/modules.nix:403:9:
-   402|         options = checked options;
-   403|         config = checked (removeAttrs config [ "_module" ]);
+  at <nixpkgs> + /lib/modules.nix:408:9:
+   407|         options = checked options;
+   408|         config = checked (removeAttrs config [ "_module" ]);
       |         ^
-   404|         _module = checked (config._module);
+   409|         _module = checked (config._module);
 
 … while calling the 'seq' builtin
-  at <nixpkgs> + /lib/modules.nix:403:18:
-   402|         options = checked options;
-   403|         config = checked (removeAttrs config [ "_module" ]);
+  at <nixpkgs> + /lib/modules.nix:408:18:
+   407|         options = checked options;
+   408|         config = checked (removeAttrs config [ "_module" ]);
       |                  ^
-   404|         _module = checked (config._module);
+   409|         _module = checked (config._module);
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:306:9:
-   305|       checkUnmatched =
-   306|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+  at <nixpkgs> + /lib/modules.nix:311:9:
+   310|       checkUnmatched =
+   311|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
       |         ^
-   307|           let
+   312|           let
 
 … in the right operand of the AND (&&) operator
-  at <nixpkgs> + /lib/modules.nix:306:72:
-   305|       checkUnmatched =
-   306|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+  at <nixpkgs> + /lib/modules.nix:311:72:
+   310|       checkUnmatched =
+   311|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
       |                                                                        ^
-   307|           let
+   312|           let
 
 … while evaluating the attribute 'unmatchedDefns'
-  at <nixpkgs> + /lib/modules.nix:977:7:
-   976|
-   977|       unmatchedDefns =
+  at <nixpkgs> + /lib/modules.nix:1051:7:
+  1050|
+  1051|       unmatchedDefns =
       |       ^
-   978|         if configs == [ ] then
+  1052|         if configs == [ ] then
 
 … while calling the 'concatLists' builtin
-  at <nixpkgs> + /lib/modules.nix:988:13:
-   987|           if rawUnmatched == { } then
-   988|             concatLists (catAttrs "unmatchedDefns" (attrValues resultsByName))
+  at <nixpkgs> + /lib/modules.nix:1062:13:
+  1061|           if rawUnmatched == { } then
+  1062|             concatLists (catUnmatched (attrValues resultsByName))
       |             ^
-   989|           else
+  1063|           else
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:965:15:
-   964|             unmatchedDefns =
-   965|               if nested.unmatchedDefns == [ ] then
-      |               ^
-   966|                 [ ]
+  at <nixpkgs> + /lib/modules.nix:1005:21:
+  1004|                   unmatchedDefns =
+  1005|                     if nested.unmatchedDefns == [ ] then
+      |                     ^
+  1006|                       [ ]
 
 … while evaluating the attribute 'unmatchedDefns'
-  at <nixpkgs> + /lib/modules.nix:977:7:
-   976|
-   977|       unmatchedDefns =
+  at <nixpkgs> + /lib/modules.nix:1051:7:
+  1050|
+  1051|       unmatchedDefns =
       |       ^
-   978|         if configs == [ ] then
+  1052|         if configs == [ ] then
 
 … while calling the 'concatLists' builtin
-  at <nixpkgs> + /lib/modules.nix:988:13:
-   987|           if rawUnmatched == { } then
-   988|             concatLists (catAttrs "unmatchedDefns" (attrValues resultsByName))
+  at <nixpkgs> + /lib/modules.nix:1062:13:
+  1061|           if rawUnmatched == { } then
+  1062|             concatLists (catUnmatched (attrValues resultsByName))
       |             ^
-   989|           else
+  1063|           else
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:965:15:
-   964|             unmatchedDefns =
-   965|               if nested.unmatchedDefns == [ ] then
-      |               ^
-   966|                 [ ]
+  at <nixpkgs> + /lib/modules.nix:1005:21:
+  1004|                   unmatchedDefns =
+  1005|                     if nested.unmatchedDefns == [ ] then
+      |                     ^
+  1006|                       [ ]
 
 … while evaluating the attribute 'unmatchedDefns'
-  at <nixpkgs> + /lib/modules.nix:977:7:
-   976|
-   977|       unmatchedDefns =
+  at <nixpkgs> + /lib/modules.nix:1051:7:
+  1050|
+  1051|       unmatchedDefns =
       |       ^
-   978|         if configs == [ ] then
+  1052|         if configs == [ ] then
 
 … while calling the 'concatLists' builtin
-  at <nixpkgs> + /lib/modules.nix:988:13:
-   987|           if rawUnmatched == { } then
-   988|             concatLists (catAttrs "unmatchedDefns" (attrValues resultsByName))
+  at <nixpkgs> + /lib/modules.nix:1062:13:
+  1061|           if rawUnmatched == { } then
+  1062|             concatLists (catUnmatched (attrValues resultsByName))
       |             ^
-   989|           else
+  1063|           else
 
 … while calling the 'catAttrs' builtin
-  at <nixpkgs> + /lib/modules.nix:988:26:
-   987|           if rawUnmatched == { } then
-   988|             concatLists (catAttrs "unmatchedDefns" (attrValues resultsByName))
+  at <nixpkgs> + /lib/modules.nix:1062:26:
+  1061|           if rawUnmatched == { } then
+  1062|             concatLists (catUnmatched (attrValues resultsByName))
       |                          ^
-   989|           else
+  1063|           else
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/modules.nix:884:15:
-   883|       resultsByName = mapAttrs (
-   884|         name: decls:
-      |               ^
-   885|         # We're descending into attribute ‘name’.
+  at <nixpkgs> + /lib/modules.nix:918:19:
+   917|           (
+   918|             name: decls:
+      |                   ^
+   919|             # We're descending into attribute ‘name’.
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:895:9:
-   894|         # Fast path for the overwhelmingly common case: a single option declaration.
-   895|         if length decls == 1 && (head decls).options._type or null == "option" then
-      |         ^
-   896|           {
+  at <nixpkgs> + /lib/modules.nix:921:13:
+   920|             # Fast path for the overwhelmingly common case: a single option declaration.
+   921|             if length decls == 1 && (head decls).options._type or null == "option" then
+      |             ^
+   922|               {
 
 … in the right operand of the AND (&&) operator
-  at <nixpkgs> + /lib/modules.nix:895:30:
-   894|         # Fast path for the overwhelmingly common case: a single option declaration.
-   895|         if length decls == 1 && (head decls).options._type or null == "option" then
-      |                              ^
-   896|           {
+  at <nixpkgs> + /lib/modules.nix:921:34:
+   920|             # Fast path for the overwhelmingly common case: a single option declaration.
+   921|             if length decls == 1 && (head decls).options._type or null == "option" then
+      |                                  ^
+   922|               {
 
 … while evaluating the attribute 'options._type'
-  at <nixpkgs> + /lib/modules.nix:840:15:
-   839|               pos = unsafeGetAttrPos n options;
-   840|               options = option;
-      |               ^
-   841|             }) options
+  at <nixpkgs> + /lib/modules.nix:1024:19:
+  1023|                   pos = unsafeGetAttrPos n options;
+  1024|                   options = option;
+      |                   ^
+  1025|                 }) options
 
 … from call site
   at <nixpkgs> + /lib/attrsets.nix:289:73:
@@ -227,18 +227,18 @@ error:
    290|     in
 
 … in the right operand of the update (//) operator
-  at <nixpkgs> + /lib/modules.nix:2304:12:
-  2303|         }
-  2304|         // optionalAttrs (toType != null) {
+  at <nixpkgs> + /lib/modules.nix:2379:12:
+  2378|         }
+  2379|         // optionalAttrs (toType != null) {
       |            ^
-  2305|           type = toType;
+  2380|           type = toType;
 
 … from call site
-  at <nixpkgs> + /lib/modules.nix:2304:12:
-  2303|         }
-  2304|         // optionalAttrs (toType != null) {
+  at <nixpkgs> + /lib/modules.nix:2379:12:
+  2378|         }
+  2379|         // optionalAttrs (toType != null) {
       |            ^
-  2305|           type = toType;
+  2380|           type = toType;
 
 … while calling 'optionalAttrs'
   at <nixpkgs> + /lib/attrsets.nix:1479:25:
@@ -255,11 +255,11 @@ error:
   1480|
 
 … from call site
-  at <nixpkgs> + /lib/modules.nix:2293:17:
-  2292|         let
-  2293|           opt = attrByPath to { } options;
+  at <nixpkgs> + /lib/modules.nix:2368:17:
+  2367|         let
+  2368|           opt = attrByPath to { } options;
       |                 ^
-  2294|         in
+  2369|         in
 
 … while calling 'attrByPath'
   at <nixpkgs> + /lib/attrsets.nix:89:24:
@@ -332,46 +332,46 @@ error:
    103|             )
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/modules.nix:972:37:
-   971|
-   972|       matchedOptions = mapAttrs (n: v: v.matchedOptions) resultsByName;
+  at <nixpkgs> + /lib/modules.nix:1049:37:
+  1048|     {
+  1049|       matchedOptions = mapAttrs (n: v: v.matchedOptions) resultsByName;
       |                                     ^
-   973|     in
+  1050|
 
 … while evaluating the attribute 'matchedOptions'
-  at <nixpkgs> + /lib/modules.nix:897:13:
-   896|           {
-   897|             matchedOptions = evalSingleOptionDecl loc (head decls) defns';
-      |             ^
-   898|           }
+  at <nixpkgs> + /lib/modules.nix:923:17:
+   922|               {
+   923|                 matchedOptions = evalSingleOptionDecl (prefix ++ [ name ]) (head decls) (
+      |                 ^
+   924|                   rawDefinitionsByName.${name} or [ ]
 
 … from call site
-  at <nixpkgs> + /lib/modules.nix:897:30:
-   896|           {
-   897|             matchedOptions = evalSingleOptionDecl loc (head decls) defns';
-      |                              ^
-   898|           }
+  at <nixpkgs> + /lib/modules.nix:923:34:
+   922|               {
+   923|                 matchedOptions = evalSingleOptionDecl (prefix ++ [ name ]) (head decls) (
+      |                                  ^
+   924|                   rawDefinitionsByName.${name} or [ ]
 
 … while calling 'evalSingleOptionDecl'
-  at <nixpkgs> + /lib/modules.nix:1137:5:
-  1136|     }:
-  1137|     defs:
+  at <nixpkgs> + /lib/modules.nix:1214:5:
+  1213|     }:
+  1214|     defs:
       |     ^
-  1138|     let
+  1215|     let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:1190:5:
-  1189|     in
-  1190|     if type.deprecationMessage != null then
+  at <nixpkgs> + /lib/modules.nix:1266:5:
+  1265|     in
+  1266|     if type.deprecationMessage != null then
       |     ^
-  1191|       warn "The type `types.${type.name}' of option `${showOption loc}' defined in ${showFiles opt.declarations} is deprecated. ${type.deprecationMessage}" opt
+  1267|       warn "The type `types.${type.name}' of option `${showOption loc}' defined in ${showFiles opt.declarations} is deprecated. ${type.deprecationMessage}" opt
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:1141:9:
-  1140|       type =
-  1141|         if getSubModules != null then
+  at <nixpkgs> + /lib/modules.nix:1217:9:
+  1216|       type =
+  1217|         if options.type.getSubModules or null != null then
       |         ^
-  1142|           options.type.substSubModules (map (setDefaultModuleLocation _file) getSubModules)
+  1218|           options.type.substSubModules (map (setDefaultModuleLocation _file) options.type.getSubModules)
 
 … while evaluating the attribute 'type.getSubModules'
   at <nixpkgs> + /nixos/modules/services/hardware/bluetooth.nix:72:9:
@@ -388,22 +388,22 @@ error:
     27|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/modules.nix:754:15:
-   753|       // mapAttrs (
-   754|         name: _:
+  at <nixpkgs> + /lib/modules.nix:820:15:
+   819|       // mapAttrs (
+   820|         name: _:
       |               ^
-   755|         addErrorContext ''while evaluating the module argument `${name}' in "${key}":'' (
+   821|         addErrorContext ''while evaluating the module argument `${name}' in "${key}":'' (
 
 … while evaluating the module argument `pkgs' in "<nixpkgs> + /nixos/modules/services/hardware/bluetooth.nix":
 
 … noting that argument `pkgs` is not externally provided, so querying `_module.args` instead, requiring `config`
 
 … from call site
-  at <nixpkgs> + /lib/modules.nix:758:13:
-   757|             "noting that argument `${name}` is not externally provided, so querying `_module.args` instead, requiring `config`"
-   758|             config._module.args.${name}
+  at <nixpkgs> + /lib/modules.nix:824:13:
+   823|             "noting that argument `${name}` is not externally provided, so querying `_module.args` instead, requiring `config`"
+   824|             config._module.args.${name}
       |             ^
-   759|           )
+   825|           )
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/types.nix:1439:20:
@@ -413,60 +413,60 @@ error:
   1440|               else
 
 … while evaluating the attribute 'optionalValue.value'
-  at <nixpkgs> + /lib/modules.nix:1419:5:
-  1418|
-  1419|     optionalValue = if isDefined then { value = mergedValue; } else { };
+  at <nixpkgs> + /lib/modules.nix:1494:5:
+  1493|
+  1494|     optionalValue = if isDefined then { value = mergedValue; } else { };
       |     ^
-  1420|   };
+  1495|   };
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:1419:21:
-  1418|
-  1419|     optionalValue = if isDefined then { value = mergedValue; } else { };
+  at <nixpkgs> + /lib/modules.nix:1494:21:
+  1493|
+  1494|     optionalValue = if isDefined then { value = mergedValue; } else { };
       |                     ^
-  1420|   };
+  1495|   };
 
 … while evaluating the attribute 'values'
-  at <nixpkgs> + /lib/modules.nix:1347:11:
-  1346|         {
-  1347|           values = defsSorted;
+  at <nixpkgs> + /lib/modules.nix:1417:11:
+  1416|         {
+  1417|           values =
       |           ^
-  1348|           highestPrio = defsFiltered.highestPrio;
+  1418|             # Sort mkOrder properties.
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:1341:13:
-  1340|             # Avoid sorting if we don't have to.
-  1341|             if any (def: def.value._type or "" == "order") defsFiltered.values then
+  at <nixpkgs> + /lib/modules.nix:1419:13:
+  1418|             # Sort mkOrder properties.
+  1419|             if any (def: def.value._type or "" == "order") defsFiltered.values then
       |             ^
-  1342|               sortProperties defsFiltered.values
+  1420|               sortProperties defsFiltered.values
 
 … while calling the 'any' builtin
-  at <nixpkgs> + /lib/modules.nix:1341:16:
-  1340|             # Avoid sorting if we don't have to.
-  1341|             if any (def: def.value._type or "" == "order") defsFiltered.values then
+  at <nixpkgs> + /lib/modules.nix:1419:16:
+  1418|             # Sort mkOrder properties.
+  1419|             if any (def: def.value._type or "" == "order") defsFiltered.values then
       |                ^
-  1342|               sortProperties defsFiltered.values
+  1420|               sortProperties defsFiltered.values
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/modules.nix:1341:21:
-  1340|             # Avoid sorting if we don't have to.
-  1341|             if any (def: def.value._type or "" == "order") defsFiltered.values then
+  at <nixpkgs> + /lib/modules.nix:1419:21:
+  1418|             # Sort mkOrder properties.
+  1419|             if any (def: def.value._type or "" == "order") defsFiltered.values then
       |                     ^
-  1342|               sortProperties defsFiltered.values
+  1420|               sortProperties defsFiltered.values
 
 … while evaluating the attribute 'value._type'
-  at <nixpkgs> + /lib/modules.nix:1548:67:
-  1547|       strip =
-  1548|         def: if def.value._type or "" == "override" then def // { value = def.value.content; } else def;
+  at <nixpkgs> + /lib/modules.nix:1623:67:
+  1622|       strip =
+  1623|         def: if def.value._type or "" == "override" then def // { value = def.value.content; } else def;
       |                                                                   ^
-  1549|     in
+  1624|     in
 
 … while evaluating the attribute 'value.content'
-  at <nixpkgs> + /lib/modules.nix:1730:22:
-  1729|     _type = "override";
-  1730|     inherit priority content;
+  at <nixpkgs> + /lib/modules.nix:1805:22:
+  1804|     _type = "override";
+  1805|     inherit priority content;
       |                      ^
-  1731|   };
+  1806|   };
 
 … from call site
   at <nixpkgs> + /nixos/modules/misc/nixpkgs.nix:98:7:
@@ -532,27 +532,27 @@ error:
    102|           localSystem
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/modules.nix:282:38:
-   281|             let
-   282|               recurse = mapAttrs (n: v: if v._type or null == "option" then v.value else recurse v);
+  at <nixpkgs> + /lib/modules.nix:287:38:
+   286|             let
+   287|               recurse = mapAttrs (n: v: if v._type or null == "option" then v.value else recurse v);
       |                                      ^
-   283|             in
+   288|             in
 
 … while evaluating the attribute 'value'
-  at <nixpkgs> + /lib/modules.nix:1178:9:
-  1177|         options = [ ];
-  1178|         value = addErrorContext "while evaluating the option `${showOption loc}':" (
+  at <nixpkgs> + /lib/modules.nix:1254:9:
+  1253|         options = [ ];
+  1254|         value = addErrorContext "while evaluating the option `${showOption loc}':" (
       |         ^
-  1179|           if options ? apply then options.apply res.mergedValue else res.mergedValue
+  1255|           if options ? apply then options.apply res.mergedValue else res.mergedValue
 
 … while evaluating the option `nixpkgs.overlays':
 
 … while evaluating the attribute 'mergedValue'
-  at <nixpkgs> + /lib/modules.nix:1353:5:
-  1352|     # Type-check the remaining definitions, and merge them. Or throw if no definitions.
-  1353|     mergedValue =
+  at <nixpkgs> + /lib/modules.nix:1428:5:
+  1427|     # Type-check the remaining definitions, and merge them. Or throw if no definitions.
+  1428|     mergedValue =
       |     ^
-  1354|       if isDefined then
+  1429|       if isDefined then
 
 … while evaluating the attribute 'value'
   at <nixpkgs> + /lib/types.nix:1061:13:
@@ -583,41 +583,41 @@ error:
   1042|               concatLists (
 
 … while evaluating the attribute 'optionalValue'
-  at <nixpkgs> + /lib/modules.nix:1419:5:
-  1418|
-  1419|     optionalValue = if isDefined then { value = mergedValue; } else { };
+  at <nixpkgs> + /lib/modules.nix:1494:5:
+  1493|
+  1494|     optionalValue = if isDefined then { value = mergedValue; } else { };
       |     ^
-  1420|   };
+  1495|   };
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:1419:21:
-  1418|
-  1419|     optionalValue = if isDefined then { value = mergedValue; } else { };
+  at <nixpkgs> + /lib/modules.nix:1494:21:
+  1493|
+  1494|     optionalValue = if isDefined then { value = mergedValue; } else { };
       |                     ^
-  1420|   };
+  1495|   };
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/modules.nix:1308:7:
-  1307|       # original singleton straight to the type merge.
-  1308|       if
+  at <nixpkgs> + /lib/modules.nix:1379:7:
+  1378|       # original singleton straight to the type merge.
+  1379|       if
       |       ^
-  1309|         length defs == 1
+  1380|         length defs == 1
 
 … in the right operand of the AND (&&) operator
-  at <nixpkgs> + /lib/modules.nix:1310:9:
-  1309|         length defs == 1
-  1310|         && addErrorContext "while evaluating definitions from `${(head defs).file}':" (
+  at <nixpkgs> + /lib/modules.nix:1381:9:
+  1380|         length defs == 1
+  1381|         && addErrorContext "while evaluating definitions from `${(head defs).file}':" (
       |         ^
-  1311|           !(head defs).value ? _type
+  1382|           !(head defs).value ? _type
 
 … while evaluating definitions from `./modules/emacs.nix':
 
 … in the argument of the not operator
-  at <nixpkgs> + /lib/modules.nix:1311:12:
-  1310|         && addErrorContext "while evaluating definitions from `${(head defs).file}':" (
-  1311|           !(head defs).value ? _type
+  at <nixpkgs> + /lib/modules.nix:1382:12:
+  1381|         && addErrorContext "while evaluating definitions from `${(head defs).file}':" (
+  1382|           !(head defs).value ? _type
       |            ^
-  1312|         )
+  1383|         )
 
 … while evaluating the attribute 'value'
   at <nixpkgs> + /lib/types.nix:1051:25:
