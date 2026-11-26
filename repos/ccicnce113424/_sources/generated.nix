@@ -233,23 +233,23 @@
   };
   open-orpheus-dev = {
     pname = "open-orpheus-dev";
-    version = "051491b7830caf100d98113b2c1b33f34155e888";
+    version = "dcce04f892e3afc7db4a1d6a9f6cc957d02912a1";
     src = fetchFromGitHub {
       owner = "YUCLing";
       repo = "open-orpheus";
-      rev = "051491b7830caf100d98113b2c1b33f34155e888";
-      fetchSubmodules = false;
-      sha256 = "sha256-pl0ToNg1bKZxUe3DlUvKdzWGsyJFNRU+oZI81M7rWNU=";
+      rev = "dcce04f892e3afc7db4a1d6a9f6cc957d02912a1";
+      fetchSubmodules = true;
+      sha256 = "sha256-rO9/uxlaPSZizCua0TDcMo3M1fz7b/5WlM9BnBThobE=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-pl0ToNg1bKZxUe3DlUvKdzWGsyJFNRU+oZI81M7rWNU=/Cargo.lock";
+      lockFile = ./. + "/sha256-rO9_uxlaPSZizCua0TDcMo3M1fz7b_5WlM9BnBThobE=/Cargo.lock";
       outputHashes = {
         "font-kit-0.14.3" = "sha256-1/5w7y6XhNNg7jRZmJazM188v6vWkdYHn+94WqmJpMg=";
         "freetype-sys-0.23.0" = "sha256-erVVW/EX4ijAR5vIXLAAO4CE+PU9t3qGPj1Mp7/EV9I=";
         "avs3a-0.1.0" = "sha256-OcI39YMDhcBpP6Tij11rATcKtp+mVrXHsjy8gRSm3eI=";
       };
     };
-    date = "2026-11-17";
+    date = "2026-11-25";
   };
   pilinara = {
     pname = "pilinara";
@@ -281,17 +281,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "92025ca59716a8dd20a3866a0b89dc6a538a3e41";
+    version = "f9b66f76a4a3a7b70100136c8f952b5ba3aef9b1";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "92025ca59716a8dd20a3866a0b89dc6a538a3e41";
+      rev = "f9b66f76a4a3a7b70100136c8f952b5ba3aef9b1";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-wL913yQaz5jG7RXooyAi8QzH+37G59t0uAhi/W+z8dI=";
+      sha256 = "sha256-cFEj9wMdSkHgIdKL8qgzXeJ2o7fI5WmD7zGqtHZ3SEE=";
     };
-    date = "2026-11-24";
+    date = "2026-11-25";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -431,30 +431,30 @@
   };
   uosc-danmaku-git = {
     pname = "uosc-danmaku-git";
-    version = "d896f179aac1c9e7e657664dbe8a69567a9a4900";
+    version = "74ade6cbed91bd58aee219010ded9d96598262cf";
     src = fetchFromGitHub {
       owner = "Tony15246";
       repo = "uosc_danmaku";
-      rev = "d896f179aac1c9e7e657664dbe8a69567a9a4900";
+      rev = "74ade6cbed91bd58aee219010ded9d96598262cf";
       fetchSubmodules = false;
-      sha256 = "sha256-IDxylx61HTYki34Ehy3hgHDua8F1b8xEV0IW8xjV6uI=";
+      sha256 = "sha256-b8CLOHc9Nje03Q6ePAwrNdqCBFKyyGXj251Clt2XoZQ=";
     };
-    date = "2026-10-30";
+    date = "2026-11-25";
   };
   waywallen-bin = {
     pname = "waywallen-bin";
-    version = "0.6.1";
+    version = "0.6.2";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen/releases/download/v0.6.1/waywallen-0.6.1-x86_64.AppImage";
-      sha256 = "sha256-3RxYx+rN7hKR/DrZsOC82GTWtf6xxQZbirFzeNF25i0=";
+      url = "https://github.com/waywallen/waywallen/releases/download/v0.6.2/waywallen-0.6.2-x86_64.AppImage";
+      sha256 = "sha256-Ln2vGXFDkGP+OQlPnWj8A0GAkKsmX5XOjM5bHL+9Lpc=";
     };
   };
   waywallen-display-bin = {
     pname = "waywallen-display-bin";
-    version = "0.4.6";
+    version = "0.4.7";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.6/waywallen-kde-0.4.6-x86_64.zip";
-      sha256 = "sha256-+YZHswHRbAD3Ea3H3L+MptI/I3+tGDXxORYHmtnAMs4=";
+      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.7/waywallen-kde-0.4.7-x86_64.zip";
+      sha256 = "sha256-zLJMSAF18S0Ezo0wuaXBzUbQBb80ksLmIuHxbDJCdUI=";
     };
   };
 }
