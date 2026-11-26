@@ -247,14 +247,6 @@ version = { source = "github-tag", repo = "HMCL-dev/HMCL", strip_prefix = "v", f
 transform = ["strip-v"]
 fetch = { type = "github", repo = "HMCL-dev/HMCL", rev = "v{version}" }
 
-[packages.horizon]
-version = { source = "git", url = "https://github.com/horizon-rust/horizon.git", unstable = { } }
-fetch = { type = "github", repo = "horizon-rust/horizon", rev = "{version}" }
-
-[packages.horizon.derive.cargoLock]
-kind = "cargo-vendor"
-strategy = "lockfile"
-
 [packages.hysteria-realm-server]
 version = { source = "github-release", repo = "apernet/hysteria-realm-server" }
 transform = ["strip-v"]
@@ -433,6 +425,15 @@ fetch = { type = "github", repo = "svkozak/pi-acp", rev = "{version}" }
 kind = "npm-deps"
 strategy = "lockfile"
 
+[packages.pi-ask]
+version = { source = "github-release", repo = "eko24ive/pi-ask" }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "eko24ive/pi-ask", rev = "{version}" }
+
+[packages.pi-ask.derive.pnpmDepsHash]
+strategy = "fod"
+attr = ".#pi-ask.pnpmDeps"
+
 [packages.pi-ast-sgrep]
 version = { source = "github-release", repo = "AdityaVG13/ast-sgrep" }
 transform = ["strip-v"]
@@ -529,6 +530,15 @@ fetch = { type = "github", repo = "aliou/pi-processes", rev = "v{version}" }
 strategy = "fod"
 attr = ".#pi-processes.pnpmDeps"
 
+[packages.pi-remote-pi]
+version = { source = "git", url = "https://github.com/jacobaraujo7/remote_pi.git", unstable = { stable = { source = "manual", version = "0.7.0" } } }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "jacobaraujo7/remote_pi", rev = "{version}" }
+
+[packages.pi-remote-pi.derive.pnpmDepsHash]
+strategy = "fod"
+attr = ".#pi-remote-pi.pnpmDeps"
+
 [packages.pi-simplify]
 version = { source = "github-tag", repo = "MattDevy/pi-extensions", strip_prefix = "pi-simplify-v", filter = "^pi-simplify-v[0-9]+\\.[0-9]+\\.[0-9]+$" }
 transform = ["strip-v"]
@@ -585,6 +595,16 @@ version = { source = "git", url = "https://github.com/charmedlabs/pixy2", unstab
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/charmedlabs/pixy2", rev = "{version}" }
 
+[packages.remote-pi-relay]
+version = { source = "git", url = "https://github.com/jacobaraujo7/remote_pi.git", unstable = { stable = { source = "manual", version = "0.3.1" } } }
+transform = ["strip-v"]
+fetch = { type = "github", repo = "jacobaraujo7/remote_pi", rev = "{version}" }
+
+[packages.remote-pi-relay.derive.cargoLock]
+kind = "cargo-vendor"
+strategy = "lockfile"
+sub_dir = "relay"
+
 [packages.sable-next]
 version = { source = "git-tag", url = "https://git.sable.moe/SableClient/sable-next.git", strip_prefix = "v", filter = "^v[0-9]+\\.[0-9]+\\.[0-9]+$" }
 transform = ["strip-v"]
@@ -630,6 +650,14 @@ select = "composerVendor"
 version = { source = "git", url = "https://github.com/tindy2013/subconverter", unstable = { } }
 transform = ["strip-v"]
 fetch = { type = "git", url = "https://github.com/tindy2013/subconverter", rev = "{version}" }
+
+[packages.sunrise]
+version = { source = "git", url = "https://github.com/sunrise-org/sunrise.git", unstable = { } }
+fetch = { type = "github", repo = "sunrise-org/sunrise", rev = "{version}" }
+
+[packages.sunrise.derive.cargoLock]
+kind = "cargo-vendor"
+strategy = "lockfile"
 
 [packages.superpowers-skills]
 version = { source = "git", url = "https://github.com/obra/superpowers.git", unstable = { } }
