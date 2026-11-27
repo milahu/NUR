@@ -3354,6 +3354,7 @@ impl<'a> Evaluator<'a> {
     /// (declarations join the block, nested rules bubble out), and every
     /// nested-block construct that reuses it.
     fn exec(&mut self, stmts: &[Stmt], parents: &[String], sink: &mut Sink<'_>) -> Result<(), Error> {
+        crate::stack::check()?;
         for stmt in stmts {
             match stmt {
                 Stmt::VarDecl(v) => self.apply_var(v)?,
@@ -3516,6 +3517,7 @@ impl<'a> Evaluator<'a> {
                     full_length,
                     frame_name,
                 } => {
+                    crate::stack::check_at(*pos, *length).map_err(|e| self.finalize_error(e))?;
                     // Push a diagnostic call frame so an error/warning raised in
                     // the mixin body unwinds through this `@include` call site.
                     let saved = self.enter_call(*pos, *length, Rc::clone(frame_name));
@@ -4915,8 +4917,8 @@ fn fold_calc(op: CalcOp, left: CalcNode, right: CalcNode, pos: Pos) -> Result<Ca
     }
     Ok(CalcNode::Op {
         op,
-        left: Box::new(left),
-        right: Box::new(right),
+        left: std::rc::Rc::new(left),
+        right: std::rc::Rc::new(right),
     })
 }
 
@@ -4947,6 +4949,10 @@ fn calc_complex_unit_operand(node: &CalcNode) -> Option<&CalcNode> {
 /// `var()`/interpolation is opaque (unknown unit) and reported as not carrying
 /// a unit, so it does not count toward a compound/inverse unit.
 fn calc_node_carries_unit(node: &CalcNode) -> bool {
+    // A tree built at run time can be deeper than the stack (#312).
+    if crate::stack::trip() {
+        return false;
+    }
     match node {
         CalcNode::Number(n) => !n.is_unitless(),
         CalcNode::Str(_) => false,
@@ -5762,6 +5768,10 @@ fn is_pure_calc_math_function(name: &str) -> bool {
 /// cannot reduce to a single number, so a math calculation containing it stays
 /// preserved (`sin(2px + var(--c))`).
 fn calc_node_has_opaque(node: &CalcNode) -> bool {
+    // A tree built at run time can be deeper than the stack (#312).
+    if crate::stack::trip() {
+        return true;
+    }
     match node {
         CalcNode::Number(_) => false,
         CalcNode::Str(_) => true,
@@ -5836,6 +5846,9 @@ fn is_supports_calc_function(name: &str) -> bool {
 pub(crate) fn find_not_css(v: &Value) -> Option<&Value> {
     match v {
         Value::Map(_) | Value::Function(_) | Value::Mixin(_) | Value::Module(_) => Some(v),
+        // A list can nest deeper than the stack (#312): past the limit this
+        // gives up, and the compile ends in `Stack Overflow`.
+        Value::List(_) if crate::stack::trip() => None,
         Value::List(l) => l.items.iter().find_map(find_not_css),
         _ => None,
     }
@@ -8136,6 +8149,11 @@ const SELECTOR_PSEUDO_CLASSES: [&str; 9] = [
 /// [`find_stray_selector_char`] over `cs`, a selector list that starts at
 /// char index `base`; `in_arg` when it is a pseudo's argument.
 fn stray_in_selector(cs: &[char], base: usize, in_arg: bool) -> Option<(usize, String)> {
+    // Recurses into `::slotted()` and the other selector-pseudo arguments: see
+    // `complex_selector_is_bogus` (#314).
+    if crate::stack::trip() {
+        return None;
+    }
     // Whether the current complex selector has nothing in it yet.
     let mut empty = true;
     let mut i = 0;
@@ -9354,6 +9372,13 @@ pub(crate) fn split_compounds(s: &str) -> Vec<&str> {
 /// here (it is kept, or handled separately by the nesting rules). The check
 /// recurses into selector pseudo arguments (`:is()`, `:not()`, …).
 fn complex_selector_is_bogus(s: &str, in_pseudo: bool, allow_leading: bool) -> bool {
+    // Recurses once per selector-pseudo argument (with `compound_has_bogus_pseudo`)
+    // in text that may have been assembled at run time, and `::slotted()` never
+    // reaches the charged `parse_list` (#314). Past the limit the guard trips,
+    // the compile ends in `Stack Overflow`, and this answer is never used.
+    if crate::stack::trip() {
+        return false;
+    }
     // Bogus-ness needs a combinator (`>`/`+`/`~`) or a selector-pseudo
     // argument (which needs a `(`); a selector containing none of those
     // bytes cannot be bogus, so skip the tokenization entirely.

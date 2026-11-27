@@ -424,6 +424,24 @@ needs the same table and is
   with the count. It is an artifact of dart's overloaded declaration of
   `alpha()`. We report the real count. (The *wording* of that message is
   matched: `alpha()` does not say "positional" where other members do.)
+- **Runaway recursion** (#308, measured 2026-11-24). dart-sass catches its
+  stack overflow as a compile error only inside an `@import` chain
+  (`Error: Stack Overflow` with the import's span, exit 65). For a recursive
+  `@function` or `@mixin`, or for deeply nested source, it prints
+  `Unexpected exception: Stack Overflow` with a Dart stack trace and exits
+  255. We report `Error: Stack Overflow` as a compile error in every case,
+  pointing at the call that recursed, exit 65. How deep each compiler gets
+  before that differs too: dart about 530 `@function` levels, sasso's CLI
+  about 9500 (see `Options::with_stack_limit`).
+
+  For a value nested at run time (#312, measured 2026-11-26 against dart
+  1.104.1), both compilers build it and fail on the first walk that goes
+  past their stack: dart's stack is deeper, so a value dart can still
+  serialize may already be `Stack Overflow` here. A few walks dart makes
+  and sasso does not go the other way: a 200,000-deep map key or `$l / 2`
+  overflows in dart and compiles here. A deep calculation compared with
+  itself (`$c == $c`) is `true` in dart and `Stack Overflow` here: dart
+  compares calculations structurally too, but its stack reaches further.
 
 ## Version skew worth knowing
 

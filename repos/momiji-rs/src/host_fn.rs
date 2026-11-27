@@ -236,7 +236,24 @@ const OP_COLOR_INTERPOLATE: u32 = 7;
 
 /// Run a value operation: deserialize the operands, dispatch on `op`, and return
 /// the serialized result (or an `Err(message)` surfaced to the JS caller).
+///
+/// A host calls this outside any compile, so it guards its own stack: the
+/// operands are the host's bytes, nested as deep as it likes, and reading or
+/// writing them recurses once per level. Past the default limit the op fails
+/// with `Stack Overflow` instead of overflowing the stack. Called from inside
+/// a compile (a custom function that runs one), it shares that compile's
+/// guard, and whether it tripped stays its own business, as for a nested
+/// compile (see [`crate::stack::enter`]).
 pub fn host_value_op(op: u32, input: &[u8]) -> Result<Vec<u8>, String> {
+    let _guard = crate::stack::enter(crate::stack::DEFAULT_LIMIT);
+    let result = value_op(op, input);
+    if crate::stack::tripped() {
+        return Err(crate::stack::MESSAGE.into());
+    }
+    result
+}
+
+fn value_op(op: u32, input: &[u8]) -> Result<Vec<u8>, String> {
     let args = deserialize_args(input)?;
     let result = match op {
         OP_NUMBER_CONVERT => number_convert(&args)?,
@@ -475,6 +492,11 @@ pub(crate) fn serialize_one(v: &Value) -> Result<Vec<u8>, String> {
 }
 
 fn serialize_value(out: &mut Vec<u8>, v: &Value) -> Result<(), String> {
+    // A value can nest deeper than the stack (#312): past the limit this
+    // gives up, and the compile ends in `Stack Overflow`.
+    if matches!(v, Value::List(_) | Value::Map(_)) && crate::stack::trip() {
+        return Err(crate::stack::MESSAGE.into());
+    }
     match v {
         Value::Null => out.push(TAG_NULL),
         Value::Bool(b) => {
@@ -532,7 +554,7 @@ fn serialize_value(out: &mut Vec<u8>, v: &Value) -> Result<(), String> {
         }
         Value::Calc(node) => {
             out.push(TAG_CALC);
-            write_calc_node(out, node);
+            write_calc_node(out, node)?;
         }
         Value::Slash(..) => {
             // A slash-division never reaches here (call args are slash-collapsed
@@ -579,7 +601,13 @@ fn calc_op_code(op: CalcOp) -> u8 {
 }
 
 /// Serialize a `CalcNode` tree: tag byte (0 Number, 1 Str, 2 Op, 3 Func) + payload.
-fn write_calc_node(out: &mut Vec<u8>, node: &CalcNode) {
+fn write_calc_node(out: &mut Vec<u8>, node: &CalcNode) -> Result<(), String> {
+    // A calculation can nest deeper than the stack (#312). Giving up must
+    // fail the whole serialization: a truncated payload would still reach
+    // the host's callback.
+    if crate::stack::trip() {
+        return Err(crate::stack::MESSAGE.into());
+    }
     match node {
         CalcNode::Number(n) => {
             out.push(0);
@@ -592,18 +620,19 @@ fn write_calc_node(out: &mut Vec<u8>, node: &CalcNode) {
         CalcNode::Op { op, left, right } => {
             out.push(2);
             out.push(calc_op_code(*op));
-            write_calc_node(out, left);
-            write_calc_node(out, right);
+            write_calc_node(out, left)?;
+            write_calc_node(out, right)?;
         }
         CalcNode::Func { name, args } => {
             out.push(3);
             put_str(out, name);
             put_u32(out, args.len());
-            for a in args {
-                write_calc_node(out, a);
+            for a in args.iter() {
+                write_calc_node(out, a)?;
             }
         }
     }
+    Ok(())
 }
 
 fn sep_code(sep: ListSep) -> u8 {
@@ -712,6 +741,11 @@ pub(crate) fn deserialize_args(buf: &[u8]) -> Result<Vec<Value>, String> {
 }
 
 fn read_value(r: &mut Reader<'_>) -> Result<Value, String> {
+    // A value can nest deeper than the stack (#312): past the limit this
+    // gives up, and the compile ends in `Stack Overflow`.
+    if crate::stack::trip() {
+        return Err(crate::stack::MESSAGE.into());
+    }
     let tag = r.u8()?;
     Ok(match tag {
         TAG_NULL => Value::Null,
@@ -826,13 +860,18 @@ fn calc_op_from(code: u8) -> Result<CalcOp, String> {
 
 /// Read a `CalcNode` tree written by [`write_calc_node`].
 fn read_calc_node(r: &mut Reader<'_>) -> Result<CalcNode, String> {
+    // A value can nest deeper than the stack (#312): past the limit this
+    // gives up, and the compile ends in `Stack Overflow`.
+    if crate::stack::trip() {
+        return Err(crate::stack::MESSAGE.into());
+    }
     Ok(match r.u8()? {
         0 => CalcNode::Number(read_number_body(r)?),
         1 => CalcNode::Str(r.str()?),
         2 => {
             let op = calc_op_from(r.u8()?)?;
-            let left = Box::new(read_calc_node(r)?);
-            let right = Box::new(read_calc_node(r)?);
+            let left = std::rc::Rc::new(read_calc_node(r)?);
+            let right = std::rc::Rc::new(read_calc_node(r)?);
             CalcNode::Op { op, left, right }
         }
         3 => {
@@ -842,7 +881,10 @@ fn read_calc_node(r: &mut Reader<'_>) -> Result<CalcNode, String> {
             for _ in 0..n {
                 args.push(read_calc_node(r)?);
             }
-            CalcNode::Func { name, args }
+            CalcNode::Func {
+                name,
+                args: args.into(),
+            }
         }
         other => {
             return Err(format!(
@@ -1019,6 +1061,60 @@ mod tests {
         let o = Options::default().with_function("bad($x)", cb);
         let err = compile(".a { x: bad(1); }", &o).unwrap_err();
         assert!(err.message.contains("boom"), "got: {}", err.message);
+    }
+
+    /// `host_value_op` runs outside any compile (the wasm `sasso_value_op`
+    /// export, napi's `value_op`), so it guards its own stack: a host that
+    /// hands it a value nested deeper than the stack gets `Stack Overflow`
+    /// back, not an aborted process (#312's follow-up).
+    #[test]
+    fn value_op_rejects_a_value_nested_deeper_than_the_stack() {
+        let depth = 200_000;
+        let mut input = Vec::new();
+        super::put_u32(&mut input, 1);
+        for _ in 0..depth {
+            input.push(super::TAG_LIST);
+            input.push(1); // comma
+            input.push(0); // unbracketed
+            super::put_u32(&mut input, 1);
+        }
+        input.push(super::TAG_NULL);
+        input.extend(std::iter::repeat(0).take(depth)); // no keywords
+                                                        // Both calls run on the overflowing thread: the guard is thread-local,
+                                                        // so only there could a trip left behind show up.
+        let (deep, after) = std::thread::Builder::new()
+            .stack_size(1 << 20)
+            .spawn(move || {
+                let deep = super::host_value_op(super::OP_NUMBER_CONVERT, &input);
+                // The guard is gone again: an ordinary op still works.
+                let unit = Value::List(crate::value::List::new(
+                    vec![Value::Str(SassStr {
+                        text: "in".into(),
+                        quoted: false,
+                    })],
+                    ListSep::Space,
+                    false,
+                ));
+                let none = Value::List(crate::value::List::new(
+                    Vec::<Value>::new(),
+                    ListSep::Space,
+                    false,
+                ));
+                let args = vec![
+                    Value::Number(Number::with_unit(96.0, "px")),
+                    unit,
+                    none,
+                    Value::Bool(false),
+                ];
+                let after =
+                    super::host_value_op(super::OP_NUMBER_CONVERT, &super::serialize_args(&args).unwrap());
+                (deep, after)
+            })
+            .unwrap()
+            .join()
+            .unwrap();
+        assert_eq!(deep.unwrap_err(), crate::stack::MESSAGE);
+        assert!(after.is_ok(), "an op after the overflow failed: {after:?}");
     }
 
     #[test]

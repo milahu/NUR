@@ -43,6 +43,108 @@ Conformance is tracked separately as a ratchet against the official
 
 ### Fixed
 
+- **A value op from a host checks its stack too** (#312 follow-up).
+  `host_value_op` (the wasm `sasso_value_op` export and napi's `value_op`,
+  behind `SassNumber.convert` and the `SassColor` methods) runs outside any
+  compile, so #312's guards never fired there: a host that handed it a
+  value nested a few hundred thousand levels deep aborted the process. It
+  now guards its own stack with the default limit and fails with
+  `Stack Overflow`.
+
+- **A value nested deep at run time no longer aborts the process** (#312).
+  A loop builds a list, map or calculation as deep as it likes in a few
+  bytes of source (`$l: ($l, 1)`, `$m: (k: $m)`, `$c: calc($c + 1%)`,
+  `$c: min($c, 1%)`), and no parse-time check sees that depth. Dropping
+  such a value recursed once per level and aborted the process, even when
+  the stylesheet only asked for its `length()`, and cloning a calculation
+  copied its whole tree on every iteration, which made building one
+  quadratic. Now dropping is iterative and a calculation shares its
+  operands, so building, reading and dropping a deep value works as it does
+  in dart-sass. Anything that walks one (serializing it, `inspect`,
+  interpolation, `@debug`, `==`, an error message that quotes it,
+  `map.deep-merge`, passing it to a custom function) fails with
+  `Stack Overflow`, again as in dart, instead of aborting. A list or map
+  compared with itself is equal without a walk, as dart checks identity
+  first. Serializing a nested list also stops being quadratic: every level
+  used to search its nested list for blank elements before its own.
+
+- **Trees built in a loop, and nested selectors, no longer get past the
+  stack guard** (#314). The guard from #308 measured stack growth while
+  parsing, but a left-deep chain (`(a: b) and (a: b) and …` in `@supports`,
+  or `1 + 1 + …` with any binary operator) is built in a loop and never
+  grows the stack. Evaluating it, serializing it, writing it into a
+  diagnostic, or dropping it then recursed once per operator, and still
+  aborted the process. For example, a 500,000-condition `@supports` chain,
+  or a 4,000,000-term sum inside a function that was never called, aborted
+  the CLI even on its 64 MiB stack. Each operator folded into a chain now
+  counts against the same stack limit, as if parsing had recursed: 2.5 KiB a
+  level in release builds, the measured cost of evaluating one. So a chain
+  too deep to evaluate is also too deep to parse, and nothing evaluation
+  could handle is rejected. A finished chain's depth carries over to the
+  operator that folds it next, so chains nested in parentheses
+  (`((a + a) + a) + …`) or across precedence levels (`1 * 1 * … + 1 * 1 * …`)
+  are charged as the one tree they build, while sibling chains count once.
+
+  Pseudo-class nesting in selectors (`:is(:not(…))`) is charged the same
+  way, 8 KiB a level, because selector text can be assembled at run time
+  (`#{$s}`) where no parser sees it. On a 1 MiB thread it used to abort at
+  about 1000 levels. `::slotted()`, which is scanned by its own recursive
+  checks before any selector parser sees it, checks too, and so does the
+  parser for a parenthesized `if()` condition (`if(((sass(true))): …)`).
+
+  Once the guard fires, the compile now fails with `Stack Overflow` however
+  it ends. Before, a speculative parse could catch the overflow, backtrack,
+  and report an unrelated error such as `expected ":"`, and a selector
+  function that gave up could be read as a selector that did not parse.
+  Across all 13,841 sass-spec inputs, the default limit on a 1 MiB thread
+  rejects none that compile without a limit (release build). The checks cost
+  about 0.5% instructions on `bench/corpus`.
+
+- **Runaway recursion fails with `Stack Overflow` instead of crashing**
+  (#308). A recursive `@function` or `@mixin` (with or without `@content`), an
+  endless `@import` chain, or source nested thousands of levels deep (rules,
+  parentheses, `not`, `@media` and `@supports` conditions, plain CSS, the
+  indented syntax) overflowed the native
+  stack. Natively that aborted the process (SIGABRT), taking any host that
+  embeds sasso with it. In wasm it trapped with "memory access out of bounds"
+  and left the instance broken for every later compile. dart-sass reports
+  `Stack Overflow`, and sasso now does too, pointing at the call that recursed
+  with the call stack under it.
+
+  The guard measures how many bytes of stack the compile has used, not how
+  many levels deep it is, because a level costs several times more in some
+  recursions and in debug builds. `Options::with_stack_limit(bytes)` sets the
+  limit. Without it, sasso uses 768 KiB on every thread, which is safe on a
+  1 MiB Ruby worker thread. sasso cannot learn a thread's real stack size
+  (and a thread's name proves nothing), so a host with a bigger stack has to
+  say so (#314). Each front end now sets a limit to match the stack it runs
+  on:
+
+  - **CLI:** every compile runs on a thread with a 64 MiB stack and a 60 MiB
+    limit, so the main thread's `ulimit -s` no longer decides how deep a
+    stylesheet may recurse. Before, a single file compiled on the main thread
+    and parallel workers ran on std's 2 MiB default.
+  - **npm native addon:** its compile threads get 8 MiB stacks (the async
+    path was on 2 MiB) and a 7 MiB limit. A sync compile on Node's main
+    thread gets 6 MiB; on a worker thread it keeps the default.
+  - **npm wasm:** the module's stack grows from 1 MiB to 4 MiB, with a
+    3.5 MiB limit. When V8's own native stack runs out first, which happens
+    on the `@mixin` path, the `RangeError` becomes the same `Stack Overflow`
+    exception and the instance is replaced. More generally, any exception that
+    escapes the module now retires the instance instead of reusing its
+    corrupted state.
+
+  How deep recursion can go now, with a release build on macOS/arm64
+  (dart-sass 1.104.1 reaches about 530 `@function` and 460 `@mixin` levels):
+
+  ```
+                                      @function     @mixin
+    CLI                                  ~9500       ~14600
+    npm native, main thread              ~1040        ~1480
+    npm native, async and batch          ~1210        ~1730
+    npm wasm                              ~640         ~350 (V8's stack)
+  ```
+
 - **A module first loaded inside a `meta.load-css` copy is still emitted by a
   later `@use`.** When a module's first load came from a stylesheet that
   `meta.load-css` was copying, sasso marked it as emitted. Its CSS had gone

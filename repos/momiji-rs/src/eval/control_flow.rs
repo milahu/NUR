@@ -87,7 +87,7 @@ impl<'a> Evaluator<'a> {
     /// up front; maps and scalars build a small owned set.
     pub(super) fn eval_each_items(&mut self, e: &Expr) -> Result<EachItems, Error> {
         match self.eval_expr(e)? {
-            Value::List(l) => Ok(EachItems::Shared(l.items)),
+            Value::List(l) => Ok(EachItems::Shared(l.items.clone())),
             // `@each` over a map yields each `key value` pair as a two-element
             // space list, so `@each $k, $v in $map` destructures correctly.
             Value::Map(m) => Ok(EachItems::Owned(
@@ -245,7 +245,7 @@ impl<'a> Evaluator<'a> {
                             push_named(&mut keyword, &mut keyword_spans, key, val, sp)?;
                         }
                     }
-                    Value::List(l) => {
+                    Value::List(mut l) => {
                         if !matches!(l.sep, ListSep::Undecided) {
                             rest_sep = l.sep;
                         }
@@ -256,7 +256,7 @@ impl<'a> Evaluator<'a> {
                         splat_pos.extend(l.items.iter().cloned());
                         // An argument-list splat (`$args...`) also forwards its
                         // captured keyword arguments as named arguments.
-                        if let Some(kw) = l.keywords {
+                        if let Some(kw) = l.keywords.take() {
                             for (k, val) in kw {
                                 if let Value::Str(s) = k {
                                     push_named(
@@ -476,6 +476,9 @@ impl<'a> Evaluator<'a> {
         args: &[CallArg],
         call: Option<(Pos, usize)>,
     ) -> Result<Value, Error> {
+        if let Some((pos, len)) = call {
+            crate::stack::check_at(pos, len)?;
+        }
         // Arguments evaluate in the CALLER's environment; the body (and the
         // parameter defaults) run against the callable's LEXICAL closure.
         let (evaled, arg_spans) = self.eval_call_args_spanned(args)?;
@@ -515,6 +518,7 @@ impl<'a> Evaluator<'a> {
     /// nested control flow). Functions emit no CSS, so a returned value
     /// short-circuits the whole call.
     pub(super) fn run_fn_body(&mut self, stmts: &[Stmt]) -> Result<Option<Value>, Error> {
+        crate::stack::check()?;
         for stmt in stmts {
             match stmt {
                 Stmt::VarDecl(v) => self.apply_var(v)?,
