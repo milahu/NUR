@@ -55,21 +55,21 @@
   };
   fast-nix-gc = {
     pname = "fast-nix-gc";
-    version = "b4471ec56911541f72f7a7b9b8fee7f42183f21b";
+    version = "7e0e446e3dcb1c9454685f8d346e13e456e7fa84";
     src = fetchFromGitHub {
       owner = "Mic92";
       repo = "fast-nix-gc";
-      rev = "b4471ec56911541f72f7a7b9b8fee7f42183f21b";
+      rev = "7e0e446e3dcb1c9454685f8d346e13e456e7fa84";
       fetchSubmodules = false;
-      sha256 = "sha256-CNSHu5tKx//E9+ayDlfhk9C/3JVDFxiB0PKYQA37CC4=";
+      sha256 = "sha256-JX00SVX791kyU+WIUkRRZNHymQt8rrkWxAUCqzHRCys=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-CNSHu5tKx__E9+ayDlfhk9C_3JVDFxiB0PKYQA37CC4=/Cargo.lock";
+      lockFile = ./. + "/sha256-JX00SVX791kyU+WIUkRRZNHymQt8rrkWxAUCqzHRCys=/Cargo.lock";
       outputHashes = {
         "harmonia-file-core-3.1.0" = "sha256-YklzRujFo5lvFsdLoedE6OL6OvSwNk/nfwlGxulyTS4=";
       };
     };
-    date = "2026-10-08";
+    date = "2026-11-26";
   };
   flake-linter = {
     pname = "flake-linter";
@@ -209,15 +209,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "c460472377ca6cda62c755e813fcb55597086328";
+    version = "3dd7988ae9ca4e85c7937cd5f963dbcc45746e2a";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "c460472377ca6cda62c755e813fcb55597086328";
+      rev = "3dd7988ae9ca4e85c7937cd5f963dbcc45746e2a";
       fetchSubmodules = false;
-      sha256 = "sha256-PTK2U3dIIepxEMUwcXEmQl6tgyAwcXp5RD8Vh140EZw=";
+      sha256 = "sha256-8mDUa5Jc50oFfZ2BLmgDtqXsCP+pPyZqCoDRm7Gdbfw=";
     };
-    date = "2026-11-22";
+    date = "2026-11-26";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -281,17 +281,17 @@
   };
   pipewire-bluez5-lhdc-git = {
     pname = "pipewire-bluez5-lhdc-git";
-    version = "f9b66f76a4a3a7b70100136c8f952b5ba3aef9b1";
+    version = "55effb168593fe830236fe3d50dea910334b9b08";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/pipewire/pipewire.git";
-      rev = "f9b66f76a4a3a7b70100136c8f952b5ba3aef9b1";
+      rev = "55effb168593fe830236fe3d50dea910334b9b08";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-cFEj9wMdSkHgIdKL8qgzXeJ2o7fI5WmD7zGqtHZ3SEE=";
+      sha256 = "sha256-CLOzfbj0zkFVNhTJLU160/DS+32zs0u5z60iX/gswkM=";
     };
-    date = "2026-11-25";
+    date = "2026-11-26";
   };
   pipewire-bluez5-lhdc-jd-git = {
     pname = "pipewire-bluez5-lhdc-jd-git";
@@ -443,18 +443,18 @@
   };
   waywallen-bin = {
     pname = "waywallen-bin";
-    version = "0.6.2";
+    version = "0.6.3";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen/releases/download/v0.6.2/waywallen-0.6.2-x86_64.AppImage";
-      sha256 = "sha256-Ln2vGXFDkGP+OQlPnWj8A0GAkKsmX5XOjM5bHL+9Lpc=";
+      url = "https://github.com/waywallen/waywallen/releases/download/v0.6.3/waywallen-0.6.3-x86_64.AppImage";
+      sha256 = "sha256-FIz/rGp0Tnso59QhrJoGkoOicMpfVlI2WFUUmwDCojg=";
     };
   };
   waywallen-display-bin = {
     pname = "waywallen-display-bin";
-    version = "0.4.7";
+    version = "0.4.8";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.7/waywallen-kde-0.4.7-x86_64.zip";
-      sha256 = "sha256-zLJMSAF18S0Ezo0wuaXBzUbQBb80ksLmIuHxbDJCdUI=";
+      url = "https://github.com/waywallen/waywallen-display/releases/download/v0.4.8/waywallen-kde-0.4.8-x86_64.zip";
+      sha256 = "sha256-7QQ4tHidOYf8p8yEQ4eztpkW8H4G7PeU2TOjd/KqZZ8=";
     };
   };
 }
