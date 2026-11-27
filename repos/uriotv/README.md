@@ -29,18 +29,18 @@ redistribution.
 
 | Package | Version | Description | Public cache |
 |---|---|---|---|
-| `lantern-engine` | `0.9.42` | Lantern Engine by Awaken, built from source (needs your own game dump) | Yes |
-| `wordcraft` | `0.18.1` | Word processor (official binary release) | No: redistribution review pending |
+| `lantern-engine` | `0.9.43` | Lantern Engine by Awaken, built from source (needs your own game dump) | Yes |
+| `wordcraft` | `0.19.1` | Word processor (official binary release) | No: redistribution review pending |
 | `gridcraft` | `0.19.1` | Spreadsheet editor (official binary release) | No: redistribution review pending |
-| `deckcraft` | `0.18.1` | Presentation editor (official binary release) | No: redistribution review pending |
+| `deckcraft` | `0.19.1` | Presentation editor (official binary release) | No: redistribution review pending |
 | `pdfcraft` | `0.22.0` | PDF viewer and editor (official binary release) | No: redistribution review pending |
 | `photocraft` | `0.23.1` | Image editor (official binary release) | No: redistribution review pending |
 | `filmcraft` | `0.20.1` | Video editor (official binary release) | No: redistribution review pending |
 | `soundcraft` | `0.20.1` | Digital audio workstation (official binary release) | No: redistribution review pending |
-| `meitou-launcher` | `1.21.2` | Upstream launcher AppImage that downloads Meitou versions (requires Kenshi) | Yes |
+| `meitou-launcher` | `1.21.3` | Upstream launcher AppImage that downloads Meitou versions (requires Kenshi) | Yes |
 | `cybergrub2077` | `2.0.1-unstable-2026-02-28` | Cyberpunk 2077 inspired GRUB theme | Yes |
 | `nmssaveeditor` | `1.21.0` | Save editor for No Man's Sky | No: unfree |
-| `pig` | `0.7.0` | Pi coding agent rebuilt in Go as a native binary | Yes |
+| `pig` | `0.8.0` | Pi coding agent rebuilt in Go as a native binary | Yes |
 | `rimsort-appimage` | `1.17.4` | RimWorld mod manager | Yes |
 | `scopebuddy` | `1.5.1` | Gamescope manager | Yes |
 | `storyforge` | `2.0.14` | Story Forge desktop application, built independently of the upstream flake | Yes |
