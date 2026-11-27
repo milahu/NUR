@@ -1,17 +1,17 @@
 error:
 … while evaluating the attribute 'honk'
-  at ./default.nix:84:7:
-    83|     {
-    84|       honk = pkgs.callPackage ./pkgs/tools/honk {
+  at ./default.nix:82:7:
+    81|     {
+    82|       honk = pkgs.callPackage ./pkgs/tools/honk {
       |       ^
-    85|         craneLib = import craneSrc { inherit pkgs; };
+    83|         craneLib = import craneSrc { inherit pkgs; };
 
 … from call site
-  at ./default.nix:84:14:
-    83|     {
-    84|       honk = pkgs.callPackage ./pkgs/tools/honk {
+  at ./default.nix:82:14:
+    81|     {
+    82|       honk = pkgs.callPackage ./pkgs/tools/honk {
       |              ^
-    85|         craneLib = import craneSrc { inherit pkgs; };
+    83|         craneLib = import craneSrc { inherit pkgs; };
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/customisation.nix:312:19:
@@ -69,11 +69,11 @@ error:
      2|   lib,
 
 … while calling the 'import' builtin
-  at ./default.nix:85:20:
-    84|       honk = pkgs.callPackage ./pkgs/tools/honk {
-    85|         craneLib = import craneSrc { inherit pkgs; };
+  at ./default.nix:83:20:
+    82|       honk = pkgs.callPackage ./pkgs/tools/honk {
+    83|         craneLib = import craneSrc { inherit pkgs; };
       |                    ^
-    86|         rust-bin = (pkgs.buildPackages.extend (import rustOverlaySrc)).rust-bin;
+    84|         rust-bin = (pkgs.buildPackages.extend (import rustOverlaySrc)).rust-bin;
 
 … while realising the context of a path
 
