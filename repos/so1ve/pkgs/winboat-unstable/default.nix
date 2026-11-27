@@ -3,7 +3,7 @@
   callPackage,
   copyDesktopItems,
   docker-compose,
-  electron,
+  electron_43,
   freerdp,
   lib,
   makeDesktopItem,
@@ -22,6 +22,7 @@
 }:
 
 let
+  electron = electron_43;
   appVersion = "0.9.0";
   version = "${appVersion}-unstable-${source.date}";
 in
@@ -78,7 +79,7 @@ stdenv.mkDerivation (finalAttrs: {
     outputHashMode = "recursive";
   };
 
-  guest-server = pkgsCross.mingwW64.callPackage ./guest-server.nix {
+  guest-server = pkgsCross.mingw-msvcrt-x86_64.callPackage ./guest-server.nix {
     inherit source;
     version = appVersion;
   };

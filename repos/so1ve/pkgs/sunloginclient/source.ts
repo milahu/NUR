@@ -1,4 +1,4 @@
-import { defineSource, fetchurl } from "nix-repin";
+import { fetchurl } from "nix-repin";
 
 async function release(software: string, architecture: string) {
   const response = await fetch(
@@ -8,13 +8,13 @@ async function release(software: string, architecture: string) {
     throw new Error(`Failed to fetch ${software}: ${response.status}`);
   }
 
-  const metadata = await response.json() as {
+  const metadata = (await response.json()) as {
     versionno: string;
     downloadurlmultiple: { url: string }[];
   };
 
   const download = metadata.downloadurlmultiple.find((download) =>
-    download.url.endsWith(`_${architecture}.deb`)
+    download.url.endsWith(`_${architecture}.deb`),
   )!;
   const url = new URL(download.url);
   url.hostname = "dw.oray.com";
@@ -22,7 +22,7 @@ async function release(software: string, architecture: string) {
   return { version: metadata.versionno, url: url.toString() };
 }
 
-export default defineSource(async () => {
+export default async () => {
   const [x86_64, aarch64] = await Promise.all([
     release("SUNLOGIN_X_LINUX", "amd64"),
     release("SUNLOGIN_X_LINUX_ARM", "arm64"),
@@ -35,4 +35,4 @@ export default defineSource(async () => {
       "aarch64-linux": aarch64.url,
     },
   });
-});
+};

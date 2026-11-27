@@ -1,13 +1,11 @@
 import { defineSource, fetchurl, github, nix } from "nix-repin";
 
-export default defineSource(async () => {
+const dingtalk = async () => {
   const response = await fetch(
     `https://www.dingtalk.com/win/d/qd=linux_amd64`,
   );
   if (!response.ok) {
-    throw new Error(
-      `Failed to fetch DingTalk: ${response.status}`,
-    );
+    throw new Error(`Failed to fetch DingTalk: ${response.status}`);
   }
 
   // The download redirect only accepts GET (HEAD returns 405). We only need
@@ -19,21 +17,33 @@ export default defineSource(async () => {
     /^\/dingtalk-desktop\/xc_dingtalk_update\/linux_deb\/Release\/com\.alibabainc\.dingtalk_([\d.]+)_amd64\.deb$/,
   )!;
 
-  const dingtalk = await fetchurl({
+  return fetchurl({
     version: match[1],
     urls: {
       "x86_64-linux": url,
     },
   });
+};
+
+const screenshare = defineSource(async (source) => {
   const repository = "lzl200110/dingtalk-wayland-screenshare";
   const { date, rev } = await github.latestCommit({
     branch: "master",
     repository,
   });
-  const screenshare = await github.prefetchArchive(repository, rev);
+  if (
+    await source.shouldSkip(() =>
+      source.matches({ rev }, "screenshare-source.nix"),
+    )
+  ) {
+    return;
+  }
+
+  const archive = await github.prefetchArchive(repository, rev);
 
   return {
-    ...dingtalk,
-    "screenshare-source.nix": nix.renderArchive(screenshare, { date, rev }),
+    "screenshare-source.nix": nix.renderArchive(archive, { date, rev }),
   };
 });
+
+export default defineSource(dingtalk, screenshare);
