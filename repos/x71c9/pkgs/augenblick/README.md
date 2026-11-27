@@ -186,6 +186,34 @@ augenblick does not read colors from the desktop theme. To match a rice,
 the theming tool (pywal templates, Stylix, home-manager, …) generates
 `augenblick.toml` with the palette.
 
+## Running as a systemd user service
+
+`contrib/augenblick.service` is a systemd user unit that starts augenblick with the graphical session (`graphical-session.target`).
+The AUR packages `augenblick` and `augenblick-bin` install it as `/usr/lib/systemd/user/augenblick.service`, with `ExecStart=/usr/bin/augenblick`.
+With one of these packages installed, the unit is enabled with:
+
+```bash
+systemctl --user enable --now augenblick.service
+```
+
+Manual installation, for installs that do not ship the unit:
+
+```bash
+install -Dm644 contrib/augenblick.service ~/.config/systemd/user/augenblick.service
+systemctl --user daemon-reload
+systemctl --user enable --now augenblick.service
+```
+
+A `cargo install` build places the binary in `~/.cargo/bin`, so the copied unit requires `ExecStart=%h/.cargo/bin/augenblick`.
+
+The unit starts only when `WAYLAND_DISPLAY` or `DISPLAY` is set in the environment of the systemd user manager.
+Most desktop sessions import both variables automatically.
+On Sway, Hyprland and other wlroots-based compositors, the compositor configuration has to run:
+
+```bash
+systemctl --user import-environment WAYLAND_DISPLAY DISPLAY
+```
+
 ## Requirements
 
 **Linux:** X11 with `libxcb` installed, or a Wayland compositor that supports `wlr-layer-shell` (Sway, Hyprland and other wlroots-based compositors, KDE Plasma). GNOME does not support it.
