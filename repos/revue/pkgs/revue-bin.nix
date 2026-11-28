@@ -30,11 +30,11 @@ let
   sources = {
     x86_64-linux = {
       arch = "x86_64";
-      sha256 = "5c3c926a9278ddda5693079edce7f14cdbf598cc9cf776bf222c1da1b6096860";
+      sha256 = "619f28e98fcfdc2df9bbda1441e92178d65b512e394db5487a7179448fbe1962";
     };
     aarch64-linux = {
       arch = "aarch64";
-      sha256 = "4a0922b333f0c041a8d53d496ef479d0073659df7a9feee77d7445bc6c9ab1cb";
+      sha256 = "4c357d6587be80f89d203fd9aca5d0ab2a892a4e1efe42b41c7ace5c80548d98";
     };
   };
   source =
@@ -58,7 +58,7 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "revue-bin";
-  version = "0.45.0";
+  version = "0.45.2";
   src = fetchurl {
     url = "https://forgejo.cleangame.dev/thatrichan/revue/releases/download/v${version}/revue-v${version}-linux-${source.arch}.tar.gz";
     inherit (source) sha256;
