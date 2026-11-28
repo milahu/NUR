@@ -11,7 +11,52 @@ Conformance is tracked separately as a ratchet against the official
 
 ## [Unreleased]
 
+## [0.22.1] - 2026-11-27
+
+_0.22.0's binaries, C ABI tarballs and npm packages. The code is 0.22.0's;
+only the release runners changed._
+
+### Fixed
+
+- **The release builds again on Apple silicon.** GitHub no longer serves the
+  `macos-14` runner, and on the v0.22.0 tag every job on it was cancelled:
+  cargo-dist's `aarch64-apple-darwin` build, and with it the GitHub release
+  and every binary, as well as both macOS C ABI tarballs. So 0.22.0 reached
+  crates.io (`sasso`, `sasso-core`, `sasso-macros`) and nothing else, and the
+  npm line goes from 0.21.0 to 0.22.1. Those jobs run on `macos-15` now.
+
+## [0.22.0] - 2026-11-27
+
+_Sass at Rust compile time, and no more process aborts on deep stylesheets.
+`sasso::include!("style.scss")`, behind the new `macro` feature, expands to
+the compiled CSS with no `build.rs`; for it the compiler moved into a new
+`sasso-core` crate, which `sasso` re-exports unchanged (#305). Runaway
+recursion, deeply nested values and trees built in a loop now fail with
+`Stack Overflow` instead of aborting the process (#308, #312, #314). Module
+values arrive with `meta.get-module()` (#281), and `@extend` across media
+queries draws dart 1.105.1's errors (#282). Several hot paths stop copying
+or rescanning: `map.get`, list builtins, `@use … as *` lookups, `@extend`
+inside `@media`._
+
 ### Added
+
+- **`sasso::include!`: compile Sass at Rust compile time** (#305), behind the
+  new `macro` feature. `static CSS: &str = sasso::include!("style.scss");`
+  expands to the compiled CSS, as `grass::include!` does. A Sass error fails
+  the build with the CLI's diagnostic, pointed at the macro's path argument;
+  every file the compile loads is tracked through `include_bytes!`, so
+  editing a partial reruns it on stable Rust. Options: `style = "compressed"`
+  and `load_paths = [...]`, both relative to the including crate's root. The
+  macro is parsed with `proc_macro` alone — no `syn`, no `quote` — so sasso
+  stays free of third-party dependencies.
+
+  To make that possible the compiler moved into a new crate, **`sasso-core`**,
+  which `sasso` re-exports whole (`pub use sasso_core::*`): `sasso`'s API is
+  unchanged, and nothing that depends on `sasso` needs to change. The macro
+  lives in **`sasso-macros`**. `sasso` re-exporting a macro crate that
+  depended on `sasso` would be a package cycle, which Cargo rejects even for
+  an optional dependency, so both now depend on `sasso-core` instead. The
+  three crates share one version and are released together.
 
 - **First-class modules, part 1: `meta.get-module()` and module values**
   (#281, dart-sass 1.105). `meta.get-module($module)` returns a reference to
@@ -4400,7 +4445,9 @@ real-world SCSS byte-identically to dart-sass.
 - Distribution: CLI binary (prebuilt via cargo-dist), library crate, and a
   zero-dependency WebAssembly build published to npm as `@momiji-rs/sasso`.
 
-[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.21.0...HEAD
+[Unreleased]: https://github.com/momiji-rs/sasso/compare/v0.22.1...HEAD
+[0.22.1]: https://github.com/momiji-rs/sasso/compare/v0.22.0...v0.22.1
+[0.22.0]: https://github.com/momiji-rs/sasso/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/momiji-rs/sasso/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/momiji-rs/sasso/compare/v0.19.3...v0.20.0
 [0.19.3]: https://github.com/momiji-rs/sasso/compare/v0.19.2...v0.19.3
