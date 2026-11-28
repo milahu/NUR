@@ -1,0 +1,153 @@
+error:
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1007:14:
+  1006|         mapAttrs (
+  1007|           n: v:
+      |              ^
+  1008|           assert
+
+… in the condition of the assert statement
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1008:11:
+  1007|           n: v:
+  1008|           assert
+      |           ^
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1010:13:
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+      |             ^
+  1011|           v
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:48:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |                                                ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:37:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |                                     ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:25:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |                         ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… while calling the 'isString' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1009:14:
+  1008|           assert
+  1009|             (isString v || isBool v || isInt v || isDerivation v)
+      |              ^
+  1010|             || throw "The `env` attribute set can only contain derivation, string, boolean or integer attributes. The `${n}` attribute is of type ${typeOf v}.";
+
+… from call site
+  at ./pkgs/math/macaulay2/default.nix:65:19:
+    64|
+    65|   m2ProgramPath = lib.makeBinPath [
+      |                   ^
+    66|     _4ti2
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:649:5:
+   648|     in
+   649|     paths: concatColons (concatPaths paths);
+      |     ^
+   650|
+
+… while calling the 'concatStringsSep' builtin
+  at <nixpkgs> + /lib/strings.nix:649:12:
+   648|     in
+   649|     paths: concatColons (concatPaths paths);
+      |            ^
+   650|
+
+… while calling the 'concatMap' builtin
+  at <nixpkgs> + /lib/strings.nix:649:26:
+   648|     in
+   649|     paths: concatColons (concatPaths paths);
+      |                          ^
+   650|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:647:32:
+   646|     let
+   647|       concatPaths = concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]);
+      |                                ^
+   648|     in
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/strings.nix:647:38:
+   646|     let
+   647|       concatPaths = concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]);
+      |                                      ^
+   648|     in
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at ./pkgs/math/macaulay2/default.nix:61:11:
+    60| let
+    61|   palp' = palp.override {
+      |           ^
+    62|     allDimensions = true;
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:157:9:
+   156|       mirrorArgs = g: {
+   157|         __functor = self: g;
+      |         ^
+   158|         __functionArgs = fArgs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:175:13:
+   174|             */
+   175|             newArgs: f' (origArgs // (if isFunction newArgs then newArgs origArgs else newArgs))
+      |             ^
+   176|           );
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:175:22:
+   174|             */
+   175|             newArgs: f' (origArgs // (if isFunction newArgs then newArgs origArgs else newArgs))
+      |                      ^
+   176|           );
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:162:9:
+   161|       f' =
+   162|         origArgs:
+      |         ^
+   163|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:178:9:
+   177|         in
+   178|         if isAttrs result then
+      |         ^
+   179|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:178:12:
+   177|         in
+   178|         if isAttrs result then
+      |            ^
+   179|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:164:20:
+   163|         let
+   164|           result = f origArgs;
+      |                    ^
+   165|
+
+error: function 'anonymous lambda' called with unexpected argument 'allDimensions'
+at <nixpkgs> + /pkgs/by-name/pa/palp/package.nix:1:1:
+     1| {
+      | ^
+     2|   lib,
