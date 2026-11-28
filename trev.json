@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":1.047,
-"eval_time":3.108,
+"fetch_time":0.973,
+"eval_time":1.842,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"14d316dafe30a4bc6296d9621880f77850e2c6f7",
-"sha256":"0qm2pihrfq8g5rdfls9ay4v9iz82ay961gy4iayknymjqxl2jk7r",
+"rev":"9299a39516678a6c2d43d3177eaea5ed94deec82",
+"sha256":"1g7qcibdjsgg4vw3jbn4hjr72xv6v19dyg04k5q497ixkb4s1pdi",
 "date":null
 },
-"source_storepath":"/nix/store/8h2gvrriyv4f1qm3p0zbnqp9cqdphvsk-source",
+"source_storepath":"/nix/store/nz77dw2ksad88pkhblddanrl0dxpgk1i-source",
 "nixpkgs_storepath":"/nix/store/pnaxjrf9985fmjbb70w7b3x5m4xx6rls-source",
-"nur_combined_rev":"553e626734b94e1b19f1e1d5c861716ad6dd260c",
+"nur_combined_rev":"b129d4b277852452345c126806197aee6ed13249",
 "packages":{
 "aioquic-latest":{
 "drvPath":"/nix/store/myb9bp1q6s3zi8wfc5zvcnqyqahsf5k6-python3.14-aioquic-1.9.2.drv",
@@ -1081,11 +1081,11 @@
 "version":"1.14.0"
 },
 "cliproxyapi":{
-"drvPath":"/nix/store/12b97cid1y51bkyixnjx7gv6qy5srj4n-cliproxyapi-8.1.7.drv",
+"drvPath":"/nix/store/lb8if7rhm73jq168iap908z2j1k62a29-cliproxyapi-8.1.8.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.1.7",
+"changelog":"https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.1.8",
 "description":"Proxy server providing OpenAI-compatible APIs for CLI models",
 "homepage":"https://github.com/router-for-me/CLIProxyAPI",
 "identifiers":{
@@ -1130,7 +1130,7 @@
 },
 "mainProgram":"cli-proxy-api",
 "maintainers":[],
-"name":"cliproxyapi-8.1.7",
+"name":"cliproxyapi-8.1.8",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1192,14 +1192,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cliproxyapi-8.1.7",
+"name":"cliproxyapi-8.1.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cliproxyapi",
 "system":"x86_64-linux",
-"version":"8.1.7"
+"version":"8.1.8"
 },
 "duckdb":{
 "drvPath":"/nix/store/i79v1wgnl83sv42gpf97flgk2g5mwb6z-duckdb-2.0.0.drv",
@@ -1260,7 +1260,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8h2gvrriyv4f1qm3p0zbnqp9cqdphvsk-source/packages/duckdb/default.nix",
+"file":"/nix/store/nz77dw2ksad88pkhblddanrl0dxpgk1i-source/packages/duckdb/default.nix",
 "line":630
 },
 "name":"duckdb-2.0.0",
@@ -5240,7 +5240,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8h2gvrriyv4f1qm3p0zbnqp9cqdphvsk-source/packages/paper-mono/default.nix",
+"file":"/nix/store/nz77dw2ksad88pkhblddanrl0dxpgk1i-source/packages/paper-mono/default.nix",
 "line":243
 },
 "name":"paper-mono-1.000-unstable-2026-08-26",
@@ -5899,11 +5899,11 @@
 "version":"8.38"
 },
 "renovate":{
-"drvPath":"/nix/store/4jihfaryap4xsiw8sig03c5k3gyalqy7-renovate-44.261.1.drv",
+"drvPath":"/nix/store/sgk4dxwf23kg5wcg53gfiqz26qx3jz5h-renovate-46.0.0-next.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/44.261.1",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/46.0.0-next.1",
 "description":"Cross-platform dependency automation, with patches for nix and gleam",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -5948,7 +5948,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-44.261.1",
+"name":"renovate-46.0.0-next.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -5986,14 +5986,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-44.261.1",
+"name":"renovate-46.0.0-next.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"44.261.1"
+"version":"46.0.0-next.1"
 },
 "req":{
 "drvPath":"/nix/store/nwsrszmwgb8164cxxqcfab7pvhxcb8z5-erlang28.5.0.8-req-0.7.5.drv",
@@ -6336,11 +6336,11 @@
 "version":"0.12.7"
 },
 "t3code":{
-"drvPath":"/nix/store/wmwjild2b2rllglyfmw4zi0dsc6pzdzy-t3code-0.1.12.drv",
+"drvPath":"/nix/store/81vrsvkm7fqm2cxavnsavnkryz20bmla-t3code-0.1.13.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/pingdotgg/t3code/releases/tag/v0.1.12",
+"changelog":"https://github.com/pingdotgg/t3code/releases/tag/v0.1.13",
 "description":"Minimal web GUI for coding agents",
 "downloadPage":"https://t3.codes/download",
 "homepage":"https://t3.codes",
@@ -6386,7 +6386,7 @@
 },
 "mainProgram":"t3code-desktop",
 "maintainers":[],
-"name":"t3code-0.1.12",
+"name":"t3code-0.1.13",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -6424,14 +6424,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"t3code-0.1.12",
+"name":"t3code-0.1.13",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"t3code",
 "system":"x86_64-linux",
-"version":"0.1.12"
+"version":"0.1.13"
 },
 "telemetry":{
 "drvPath":"/nix/store/3bkk72m0hrjf35cjsb87gwag26azaj2m-erlang28.5.0.8-telemetry-1.4.3.drv",
@@ -7236,7 +7236,7 @@
 "version":"0.1.22"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/j4gdkccy2flih9qd4bdf5jqrqv789ipx-yt-dlp-2026.11.23-unstable-2026-11-24.drv",
+"drvPath":"/nix/store/199v01r5z71zyq9rcf4x35x99sbn6nfh-yt-dlp-2026.11.23-unstable-2026-11-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7347,11 +7347,11 @@
 "version":"2026.11.23-unstable-2026-11-24"
 },
 "yt-dlp-ejs":{
-"drvPath":"/nix/store/0qhznyyk14c0mn0yqz9sc21sjkh289kr-python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-25.drv",
+"drvPath":"/nix/store/mrv5y0zrqisjbx9wndbilipv50i9am73-python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-26.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/ejs/commits/c47fb1b54215afa4f6a3d557ad65bb724022f6ba",
+"changelog":"https://github.com/yt-dlp/ejs/commits/09951307c20889b03f2c1761c7ca9c17ee04db0d",
 "description":"External JavaScript for yt-dlp supporting many runtimes",
 "homepage":"https://github.com/yt-dlp/ejs/",
 "identifiers":{
@@ -7450,7 +7450,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-25",
+"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-26",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7498,7 +7498,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-25",
+"name":"python3.14-yt-dlp-ejs-0.8.0-unstable-2026-11-26",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -7506,7 +7506,7 @@
 },
 "pname":"python3.14-yt-dlp-ejs",
 "system":"x86_64-linux",
-"version":"0.8.0-unstable-2026-11-25"
+"version":"0.8.0-unstable-2026-11-26"
 },
 "zig-protobuf":{
 "drvPath":"/nix/store/v0ip8a8ixd5b9i0jb802n4i6k51izirc-zig-protobuf-7.0.0.drv",
